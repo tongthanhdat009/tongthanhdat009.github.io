@@ -220,6 +220,6 @@
       flex:100%;
   }
   #list_container{
-      width: 80%;
+      flex: 80%;
   }
 }

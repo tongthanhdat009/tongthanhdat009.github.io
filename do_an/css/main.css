@@ -219,7 +219,7 @@
   #contact{
       flex:100%;
   }
-  #list_container{
-      flex: 80%;
+  #list_container table{
+      width:100%;
   }
 }

@@ -220,6 +220,6 @@
       flex:100%;
   }
   #list_container table{
-      flex:100%;
+      width:100%;
   }
 }

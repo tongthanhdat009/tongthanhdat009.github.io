@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<h1>HTML DOM Events</h1>
+<h2>The ononline Event</h2>
+
+<body ononline="onFunction()" onoffline="offFunction()">
+
+<p><b>NOTE:</b> There will only be an "output" from this example when the browser shifts from offline to online.</p>
+
+<p id="demo"></p>
+
+<script>
+function onFunction() {
+  document.getElementById("demo").innerHTML = "Your browser is working online.";
+}
+
+function offFunction() {
+  document.getElementById("demo").innerHTML = "Your browser is working offline.";
+}
+</script>
+
+</body>
+</html>

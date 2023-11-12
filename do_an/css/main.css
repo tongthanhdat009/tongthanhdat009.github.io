@@ -41,7 +41,7 @@ body{
   left:100px;
   font-size: xx-large;
   width: fit-content;
-
+  bottom:20px;
 }
 #web_name a{
   text-decoration:none;

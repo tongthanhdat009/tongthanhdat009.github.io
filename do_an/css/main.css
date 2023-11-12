@@ -3,6 +3,10 @@ body{
   margin:0;
 }
 /*heading*/
+#logo{
+  position: absolute;
+  top:0;
+}
 #header {
   height: 50px;
   width: 100%;
@@ -37,10 +41,13 @@ body{
   left:100px;
   bottom:40px;
   font-size: xx-large;
+  width: fit-content;
+
 }
 #web_name a{
   text-decoration:none;
   color:black;
+  position: relative;
 }
 #cart_btn{
   float:right;

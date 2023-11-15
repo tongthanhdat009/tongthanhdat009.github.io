@@ -1,0 +1,85 @@
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;}
+header {
+    top: 0;
+    width: 100%;
+    left: 0;
+    padding: 20px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: palevioletred;
+    border-style: hidden;
+}
+
+
+.mmb {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.mmb h3 {
+            margin:20px 20px 20px 20px;
+}
+.leftcontents{
+            max-width: fit-content;
+            float:left;
+            background-color:antiquewhite;
+            height: 630px;
+            border-style:groove;
+
+
+            
+}
+.rightcontents{
+            width: 1310px;
+            text-align: left;
+            float: center;
+            height: 630px;
+            border-style:groove;
+            margin: auto;
+            background-color: rgb(250, 214, 214);
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #333;
+    
+            
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+#passwordForm{
+    margin : 20px 20px 20px 20px;
+}
+#addressForm{
+    margin : 20px 20px 20px 20px;
+}
+#nameForm{
+    margin : 20px 20px 20px 20px;
+}
+.temp{
+    margin : 20px 20px 20px 20px;
+
+}

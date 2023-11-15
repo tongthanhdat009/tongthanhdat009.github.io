@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="scriptuser.js"></script>
+
+
+    <title>Trang thong tin ca nhan</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="Logo"> WIBU STORE </h2>
+        <div class="mmb">
+            <h3 class="store"> Cua hang</h3>
+            <h3> Dang xuat </h3>
+        </div>
+    </header>
+    <div class="contain">
+        <div class="leftcontents">
+            <h3> Thong tin tai khoan </h3>
+
+            <h3> Don hang </h3>
+        </div>
+
+        <div class="rightcontents">
+
+            <h1> Đổi họ tên</h1>
+            <div id="nameForm">
+                <form onsubmit="updateName(event)">
+                    <label for="nameInput"> Họ và tên : </label>
+                    <input type="text" id="nameInput" placeholder="Nguyễn Văn A" required>
+                    <button type="submit">Cập nhật</button>
+                    <button type="button" onclick="cancelEdit()">Hủy</button>
+                </form>
+            </div>
+            <div class="temp">
+            <div id="nameDisplay"></div>
+            <button onclick="showEditForm()">Chỉnh sửa Họ tên</button>
+            </div>
+            <h1>Đổi Mật khẩu</h1>
+
+            <div id="passwordForm">
+                <form onsubmit="changePassword(event)">
+                    <label for="currentPassword">Mật khẩu hiện tại:</label>
+                    <input type="password" id="currentPassword" required>
+                    </br>
+                    <label for="newPassword">Mật khẩu mới:</label>
+                    <input type="password" id="newPassword" required>
+                    </br>
+                    <label for="confirmPassword">Xác nhận mật khẩu mới:</label>
+                    <input type="password" id="confirmPassword" required>
+                    </br>
+                    <button type="submit">Đổi Mật khẩu</button>
+                </form>
+                <div id="passwordStatus"></div>
+            </div>
+
+            <h1>Thông Tin Địa Chỉ</h1>
+
+            <div id="addressDisplay">
+                <p>Địa chỉ hiện tại: <span id="currentAddress">123 Main Street, City</span></p>
+            </div>
+
+            <button onclick="showAddressForm()">Chỉnh Sửa Địa Chỉ</button>
+
+            <div id="addressForm" style="display: none;">
+                <form onsubmit="changeAddress(event)">
+                    <label for="newAddress">Địa chỉ mới:</label>
+                    <textarea id="newAddress" required></textarea>
+
+                    <button type="submit">Thay Đổi Địa Chỉ</button>
+                </form>
+            </div>
+
+            <div id="addressStatus"></div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

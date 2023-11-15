@@ -1,0 +1,360 @@
+body
+{
+    margin: 0px;
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    min-height: 500px;
+    zoom: 75%;
+}
+a:hover
+{
+    background-color:gray;
+}
+    .header
+    {   
+        display: flex;
+        height: 70px;
+        background-color: #FFA3FD;
+        position: relative;
+    }
+    .header input
+    {
+        height: 40px; width: 45%;
+    }
+    .menu
+    {
+        width: 300px;
+        height: 100%;
+        z-index: 999;
+        position: fixed;
+        background-color: rgb(44, 43, 43);
+        display: none;
+    }
+    .menu a
+    {
+        color: white;
+        display: block;
+        font-size: 25px;
+        margin: 20px;
+        font-weight: normal;
+    }
+    .main
+    {
+        display: flex;
+        height:calc(100% - 100px);
+        margin-top:20px;
+    }
+    .bottom
+    {
+        position: absolute;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .container {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .Filter-by-price
+    {   
+        display: block;
+        width: 100%;
+        height: 200px;
+    }
+    .Filter
+    {   
+        display: block;
+    }
+    .min
+    {
+        display: flex;
+    }
+    .max
+    {
+        display: flex;
+    }
+    .tieude
+    {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height:100%;
+        width: 200px;
+    }
+    .main ul
+    {
+        margin: 0px;
+        padding: 0px;
+    }
+    .main li
+    {   
+        display: flex;
+        height: 50px;
+        background-color: #FFA3FD;
+        border-bottom: 3px solid black;
+        align-items: center;
+    } 
+    a
+    {
+        text-decoration: none; 
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+    .site-main
+    {
+        position: relative;
+        display: block;
+        width:calc(100% - 300px); 
+        height: 100%; 
+        left: 300px;
+    }
+    .giaodienmobile {
+        display: none;
+    }
+    .giaodienpc
+    {
+        height: 100%;
+    }
+    .sidebar-content
+    {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+    }
+    .archive-product
+    {
+        height: 100%;
+        min-height: 600px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .product-image img
+    {
+        width: 100%;
+        border-top-right-radius: 5%;
+        border-top-left-radius: 5%;
+    }
+
+    .product-image a
+    {
+        outline: none!important;
+        width: 100%;
+        height: 100%;
+    }
+    .product-inner
+    {
+        width: 325px;
+        height: 600px;
+        margin: 50px;
+        display: block;
+        background-color: white;
+        border: 3px solid black;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5%;
+    }
+    .product-inner:hover{
+        transform: scale(1.1);
+        border: 2px solid white;
+    }
+    #button-search
+    {
+        background-color: #FFA3FD;
+    }
+    #button-search
+    {
+        width: 50px;
+        cursor: pointer
+    }
+    #button-refesh
+    {
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+        padding-left: 30px;
+    }
+    .product-content
+    {   
+        display: block;
+        justify-content: center;
+        
+    }
+    /* .name-figure
+    {
+        display: flex;
+        justify-content: center;
+        margin: 0px;
+    } */
+    .price 
+    {
+        display: flex;
+        justify-content: center;
+        margin: 0px;
+    }
+    .price p 
+    {
+        margin: 0px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .phantrang
+    {
+        display: flex;
+        justify-content: center;
+    }
+    .phantrang button
+    {
+        width: 100px;
+    }
+    #Page
+    {
+        display: flex;
+        border: 2px solid black;
+        font-size: 20px;
+        width: 20px;
+        justify-content: center;
+        color: black;
+    }
+    #product-per-page
+    {   
+        height: 30px;
+        width: 30px;
+        margin-left: 75px;
+    }
+    .sort-button
+    {
+        margin: 0px;
+        float: right;
+        border: 1px solid black;
+    }
+    #addition
+    {
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+    #admin 
+    {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        overflow-x: auto;
+    }
+    .tensanpham
+    {
+        position: relative;
+        left: 10%
+    }
+    .gia 
+    {
+        position: relative;
+        left: 40%
+    }
+    .loai
+    {
+        position: relative;
+        left: 70%
+    }
+    #list h5
+    {
+        font-size: 20px;
+    }
+    #are-you-sure
+    {
+        width: 200px;
+        background-color: FFA3FD;
+        display: none;
+    }
+    #YES 
+    {
+        width: 100px;
+        height: 50px;
+        background-color: rgb(75, 241, 75);
+    }
+    #NO 
+    {
+        width: 100px;
+        height: 50px;
+        background-color: red;
+    }
+    #config
+    {
+        display: none;
+        width: 350px;
+        border: 5px solid black;
+        height: 550px;
+        z-index: 1000;
+    }
+    #config input
+    {
+        font-size: 20px;
+        width: 70%;
+    }
+    .choice
+    {
+        width: 100%;
+    }
+    .choice button 
+    {
+        height: 30px;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    #add-product
+    {   
+        border: 5px solid black;
+        width: 350px;
+        height: 550px;
+        display: none;
+    }
+    #add-product h2
+    {
+        margin-bottom: 5px;
+    }
+    #add-product input
+    {
+        font-size: 20px;
+        width: 70%;
+    }
+
+
+    Tống Thành Đạt
+.infor_container 
+{
+    width: 100%;
+
+}
+.infor_container p 
+{
+    font-size: 15px;
+}
+.infor_container .footer_title 
+{
+    font-size: 20px;
+}
+#social_media
+{
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+}
+#introduce
+{
+    text-align: center;
+    width: 33.33%;
+    font-size: 15px;
+}
+#contact
+{
+    text-align: center;
+    width: 33.33%;
+}

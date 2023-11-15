@@ -460,7 +460,6 @@ function addAmountChangeBehavior() {
 }
 
 function addCartButtonBehavior(item,content) {
-  let content = document.get
   let quantity = document.getElementsByClassName("quantity")[0];
   let cartbtn = document.getElementsByClassName("cart-button")[0];
   cartbtn.addEventListener("mousedown", (e) => {

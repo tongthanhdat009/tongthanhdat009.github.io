@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hàng có sẵn - WIBU STORE</title>
-    <link rel="stylesheet" href="/do_an/css/order.css">
+    <link rel="stylesheet" href="../css/order.css">
 </head>
 <body>
         <div class="menu" id="menu1">
@@ -13,7 +13,7 @@
                     <a href="#" id="x" onclick="closeNav()" style="float: right;">&times;</a>
                 </div>
                 <ul>
-                <li><a href="/do_an/html/main_unsigned_in.html">Trang chủ</a></li>
+                <li><a href="../html/main_unsigned_in.html">Trang chủ</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Hàng có sẵn</a></li>
@@ -26,11 +26,11 @@
             <div style="width: 200px;"> <span id="trangchu" onclick="openNav()" style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU STORE</strong></span> </div>
             <div class="container" style="width:calc(100% - 200px);">
                 <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
-                <img id="button-search" src="/do_an/asset/icon/loupe.png" onclick="searchProducts()"></img>
+                <img id="button-search" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
                 <input type="number" id="product-per-page">
                 <p>Product Per Page</p>
                 <button onclick="mix_product_per_page()">enter</button>
-                <img id="button-refesh" src="/do_an/asset/icon/reload.png" onclick="refesh()" alt="">
+                <img id="button-refesh" src="../asset/icon/reload.png" onclick="refesh()" alt="">
                 <button style="margin-left: 100px;" onclick="dark_mode()"><h2 id="darkmode">Dark Mode</h2></button>
             </div>
         </div>
@@ -310,26 +310,26 @@
             productList2.push(product);
         }
         
-        // addProduct("Mô hình figure: Luffy gear 4",400000,1,"/do_an/asset/anh/Figure/fig820-luffy-gear-4-pop-xxl-2-400x400.jpg");
-        // addProduct("Mô hình figure: Thủy trụ hơi thở của nước",330000,1,"/do_an/asset/anh/Figure/giyuu.png");
-        // addProduct("Mô hình figure: Hà trụ ăn cơm",250000,1,"/do_an/asset/anh/Figure/hà trụ ăn cơm nắm.jpg");
-        // addProduct("Mô hình figure: Marco lửa xanh",450000,1,"/do_an/asset/anh/Figure/marco.jpg");
-        // addProduct("Mô hình figure: Phong trụ hơi thở của gió",300000,1,"/do_an/asset/anh/Figure/phong trụ.png");
-        // addProduct("Mini figure: Spider Man bám tường",230000,2,"/do_an/asset/anh/mini/Spider-Man-Bam-Tuong-2-300x300.jpg");
-        // addProduct("Mini figure: Deadpool cầm kiếm",240000,2,"/do_an/asset/anh/mini/Deadpool-cam-kiem-2-300x300.jpg");
-        // addProduct("Mini figure: Buu tập boxing",230000,2,"/do_an/asset/anh/mini/mfig002-majin-buu-tap-boxing-2.jpg");
-        // addProduct("Mini figure: Anya ngồi",100000,2,"/do_an/asset/anh/mini/mfig040-anya-forger-ngoi-2.jpg");
-        // addProduct("Mini figure: Buu đu xà ngang",200000,2,"/do_an/asset/anh/mini/mfig062-majin-buu-du-xa-ngang-2.jpg");
-        // addProduct("Mini figure: Nezuke cầm ống tre",150000,2,"/do_an/asset/anh/mini/mfig051-nezuko-kamado-cam-ong-tre-2.jpg");
-        // addProduct("Bộ figure: Thất vũ hải",350000,3,"/do_an/asset/anh/set/figs034-one-piece-10pcs-de-xanh-toc-cam-04-2.jpg");
-        // addProduct("Bộ figure: Uchiha Itachi",600000,3,"/do_an/asset/anh/set/figs114-uchiha-itachi-n-nhoc-sasuke-2-400x400.jpg");
-        // addProduct("Bộ figure: Genshin Impact",500000,3,"/do_an/asset/anh/set/figs142-genshin-6pcs-de-xam-02-1-1.jpg");
-        // addProduct("Bộ figure: Hội áo choàng",400000,3,"/do_an/asset/anh/set/figs223-naruto-6pcs-3-toc-vang-10-6.png");
-        // addProduct("Bộ figure: Gia đinh Forger",350000,3,"/do_an/asset/anh/set/figs226-spy-x-family-4pcs-1.jpg");
-        // addProduct("Cosplay: Găng tay Hatake Kakashi",160000,4,"/do_an/asset/anh/cosplay/cos004-doi-gang-tay-hatake-kakashi-2-1-400x400.jpg");
-        // addProduct("Cosplay: Kunai và băng trán làng Lá",100000,4,"/do_an/asset/anh/cosplay/cos018-bo-4-mon-3-kunai-naruto-day-trang-bang-tran-lang-la-2-400x400.jpg");
-        // addProduct("Cosplay: Áo Goku hình chữ Ngộ",200000,4,"/do_an/asset/anh/cosplay/COS091-Cosplay-Son-Goku-Chu-Ngo-4.jpg");
-        // addProduct("Cosplay: Áo Goku hình chữ Quy",200000,4,"/do_an/asset/anh/cosplay/COS092-Cosplay-Son-Goku-Chu-Quy-2.jpg");
+        // addProduct("Mô hình figure: Luffy gear 4",400000,1,"../asset/anh/Figure/fig820-luffy-gear-4-pop-xxl-2-400x400.jpg");
+        // addProduct("Mô hình figure: Thủy trụ hơi thở của nước",330000,1,"../asset/anh/Figure/giyuu.png");
+        // addProduct("Mô hình figure: Hà trụ ăn cơm",250000,1,"../asset/anh/Figure/hà trụ ăn cơm nắm.jpg");
+        // addProduct("Mô hình figure: Marco lửa xanh",450000,1,"../asset/anh/Figure/marco.jpg");
+        // addProduct("Mô hình figure: Phong trụ hơi thở của gió",300000,1,"../asset/anh/Figure/phong trụ.png");
+        // addProduct("Mini figure: Spider Man bám tường",230000,2,"../asset/anh/mini/Spider-Man-Bam-Tuong-2-300x300.jpg");
+        // addProduct("Mini figure: Deadpool cầm kiếm",240000,2,"../asset/anh/mini/Deadpool-cam-kiem-2-300x300.jpg");
+        // addProduct("Mini figure: Buu tập boxing",230000,2,"../asset/anh/mini/mfig002-majin-buu-tap-boxing-2.jpg");
+        // addProduct("Mini figure: Anya ngồi",100000,2,"../asset/anh/mini/mfig040-anya-forger-ngoi-2.jpg");
+        // addProduct("Mini figure: Buu đu xà ngang",200000,2,"../asset/anh/mini/mfig062-majin-buu-du-xa-ngang-2.jpg");
+        // addProduct("Mini figure: Nezuke cầm ống tre",150000,2,"../asset/anh/mini/mfig051-nezuko-kamado-cam-ong-tre-2.jpg");
+        // addProduct("Bộ figure: Thất vũ hải",350000,3,"../asset/anh/set/figs034-one-piece-10pcs-de-xanh-toc-cam-04-2.jpg");
+        // addProduct("Bộ figure: Uchiha Itachi",600000,3,"../asset/anh/set/figs114-uchiha-itachi-n-nhoc-sasuke-2-400x400.jpg");
+        // addProduct("Bộ figure: Genshin Impact",500000,3,"../asset/anh/set/figs142-genshin-6pcs-de-xam-02-1-1.jpg");
+        // addProduct("Bộ figure: Hội áo choàng",400000,3,"../asset/anh/set/figs223-naruto-6pcs-3-toc-vang-10-6.png");
+        // addProduct("Bộ figure: Gia đinh Forger",350000,3,"../asset/anh/set/figs226-spy-x-family-4pcs-1.jpg");
+        // addProduct("Cosplay: Găng tay Hatake Kakashi",160000,4,"../asset/anh/cosplay/cos004-doi-gang-tay-hatake-kakashi-2-1-400x400.jpg");
+        // addProduct("Cosplay: Kunai và băng trán làng Lá",100000,4,"../asset/anh/cosplay/cos018-bo-4-mon-3-kunai-naruto-day-trang-bang-tran-lang-la-2-400x400.jpg");
+        // addProduct("Cosplay: Áo Goku hình chữ Ngộ",200000,4,"../asset/anh/cosplay/COS091-Cosplay-Son-Goku-Chu-Ngo-4.jpg");
+        // addProduct("Cosplay: Áo Goku hình chữ Quy",200000,4,"../asset/anh/cosplay/COS092-Cosplay-Son-Goku-Chu-Quy-2.jpg");
         function displayProduct(a) // xuất sản phẩm của mảng a ra màn hình
         {   
             var archiveProduct = document.querySelector('.archive-product');

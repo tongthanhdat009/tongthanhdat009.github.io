@@ -406,6 +406,13 @@ function showDetail(item) {
   content.innerHTML = s;
   content.style.zIndex = 99;
 
+  addCloseBehavior(content);
+  addImgSelectBehavior();
+  addAmountChangeBehavior();
+  addCartButtonBehavior(content,item);
+}
+
+function addCloseBehavior(content) {
   let close = document.getElementsByClassName("close-button")[0];
   close.addEventListener("click", (e) => {
     e.preventDefault();
@@ -416,7 +423,9 @@ function showDetail(item) {
       content.style.zIndex = null;
     }, 490);
   });
+}
 
+function addImgSelectBehavior() {
   let imgOpt = document.getElementsByClassName("imgOpt");
   let imgSelect = document.getElementsByClassName("imgOption");
   imgSelect[0].classList.add("imgOptionSelect");
@@ -430,7 +439,9 @@ function showDetail(item) {
       document.getElementById("main-img").src = src;
     });
   }
+}
 
+function addAmountChangeBehavior() {
   let quantity = document.getElementsByClassName("quantity")[0];
   let increase = document.getElementsByClassName("increase")[0];
   let decrease = document.getElementsByClassName("decrease")[0];
@@ -446,7 +457,11 @@ function showDetail(item) {
     let val = parseInt(quantity.value);
     quantity.value = Math.max(1, Math.min(999, val));
   });
+}
 
+function addCartButtonBehavior(item,content) {
+  let content = document.get
+  let quantity = document.getElementsByClassName("quantity")[0];
   let cartbtn = document.getElementsByClassName("cart-button")[0];
   cartbtn.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -465,7 +480,7 @@ function showDetail(item) {
         img: item.img,
         quantity: parseInt(quantity.value),
       });
-      console.log(cart);
+      console.table(cart);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     content.children[0].classList.add("fade");

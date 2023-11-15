@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+}
+
+nav {
+  border: 1px solid red;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  text-align: end;
+  padding-right: 50px;
+}
+
+li {
+  display: inline-block;
+  margin: 5px;
+  background: blue;
+}
+
+.container {
+  min-height: 150vh;
+}
+
+.toggle-hide {
+  display: none;
+}
+
+.container div {
+  border: 1px solid red;
+}
+
+.bgimage {
+  min-height: 40vh;
+  position: relative;
+  animation: color 5s infinite linear;
+}
+
+@keyframes color {
+  100% {
+    background: white;
+  }
+  75% {
+    background: red;
+  }
+  50% {
+    background: green;
+  }
+  25% {
+    background: blue;
+  }
+  0% {
+    background: white;
+  }
+}
+
+.list {
+  width: 90%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  bottom: -40%;
+  left: 5%;
+  background: green;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 10px;
+  grid-gap: 10px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.grid-container * {
+  caret-color: transparent;
+}
+
+.item {
+  transition: background 300ms ease;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.item .text {
+  display: none;
+}
+
+.item:hover {
+  background: aqua;
+}
+
+.item:hover img {
+  display: none;
+}
+
+.item:hover {
+  gap: 10px;
+  flex-direction: column;
+}
+
+.item:hover .text {
+  display: block;
+}
+
+.listNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 50;
+  bottom: calc(-40% - 60px);
+}
+
+.listNav .buttonPage {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  caret-color: transparent;
+  cursor: pointer;
+}
+
+.listNav .buttonPage.selected {
+  background: blue;
+  color: white;
+}
+
+.itemdetail {
+  width: 65vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container1 {
+  border: 1px solid red;
+  background: whitesmoke;
+  border-radius: 5px;
+  animation: showup 0.5s ease;
+  transition: all 500ms ease;
+}
+
+.fade {
+  animation: fadeout 500ms ease;
+}
+
+@keyframes showup {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
+
+.closebutton {
+  min-width: 100%;
+  height: 0;
+  position: relative;
+  caret-color: transparent;
+}
+
+.closebutton > .close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 25px;
+  min-height: 25px;
+  background: #db2626;
+  border: 1px solid red;
+  border-radius: 3px;
+  text-align: center;
+  caret-color: transparent;
+}
+
+.closebutton > .close-button:hover {
+  background-color: rgba(104, 13, 13, 19);
+  color: white;
+}
+
+.wrapper-flex {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px;
+}
+
+.left-content {
+  width: 50%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.left-content > img {
+  max-width: 100%;
+  margin-bottom: 2em;
+  height: auto;
+  object-fit: cover;
+  object-fit: center;
+}
+
+.optionMenu {
+  background: gainsboro;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 10px;
+}
+
+.optionMenu .imgOption {
+  width: 100%;
+  height: auto;
+  height: fit-content;
+  background-color: red;
+  position: relative;
+  caret-color: transparent;
+}
+
+.imgOptionSelect::before {
+  content: "";
+  position: absolute;
+  width: auto;
+  height: auto;
+  inset: 0;
+  border: 5px solid black;
+  pointer-events: none;
+}
+
+.imgOpt {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.right-content {
+  width: 50%;
+  margin-left: 10px;
+}
+
+.right-content > * {
+  margin-bottom: 1rem;
+}
+
+.header {
+  font-weight: 900;
+}
+
+.description {
+  width: 100%;
+  display: flex;
+}
+
+.description .header {
+  margin-right: 10px;
+}
+
+.price .value {
+  margin-left: 5em;
+  font-weight: bold;
+  color: red;
+}
+
+.amount {
+  width: 13em;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.amount .header {
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.amount * {
+  padding: 0.5em;
+}
+
+.amount .increase,
+.amount .decrease,
+.amount .quantity {
+  font-weight: bold;
+}
+
+.amount .decrease,
+.amount .increase {
+  border: 1px solid;
+  background-color: rgb(162, 161, 161);
+  caret-color: transparent;
+  color: rgb(0 0 0 /0.5);
+  cursor: pointer;
+}
+
+.amount .decrease:hover,
+.amount .increase:hover {
+  color: black;
+}
+
+.quantity {
+  width: 6ch;
+  text-align: center;
+}
+
+.cart-button {
+  max-width: 100%;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 820px) {
+  .itemdetail {
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: scroll;
+  }
+  .wrapper-flex {
+    display: block;
+  }
+
+  .left-content,
+  .right-content {
+    width: 100%;
+  }
+}
+
+footer {
+  width: 100%;
+  min-height: 20vh;
+  background: red;
+}
+
+@media screen and (max-width: 250px) {
+  * {
+    font-size: 16px;
+  }
+
+  .left-content,
+  .right-content {
+    margin: 0;
+  }
+
+  .amount {
+    width: 100%;
+  }
+  .amount * {
+    padding: none;
+  }
+
+  .price .value {
+    margin-left: 3em;
+  }
+}

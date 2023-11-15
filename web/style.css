@@ -29,16 +29,16 @@ header {
             max-width: fit-content;
             float:left;
             background-color:antiquewhite;
-            height: 630px;
+            height: 30%;
             border-style:groove;
 
 
             
 }
 .rightcontents{
-            width: 1310px;
+            width: 70%;
             text-align: left;
-            float: center;
+            float: left;
             height: 630px;
             border-style:groove;
             margin: auto;

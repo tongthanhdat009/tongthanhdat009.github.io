@@ -79,7 +79,6 @@ function cartDisplay() {
   for (var i = 0; i < productAdded.length; i++) {
     var cartRow = table.insertRow(-1); //thêm dòng vào bảng cart
     var deleteIcon, cartPrice, cartName, cartAmount, cartProduct;
-
     deleteIcon = cartRow.insertCell(0);
     deleteIcon.innerHTML =
       '<div class="delete_icon" onclick="deleteProduct(this)"><img src="../asset/icon/delete.png" alt="delete_icon"></div>';

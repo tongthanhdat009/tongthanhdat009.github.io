@@ -1,795 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - WIBU STORE</title>
-    <link rel="stylesheet" href="hangcosan.css">
-</head>
-<body>
-        <div class="menu" id="menu1">
-            <div>
-                <div style="height: 50px;">
-                    <a href="#" id="x" onclick="closeNav()" style="float: right;">&times;</a>
-                </div>
-                <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Hàng có sẵn</a></li>
-                <li><a href="#">Hàng order</a></li>
-                <li><a href="#">Đăng nhập/đăng ký</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="header">
-            <div style="width: 200px;"> <span id="trangchu" onclick="openNav()" style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU STORE</strong></span> </div>
-            <div class="container" style="width:calc(100% - 200px);">
-                <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
-                <img id="button-search" src="search.png" onclick="searchProducts()"></img>
-                <input type="number" id="product-per-page">
-                <p>Product Per Page</p>
-                <button onclick="mix_product_per_page()">enter</button>
-                <img id="button-refesh" src="refesh.png" onclick="refesh()" alt="">
-                <button style="margin-left: 100px;" onclick="admin_mode()"><h2>Thêm/Xóa/Tùy chọn sản phẩm</h2></button>
-            </div>
-        </div>
-        <div id="admin">
-            <div style="width: 400px; margin: 0px; position: fixed;">
-                <div style="display: block;">
-                    <div style="margin: 20px;">
-                        <table border="5">
-                            <tr>
-                                <td><p style="font-size: 25px;">Tìm kiếm</p></td>
-                                <td><input id="searchByNameAdmin" type="text" name="" id=""></td>
-                            </tr>
-                            <tr>
-                                <td><p style="font-size: 25px;">Lọc theo loại: </p></td>
-                                <td>
-                                    <select name="" id="searchByTypeAdmin">
-                                        <option value="0">Tất cả</option>
-                                        <option value="1">Figure</option>
-                                        <option value="2">Chibi Figure</option>
-                                        <option value="3">Set Figure</option>
-                                        <option value="4">Cosplay</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="center"><button onclick="search_admin()">Submit</button></td>
-                            </tr>
-                        </table>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h2 class="logo">Wibu Store</h2>
+
+            <nav class="navigation">
+                <a href="#" class="href">Trang chu</a>
+
+                <a href="#" class="href">san pham</a>
+
+                <a href="" class="href">Dich vu</a>
+
+                <a href="" class="href">Lien he</a>
+                <button class="login">Dang nhap</button>
+            </nav>
+        </header>
+        <div class="wrapper">
+            <span class="icon-close">
+                <ion-icon name="close-outline"></ion-icon
+            ></span>
+            <div class="dangnhap login">
+                <h2>Đăng nhập</h2>
+                <form action="#">
+                    <div class="nhap">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon
+                        ></span>
+                        <input type="taikhoan" required />
+                        <label> Tài khoản</label>
                     </div>
-                    <div style="width: 400px; height: 300px; display: flex; justify-content: center;">
-                        <div id="are-you-sure">
-                            <h2 style="display: flex; justify-content: center;">Are you sure</h2>
-                            <div style="display: flex;">
-                                <button id="YES">Yes</button>
-                                <button id="NO">No</button>
+                    <div class="nhap">
+                        <span class="icon">
+                            <ion-icon name="lock-open-outline"></ion-icon
+                        ></span>
+                        <input type="taikhoan" required />
+                        <label> Mật Khẩu</label>
+                    </div>
+                    <div class="quenmatkhau">
+                        <label
+                            ><input type="checkbox" /> ghi nhớ đăng nhập
+                        </label>
+                        <a href="#"> quên mật khẩu ? </a>
+                    </div>
+                    <button type="submit" class="btn">login</button>
+                    <div class="login-register">
+                        <p>
+                            không có tài khoản ?
+                            <a href="#" class="register-link"> Đăng kí </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="dangki register" style="display: none">
+                <h2>Đăng kí</h2>
+                <form action="#">
+                    <div class="wrapper-flex">
+                        <div class="left-content">
+                            <div class="nhap">
+                                <span class="icon">
+                                    <ion-icon name="people-outline"></ion-icon
+                                ></span>
+                                <input
+                                    type="username"
+                                    required
+                                    oninput="checkInputLength(this)"
+                                    id="checkaccount"
+                                />
+                                <label> Tên đăng nhập</label>
+                            </div>
+                            <div class="nhap">
+                                <span class="icon">
+                                    <ion-icon
+                                        name="lock-open-outline"
+                                    ></ion-icon
+                                ></span>
+                                <input type="pass" required />
+                                <label> Mật khẩu</label>
+                            </div>
+                            <div class="nhap">
+                                <span class="icon">
+                                    <ion-icon
+                                        name="lock-open-outline"
+                                    ></ion-icon
+                                ></span>
+                                <input type="pass" required />
+                                <label>Nhập Lại Mật khẩu</label>
                             </div>
                         </div>
-                        <div id="config">
-                            <h1 align="center">Tùy chỉnh</h1>
-                            <h2 style="margin-bottom: 5px;">ID mới</h2> <input id="config-id" type="number" placeholder="New ID">
-                            <h2 style="margin-bottom: 5px;">Tên mới</h2> <input id="config-name" type="text" placeholder="New name">
-                            <h2 style="margin-bottom: 5px;">Giá mới</h2> <input id="config-price" type="number" placeholder="New price">
-                            <h2 style="margin-bottom: 5px;">Loại mới</h2> <input id="config-type" type="number" placeholder="New type">
-                            <h2 style="margin-bottom: 5px;">Ảnh mới</h2> <input id="config-img" type="text" placeholder="">
-                            <input id="config-img2" type="text" placeholder="">
-                            <input id="config-img3" type="text" placeholder="">
-                            <input id="config-img4" type="text" placeholder="">
-                            <div class="choice">
-                                <button id="config-OK" style="float: right;">Đồng ý</button>
-                                <button id="config-NO" style="float: right;">Hủy</button>
+                        <div class="right-content">
+                            <div class="nhap">
+                                <span class="icon">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                </span>
+                                <input type="email" required />
+                                <label> Email</label>
                             </div>
-                        </div>
-                        <div id="add-product">
-                            <h1 style="display: flex; justify-content: center;">Thêm sản phẩm</h1>
-                            <h2>ID sản phẩm</h2> <input id="add-id" type="number" placeholder="ID">
-                            <h2>Tên sản phẩm</h2> <input id="add-name" type="text" placeholder="Name">
-                            <h2>Giá sản phẩm</h2> <input id="add-price" type="number" placeholder="Price">
-                            <h2>Loại</h2> <input id="add-type" type="number" placeholder="Type">
-                            <h2>Ảnh sản phẩm</h2> <input id="add-img" type="text" placeholder="Ảnh 1">
-                            <input id="add-img2" type="text" placeholder="Ảnh 2">
-                            <input id="add-img3" type="text" placeholder="Ảnh 3">
-                            <input id="add-img4" type="text" placeholder="Ảnh 4">
-                            <div class="choice">
-                                <button id="add-OK" style="float: right;">Đồng ý</button>
-                                <button id="add-NO" style="float: right;">Hủy</button>
+                            <div class="nhap">
+                                <span class="icon">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                </span>
+                                <input type="email" required />
+                                <label> Số Điện Thoại</label>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div style="width: 500px;">
-
-            </div>
-            <div style="justify-content: right; width: 100%; position: relative;">
-                <div style="height: 100px; ">
-                    <h2 style="position: absolute;left: 45%;">Danh sách sản phẩm</h2>
-                    <img style="position: absolute; left: 75%; width: 65px; top: 0%;" onclick="add()" style="width:50px;" src="ảnh/Screenshot 2023-10-14 025015.png" alt="">
-                </div>
-                <table border="2px" cellspacing="0" id="list" style="width: 100%;">
-                </table>
+                    <div class="quenmatkhau">
+                        <label style="font-weight: 900"
+                            ><input type="checkbox" style= /> tôi đồng ý với
+                            khai báo trên là đúng
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">register</button>
+                    <div class="login-register">
+                        <p>
+                            Đã có tài khoản ?
+                            <a href="#" class="login-link"> Đăng nhập </a>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="main">
-            <div class="sidebar-content" >
-                <div class="Filter-by-price">
-                    <div class="container" style="height: 50px; background-color: #CBE90C ;border: 3px solid black;">
-                        <h2 style="color: white;">Lọc theo giá</h2>
-                    </div>
-                    <div class="Filter">
-                        <div class="min">
-                            <p>Min</p>
-                            <input id="min-price" style="margin-left: 12px; width: 100%;" type="number" placeholder="VND">
-                        </div>
-                        <div class="max">
-                            <p>Max </p>
-                            <input id="max-price" style="margin-left: 10px;width: 100%;" type="number" placeholder="VND">
-                        </div>
-                        <button style="float: right;" onclick="Filterbyprice()">Lọc</button>
-                    </div>
-                </div>
-                <ul>
-                    <li style="background-color: #CBE90C; color:white; border: 3px solid black; justify-content: center;"><h2>Danh mục sản phầm</h2></li>
-                    <li>
-                        <img src="ảnh/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="refesh()" href="#">Tất cả sản phẩm</a>
-                    </li>
-                    <li>
-                        <img src="ảnh/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="figure()" href="#">Firuge</a>
-                    </li>
-                    <li>
-                        <img src="ảnh/kunai naruto.png" style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="set_figure()" href="#">Bộ Firuge</a>
-                    </li>
-                    <li>
-                        <img src="ảnh/dau saitama.png" style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="mini_figure()" href="#">Firuge mini</a>
-                    </li>
-                    <li>
-                        <img src="ảnh/logo fairy tail.png" style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="cosplay()" href="#">Cosplay</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="site-main">
-                <!-- <div class="container" style="height: 47px;">
-                    <h2 class="tieude" style="background-color: aquamarine">Hàng có sẵn</h2>
-                </div> -->
-                <div  style="display: flex; width:200px;">
-                    <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
-                    <div id="container-sort" style="display: block;height: 50px;">
-                        <select name="" id="mySelect">
-                            <option value="Theo tên">Theo tên</option>
-                            <option value="Theo giá">Theo giá</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="archive-product">
-                </div>
-            </div>
-        </div>
-        <div class="phantrang">
-            <button onclick="previousPage()" class="pagination-button">Previous</button>
-            <div id="Page" ></div>
-            <button onclick="nextPage()" class="pagination-button">Next</button>
-        </div>
-        <div style="background-color: #FFA3FD; display: flex;" class="infor_container">
-            <div style="  width: 33.33%;" id="social_media">
-              <div class="footer_title"><strong>SOCIAL MEDIA</strong></div>
-                <p>
-                  <strong>Facebook:</strong>
-                  WIBU STORE
-                </p>
-                <p>
-                  <strong>Youtube:</strong>
-                  WIBU STORE
-                </p>
-                <p>
-                  <strong>Instagram:</strong>
-                  WIBU_STORE
-                </p>
-                <p>
-                  <strong>ONLYFANS:</strong>
-                  WIBU STORE
-                </p>
-            </div>
-            <div id="introduce">
-                <div class="footer_title"><strong>INTRODUCE</strong></div>
-                <p>
-                  CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI
-                </p>
-            </div>
-            <div id="contact">
-                <div class="footer_title"><strong>CONTACT</strong></div>
-                <p>
-                  <strong>gmail:</strong>
-                  wibustore@gmail.com
-                </p>
-                <p>
-                  <strong>phone number:</strong>
-                  012345679
-                </p>
-            </div>
-          </div>
-          <footer>
-            <p style="text-align: center;"><strong>created by: </strong>group 2</p>
-          </footer>
-    <script>
-        var currentPage = 1;
-        var ProductPerPage = 12;  
-        var productList = []; //mảng để lưu sản phẩm
-        var productList2 = [];//mảng phụ để tìm kiếm, phân loại
-        var searchADList=[];
-        //phân trang
-        function phan_trang()
-        {
-            var trang = document.getElementsByClassName("product-inner");
-            var StartIndex = (currentPage - 1) * ProductPerPage;
-            var EndIndex = StartIndex + ProductPerPage;
-            var page = document.getElementById("Page");
-            page.innerHTML = currentPage;
-            for(var i=0;i<trang.length;i++)
-            {
-                trang[i].style.display = 'none';
-            }
-            for(var i=StartIndex;i<EndIndex;i++)
-            {
-                trang[i].style.display = 'block';
-            }
-        }
-        function previousPage()
-        {
-            if(currentPage > 1)
-            {
-                currentPage--;
-            }
-            phan_trang()
-        }
-        function nextPage()
-        {   
-            var product = document.getElementsByClassName("product-inner");
-            var max = Math.ceil(product.length/ProductPerPage);
-            if(currentPage < max)
-            {
-                currentPage++;
-            }
-            phan_trang()
-        }
-        function openNav()
-        {
-            const danhsach = document.getElementById('menu1')
-            danhsach.style.display = 'block';
-        }
-        function closeNav()
-        {
-            const close = document.getElementById('menu1')
-            close.style.display = 'none';
-        }
-        function searchProducts()
-        {   
-            var input = document.getElementById("searchInput").value.toLowerCase();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) 
-            {
-                    if (productList2[i].name.toLowerCase().indexOf(input) > -1) 
-                    {
-                       after.push(productList2[i]);
-                    } 
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function Filterbyprice()
-        {
-            var max = parseFloat(document.getElementById("max-price").value);
-            var min = parseFloat(document.getElementById("min-price").value);
-            var after = [];
-            for(var i = 0; i < productList2.length; i++)
-            {
-                if (productList2[i].price >= min && productList2[i].price <= max) 
-                {
-                    after.push(productList2[i]);
-                }
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function refesh()
-        {       
-            productList2 = productList;
-            displayProduct(productList2);
-        }
-        //phân loại 
-        function figure()
-        {   
-            refesh();
-            var after = [];
-            for(var i = 0 ;i<productList2.length ; i++)
-            {
-                if(productList2[i].type === 1) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-            currentPage = 1;
-            phan_trang();
-        }
-        function mini_figure()
-        {   
-            refesh();
-            var after = [];
-            for(var i = 0 ;i<productList2.length ; i++)
-            {
-                if(productList2[i].type === 2) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function set_figure()
-        {   
-            refesh();
-            var after = [];
-            for(var i = 0 ;i<productList2.length ; i++)
-            {
-                if(productList2[i].type === 3) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function cosplay()
-        {   
-            refesh();
-            var after = [];
-            for(var i = 0 ;i<productList2.length ; i++)
-            {
-                if(productList2[i].type === 4) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-
-        function addProduct(name , price, type, img, img2, img3, img4, id)
-        {
-            var product = {
-                name: name,
-                price: price,
-                type: type,
-                img: img,
-                img2: img2,
-                img3: img3,
-                img4: img4,
-                id: id
-            };
-            productList.push(product);
-            productList2=productList;
-        }
-            var select = document.getElementById("mySelect")
-            select.addEventListener('change',function()
-            {
-                var selectOption = select.options[select.selectedIndex];
-                if(selectOption.value === 'Theo tên') sort_by_name();
-                if(selectOption.value === 'Theo giá') sort_by_price();
-            })
-        addProduct("Mô hình: Super Saiya God Goku",400000,1,"anh/figure/1 1.jpg","anh/figure/1 2.jpg","anh/figure/1 3.jpg","anh/figure/1 4.jpg",1);
-        addProduct("Mô hình: Titan Thiết Giáp",400000,1,"anh/figure/2 1.jpg","anh/figure/2 2.jpg","anh/figure/2 3.jpg","anh/figure/2 4.jpg",2);
-        addProduct("Mô hình: Gray Fullbuster",400000,1,"anh/figure/3 1.jpg","anh/figure/3 2.jpg","anh/figure/3 3.jpg","anh/figure/3 4.jpg",3);
-        addProduct("Mô hình: Satoru Gojo",400000,1,"anh/figure/4 1.jpg","anh/figure/4 2.jpg","anh/figure/4 3.jpg","anh/figure/4 4.jpg",4);
-        addProduct("Mô hình: Huggy Wuggy",400000,1,"anh/figure/5 1.jpg","anh/figure/5 2.jpg","anh/figure/5 3.jpg","anh/figure/5 4.jpg",5);
-        addProduct("Mô hình: Komi không thể nói",400000,1,"anh/figure/6 1.jpg","anh/figure/6 2.jpg","anh/figure/6 3.jpg","anh/figure/6 4.jpg",6);
-        addProduct("Mô hình: SAO Kirito",400000,1,"anh/figure/7 1.jpg","anh/figure/7 2.jpg","anh/figure/7 3.jpg","anh/figure/7 4.jpg",7);
-        addProduct("Mô hình: Cloud Strife cầm kiếm",400000,1,"anh/figure/8 1.jpg","anh/figure/8 2.jpg","anh/figure/8 3.jpg","anh/figure/8 4.jpg",8);
-        addProduct("Mô hình: Thầy Aizawa chiến đấu",400000,1,"anh/figure/9 1.jpg","anh/figure/9 2.jpg","anh/figure/9 3.jpg","anh/figure/9 4.jpg",9);
-        addProduct("Mô hình: Shoto ngồi",400000,1,"anh/figure/10 1.jpg","anh/figure/10 2.jpg","anh/figure/10 3.jpg","anh/figure/10 4.jpg",10);
-        addProduct("Mô hình: North Star Kenshiro",400000,1,"anh/figure/11 1.jpg","anh/figure/11 2.jpg","anh/figure/11 3.jpg","anh/figure/11 4.jpg",11);
-        addProduct("Mô hình: Kana Arima",400000,1,"anh/figure/12 1.jpg","anh/figure/12 2.jpg","anh/figure/12 3.jpg","anh/figure/12 4.jpg",12);
-        addProduct("Mô hình: Hatsune Miku",400000,1,"anh/figure/13 1.jpg","anh/figure/13 2.jpg","anh/figure/13 3.jpg","anh/figure/13 4.jpg",13);
-        addProduct("Mô hình: HxH Hisoka",400000,1,"anh/figure/14 1.jpg","anh/figure/14 2.jpg","anh/figure/14 3.jpg","anh/figure/14 4.jpg",14);
-        addProduct("Mô hình: The Seven Deadly Sins: Dragon's Judgement King",400000,1,"anh/figure/15 1.jpg","anh/figure/14 2.jpg","anh/figure/15 3.jpg","anh/figure/15 4.png",15);
-        //--------------------------------------------------------------------------------------------------------------------
-        addProduct("Chibi figure: Izuku Midoriya: U.A. School Uniform Ver",1680000,2,"anh/chibi figure/16 1.jpg","anh/chibi figure/16 2.jpg","anh/chibi figure/16 3.jpg","anh/chibi figure/16 4.jpg",16);
-    addProduct("Chibi figure: Katsuki Bakugo: U.A. School Uniform Ver",1680000,2,"anh/chibi figure/17 1.jpg","anh/chibi figure/17 2.jpg","anh/chibi figure/17 3.jpg","anh/chibi figure/17 4.jpg",17);
-    addProduct("Chibi figure: Miss Kobayashi's Dragon Maid Kobayashi-san",1850000,2,"anh/chibi figure/18 1.jpg","anh/chibi figure/18 2.jpg","anh/chibi figure/18 3.jpg","anh/chibi figure/18 4.jpg",18);
-    addProduct("Chibi figure: Doll Spy x Family Loid Forger",2250000,2,"anh/chibi figure/19 1.jpg","anh/chibi figure/19 2.jpg","anh/chibi figure/19 3.jpg","anh/chibi figure/19 4.jpg",19);
-    addProduct("Chibi figure: Doll Spy x Family Yor Forger: Thorn Princess Ver",2250000,2,"anh/chibi figure/20 1.jpg","anh/chibi figure/20 2.jpg","anh/chibi figure/20 3.jpg","anh/chibi figure/20 4.jpg",20);
-    addProduct("Chibi figure: Yamada-kun to Lv999 no Koi wo Suru Akito Yamada",1700000,2,"anh/chibi figure/21 1.jpg","anh/chibi figure/21 2.jpg","anh/chibi figure/21 3.jpg","anh/chibi figure/21 4.jpg",21);
-    addProduct("Chibi figure: AMNESIA Shin",1880000,2,"anh/chibi figure/22 1.jpg","anh/chibi figure/22 2.jpg","anh/chibi figure/22 3.jpg","anh/chibi figure/22 4.jpg",22);
-    addProduct("Chibi figure: TV Anime MASHLE Lance Crown",1680000,2,"anh/chibi figure/23 1.jpg","anh/chibi figure/23 2.jpg","anh/chibi figure/23 3.jpg","anh/chibi figure/23 4.jpg",23);
-    addProduct("Chibi figure: TV Anime MASHLE Mash Burnedead",1600000,2,"anh/chibi figure/24 1.jpg","anh/chibi figure/24 2.jpg","anh/chibi figure/24 3.jpg","anh/chibi figure/24 4.jpg",24);
-    addProduct("Chibi figure: BOCCHI THE ROCK! Ryou Yamada",1550000,2,"anh/chibi figure/25 1.jpg","anh/chibi figure/25 2.jpg","anh/chibi figure/25 3.jpg","anh/chibi figure/25 4.jpg",25);
-    addProduct("Chibi figure: Hunter x Hunter IIIumi",1580000,2,"anh/chibi figure/26 1.jpg","anh/chibi figure/26 2.jpg","anh/chibi figure/26 3.jpg","anh/chibi figure/26 4.jpg",26);
-    addProduct("Chibi figure: Hunter x Hunter Leorio",1650000,2,"anh/chibi figure/27 1.jpg","anh/chibi figure/27 2.jpg","anh/chibi figure/27 3.jpg","anh/chibi figure/27 4.jpg",27);
-    addProduct("Chibi figure: Overwatch 2 Sojourn",2150000,2,"anh/chibi figure/28 1.jpg","anh/chibi figure/28 2.jpg","anh/chibi figure/28 3.jpg","anh/chibi figure/28 4.jpg",28);
-    addProduct("Chibi figure: Cult of the Lamb The Lamb",1650000,2,"anh/chibi figure/29 1.jpg","anh/chibi figure/29 2.jpg","anh/chibi figure/29 3.jpg","anh/chibi figure/29 4.jpg",29);
-    addProduct("Chibi figure: LookUp ONE PIECE Yamato",1300000,2,"anh/chibi figure/30 1.jpg","anh/chibi figure/30 2.jpg","anh/chibi figure/30 3.jpg","anh/chibi figure/30 4.jpg",30);
-    //-----------------------------------------------------------------------------------------------------------------------------
-    addProduct("Bộ figure: Puchirama DX ONE PIECE LOGBOX RE BIRTH 02 Luffy Special",2780000,3,"anh/set figure/31 1.jpg","anh/set figure/31 2.jpg","anh/set figure/31 3.jpg","anh/set figure/31 4.jpg",31);
-    addProduct("Bộ figure: ARTFX J Persona 5: Dancing in Starlight Protagonist & Morgana",4380000,3,"anh/set figure/32 1.jpg","anh/set figure/32 2.jpg","anh/set figure/32 3.jpg","anh/set figure/32 4.jpg",32);
-    addProduct("Bộ figure: Empress [Black Rock Shooter] -Teaser Visual ver.",13500000,3,"anh/set figure/33 1.jpg","anh/set figure/33 2.jpg","anh/set figure/33 3.jpg","anh/set figure/33 4.jpg",33);
-    addProduct("Bộ figure: Arknights Surtr Liberte//Echec VER",5200000,3,"anh/set figure/34 1.jpg","anh/set figure/34 2.jpg","anh/set figure/34 3.jpg","anh/set figure/34 4.jpg",34);
-    addProduct("Bộ figure: Hatsune Miku Birthday 2022 -Polaris ver",9880000,3,"anh/set figure/35 1.jpg","anh/set figure/35 2.jpg","anh/set figure/35 3.jpg","anh/set figure/35 4.jpg",35);
-    addProduct("Bộ figure: Hatsune Miku Magical Mirai 2022 ",8280000,3,"anh/set figure/36 1.jpg","anh/set figure/36 2.jpg","anh/set figure/36 3.jpg","anh/set figure/36 4.jpg",36);
-    addProduct("Bộ figure: Demon Slayer: Kimetsu no Yaiba Giyu Tomioka",9880000,3,"anh/set figure/37 1.jpg","anh/set figure/37 2.jpg","anh/set figure/37 3.jpg","anh/set figure/37 4.jpg",37);
-    addProduct("Bộ figure: Precious G.E.M. Series BLEACH Ichigo Kurosaki Thousand-Year Blood War",11250000,3,"anh/set figure/38 1.jpg","anh/set figure/38 2.jpg","anh/set figure/38 3.jpg","anh/set figure/38 4.jpg",38);
-    addProduct("Bộ figure: Other Animation Merchandise Roronoa Zoro LAST SLEEP",42124000 ,3,"anh/set figure/39 1.jpg","anh/set figure/39 2.jpg","anh/set figure/39 3.jpg","anh/set figure/39 4.jpg",39);
-    addProduct("Bộ figure: Other Animation Merchandise OPM Studio One Piece Kaido Dragon VS Nika Luffy",40547000 ,3,"anh/set figure/40 1.jpg","anh/set figure/40 2.jpg","anh/set figure/40 3.jpg","anh/set figure/40 4.jpg",40);
-    addProduct("Bộ figure: Dragon Ball Z Goku Son Gokou Statue Figure w/LED Lamp Genki Dama Spirit Bomb",2102000 ,3,"anh/set figure/41 1.jpg","anh/set figure/41 2.jpg","anh/set figure/41 3.jpg","anh/set figure/41 4.jpg",41);
-    addProduct("Bộ figure: Figures & Statues UTS Studio Madara Susanoo",31358000 ,3,"anh/set figure/42 1.jpg","anh/set figure/42 2.jpg","anh/set figure/42 3.jpg","anh/set figure/42 4.jpg",42);
-    addProduct("Bộ figure: Dragon Ball Shenron and Childhood Goku",19649000,3,"anh/set figure/43 1.jpg","anh/set figure/43 2.jpg","anh/set figure/43 3.jpg","anh/set figure/43 4.jpg",43);
-    addProduct("Bộ figure: Belfine Demon Slayer Kyojuro Rengoku",12972820,3,"anh/set figure/44 1.jpg","anh/set figure/44 2.jpg","anh/set figure/44 3.jpg","anh/set figure/44 4.jpg",44);
-    addProduct("Bộ figure: DRAGONBALL SS SON GOKU DX",56085500,3,"anh/set figure/45 1.jpg","anh/set figure/45 2.jpg","anh/set figure/45 3.jpg","anh/set figure/45 4.jpg",45);
-     //-----------------------------------------------------------------------------------------------------------------------------
-     addProduct("Cosplay: Cyberpunk Mặt Nạ",871200,4,"anh/cosplay/45 1.jpg","anh/cosplay/45 2.jpg","anh/cosplay/45 3.jpg","anh/cosplay/45 4.jpg",46);
-    addProduct("Cosplay: Mặt Nạ Người Nhện",7275000,4,"anh/cosplay/46 1.jpg","anh/cosplay/46 2.jpg","anh/cosplay/46 3.jpg","anh/cosplay/46 4.jpg",47);
-    addProduct("Cosplay: Unisex Naruto Akatsuki Tobi Uchiha Obito",1055000,4,"anh/cosplay/47 1.jpg","anh/cosplay/47 2.jpg","anh/cosplay/47 3.jpg","anh/cosplay/47 4.jpg",48);
-    addProduct("Cosplay: Unisex Demon Slayer Tomioka Giyuu Cosplay",1711000,4,"anh/cosplay/48 1.jpg","anh/cosplay/48 2.jpg","anh/cosplay/48 3.jpg","anh/cosplay/48 4.jpg",49);
-    addProduct("Cosplay: Unisex One Piece Monkey D Luffy",850000,4,"anh/cosplay/49 1.jpg","anh/cosplay/49 2.jpg","anh/cosplay/49 3.jpg","anh/cosplay/49 4.jpg",50);
-    addProduct("Cosplay: Unisex Demon Slayer Kimetsu no Yaiba",372000,4,"anh/cosplay/50 1.jpg","anh/cosplay/50 2.jpg","anh/cosplay/50 3.jpg","anh/cosplay/50 4.jpg",51);
-
-        
-        function displayProduct(a) // xuất sản phẩm của mảng a ra màn hình
-        {   
-            var archiveProduct = document.querySelector('.archive-product');
-            archiveProduct.innerHTML = ''; 
-            var parent = document.getElementsByClassName("archive-product");
-            for(var i=0;i<a.length;i++)
-            {
-                var product = a[i];
-                var element = document.createElement("div");
-                element.className = "product-inner";
-                element.innerHTML = 
-                        '<div class="product-image">'+
-                            '<a href="#">'+
-                            '<img src=" '+ product.img +' " alt=" ' + product.name + ' ">'+
-                            '</a>'+
-                        '</div>'+
-                        '<div class="product-content">'+
-                            '<div class="name-figure">'+
-                                '<a href="#"><h3 align="center" style="font-size: 15px;">' + product.name + '</h3></a>'+
-                            '</div>'+
-                            '<div class="price">'+
-                                '<p class="price-product" data-price=" ' + product.price + ' ">Giá: ' + product.price +'đ </p>'+
-                            '</div>'+
-                        '</div>'
-                    parent[0].appendChild(element);
-            }
-            currentPage = 1;
-            phan_trang();
-        }
-        function mix_product_per_page()
-        {
-            var productInput = document.getElementById("product-per-page");
-            var product = parseFloat(productInput.value);
-            if(product>0) 
-            {
-                ProductPerPage = product;
-                currentPage = 1;
-                phan_trang();
-            }
-        }
-        window.onload = function() {
-        displayProduct(productList);
-        };
-        function dark_mode()
-        {   
-            var color = document.body;
-            if(color.style.backgroundColor  === "black")
-            {
-                color.style.backgroundColor = "wheat";
-                var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Dark mode";
-            }
-            else 
-            {
-                color.style.backgroundColor = "black";
-                var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Light mode"
-            }
-        }
-        // var sort1 = false;
-        // // sắp xếp 
-        // function sort()
-        // {
-        //     var sortbutton = document.getElementById("container-sort")
-        //     if(sort1 === false) sortbutton.style.display = "block";
-        //     else sortbutton.style.display = "none";
-        //     sort1=!sort1;
-        // }
-        function sort_by_name()
-        {
-            for(var i=0;i<productList2.length -1 ;i++)
-            {
-                var index = i;
-                for(var j = i+1 ; j<productList2.length ; j++)
-                if(productList2[index].name>productList2[j].name) index = j;
-                var product = productList2[i];
-                productList2[i] = productList2[index];
-                productList2[index] = product;
-                displayProduct(productList2)
-            }
-        }
-        function sort_by_price()
-        {
-            for(var i=0;i<productList2.length -1 ;i++)
-            {
-                var index = i;
-                for(var j = i+1 ; j<productList2.length ; j++)
-                if(productList2[index].price>productList2[j].price) index = j;
-                var product = productList2[i];
-                productList2[i] = productList2[index];
-                productList2[index] = product;
-                displayProduct(productList2)
-            }
-        }
-
-        var openadminmode = false; //mở admin mode
-        function admin_mode()
-        {
-            a = document.getElementById("admin");
-            if(openadminmode === false) 
-            {
-                a.style.display = "flex";
-                adminmode(searchADList);
-            }
-            else a.style.display = "none";
-            openadminmode = !openadminmode;
-        }
-        searchADList = productList;
-        function adminmode(a) //cập nhật danh sách sản phẩm
-        {   
-            table = document.getElementById("list");
-            table.innerHTML = 
-            '<tr style="background-color: cadetblue">'+
-                '<td><h5>ID</h5></td>'+
-                '<td><h5>Ảnh</h5></td>'+
-                '<td><h5>Tên</h5></td>'+
-                '<td><h5>Giá</h5></td>'+
-                '<td><h5>Loại</h5></td>'+
-                '<td><h5>edit</h5></td>'+
-                '<td><h5>remove</h5></td>'+
-            '</tr>'
-            for(var i = 0;i<a.length; i++)
-            {
-                var element = document.createElement("tr");
-                element.innerHTML = 
-                '<tr>'+
-                '<td><h5>'+a[i].id+'</h5></td>'+
-                '<td><img style="height:75px" src="'+a[i].img+'"></td>'+
-                '<td><h5>'+a[i].name+'</h5></td>'+
-                '<td><h5>'+a[i].price+'</h5></td>'+
-                '<td><h5>'+a[i].type+'</h5></td>'+
-                '<td><h5><button onclick="config('+a[i].id+')" >&#9881;</button></h5></td>'+
-                '<td><h5><button class="remove-button" onclick="remove('+a[i].id+')" style="background-color: red;">&times;</button></h5></td>'+
-                '</tr>';
-                table.appendChild(element);
-            }
-        }
-       //xóa sản phẩm
-        function remove_product(id)
-        {   
-            var copy = [];
-            for(var k = 0;k < productList.length ; k++)
-            {
-                if(productList[k].id!=id) copy.push(productList[k]);
-            }
-            productList = copy;
-            productList2 = copy;
-        }
-        function appear_sure()
-        {
-            open = document.getElementById("are-you-sure");
-            open.style.display = "block";
-        }
-        function disappear_sure()
-        {
-            open = document.getElementById("are-you-sure");
-            open.style.display = "none";
-        }
-        function remove(id)
-        {   
-            closeAdd();
-            closeConfig();
-            appear_sure()
-            var yes = document.getElementById("YES");
-            yes.onclick = function(){
-                disappear_sure();
-                remove_product(id);
-                search_admin();
-                adminmode(searchADList);
-                displayProduct(productList);
-            };
-            var no = document.getElementById("NO");
-            no.onclick = function(){disappear_sure()};
-        }
-       //sửa sản phẩm
-        function config(idproduct)
-        {   
-            closeAdd();
-            disappear_sure();
-            openConfig();
-            var ok = document.getElementById("config-OK");
-            var no = document.getElementById("config-NO");
-            ok.onclick = function() 
-            {
-                var idtext = document.getElementById("config-id").value;
-                var id = parseFloat(idtext);
-                var name = document.getElementById("config-name").value;
-                var pricetext = document.getElementById("config-price").value;
-                var price = parseFloat(pricetext);
-                var type_text = document.getElementById("config-type").value;
-                var type = parseFloat(type_text);
-                var img = document.getElementById("config-img").value;
-                var img2 = document.getElementById("config-img2").value;
-                var img3 = document.getElementById("config-img3").value;
-                var img4 = document.getElementById("config-img4").value;
-                var checktype = /^[1-4]{1}$/
-                for(var k =0 ;k<productList.length;k++)
-                if(productList[k].id!=idproduct)
-                if(productList[k].id==id)
-                {
-                    alert("ID đã tồn tại");
-                    return ;
-                }
-                if(type_text!=="")
-                {
-                    if(!checktype.test(type))
-                    {
-                        alert("Loại phải là 1-4");
-                        return ;
-                    }
-                }
-                console.log(isNaN(id));
-                for(var k =0 ;k<productList.length;k++)
-                {   
-                    if(productList[k].id == idproduct)
-                    {
-                        if(idtext!=="") productList[k].id =id;
-                        if(name!=="") productList[k].name =name;
-                        if(pricetext!=="") productList[k].price =price;
-                        if(type_text!=="") productList[k].type =type;
-                        if(img!=="") productList[k].img=img;
-                        if(img2!=="") productList[k].img2=img2;
-                        if(img3!=="") productList[k].img3=img3;
-                        if(img4!=="") productList[k].img4=img4;
-                    }
-                }
-                search_admin();
-                adminmode(searchADList)
-                displayProduct(productList);
-                closeConfig();
-            }
-            no.onclick = function() 
-            {
-                closeConfig();
-            }
-        }
-        // function configProduct(i, name, price, type, img)
-        // {
-        //     if(name !== "") productList[i].name = name;
-        //     if(price !== "") productList[i].price = price;
-        //     if(!isNaN(type)) productList[i].type = type;
-        //     if(img !== "") productList[i].img = img;
-        //     productList2 = productList;
-        // }
-        function openConfig()
-        {
-            var open = document.getElementById("config");
-            open.style.display = "block";
-        }
-        function closeConfig()
-        {
-            var close = document.getElementById("config");
-            close.style.display = "none";
-        }
-        //thêm sản phẩm
-        function openAdd()
-        {
-            var open = document.getElementById("add-product")
-            open.style.display = "block";
-        }
-        function closeAdd()
-        {
-            var close = document.getElementById("add-product")
-            close.style.display = "none";
-        }
-        function add()
-        {   
-            closeConfig();
-            openAdd();
-            disappear_sure()
-            var OK = document.getElementById("add-OK");
-            var NO = document.getElementById("add-NO");
-            OK.onclick = function()
-            {   
-                var idtext = document.getElementById("add-id").value;
-                var id = parseFloat(idtext);
-                var name = document.getElementById("add-name").value;
-                var pricetext = document.getElementById("add-price").value;
-                var price = parseFloat(pricetext);
-                var type_text = document.getElementById("add-type").value;
-                var type = parseFloat(type_text);
-                var img = document.getElementById("add-img").value;
-                var img2 = document.getElementById("add-img2").value;
-                var img3 = document.getElementById("add-img3").value;
-                var img4 = document.getElementById("add-img4").value;
-                var checktype = /^[1-4]{1}$/
-                if(isNaN(id))
-                {
-                    alert("Thiếu ID");
-                    return ;
-                }
-                if(name==="") 
-                {
-                    alert("Thiếu tên");
-                    return ;
-                }
-                if(isNaN(price))
-                {
-                    alert("Thiếu giá");
-                    return ;
-                }
-                if(!checktype.test(type)) 
-                {
-                    alert("Loại phải là 1-4")
-                    return ;
-                }
-                if(isNaN(type))
-                {
-                    alert("Thiếu loại");
-                    return ;
-                }
-                if(img===""||img2===""||img3===""||img4==="")
-                {
-                    alert("Thiếu ảnh");
-                    return ;
-                }
-                for(var k=0;k<productList.length;k++)
-                {
-                    if(id==productList[k].id) 
-                    {
-                        alert("ID đã tồn tại");
-                        return ;
-                    }
-                }
-                addProduct(name,price,type,img,img2,img3,img4,id);
-                displayProduct(productList);
-                search_admin();
-                adminmode(searchADList);
-                closeAdd();
-            }
-            NO.onclick = function()
-            {
-                closeAdd();
-            }
-        }
-       
-        function search_admin()
-        {
-            var name = document.getElementById("searchByNameAdmin").value.toLowerCase();
-            var type = document.getElementById("searchByTypeAdmin").value;
-            type = parseFloat(type);
-            console.log(name);
-            console.log(type);
-            var type;
-            searchADList=[];
-            if(type===0)
-            {
-                for(var i=0;i<productList.length;i++)
-                if(productList[i].name.toLowerCase().indexOf(name)>-1) searchADList.push(productList[i]);
-            }
-            else
-            {
-                for(var i=0;i<productList.length;i++)
-                {
-                    if(productList[i].type === type && productList[i].name.toLowerCase().indexOf(name)>-1)
-                    searchADList.push(productList[i]);
-                }
-            }
-            adminmode(searchADList);
-            displayProduct(productList);
-        }
-    </script>
-</body>
+        <script src="script.js"></script>
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        ></script>
+    </body>
 </html>

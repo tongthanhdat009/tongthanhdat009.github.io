@@ -1,4 +1,3 @@
-
 // menu: giao diện điều hướng
 function openNav() {
   document.getElementById("mySidenav").style.width = "300px"; //lấy id thanh điều hướng
@@ -42,27 +41,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 4000);
 });
 
- function altlist(i) {
-    var list = document.querySelectorAll("#list_" + i + " .alt_list_" + i); //lấy class của danh sách hiển thị xêm
-    var button = document.querySelector("#btn_alt_" + i); //lấy kết quả trả về của nút xem thêm
-    var clickCount = 0; //đếm số lần click vào nút
+function altlist(i) {
+  var list = document.querySelectorAll("#list_" + i + " .alt_list_" + i); //lấy class của danh sách hiển thị xêm
+  var button = document.querySelector("#btn_alt_" + i); //lấy kết quả trả về của nút xem thêm
+  var clickCount = 0; //đếm số lần click vào nút
 
-    function toggleVisibility() {
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.visibility =
-          clickCount % 2 === 0 ? "visible" : "collapse"; //xét thuộc tính để hiển thị thêm hoặc bớt
-      }
-      button.innerText = clickCount % 2 === 0 ? "xem ít hơn" : "xem nhiều hơn";
-      clickCount++; //đếm số lần click vào nút
+  function toggleVisibility() {
+    for (var i = 0; i < list.length; i++) {
+      list[i].style.visibility = clickCount % 2 === 0 ? "visible" : "collapse"; //xét thuộc tính để hiển thị thêm hoặc bớt
     }
-    button.onclick = toggleVisibility;
+    button.innerText = clickCount % 2 === 0 ? "xem ít hơn" : "xem nhiều hơn";
+    clickCount++; //đếm số lần click vào nút
   }
+  button.onclick = toggleVisibility;
+}
 // hiển thị sản phẩm
 window.onload = function () {
   //tải sản phẩm khi vừa mở trang
-  productDisplay();
+  productDisplay2();
   //chức năng hiển thị thêm sản phẩm
- 
+
   for (let i = 1; i <= 4; ++i) {
     altlist(i);
   }

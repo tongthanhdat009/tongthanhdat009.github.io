@@ -91,7 +91,7 @@
   height: 100%;
   width: 100%;
   margin-top:20px;
-  transition: transform .2s
+  transition: transform .2s;
 }
 .product-img{
   height: 175px;
@@ -113,7 +113,7 @@
   cursor: pointer;
   margin-left:auto;
   margin-right:auto;
-  font-size: 17px;
+  font-size: 20px;
   transition: transform .2s
 }
 .product-price:hover{
@@ -139,6 +139,18 @@
   text-align: center;
 }
 /* nút hiển thị thêm + hiển thị tất cả */
+.all_alt_btn{
+  height: 50px;
+  margin-top:5px;
+  border-radius: 5%;
+  background-color:whitesmoke;
+  font-size: 18px;
+  cursor: pointer;
+}
+.all_alt_btn:hover{
+  background-color: gainsboro;
+  color:rgb(241, 159, 252);
+}
 #btn_alt_1{
   position: absolute;
   left:10.2%

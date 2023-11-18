@@ -22,7 +22,7 @@
 
 [] Hiển thị sản phẩm theo phân loại (có phân trang) - phân trang sử dụng ajax
 
-[x] Hiển thị chi tiết sản phẩm
+[ x ] Hiển thị chi tiết sản phẩm
 
 [] Tìm kiếm (kết quả tìm kiếm có phân trang)
 

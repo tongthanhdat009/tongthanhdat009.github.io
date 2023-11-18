@@ -42,13 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 4000);
 });
 
-// hiển thị sản phẩm
-window.onload = function () {
-  //tải sản phẩm khi vừa mở trang
-  productDisplay();
-  //chức năng hiển thị thêm sản phẩm
-
-  function altlist(i) {
+ function altlist(i) {
     var list = document.querySelectorAll("#list_" + i + " .alt_list_" + i); //lấy class của danh sách hiển thị xêm
     var button = document.querySelector("#btn_alt_" + i); //lấy kết quả trả về của nút xem thêm
     var clickCount = 0; //đếm số lần click vào nút
@@ -63,6 +57,12 @@ window.onload = function () {
     }
     button.onclick = toggleVisibility;
   }
+// hiển thị sản phẩm
+window.onload = function () {
+  //tải sản phẩm khi vừa mở trang
+  productDisplay();
+  //chức năng hiển thị thêm sản phẩm
+ 
   for (let i = 1; i <= 4; ++i) {
     altlist(i);
   }

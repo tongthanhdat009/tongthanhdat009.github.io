@@ -14,16 +14,51 @@
 <body>
     <!-- header -->
     <div id="header">
-        <div id="heading_img">
-          <a href="../html/main_unsigned_in.html">
-            <img id="logo" src="../asset/logo1.jpg " alt="logo">
+      <div id="heading_img_name">
+        <a href="../html/main_unsigned_in.html">
+            <img id="logo" src="../asset/bienthaisucvat.png " alt="logo">
+        </a>
+      </div>
+      <div id="header_sm">
+        <div id="sm_link_container">
+          <a href="https://www.facebook.com/">
+            <img src="../asset/icon/facebook.png" class="link_eff" alt="1">
+          </a>
+          <a href="https://www.youtube.com/" >
+            <img src="../asset/icon/youtube.png" class="link_eff" alt="2">
+          </a>
+          <a href="https://www.instagram.com/">
+            <img src="../asset/icon/instagram.png" class="link_eff" alt="3">
           </a>
         </div>
-        <div id="web_name">
-          <a href="../html/main_unsigned_in.html">
-            WIBU STORE's Cart
-          </a>
+      </div>
+    </div>
+    <div id="option_box">
+      <p>bạn có muốn đăng ký/đăng nhập để sử dụng?</p>
+      <img src="../asset/sign-in-img.jpg" alt="image">
+      <p id="slogan">Đăng ký ngay</p>
+      <div id="option_container">
+        <div id="btn_option1">
+          <button class="btn_yes">có chứ</button>
         </div>
+        <div id="btn_option2">
+          <button class="btn_no" onclick="closeOption()">không</button>
+        </div>
+      </div>
+    </div>
+    <div id="right_site_header">
+      <button class="all_alt_btn"id="sign-up-in_btn">
+          <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
+          Đăng nhập/đăng ký
+      </button>
+      <button class="all_alt_btn"id="infor_user" onclick="openOption()">
+          <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
+          Thông tin tài khoản
+      </button>
+      <button class="all_alt_btn"id="admin">
+          <img src="../asset/icon/admin.png" style="width:25px; height: 25px;" alt="cart">
+          Quản lý
+      </button>
     </div>
     <br>
     <!-- menu -->
@@ -60,7 +95,6 @@
           </td>
         </tr>
       </table>
-      
       <div id="activity">
         <div id="total">
           <p>tổng: </p>
@@ -77,49 +111,53 @@
     <!--footer-->
     <br>
     <div class="infor_container">
-        <div id="social_media">
-        <div class="footer_title"><strong>SOCIAL MEDIA</strong></div>
-            <p>
-              <strong>Facebook:</strong>
-              WIBU STORE
-            </p>
-            <p>
-              <strong>Youtube:</strong>
-              WIBU STORE
-            </p>
-            <p>
-              <strong>Instagram:</strong>
-              WIBU_STORE
-            </p>
-            <p>
-              <strong>ONLYFANS:</strong>
-              WIBU STORE
-            </p>
-        </div>
-        <div id="introduce">
-            <div class="footer_title"><strong>INTRODUCE</strong></div>
-            <p>
+      <div id="footer_logo">
+        <img src="../asset/logo.png" alt="logo_footer">
+      </div>
+      <div id="social_media">
+        <div class="footer_title"><strong>Truyền thông</strong></div>
+        <hr>
+          <p>
+            <strong>Facebook:</strong>
+            <a style="text-decoration: none; color: black;" href="https://www.facebook.com/">WIBU STORE</a>
+          </p>
+          <p>
+            <strong>Youtube:</strong>
+            <a style="text-decoration: none; color: black;" href="https://www.youtube.com/">WIBU STORE</a>
+          </p>
+          <p>
+            <strong>Instagram:</strong>
+            <a style="text-decoration: none; color: black;" href="https://www.instagram.com/">WIBU_STORE</a>
+          </p>
+          <p>
+            <strong>ONLYFANS:</strong>
+            <a style="text-decoration: none; color: black;" href="https://onlyfans.com/">WIBU STORE</a>
+          </p>
+      </div>
+      <div id="introduce">
+        <div class="footer_title"><strong>Giới thiệu</strong></div>
+        <hr>
+          <p>
             CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI
-            </p>
-        </div>
-        <div id="contact">
-            <div class="footer_title"><strong>CONTACT</strong></div>
-            <p>
-            <strong>gmail:</strong>
-            wibustore@gmail.com
-            </p>
-            <p>
-            <strong>phone number:</strong>
+          </p>
+      </div>
+      <div id="contact">
+        <div class="footer_title"><strong>Thông tin liên hệ</strong></div>
+        <hr>
+          <p>
+            <strong>Gmail:</strong>
+            <a style="text-decoration: none; color: black;" href="https://mail.google.com/mail/u/0/#drafts?compose=GTvVlcSGKZXNZFmbPpbnSJsmddvtGSScDzJxpQXtxshcNcslsZClTWPGrntrPTsJqvplgLVffSgzh">wibustore</a>
+          </p>
+          <p>
+            <strong>Phone number:</strong>
             012345679
-            </p>
-        </div>
+          </p>
+      </div>
     </div>
     <footer>
         <p style="text-align: center;"><strong>created by: </strong>group 2</p>
     </footer>
   <script src="../js/main.js"></script>
-  <!-- <script src="../js/main_admin.js"></script> -->
-  <!-- <script src="../js/add_product.js"></script> -->
   <script src="../js/cart.js"></script>
 </body>
 </html>

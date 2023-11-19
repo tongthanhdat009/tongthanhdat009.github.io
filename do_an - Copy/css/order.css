@@ -4,7 +4,7 @@ body
     height: 100%;
     background-color: rgb(238, 238, 238);
     min-height: 500px;
-    zoom:75%;
+    zoom: 75%;
 }
 a:hover
 {
@@ -14,7 +14,7 @@ a:hover
     {   
         display: flex;
         height: 70px;
-        background-color: #FFA3FD;
+        background-color: rgb(113, 117, 111);
         position: relative;
     }
     .header input
@@ -93,7 +93,7 @@ a:hover
     {   
         display: flex;
         height: 50px;
-        background-color: #FFA3FD;
+        background-color: rgb(113, 117, 111);
         border-bottom: 3px solid black;
         align-items: center;
     } 
@@ -134,15 +134,9 @@ a:hover
         flex-wrap: wrap;
         justify-content: center;
     }
-    .product-image
-    {
-        width: 350px;
-        height: 355px;
-    }
     .product-image img
     {
         width: 100%;
-        height: auto;
         border-top-right-radius: 5%;
         border-top-left-radius: 5%;
     }
@@ -155,8 +149,8 @@ a:hover
     }
     .product-inner
     {
-        width: 350px;
-        height: 450px;
+        width: 325px;
+        height: 600px;
         margin: 50px;
         display: block;
         background-color: white;
@@ -170,7 +164,7 @@ a:hover
     }
     #button-search
     {
-        background-color: #FFA3FD;
+        background-color: rgb(113, 117, 111);
     }
     #button-search
     {
@@ -188,13 +182,14 @@ a:hover
     {   
         display: block;
         justify-content: center;
+        
     }
-    .name-figure
+    /* .name-figure
     {
         display: flex;
         justify-content: center;
         margin: 0px;
-    }
+    } */
     .price 
     {
         display: flex;
@@ -249,11 +244,10 @@ a:hover
         display: none;
         position: fixed;
         z-index: 999;
-        width: 1350px;
-        height: 90%;
-        left:calc(50% - 550px);
+        width: 100%;
+        height: 100%;
         background-color: white;
-        overflow: auto;
+        overflow-x: auto;
     }
     .tensanpham
     {
@@ -276,12 +270,8 @@ a:hover
     }
     #are-you-sure
     {
-        position: fixed;
         width: 200px;
-        background-color: palevioletred;
-        z-index: 1000;
-        left: 55%;
-        bottom:55%;
+        background-color: FFA3FD;
         display: none;
     }
     #YES 
@@ -298,14 +288,11 @@ a:hover
     }
     #config
     {
-        position: fixed;
         display: none;
         width: 350px;
-        background-color: gray;
+        border: 5px solid black;
+        height: 550px;
         z-index: 1000;
-        left: 50%;
-        top: 10%;
-        justify-content: center;
     }
     #config input
     {
@@ -323,15 +310,15 @@ a:hover
         margin-top: 30px;
     }
     #add-product
-    {
-        position: fixed;
+    {   
+        border: 5px solid black;
         width: 350px;
-        background-color: gray;
-        z-index: 1000;
-        left: 50%;
-        top: 10%;
-        justify-content: center;
+        height: 550px;
         display: none;
+    }
+    #add-product h2
+    {
+        margin-bottom: 5px;
     }
     #add-product input
     {

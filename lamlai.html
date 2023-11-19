@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàng có sẵn - WIBU STORE</title>
+    <link rel="stylesheet" href="hangcosan.css">
+</head>
+<body>
+        <div class="menu" id="menu1">
+            <div>
+                <div style="height: 50px;">
+                    <a href="#" id="x" onclick="closeNav()" style="float: right;">&times;</a>
+                </div>
+                <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Hàng có sẵn</a></li>
+                <li><a href="#">Hàng order</a></li>
+                <li><a href="#">Đăng nhập/đăng ký</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header">
+            <div style="width: 200px;"> <span id="trangchu" onclick="openNav()" style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU STORE</strong></span> </div>
+            <div class="container" style="width:calc(100% - 200px);">
+                <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
+                <img id="button-search" src="search.png" onclick="searchProducts()"></img>
+                <input type="number" id="product-per-page">
+                <p>Product Per Page</p>
+                <button onclick="mix_product_per_page()">enter</button>
+                <img id="button-refesh" src="refesh.png" onclick="refesh()" alt="">
+                <button style="margin-left: 100px;" onclick="dark_mode()"><h2 id="darkmode">Dark Mode</h2></button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar-content" >
+                <div class="Filter-by-price">
+                    <div class="container" style="height: 50px; background-color: red ;border: 3px solid black;background-color: #CBE90C;">
+                        <h2 style="color: white;">Lọc theo giá</h2>
+                    </div>
+                    <div class="Filter">
+                        <div class="min">
+                            <p>Min</p>
+                            <input id="min-price" style="margin-left: 12px; width: 100%;" type="number" placeholder="VND">
+                        </div>
+                        <div class="max">
+                            <p>Max </p>
+                            <input id="max-price" style="margin-left: 10px;width: 100%;" type="number" placeholder="VND">
+                        </div>
+                        <button style="float: right;" onclick="Filterbyprice()">Lọc</button>
+                    </div>
+                </div>
+                <ul>
+                    <li style="background-color: #CBE90C; color:white; border: 3px solid black; justify-content: center;"><h2>Danh mục sản phầm</h2></li>
+                    <li>
+                        <img src="ảnh/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="refesh()" href="#">Tất cả sản phẩm</a>
+                    </li>
+                    <li>
+                        <img src="ảnh/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="figure()" href="#">Firuge</a>
+                    </li>
+                    <li>
+                        <img src="ảnh/kunai naruto.png" style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="set_figure()" href="#">Bộ Firuge</a>
+                    </li>
+                    <li>
+                        <img src="ảnh/dau saitama.png" style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="mini_figure()" href="#">Firuge mini</a>
+                    </li>
+                    <li>
+                        <img src="ảnh/logo fairy tail.png" style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="cosplay()" href="#">Cosplay</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="site-main">
+                <!-- <div class="container" style="height: 47px;">
+                    <h2 class="tieude" style="background-color: aquamarine">Hàng có sẵn</h2>
+                </div> -->
+                <div  style="display: flex; width:200px;">
+                    <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
+                    <div id="container-sort" style="display: block ;height: 50px;">
+                        <select name="" id="mySelect">
+                            <option value="Theo tên">Theo tên</option>
+                            <option value="Theo giá">Theo giá</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="archive-product">
+                </div>
+            </div>
+        </div>
+        <div class="phantrang">
+            <button onclick="previousPage()" class="pagination-button">Previous</button>
+            <div id="Page" ></div>
+            <button onclick="nextPage()" class="pagination-button">Next</button>
+        </div>
+        <div style="background-color: #FFA3FD; display: flex;" class="infor_container">
+            <div style="  width: 33.33%;" id="social_media">
+              <div class="footer_title"><strong>SOCIAL MEDIA</strong></div>
+                <p>
+                  <strong>Facebook:</strong>
+                  WIBU STORE
+                </p>
+                <p>
+                  <strong>Youtube:</strong>
+                  WIBU STORE
+                </p>
+                <p>
+                  <strong>Instagram:</strong>
+                  WIBU_STORE
+                </p>
+                <p>
+                  <strong>ONLYFANS:</strong>
+                  WIBU STORE
+                </p>
+            </div>
+            <div id="introduce">
+                <div class="footer_title"><strong>INTRODUCE</strong></div>
+                <p>
+                  CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI
+                </p>
+            </div>
+            <div id="contact">
+                <div class="footer_title"><strong>CONTACT</strong></div>
+                <p>
+                  <strong>gmail:</strong>
+                  wibustore@gmail.com
+                </p>
+                <p>
+                  <strong>phone number:</strong>
+                  012345679
+                </p>
+            </div>
+          </div>
+          <footer>
+            <p style="text-align: center;"><strong>created by: </strong>group 2</p>
+          </footer>
+    <script>
+        var currentPage = 1;
+        var ProductPerPage = 5;
+        var productList = [];
+        var productList2 = [];
+        function phan_trang()
+        {
+            var trang = document.getElementsByClassName("product-inner");
+            var StartIndex = (currentPage - 1) * ProductPerPage;
+            var EndIndex = StartIndex + ProductPerPage;
+            var page = document.getElementById("Page");
+            page.innerHTML = currentPage;
+            for(var i=0;i<trang.length;i++)
+            {
+                trang[i].style.display = 'none';
+            }
+            for(var i=StartIndex;i<EndIndex;i++)
+            {
+                trang[i].style.display = 'block';
+            }
+        }
+        function previousPage()
+        {
+            if(currentPage > 1)
+            {
+                currentPage--;
+            }
+            phan_trang()
+        }
+        function nextPage()
+        {   
+            var product = document.getElementsByClassName("product-inner");
+            var max = Math.ceil(product.length/ProductPerPage);
+            if(currentPage < max)
+            {
+                currentPage++;
+            }
+            phan_trang()
+        }
+        function openNav()
+        {
+            const danhsach = document.getElementById('menu1')
+            danhsach.style.display = 'block';
+        }
+        function closeNav()
+        {
+            const close = document.getElementById('menu1')
+            close.style.display = 'none';
+        }
+        function searchProducts()
+        {   
+            var input = document.getElementById("searchInput").value.toLowerCase();
+            var after = [];
+            for (var i = 0; i < productList2.length; i++) 
+            {
+                    if (productList2[i].name.toLowerCase().indexOf(input) > -1) 
+                    {
+                       after.push(productList2[i]);
+                    } 
+            }
+            productList2 = after;
+            displayProduct(productList2);
+        }
+        function Filterbyprice()
+        {
+            var max = parseFloat(document.getElementById("max-price").value);
+            var min = parseFloat(document.getElementById("min-price").value);
+            var after = [];
+            for(var i = 0; i < productList2.length; i++)
+            {
+                if (productList2[i].price >= min && productList2[i].price <= max) 
+                {
+                    after.push(productList2[i]);
+                }
+            }
+            productList2 = after;
+            displayProduct(productList2);
+        }
+        function refesh()
+        {       
+            productList2 = productList;
+            displayProduct(productList2);
+        }
+        function figure()
+        {   
+            refesh();
+            var after = [];
+            for(var i = 0 ;i<productList2.length ; i++)
+            {
+                if(productList2[i].type === 1) after.push(productList2[i]);
+            }
+            productList2 = after;
+            displayProduct(productList2);
+            currentPage = 1;
+            phan_trang();
+        }
+        function mini_figure()
+        {   
+            refesh();
+            var after = [];
+            for(var i = 0 ;i<productList2.length ; i++)
+            {
+                if(productList2[i].type === 2) after.push(productList2[i]);
+            }
+            productList2 = after;
+            displayProduct(productList2);
+        }
+        function set_figure()
+        {   
+            refesh();
+            var after = [];
+            for(var i = 0 ;i<productList2.length ; i++)
+            {
+                if(productList2[i].type === 3) after.push(productList2[i]);
+            }
+            productList2 = after;
+            displayProduct(productList2);
+        }
+        function cosplay()
+        {   
+            refesh();
+            var after = [];
+            for(var i = 0 ;i<productList2.length ; i++)
+            {
+                if(productList2[i].type === 4) after.push(productList2[i]);
+            }
+            productList2 = after;
+            displayProduct(productList2);
+        }
+
+        function addProduct(name , price, type, img)
+        {
+            var product = {
+                name: name,
+                price: price,
+                type: type,
+                img: img
+            };
+            productList.push(product);
+            productList2.push(product);
+        }
+        function displayProduct(a) // xuất sản phẩm của mảng a ra màn hình
+        {   
+            var archiveProduct = document.querySelector('.archive-product');
+            archiveProduct.innerHTML = ''; 
+            var parent = document.getElementsByClassName("archive-product");
+            for(var i=0;i<a.length;i++)
+            {
+                var product = a[i];
+                var element = document.createElement("div");
+                element.className = "product-inner";
+                element.innerHTML = 
+                '<div class="product-image">'+
+                            '<a href="#">'+
+                            '<img src=" '+ product.img +' " alt=" ' + product.name + ' ">'+
+                            '</a>'+
+                        '</div>'+
+                        '<div class="product-content">'+
+                            '<div class="name-figure">'+
+                                '<a href="#"><h3 align="center" style="font-size: 15px;">' + product.name + '</h3></a>'+
+                            '</div>'+
+                            '<div class="price">'+
+                                '<p class="price-product" data-price=" ' + product.price + ' ">Giá: ' + product.price +'đ </p>'+
+                            '</div>'+
+                        '</div>'
+                    parent[0].appendChild(element);
+            }
+            currentPage = 1;
+            phan_trang();
+        }
+        function mix_product_per_page()
+        {
+            var productInput = document.getElementById("product-per-page");
+            var product = parseFloat(productInput.value);
+            if(product>0) 
+            {
+                ProductPerPage = product;
+                currentPage = 1;
+                phan_trang();
+            }
+        }
+        window.onload = function() {
+        displayProduct(productList);
+        };
+        function dark_mode()
+        {   
+            var color = document.body;
+            var color2 = document.getElementsByClassName("product-inner");
+            var color3= document.getElementsByClassName("price-product");
+            var color4 = document.querySelectorAll(".name-figure h3");
+            var color5=document.querySelector(".max p");
+            var color6=document.querySelector(".min p");
+            var color7=document.querySelector(".site-main p");
+            var color8=document.getElementById("Page");
+            if(color.style.backgroundColor  === "rgb(50, 50, 50)")
+            {
+                color.style.backgroundColor = "rgb(238, 238, 238)";
+                var myButton = document.getElementById("darkmode");
+                myButton.innerHTML = "Dark mode";
+                color5.style.color="black";
+                color6.style.color="black";
+                color7.style.color="black";
+                color8.style.color="black";
+                color8.style.border="2px solid black";
+                for(var i=0;i<color2.length;i++)
+                {
+                    color2[i].style.backgroundColor = "rgb(238, 238, 238)";
+                    color3[i].style.color="black";
+                    color4[i].style.color="black";
+                }
+            }
+            else 
+            {
+                color.style.backgroundColor = "rgb(50, 50, 50)";
+                var myButton = document.getElementById("darkmode");
+                myButton.innerHTML = "Light mode"
+                color5.style.color="white";
+                color6.style.color="white";
+                color7.style.color="white";
+                color8.style.color="white";
+                color8.style.border="2px solid white";
+                for(var i=0;i<color2.length;i++)
+                {
+                    color2[i].style.backgroundColor="rgb(50, 50, 50)";
+                    color3[i].style.color = "white";
+                    color4[i].style.color="white";
+                }
+            }
+        }
+        function sort_by_name()
+        {
+            for(var i=0;i<productList2.length -1 ;i++)
+            {
+                var index = i;
+                for(var j = i+1 ; j<productList2.length ; j++)
+                if(productList2[index].name>productList2[j].name) index = j;
+                var product = productList2[i];
+                productList2[i] = productList2[index];
+                productList2[index] = product;
+                displayProduct(productList2)
+            }
+        }
+        function sort_by_price()
+        {
+            for(var i=0;i<productList2.length -1 ;i++)
+            {
+                var index = i;
+                for(var j = i+1 ; j<productList2.length ; j++)
+                if(productList2[index].price>productList2[j].price) index = j;
+                var product = productList2[i];
+                productList2[i] = productList2[index];
+                productList2[index] = product;
+                displayProduct(productList2)
+            }
+        }
+        
+    </script>
+</body>
+</html>

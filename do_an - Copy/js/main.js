@@ -14,7 +14,7 @@ function closeNav() {
   }, 150);
 }
 
-//Cart: lựa chọn đăng nhập đăng ký hoặc đăng nhập để sử dụng giỏ hàng
+//thông tin tài khoản: lựa chọn đăng nhập đăng ký hoặc đăng nhập để sử dụng giỏ hàng
 var optionBox = document.getElementById("option_box");
 function openOption() {
   optionBox.style.animation = "box-in 2s forwards";
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       element.style.visibility = "hidden";
       element.style.animation = "none";
     });
-    // bannerImg[currentIndex].style.visibility = "visible";
+    bannerImg[currentIndex].style.visibility = "visible";
     currentIndex++;
     if (currentIndex === bannerImg.length) {
       currentIndex = 0;

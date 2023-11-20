@@ -351,6 +351,7 @@ function hienthi(page) {
 }
 
 function showDetail(item) {
+  document.documentElement.style.overflow = "hidden";
   let s =
     '<div class="container1">' +
     '<div class="closebutton">' +

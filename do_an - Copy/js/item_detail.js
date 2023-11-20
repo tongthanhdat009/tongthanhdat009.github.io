@@ -1,4 +1,5 @@
 function showDetail(item) {
+  document.documentElement.style.overflow = "hidden";
   var infor = item.childNodes; // thông tin sản phẩm
   var img = item.querySelector("img").src; // hình ảnh sản phẩm
   var name = infor[1].textContent; // tên sản phẩm
@@ -92,6 +93,7 @@ function showDetail(item) {
 }
 
 function addCloseBehavior(content) {
+  document.documentElement.style.overflow = "none";
   let close = document.getElementsByClassName("close-button")[0];
   close.addEventListener("click", (e) => {
     e.preventDefault();
@@ -152,4 +154,5 @@ function addCartButtonBehavior(name, price, img, content) {
     }, 490);
     cartAdd(name, price, parseInt(quantity.value), img); //thêm vào mảng của giỏ hàng
   });
+  document.documentElement.style.overflow = "none";
 }

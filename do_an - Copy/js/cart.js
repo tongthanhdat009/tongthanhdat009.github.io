@@ -143,7 +143,7 @@ function totalProduct() {
     var amount = parseFloat(productAdded[i].amount);
     total += parseFloat(productPrice) * amount;
   }
-  totalCash.innerText = "tổng: " + total + " đ";
+  totalCash.innerText = "Tổng: " + total + " đ";
 }
 
 //phương thức tăng số lượng sản phẩm

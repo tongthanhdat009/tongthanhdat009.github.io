@@ -77,6 +77,7 @@ function showDetail(item) {
           addCloseBehavior(content);
           addAmountChangeBehavior();
           addCartButtonBehavior(name,price,img,content);
+          addImgSelectBehavior();
         }
       }
 }

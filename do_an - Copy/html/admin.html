@@ -75,13 +75,14 @@
                             <h2 style="margin-bottom: 5px;">Tên mới</h2> <input id="config-name" type="text" placeholder="New name">
                             <h2 style="margin-bottom: 5px;">Giá mới</h2> <input id="config-price" type="number" placeholder="New price">
                             <h2 style="margin-bottom: 5px;">Loại mới</h2> <input id="config-type" type="number" placeholder="New type">
-                            <h2 style="margin-bottom: 5px;">Ảnh mới</h2> <input id="config-img" type="text" placeholder="">
-                            <input id="config-img2" type="text" placeholder="">
-                            <input id="config-img3" type="text" placeholder="">
-                            <input id="config-img4" type="text" placeholder="">
+                            <h2 style="margin-bottom: 5px;">Ảnh mới</h2> <input id="config-img" type="file" placeholder="">
+                            <input id="config-img2" type="file" placeholder="">
+                            <input id="config-img3" type="file" placeholder="">
+                            <input id="config-img4" type="file" placeholder="">
                             <div class="choice">
                                 <button id="config-OK" style="float: right;">Đồng ý</button>
                                 <button id="config-NO" style="float: right;">Hủy</button>
+                                <button id="config-clear" onclick="clearconfig()">Clear</button>
                             </div>
                         </div>
                         <div id="add-product">
@@ -90,20 +91,20 @@
                             <h2>Tên sản phẩm</h2> <input id="add-name" type="text" placeholder="Name">
                             <h2>Giá sản phẩm</h2> <input id="add-price" type="number" placeholder="Price">
                             <h2>Loại</h2> <input id="add-type" type="number" placeholder="Type">
-                            <h2>Ảnh sản phẩm</h2> <input id="add-img" type="text" placeholder="Ảnh 1">
-                            <input id="add-img2" type="text" placeholder="Ảnh 2">
-                            <input id="add-img3" type="text" placeholder="Ảnh 3">
-                            <input id="add-img4" type="text" placeholder="Ảnh 4">
+                            <h2>Ảnh sản phẩm</h2> <input id="add-img" type="file" placeholder="Ảnh 1">
+                            <input id="add-img2" type="file" placeholder="Ảnh 2">
+                            <input id="add-img3" type="file" placeholder="Ảnh 3">
+                            <input id="add-img4" type="file" placeholder="Ảnh 4">
                             <div class="choice">
                                 <button id="add-OK" style="float: right;">Đồng ý</button>
                                 <button id="add-NO" style="float: right;">Hủy</button>
+                                <button id="add-clear" onclick="clearadd()">Clear</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div style="width: 500px;">
-
             </div>
             <div style="justify-content: right; width: 100%; position: relative;">
                 <div style="height: 100px; ">
@@ -602,7 +603,10 @@
                         return ;
                     }
                 }
-                console.log(isNaN(id));
+                img=img.replace(/C:\\fakepath\\/, '/anh/add/');
+                img2=img2.replace(/C:\\fakepath\\/, '/anh/add/');
+                img3=img3.replace(/C:\\fakepath\\/, '/anh/add/');
+                img4=img4.replace(/C:\\fakepath\\/, '/anh/add/');
                 for(var k =0 ;k<productList.length;k++)
                 {   
                     if(productList[k].id == idproduct)
@@ -617,11 +621,12 @@
                         if(img4!=="") productList[k].img4=img4;
                     }
                 }
-                search_admin();
-                adminmode(searchADList);
-                displayProduct(productList);
                 saveProductList();
+                search_admin();
+                adminmode(searchADList)
+                displayProduct(productList);
                 closeConfig();
+                clearconfig()
             }
             no.onclick = function() 
             {
@@ -657,7 +662,7 @@
             var close = document.getElementById("add-product")
             close.style.display = "none";
         }
-        function add()
+       function add()
         {   
             closeConfig();
             openAdd();
@@ -678,6 +683,10 @@
                 var img3 = document.getElementById("add-img3").value;
                 var img4 = document.getElementById("add-img4").value;
                 var checktype = /^[1-4]{1}$/
+                img=img.replace(/C:\\fakepath\\/, '/anh/add/');
+                img2=img2.replace(/C:\\fakepath\\/, '/anh/add/');
+                img3=img3.replace(/C:\\fakepath\\/, '/anh/add/');
+                img4=img4.replace(/C:\\fakepath\\/, '/anh/add/');
                 if(isNaN(id))
                 {
                     alert("Thiếu ID");
@@ -721,6 +730,7 @@
                 displayProduct(productList);
                 search_admin();
                 adminmode(searchADList);
+                clearadd();
                 closeAdd();
             }
             NO.onclick = function()
@@ -751,6 +761,22 @@
             }
             adminmode(searchADList);
             displayProduct(productList);
+        }
+         function clearconfig()
+        { 
+            var clear = document.querySelectorAll("#config input");
+            for(var i = 0;i<clear.length;i++)
+            {
+                clear[i].value = "";
+            }
+        }
+        function clearadd()
+        { 
+            var clear = document.querySelectorAll("#add-product input");
+            for(var i = 0;i<clear.length;i++)
+            {
+                clear[i].value = "";
+            }
         }
     </script>
 </body>

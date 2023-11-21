@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div id="config">
-                            <h1 align="center">Tùy chỉnh</h1>
+                            <h2 align="center">Tùy chỉnh</h2>
                             <h2 style="margin-bottom: 5px;">ID mới</h2> <input id="config-id" type="number" placeholder="New ID">
                             <h2 style="margin-bottom: 5px;">Tên mới</h2> <input id="config-name" type="text" placeholder="New name">
                             <h2 style="margin-bottom: 5px;">Giá mới</h2> <input id="config-price" type="number" placeholder="New price">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div id="add-product">
-                            <h1 style="display: flex; justify-content: center;">Thêm sản phẩm</h1>
+                            <h2 style="display: flex; justify-content: center;">Thêm sản phẩm</h2>
                             <h2>ID sản phẩm</h2> <input id="add-id" type="number" placeholder="ID">
                             <h2>Tên sản phẩm</h2> <input id="add-name" type="text" placeholder="Name">
                             <h2>Giá sản phẩm</h2> <input id="add-price" type="number" placeholder="Price">
@@ -105,6 +105,7 @@
                 </div>
             </div>
             <div style="width: 500px;">
+
             </div>
             <div style="justify-content: right; width: 100%; position: relative;">
                 <div style="height: 100px; ">
@@ -516,7 +517,7 @@
                 element.innerHTML = 
                 '<tr>'+
                 '<td><h5>'+a[i].id+'</h5></td>'+
-                '<td><img style="height:200px;position:relative;left:calc(50% - 100px)" src="'+a[i].img+'"></td>'+
+                '<td><img style="height:150px;position:relative;left:calc(50% - 100px)" src="'+a[i].img+'"></td>'+
                 '<td><h5>'+a[i].name+'</h5></td>'+
                 '<td><h5>'+a[i].price+'</h5></td>'+
                 '<td><h5>'+a[i].type+'</h5></td>'+
@@ -603,10 +604,11 @@
                         return ;
                     }
                 }
-                img=img.replace(/C:\\fakepath\\/, '/anh/add/');
-                img2=img2.replace(/C:\\fakepath\\/, '/anh/add/');
-                img3=img3.replace(/C:\\fakepath\\/, '/anh/add/');
-                img4=img4.replace(/C:\\fakepath\\/, '/anh/add/');
+                console.log(img);
+                img=img.replace(/C:\\fakepath\\/, "../asset/add/");
+                img2=img2.replace(/C:\\fakepath\\/, "../asset/add/");
+                img3=img3.replace(/C:\\fakepath\\/, "../asset/add/");
+                img4=img4.replace(/C:\\fakepath\\/, "../asset/add/");
                 for(var k =0 ;k<productList.length;k++)
                 {   
                     if(productList[k].id == idproduct)
@@ -623,10 +625,11 @@
                 }
                 saveProductList();
                 search_admin();
-                adminmode(searchADList)
+                adminmode(searchADList);
                 displayProduct(productList);
+                saveProductList();
                 closeConfig();
-                clearconfig()
+                clearconfig();
             }
             no.onclick = function() 
             {
@@ -662,7 +665,7 @@
             var close = document.getElementById("add-product")
             close.style.display = "none";
         }
-       function add()
+        function add()
         {   
             closeConfig();
             openAdd();
@@ -683,10 +686,10 @@
                 var img3 = document.getElementById("add-img3").value;
                 var img4 = document.getElementById("add-img4").value;
                 var checktype = /^[1-4]{1}$/
-                img=img.replace(/C:\\fakepath\\/, '/anh/add/');
-                img2=img2.replace(/C:\\fakepath\\/, '/anh/add/');
-                img3=img3.replace(/C:\\fakepath\\/, '/anh/add/');
-                img4=img4.replace(/C:\\fakepath\\/, '/anh/add/');
+                img=img.replace(/C:\\fakepath\\/, '../asset/add/');
+                img2=img2.replace(/C:\\fakepath\\/, '../asset/add/');
+                img3=img3.replace(/C:\\fakepath\\/, '../asset/add/');
+                img4=img4.replace(/C:\\fakepath\\/, '../asset/add/');
                 if(isNaN(id))
                 {
                     alert("Thiếu ID");
@@ -762,7 +765,7 @@
             adminmode(searchADList);
             displayProduct(productList);
         }
-         function clearconfig()
+        function clearconfig()
         { 
             var clear = document.querySelectorAll("#config input");
             for(var i = 0;i<clear.length;i++)

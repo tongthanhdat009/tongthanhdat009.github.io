@@ -11,7 +11,7 @@ body{
 }
 html{
   scroll-behavior: smooth;
-  scroll-width:0;
+  scrollbar-width:0;
 }
 *::-webkit-scrollbar {
   display: none;
@@ -57,8 +57,8 @@ img {
   float: right;
 }
 #header_sm img{
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 60px;
   padding-left: 20px;
 }
 #header a{
@@ -262,12 +262,13 @@ img {
 }
 #search button{
     position: relative;
-    top:0;
+    bottom:10px
 }
 #search button img{
   height: 30px;
   width: 30px;
   position: relative;
+
 }
 #menu_label{
   font-size:33px;
@@ -277,12 +278,12 @@ img {
 /* ---- */
 /* BANNER */
 #box{
-    height: 400px;
+    height: 600px;
     text-align: center;
     position: relative;
 }
 .banner_img img{
-  height: 400px;
+  height: 600px;
   width: 100%;
 }
 .banner_img{
@@ -303,7 +304,7 @@ img {
 }
 .banner_fl img{
   width: 100%;
-  height: 400px;
+  height: 550px;
   transition: transform .2s
 }
 
@@ -630,7 +631,6 @@ height: 800px;
   caret-color: transparent;
   color: rgb(0 0 0 /0.5);
   cursor: pointer;
-  height:20px;
 }
 
 .amount .decrease:hover,
@@ -641,7 +641,6 @@ height: 800px;
 .quantity {
   width: 6ch;
   text-align: center;
-  height:23px;
 }
 
  .cart-button {
@@ -670,6 +669,9 @@ height: 800px;
   /* chỉnh sửa kích cỡ banner */
   .banner_fl img{
     height: 300px;
+  }
+  #box{
+    height: 400px;
   }
 
   /* chỉnh sửa footer */

@@ -1,28 +1,109 @@
 function showDetail(item) {
-  document.documentElement.style.overflow = "hidden";
-  var infor = item.childNodes; // thông tin sản phẩm
-  var img = item.querySelector("img").src; // hình ảnh sản phẩm
-  var name = infor[1].textContent; // tên sản phẩm
-  var price = infor[2].textContent; // giá sản phẩm
-  for (var i = 0; i < productList.length; i++) {
-    if (name === productList[i].name) {
-      //phân loại sản phẩm
-      var type;
-      switch (productList[i].type) {
-        case 1:
-          type = "Mô hình lẻ";
-          break;
-        case 2:
-          type = "Mô hình mini";
-          break;
-        case 3:
-          type = "Mô hình theo bộ";
-          break;
-        case 4:
-          type = "Cosplay";
-          break;
+    document.documentElement.style.overflow = "hidden";
+    var infor = item.childNodes; // thông tin sản phẩm
+    var img = item.querySelector("img").src; // hình ảnh sản phẩm
+    var name = infor[1].textContent; // tên sản phẩm
+    var price = infor[2].textContent; // giá sản phẩm
+    for(var i=0;i<productList.length;i++){
+        if(name===productList[i].name){
+          //phân loại sản phẩm
+          var type;
+          if(productList[i].type==1){
+            type="Mô hình lẻ";
+          }
+          else if(productList[i].type==2){
+            type="Mô hình mini";
+          }
+          else if(productList[i].type==3){
+            type="Mô hình theo bộ";
+          }
+          else{
+            type="Cosplay";
+          }
+              let s =
+          '<div class="container1">' +
+          '<div class="closebutton">' +
+          '<div class="close-button">x</div>' +
+          "</div>" +
+          '<div class="wrapper-flex">' +
+          '<div class="left-content">' +
+          '<img  src="' +
+          productList[i].img +
+          '" alt="productList[i] detail"+ width="900px" height="700px" id="main-img" />' +
+          '<div class="optionMenu">' +
+          '<div class="imgOption">' +
+          '<img src="' +
+          productList[i].img +
+          '" alt="opt" class="imgOpt" />' +
+          "</div>" +
+          '<div class="imgOption">' +
+          '<img src="'+productList[i].img2+'" alt="opt" class="imgOpt" />' +
+          "</div>" +
+          '<div class="imgOption">' +
+          '<img src="'+productList[i].img3+'" alt="opt" class="imgOpt" />' +
+          "</div>" +
+          '<div class="imgOption">' +
+          '<img src="'+productList[i].img4+'" alt="opt" class="imgOpt" />' +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          '<div class="right-content">' +
+          '<h3 class="title"> ' +
+          name +
+          "</h3>" +
+          '<div class="description">' +
+          '<span class="header-detail">Thể loại:</span>' +
+          '<span class="text"> '+type+'</span>' +
+          "</div>" +
+          '<div class="price">' +
+          '<span class="header-detail">Giá:</span>' +
+          '<span class="value"> ' +
+          productList[i].price +
+          'đ</span>' +
+          '</div>' +
+          '<div class="amount">' +
+          '<p class="header-detail">Số Lượng:</p>' +
+          '<div class="decrease">-</div>' +
+          '<input type="text" disabled class="quantity" value="1" min="1" max="999"/>' +
+          '<div class="increase">+</div>' +
+          "</div>" +
+          '<div class="cart-button">Thêm vào giỏ hàng</div>' +
+          "</div>" +
+          "</div>" +
+          "</div>";
+          let content = document.getElementsByClassName("itemdetail")[0];
+          content.innerHTML = s;
+          content.style.zIndex = 99;
+          addCloseBehavior(content);
+          addAmountChangeBehavior();
+          addImgSelectBehavior();
+          addCartButtonBehavior(name,price,img,content);
+        }
       }
-      let s =
+}
+function showDetail2(item) {
+  document.documentElement.style.overflow = "hidden";
+  var img =item.querySelector(".product-image img").src;
+  var name =item.querySelector(".product-content .name-figure h3").textContent;
+  var price =item.querySelector(".product-content .price").textContent;
+  price=price.replace("Giá:","");
+  for(var i=0;i<productList.length;i++){
+      if(name===productList[i].name){
+        //phân loại sản phẩm
+        var type;
+        if(productList[i].type==1){
+          type="Mô hình lẻ";
+        }
+        else if(productList[i].type==2){
+          type="Mô hình mini";
+        }
+        else if(productList[i].type==3){
+          type="Mô hình theo bộ";
+        }
+        else{
+          type="Cosplay";
+        }
+            let s =
         '<div class="container1">' +
         '<div class="closebutton">' +
         '<div class="close-button">x</div>' +
@@ -31,7 +112,7 @@ function showDetail(item) {
         '<div class="left-content">' +
         '<img  src="' +
         productList[i].img +
-        '" alt="item detail"+ width="900px" height="700px" id="main-img" />' +
+        '" alt="productList[i] detail"+ width="900px" height="700px" id="main-img" />' +
         '<div class="optionMenu">' +
         '<div class="imgOption">' +
         '<img src="' +
@@ -39,19 +120,13 @@ function showDetail(item) {
         '" alt="opt" class="imgOpt" />' +
         "</div>" +
         '<div class="imgOption">' +
-        '<img src="' +
-        productList[i].img2 +
-        '" alt="opt" class="imgOpt" />' +
+        '<img src="'+productList[i].img2+'" alt="opt" class="imgOpt" />' +
         "</div>" +
         '<div class="imgOption">' +
-        '<img src="' +
-        productList[i].img3 +
-        '" alt="opt" class="imgOpt" />' +
+        '<img src="'+productList[i].img3+'" alt="opt" class="imgOpt" />' +
         "</div>" +
         '<div class="imgOption">' +
-        '<img src="' +
-        productList[i].img4 +
-        '" alt="opt" class="imgOpt" />' +
+        '<img src="'+productList[i].img4+'" alt="opt" class="imgOpt" />' +
         "</div>" +
         "</div>" +
         "</div>" +
@@ -60,36 +135,34 @@ function showDetail(item) {
         name +
         "</h3>" +
         '<div class="description">' +
-        '<span class="header">Thể loại:</span>' +
-        '<span class="text">' +
-        type +
-        "</span>" +
+        '<span class="header-detail">Thể loại:</span>' +
+        '<span class="text">'+type+'</span>' +
         "</div>" +
         '<div class="price">' +
-        '<span class="header">Giá:</span>' +
+        '<span class="header-detail">Giá:</span>' +
         '<span class="value">' +
         price +
-        "</span>" +
-        "</div>" +
+        '</span>' +
+        '</div>' +
         '<div class="amount">' +
-        '<p class="header">Số Lượng:</p>' +
+        '<p class="header-detail">Số Lượng:</p>' +
         '<div class="decrease">-</div>' +
-        '<input type="number" class="quantity" value="1" min="1" max="999"/>' +
+        '<input type="text" disabled class="quantity" value="1" min="1" max="999"/>' +
         '<div class="increase">+</div>' +
         "</div>" +
-        '<div class="cart-button">Them vao gio hang</div>' +
+        '<div class="cart-button">Thêm vào giỏ hàng</div>' +
         "</div>" +
         "</div>" +
         "</div>";
-      let content = document.getElementsByClassName("itemdetail")[0];
-      content.innerHTML = s;
-      content.style.zIndex = 99;
-      addCloseBehavior(content);
-      addImgSelectBehavior();
-      addAmountChangeBehavior();
-      addCartButtonBehavior(name, price, img, content);
+        let content = document.getElementsByClassName("itemdetail")[0];
+        content.innerHTML = s;
+        content.style.zIndex = 99;
+        addCloseBehavior(content);
+        addAmountChangeBehavior();
+        addImgSelectBehavior();
+        addCartButtonBehavior(name,price,img,content);
+      }
     }
-  }
 }
 
 function addCloseBehavior(content) {
@@ -104,6 +177,7 @@ function addCloseBehavior(content) {
       content.style.zIndex = null;
     }, 490);
   });
+  document.documentElement.style.overflow = "none";
 }
 
 function addImgSelectBehavior() {
@@ -140,7 +214,7 @@ function addAmountChangeBehavior() {
   });
 }
 
-function addCartButtonBehavior(name, price, img, content) {
+function addCartButtonBehavior(name,price,img,content) {
   let quantity = document.getElementsByClassName("quantity")[0];
   let cartbtn = document.getElementsByClassName("cart-button")[0];
   cartbtn.addEventListener("mousedown", (e) => {
@@ -152,7 +226,6 @@ function addCartButtonBehavior(name, price, img, content) {
       content.innerHTML = "";
       content.style.zIndex = null;
     }, 490);
-    cartAdd(name, price, parseInt(quantity.value), img); //thêm vào mảng của giỏ hàng
+    cartAdd(name, price, parseInt(quantity.value),img);//thêm vào mảng của giỏ hàng
   });
-  document.documentElement.style.overflow = "none";
-}
+};

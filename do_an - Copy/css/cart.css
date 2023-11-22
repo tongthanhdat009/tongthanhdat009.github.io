@@ -1,4 +1,4 @@
-#cart_container{
+#cart_container {
     border: solid 1px solid;
     width: 80vw;
     min-height: fit-content;
@@ -7,48 +7,48 @@
     margin: 0 auto;
     overflow: auto;
 }
-table tr td{
+
+table tr td {
     text-align: center;
     margin: 0 auto;
     min-width: max-content;
 }
-#cart_title p{
+
+#cart_title p {
     text-align: center;
     font-size: 30px;
 }
-#empty_cart{
+
+#empty_cart {
     text-align: center;
 }
-#cart_container td .product-img img{
-    margin-left: auto;
-    margin-right:auto;
+
+#cart_container td .product-img img {
+    margin: 0 auto;
 }
-.product-amount{
+
+.product-amount {
     display: flex;
-    width: 80%;
-    margin:0 auto;
+    justify-content: center;
+    margin: 0 1rem;
 }
-/* .add-cart{
-    position: relative;
-    right:22%;
+
+.product-amount .add>button,
+.product-amount .sub>button {
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.2em;
 }
-.add-cart button{
-    height: 40px;
-}
-.sub-cart{
-    position: relative;
-    left:22%;
-}
-.sub-cart button{
-    height: 40px;
-} */
-#total p{
+
+#total p {
     font-size: 20px;
-    padding-right:20px;
+    padding-right: 20px;
 }
-#activity{
+
+#activity {
     display: flex;
 }
+
 #cart_container td .product-name,
 #cart_container td .product-img,
 #cart_container td .product-price {
@@ -59,33 +59,40 @@ table tr td{
     margin: 0;
     height: auto;
 }
+
+
 #cart_container td .product-price {
     font-size: 1rem;
-  }
-.quantity-cart{
+}
+
+.quantity-cart {
     text-align: center;
-    margin:0 auto;
+    margin: 0 auto;
     width: 40px;
 }
-.delete_icon{
+
+.delete_icon {
     width: max-content;
-    margin:auto;
+    margin: auto;
 }
-.delete_icon img{
+
+.delete_icon img {
     width: 50px;
     height: auto;
     margin: 0 1em;
     cursor: pointer;
 }
-#delete_all_btn{
-    margin-right:20px
+
+#delete_all_btn {
+    margin-right: 20px
 }
+
 @media screen and (max-width: 600px) {
     td * {
-      font-size: 16px;
+        font-size: 16px;
     }
-  
+
     #cart_container {
-      width: 100%;
+        width: 100%;
     }
-  }
+}

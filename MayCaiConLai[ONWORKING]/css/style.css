@@ -81,6 +81,7 @@ nav.navigationbar {
     cursor: pointer;
     text-align: center;
     margin: 1rem;
+    display: none;
 }
 
 .hamburgerbutton img {
@@ -92,6 +93,7 @@ nav.navigationbar {
 .brand {
     text-align: center;
     color: black;
+    margin: 0 1rem;
 }
 
 .wrapper-flex {
@@ -137,7 +139,6 @@ nav.navigationbar {
     position: sticky;
     inset: calc(5rem/16);
     background-color: var(--accent-color);
-    ;
 }
 
 .content .dsDonHang .donHang {
@@ -147,9 +148,14 @@ nav.navigationbar {
     margin: calc(5rem / 16);
 }
 
+
 .donHang:first-child {
     min-height: 2rem;
     font-size: 1.5rem;
+}
+
+.donHang * {
+    min-width: max(calc(100rem/16), fit-content);
 }
 
 .donHang .HanhDong {
@@ -178,8 +184,27 @@ nav.navigationbar {
 
 
 
-
 .searchBar {
     height: 10%;
     display: flex;
+}
+
+@media screen and (max-width:900px) {
+    #left-menu {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        margin: 1rem 0 0 0;
+    }
+
+    .donHang:first-child {
+        font-size: 1rem;
+    }
+
+    .donHang .HanhDong div {
+        font-size: 1rem;
+        margin: 0;
+    }
 }

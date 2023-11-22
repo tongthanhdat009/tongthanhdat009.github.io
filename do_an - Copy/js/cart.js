@@ -19,7 +19,6 @@ function cartAdd(name, price, amount, img) {
   } else {
     productAdded.push(product);
   }
-
   saveProductAdded();
   console.log(productAdded);
 }
@@ -33,18 +32,6 @@ var storedData = localStorage.getItem("productAdded");
 if (storedData) {
   productAdded = JSON.parse(storedData);
 }
-
-// //lấy thông tin sản phẩm khi nhấp thêm vào giỏ hàng
-// function takeInfo(product) {
-//   // lấy info->chuyển file->inner tên loại sản phẩm
-//   var amount = 1; //số lượng
-//   var infor = product.childNodes; // thông tin sản phẩm
-//   var img = product.querySelector("img").src; // hình ảnh sản phẩm
-//   var name = infor[1].textContent; // tên sản phẩm
-//   var price = infor[2].textContent; // giá sản phẩm
-//   cartAdd(name, price, amount, img);
-//   saveProductAdded();
-// }
 
 function updateTotal() {
   table.innerHTML = "";
@@ -86,15 +73,15 @@ function cartDisplay() {
     cartAmount = cartRow.insertCell(0);
     cartAmount.innerHTML =
       '<div class="product-amount">' +
-      '<div class="sub">' +
+      '<div class="sub-cart">' +
       '<button onclick="decrement(this)">-</button>' +
       "</div>" +
       '<div class="amount">' +
-      '<input class="quantity" disabled type="text" value="' +
+      '<input class="quantity-cart" disabled type="text" value="' +
       productAdded[i].amount +
       '" name="amount" onchange="updateQuantity(this)">' +
       "</div>" +
-      '<div class="add">' +
+      '<div class="add-cart">' +
       '<button onclick="increment(this)">+</button>' +
       "</div>" +
       "</div>";
@@ -143,7 +130,7 @@ function totalProduct() {
     var amount = parseFloat(productAdded[i].amount);
     total += parseFloat(productPrice) * amount;
   }
-  totalCash.innerText = "Tổng: " + total + " đ";
+  totalCash.innerText = "tổng: " + total + " đ";
 }
 
 //phương thức tăng số lượng sản phẩm

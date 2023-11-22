@@ -24,9 +24,10 @@ for (let i = 0; i < 20; ++i) {
   );
 }
 
-localStorage.setItem("order", JSON.stringify(orderNhap));
-let orderList = localStorage.getItem("order")
-  ? JSON.parse(localStorage.getItem("order"))
+// localStorage.removeItem("orderList");
+
+let orderList = localStorage.getItem("orderList")
+  ? JSON.parse(localStorage.getItem("orderList"))
   : [];
 
 let orderElm = document.getElementById("dsDonHang");
@@ -40,22 +41,22 @@ for (let i = 0; i < orderList.length; ++i) {
     i +
     "</div>" +
     '<div class="MaDon">' +
-    orderList[i].madon +
+    orderList[i].maDon +
     "</div>" +
     '<div class="Khach">' +
-    orderList[i].khach +
+    orderList[i].khachHang +
     "</div>" +
     '<div class="SanPham">' +
-    orderList[i].sp +
+    orderList[i].sanPham +
     "</div>" +
     '<div class="TongTien">' +
-    orderList[i].tongtien +
+    orderList[i].tongTien +
     "</div>" +
     '<div class="Ngaygio">' +
-    orderList[i].ngaygio +
+    orderList[i].ngayLap +
     "</div>" +
     '<div class="Trangthai">' +
-    orderList[i].trangthai +
+    orderList[i].trangThai +
     "</div>" +
     '<div class="HanhDong">' +
     '<div class="accept">Y</div>' +

@@ -1,6 +1,10 @@
 var total = 0;
 var table = document.querySelector("#cart_container table");
 var totalCash = document.querySelector("#total p");
+let orderList =
+  localStorage.getItem("orderList") != null
+    ? JSON.parse(localStorage.getItem("orderList"))
+    : [];
 var productAdded = [];
 
 //phương thức thêm sản phẩm vào giỏ hàng
@@ -162,4 +166,28 @@ function updateQuantity(a) {
   }
   saveProductAdded();
   totalProduct();
+}
+
+function payAll() {
+  if (!productAdded.length) return;
+  let madon = "WB" + productAdded.length + "-" + new Date();
+  let khachhang = "none";
+  let sp = "";
+  productAdded.forEach((item) => {
+    sp += item.name + "[" + item.amount + "]</br>";
+  });
+  let date = new Date();
+  let ngay = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+  let order = {
+    maDon: madon,
+    khachHang: khachhang,
+    sanPham: sp,
+    tongTien: total,
+    ngayLap: ngay,
+    trangThai: "waiting",
+  };
+  productAdded.length = 0;
+  deleteAll();
+  orderList.push(order);
+  localStorage.setItem("orderList", JSON.stringify(orderList));
 }

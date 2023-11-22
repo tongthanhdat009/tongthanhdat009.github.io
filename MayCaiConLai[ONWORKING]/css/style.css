@@ -138,7 +138,9 @@ nav.navigationbar {
 .dsDonHang .donHang:first-child {
     position: sticky;
     inset: calc(5rem/16);
+    top: 0;
     background-color: var(--accent-color);
+    border-top: calc(5rem/16) solid white;
 }
 
 .content .dsDonHang .donHang {
@@ -155,7 +157,8 @@ nav.navigationbar {
 }
 
 .donHang * {
-    min-width: max(calc(100rem/16), fit-content);
+    min-width: max(calc(100rem/16), max-content);
+    text-align: center;
 }
 
 .donHang .HanhDong {
@@ -163,9 +166,15 @@ nav.navigationbar {
     flex-shrink: 0;
 }
 
+.donHang .HanhDong:not(:first-child) {
+    justify-content: center;
+    align-items: center;
+}
+
 .donHang .HanhDong div {
     width: 50%;
     min-width: fit-content;
+    height: fit-content;
     margin: calc(10rem/16);
     font-size: 1.5rem;
     font-weight: 900;

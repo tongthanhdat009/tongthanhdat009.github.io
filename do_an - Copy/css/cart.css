@@ -25,9 +25,10 @@ table tr td{
 }
 .product-amount{
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin:0 auto;
 }
-.add-cart{
+/* .add-cart{
     position: relative;
     right:22%;
 }
@@ -40,7 +41,7 @@ table tr td{
 }
 .sub-cart button{
     height: 40px;
-}
+} */
 #total p{
     font-size: 20px;
     padding-right:20px;

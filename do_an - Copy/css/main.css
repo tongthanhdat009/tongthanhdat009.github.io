@@ -1,11 +1,8 @@
-* {
-  box-sizing: border-box;
-}
 body{
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
-  zoom: 85%;
+  zoom:85%
 }
 html{
   scroll-behavior: smooth;
@@ -55,8 +52,8 @@ img {
   float: right;
 }
 #header_sm img{
-  width: 65px;
-  height: 60px;
+  width: 60px;
+  height: 50px;
   padding-left: 20px;
 }
 #header a{

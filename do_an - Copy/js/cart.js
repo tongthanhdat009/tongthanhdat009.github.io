@@ -186,14 +186,13 @@ function payAll() {
   productAdded.forEach((item) => {
     sp += item.name + "[" + item.amount + "]</br>";
   });
-  let date = new Date();
-  let ngay = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+  let date = new Date().toLocaleDateString();
   let order = {
     maDon: madon,
     khachHang: khachhang,
     sanPham: sp,
     tongTien: total,
-    ngayLap: ngay,
+    ngayLap: date,
     trangThai: "waiting",
   };
   productAdded.length = 0;

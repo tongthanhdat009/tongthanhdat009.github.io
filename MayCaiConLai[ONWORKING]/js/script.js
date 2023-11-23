@@ -4,6 +4,22 @@ let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
   : [];
 
+orderList.push({
+  maDon: "none",
+  khachHang: "none",
+  sanPham: "none",
+  tongTien: "none",
+  ngayLap: "11/23/2023",
+  trangThai: "none",
+});
+orderList.push({
+  maDon: "none",
+  khachHang: "none",
+  sanPham: "none",
+  tongTien: "none",
+  ngayLap: "11/25/2023",
+  trangThai: "none",
+});
 let content = document.getElementById("mngContent");
 // content.innerHTML = "";
 
@@ -12,7 +28,12 @@ tkDonHang.addEventListener("click", () => {
   displayOrderManagement(orderList);
 });
 
-function displayOrderManagement(orderList) {
+function displayOrderManagement(
+  orderList,
+  fromDate = "",
+  toDate = "",
+  inputVal = ""
+) {
   content.innerHTML =
     '<ul id="dsDonHang" class="dsDonHang">' +
     '<li class="donHang">' +
@@ -28,9 +49,9 @@ function displayOrderManagement(orderList) {
     "</ul>" +
     '<div class="searchBar">' +
     '<form action="" id="dateSearch" class="dateSearch">' +
-    '<label for="fromDate">Tu ngay</label>' +
-    '<input type="date" name="ngayXaNhat" id="fromDate">' +
-    '<label for="toDate">Den ngay</label>' +
+    '<label for="fromDate">Tu cuoi ngay</label>' +
+    '<input type="date" name="ngayXaNhat" id="fromDate"' +
+    '<label for="toDate">Den cuoi ngay</label>' +
     '<input type="date" name="ngayXaNhat" id="toDate">' +
     '<button class="applySearch" id="dateSearchBtn">Search</button>' +
     "</form>" +
@@ -54,7 +75,9 @@ function displayOrderManagement(orderList) {
       let list = [];
       if (i === 0) list = conditionSearch("Date");
       if (i === 1) list = conditionSearch("Value");
-      displayOrderManagement(list);
+      if (list.length == 0)
+        displayOrderManagement(JSON.parse(localStorage.getItem("orderList")));
+      else displayOrderManagement(list);
     });
   }
 }
@@ -122,10 +145,14 @@ function loadOrderList(orderElm, orderList) {
 function conditionSearch(condition) {
   let searchOrderList = [];
   if (condition.localeCompare("Date") == 0) {
-    let fromDateInput = document.getElementById("fromDate");
-    let toDateInput = document.getElementById("toDate");
-    console.log(fromDateInput.value);
-    console.log(toDateInput.value);
+    let fromDateInput = document.getElementById("fromDate").valueAsDate;
+    let toDateInput = document.getElementById("toDate").valueAsDate;
+    console.log(fromDateInput);
+    console.log(toDateInput);
+    Array.from(orderList).forEach((element) => {
+      let d = new Date(element.ngayLap);
+      if (d > fromDateInput && d < toDateInput) searchOrderList.push(element);
+    });
   }
   if (condition.localeCompare("Value") == 0) {
     let Opt = document.getElementById("searchType");

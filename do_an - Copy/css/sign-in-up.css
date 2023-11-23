@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     transition: all 300ms ease;
-    z-index: 0;
+    z-index: -1;
     left: calc(50% - 300px);
     top: 80%;
     translate: 0 -120%;

@@ -169,8 +169,18 @@ function updateQuantity(a) {
 }
 
 function payAll() {
-  if (!productAdded.length) return;
-  let madon = "WB" + productAdded.length + "-" + new Date();
+  if (!productAdded.length) {
+    alert("Bạn chưa mua gì cả :(");
+    return;
+  }
+  if (!confirm("Bạn có chắc chắn muốn mua hàng?")) return;
+
+  let madon =
+    "WB" +
+    new Date().getDate() +
+    "-" +
+    new Date().getMonth() +
+    (parseInt(new Date().getTime()) % 1e8);
   let khachhang = "none";
   let sp = "";
   productAdded.forEach((item) => {

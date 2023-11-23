@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav class="navigationbar">
-      <div class="nav-content-left">
-        <div class="hamburgerbutton" id="hamburger-open">x</div>
-        <div class="brand">WIBU STORE</div>
-      </div>
-      <div class="account" id="theme-toggle">xxxx</div>
-    </nav>
 
-    <div class="wrapper-flex">
-      <ul id="left-menu">
-        <li><div id="info">Thong tin tai khoan</div></li>
-        <li><div id="hoSo">Ho So</div></li>
-        <li><div id="donHangDaDat">Don hang da dat</div></li>
-        <li><div id="tkDonHang">Thong ke don hang</div></li>
-        <li><div id="userManagement">Quan ly tai khoan</div></li>
-      </ul>
-      <div class="content">
-        <ul id="dsDonHang" class="dsDonHang">
-          <li class="donHang">
-            <div class="STT">STT</div>
-            <div class="MaDon">Ma Don</div>
-            <div class="Khach">Khach</div>
-            <div class="SanPham">San Pham</div>
-            <div class="TongTien">Tong tien</div>
-            <div class="Ngaygio">Ngay gio</div>
-            <div class="Trangthai">Trang Thai</div>
-            <div class="HanhDong">Hanh Dong</div>
-          </li>
-        </ul>
-        <div class="searchBar">
-          <div class="dateSearch">Tim theo ngay</div>
-          <div class="otherSearch">Tim theo cac tieu chi khac</div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navigationbar">
+    <div class="nav-content-left">
+      <div class="hamburgerbutton" id="hamburger-open">x</div>
+      <div class="brand">WIBU STORE</div>
     </div>
-    <script src="./js/script.js"></script>
-  </body>
+    <div class="account" id="theme-toggle">xxxx</div>
+  </nav>
+
+  <div class="wrapper-flex">
+    <ul id="left-menu">
+      <li>
+        <div id="info">Thong tin tai khoan</div>
+      </li>
+      <li>
+        <div id="hoSo">Ho So</div>
+      </li>
+      <li>
+        <div id="donHangDaDat">Don hang da dat</div>
+      </li>
+      <li>
+        <div id="tkDonHang">Thong ke don hang</div>
+      </li>
+      <li>
+        <div id="userManagement">Quan ly tai khoan</div>
+      </li>
+    </ul>
+    <div class="content" id="mngContent">
+      <!-- <div class="searchBar">
+        <form action="" id="dateSearch" class="dateSearch">
+          <label for="fromDate">Tu ngay</label>
+          <input type="date" name="ngayXaNhat" id="fromDate">
+          <label for="toDate">Den ngay</label>
+          <input type="date" name="ngayXaNhat" id="toDate">
+          <button class="applySearch" id="dateSearchBtn">Search</button>
+        </form>
+        <form action="" id="otherSearch" class="otherSearch" onclick="conditionSearch('Value')">
+          <select name="searchyype" id="searchType">
+            <option value="1">Tim theo ma hoa don</option>
+            <option value="2">Tim theo ten khach hang</option>
+            <option value="3">Tim theo trang thai</option>
+          </select>
+          <input type="text" id="inputValue">
+          <button class="applySearch" id="typeSearchBtn" onclick="conditionSearch('Date')">Search</button>
+        </form>
+      </div> -->
+    </div>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
 </html>

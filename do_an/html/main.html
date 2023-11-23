@@ -108,25 +108,33 @@
   <!-- đăng nhập/đăng ký -->
     <div class="wrapper">
       <span class="icon-close">
-          <ion-icon name="close-outline">X</ion-icon></span>
+          <ion-icon name="close-outline"></ion-icon>
+      </span>
       <div class="dangnhap login">
           <h2>Đăng nhập</h2>
           <form action="#">
               <div class="nhap">
                   <span class="icon">
-                      <ion-icon name="people-outline"></ion-icon></span>
+                      <ion-icon name="people-outline"></ion-icon>
+                  </span>
                   <input type="taikhoan" required />
-                  <label> Tài khoản</label>
+                  <label>Tài khoản</label>
               </div>
               <div class="nhap">
                   <span class="icon">
-                      <ion-icon name="lock-open-outline"></ion-icon></span>
-                  <input type="password" required />
-                  <label> Mật Khẩu</label>
+                      <ion-icon name="lock-open-outline"></ion-icon>
+                  </span>
+                  <input
+                      type="password"
+                      required
+                      name="login-password"
+                      autocomplete="on"
+                  />
+                  <label>Mật Khẩu</label>
               </div>
               <div class="quenmatkhau">
-                  <label
-                      ><input type="checkbox" /> ghi nhớ đăng nhập
+                  <label>
+                    <input type="checkbox" /> ghi nhớ đăng nhập
                   </label>
                   <a href="#"> quên mật khẩu ? </a>
               </div>
@@ -147,8 +155,8 @@
                   <div class="left-content">
                       <div class="nhap">
                           <span class="icon">
-                              <ion-icon name="people-outline"></ion-icon
-                          ></span>
+                              <ion-icon name="people-outline"></ion-icon>
+                          </span>
                           <input
                               type="username"
                               required
@@ -161,19 +169,33 @@
                       <div class="nhap">
                           <span class="icon">
                               <ion-icon
-                                  name="lock-open-outline"
-                              ></ion-icon
-                          ></span>
-                          <input type="password" required />
+                                  name="lock-open-outline">
+                              </ion-icon>
+                          </span>
+                          <input
+                              type="password"
+                              required
+                              name="sign-in-password"
+                              class="checkpasswords"
+                              autocomplete="on"
+                          />
+                          <span class="pass-error"> </span>
                           <label> Mật khẩu</label>
                       </div>
                       <div class="nhap">
                           <span class="icon">
-                              <ion-icon
-                                  name="lock-open-outline"
-                              ></ion-icon
-                          ></span>
-                          <input type="password" required />
+                            <ion-icon
+                                name="lock-open-outline">
+                            </ion-icon>
+                          </span>
+                          <input
+                              type="password"
+                              required
+                              name="rewrite-sign-in-password"
+                              class="checkpasswords"
+                              autocomplete="on"
+                          />
+                          <span class="pass-error"> </span>
                           <label>Nhập Lại Mật khẩu</label>
                       </div>
                   </div>
@@ -190,16 +212,21 @@
                           <span class="icon">
                               <ion-icon name="call-outline"></ion-icon>
                           </span>
-                          <input type="phonenumber" required />
+                          <input
+                              type="phonenumber"
+                              required
+                              id="checkphonenumber"
+                          />
                           <label> Số Điện Thoại</label>
+                          <span id="phonenumber-error"> </span>
                       </div>
                   </div>
               </div>
               <div class="quenmatkhau">
-                  <label style="font-weight: 900"
-                      ><input type="checkbox" style= /> tôi đồng ý với
-                      khai báo trên là đúng
-                  </label>
+                <label style="font-weight: 900">
+                  <input type="checkbox" id="acpt-infor"/> 
+                  tôi đồng ý với khai báo trên là đúng
+                </label>
               </div>
               <button type="submit" class="btn">register</button>
               <div class="login-register">

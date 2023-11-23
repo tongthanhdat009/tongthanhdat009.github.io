@@ -1,8 +1,9 @@
 * {
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
     font-family: "Popipins", sans-serif;
 }
+
 .wrapper {
     position: fixed;
     width: 600px;
@@ -16,7 +17,9 @@
     transform: scale(0);
     transition: height 0.5s ease;
     z-index: 1;
-    left:calc(50% - 300px);
+    left: calc(50% - 300px);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .wrapper.active-popup {
@@ -29,28 +32,30 @@
     padding: 40px;
 }
 
-.wrapper-flex {
+form .wrapper-flex {
     display: flex;
     gap: 10px;
 }
-.wrapper-flex .left-content {
+
+form .wrapper-flex .left-content {
     width: 50%;
 }
-.wrapper-flex .right-content {
+
+form .wrapper-flex .right-content {
     width: 50%;
 }
 
-/* .wrapper.active .dangnhap.login{
-    transform: translateX(-400px);
-    transition: none ;
-    display: none;
-    
+@media screen and (max-width:500px) {
+    form .wrapper-flex {
+        display: block;
+        gap: 0;
+        margin: 10px auto;
+    }
+
+    form .wrapper-flex :is(.left-content, .right-content) {
+        width: 100%;
+    }
 }
-
-.wrapper.active .dangki.register {
-    transform: translateX(0);
-
-}  */
 
 .wrapper .icon-close {
     position: absolute;
@@ -95,10 +100,11 @@
     transition: 0.5s;
 }
 
-.nhap input:focus ~ label,
-.nhap input:required:valid ~ label {
+.nhap input:focus~label,
+.nhap input:required:valid~label {
     top: -5px;
 }
+
 .nhap input {
     width: 100%;
     height: 100%;

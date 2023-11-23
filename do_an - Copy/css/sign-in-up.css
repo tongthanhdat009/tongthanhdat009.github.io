@@ -7,38 +7,46 @@
 .wrapper {
     position: fixed;
     width: 600px;
-    height: max-content;
+    min-height: 0;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.982);
     border-radius: 20px;
     backdrop-filter: blur(20px);
     align-items: center;
     justify-content: center;
-    transform: scale(0);
-    transition: height 0.5s ease;
+    transition: all 300ms ease;
     z-index: 1;
     left: calc(50% - 300px);
-    top: -100%;
-    transform: translateY(-50%);
+    top: 80%;
+    translate: 0 -120%;
+    opacity: 0;
 }
-@keyframes wrapper-in {
-    0%{
-        top: -100%;
-    }
-    100%{
-        top: 30%;
-    }
-}
-@keyframes wrapper-out {
-    0%{
-        top: 30%;
-    }
-    100%{
-        top: -100%;
-    }
-}
+
+
 .wrapper.active-popup {
-    transform: scale(1);
+    opacity: 1;
+    min-height: fit-content;
+    translate: 0 -100%;
+}
+
+@keyframes wrapper-in {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 30%;
+    }
+}
+
+@keyframes wrapper-out {
+    0% {
+        top: 30%;
+    }
+
+    100% {
+        top: -100%;
+    }
 }
 
 .wrapper .dangnhap,

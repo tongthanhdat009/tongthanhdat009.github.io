@@ -18,10 +18,25 @@
     transition: height 0.5s ease;
     z-index: 1;
     left: calc(50% - 300px);
-    top: 50%;
+    top: -100%;
     transform: translateY(-50%);
 }
-
+@keyframes wrapper-in {
+    0%{
+        top: -100%;
+    }
+    100%{
+        top: 30%;
+    }
+}
+@keyframes wrapper-out {
+    0%{
+        top: 30%;
+    }
+    100%{
+        top: -100%;
+    }
+}
 .wrapper.active-popup {
     transform: scale(1);
 }

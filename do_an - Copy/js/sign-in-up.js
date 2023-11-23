@@ -31,16 +31,19 @@ loginLink.addEventListener("click", () => {
 });
 
 btnPopup.addEventListener("click", () => {
-    wrapper.classList.add("active-popup");
+    // wrapper.classList.add("active-popup");
+    wrapper.style.animation="wrapper-in 2s forwards";
 });
 
 btn_yes.addEventListener("click",()=>{
     opt_box.style.animation="box-out 2s";
-    wrapper.classList.add("active-popup");
+    wrapper.style.animation="wrapper-in 2s forwards";
+    // wrapper.classList.add("active-popup");
 });
 
 Iconclose.addEventListener("click", () => {
     wrapper.classList.remove("active-popup");
+    wrapper.style.animation="wrapper-out 2s";
 });
 
 function checkInputLength(input) {

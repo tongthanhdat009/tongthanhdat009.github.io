@@ -1,6 +1,6 @@
 <h1>Link tới từng web</h1>
 
-[admin o ngoai main](https://tongthanhdat009.github.io/admin.html)
+[thongtindaotao.sgu.edu.vn](https://tongthanhdat009.github.io/MayCaiConLai[ONWORKING])
 
 [main](https://tongthanhdat009.github.io/do_an%20-%20Copy/html/main.html)
 

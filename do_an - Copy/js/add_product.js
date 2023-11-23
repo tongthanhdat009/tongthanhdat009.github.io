@@ -6,133 +6,21 @@ function getProductList() {
     productList = JSON.parse(productStored);
   }
 }
-// localStorage.clear();
-// function productDisplay() {
-//   var maxIndex = 3;
-//   var count1 = 0;
-//   var count2 = 0;
-//   var count3 = 0;
-//   var count4 = 0;
-//   var count = [0,0,0,0]
-//   var list = [null, null, null, null];
-//   for (let i = 1; i <= 4; ++i) {
-//     list[i - 1] = document.getElementById("list_" + i);
-//   }
-//   for (var i = 0; i < productList.length; i++) {
-//     let productType = parseInt(productList[i].type) - 1;
-//     if (productList[i].type === 1 && count1 < 8) {
-//       //điều kiện cho việc hiển thị sản phẩm của mỗi danh sách
-//       if (count1 % maxIndex === 0) {
-//         newRow1 = list[productType].insertRow(-1);
-//         if (count1 >= maxIndex) {
-//           //điều kiện để thêm class cho danh sách cần hiển thị thêm
-//           newRow1.classList.add("alt_list_1");
-//         }
-//       }
-//       var newCell1 = newRow1.insertCell(count1 % maxIndex);
-//       newCell1.innerHTML =
-//         '<div class="product-container" onclick="takeInfo(this)">' +
-//         '<div class="product-img">' +
-//         '<img src="' +
-//         productList[i].img +
-//         '"alt="product-img">' +
-//         "</div>" +
-//         '<div class="product-name">' +
-//         productList[i].name +
-//         "</div>" +
-//         '<div class="product-price">' +
-//         productList[i].price +
-//         "đ</div>" +
-//         "</div>";
-//       count1++;
-//       // productList1.push(productList[i]);
-//     }
-//     if (productList[i].type === 2 && count2 < 8) {
-//       //điều kiện cho việc hiển thị sản phẩm của mỗi danh sách
-//       if (count2 % maxIndex === 0) {
-//         newRow2 = list[productType].insertRow(-1);
-//         newRow2.classList.add("list_2_row");
-//         if (count2 >= maxIndex) {
-//           //điều kiện để thêm class cho danh sách cần hiển thị thêm
-//           newRow2.classList.add("alt_list_2");
-//         }
-//       }
-//       var newCell2 = newRow2.insertCell(count2 % maxIndex);
-//       newCell2.innerHTML =
-//         '<div class="product-container" onclick="takeInfo(this)">' +
-//         '<div class="product-img">' +
-//         '<img src="' +
-//         productList[i].img +
-//         '"alt="product-img">' +
-//         "</div>" +
-//         '<div class="product-name">' +
-//         productList[i].name +
-//         "</div>" +
-//         '<div class="product-price">' +
-//         productList[i].price +
-//         "đ</div>" +
-//         "</div>";
-//       count2++;
-//       // productList2.push(productList[i]);
-//     }
-//     if (productList[i].type === 3 && count3 < 8) {
-//       //điều kiện cho việc hiển thị sản phẩm của mỗi danh sách
-//       if (count3 % maxIndex === 0) {
-//         newRow3 = list[productType].insertRow(-1);
-//         newRow3.classList.add("list_3_row");
-//         if (count3 >= maxIndex) {
-//           //điều kiện để thêm class cho danh sách cần hiển thị thêm
-//           newRow3.classList.add("alt_list_3");
-//         }
-//       }
-//       var newCell3 = newRow3.insertCell(count3 % maxIndex);
-//       newCell3.innerHTML =
-//         '<div class="product-container" onclick="takeInfo(this)">' +
-//         '<div class="product-img">' +
-//         '<img src="' +
-//         productList[i].img +
-//         '"alt="product-img">' +
-//         "</div>" +
-//         '<div class="product-name">' +
-//         productList[i].name +
-//         "</div>" +
-//         '<div class="product-price">' +
-//         productList[i].price +
-//         "đ</div>" +
-//         "</div>";
-//       count3++;
-//       // productList3.push(productList[i]);
-//     }
-//     if (productList[i].type === 4 && count4 < 8) {
-//       //điều kiện cho việc hiển thị sản phẩm của mỗi danh sách
-//       if (count4 % maxIndex === 0) {
-//         //điều kiện để thêm class cho danh sách cần hiển thị thêm
-//         newRow4 = list[productType].insertRow(-1);
-//         if (count4 >= maxIndex) {
-//           newRow4.classList.add("alt_list_4");
-//         }
-//       }
-//       var newCell4 = newRow4.insertCell(count4 % maxIndex);
-//       newCell4.innerHTML =
-//         '<div class="product-container" onclick="takeInfo(this)">' +
-//         '<div class="product-img">' +
-//         '<img src="' +
-//         productList[i].img +
-//         '"alt="product-img">' +
-//         "</div>" +
-//         '<div class="product-name">' +
-//         productList[i].name +
-//         "</div>" +
-//         '<div class="product-price">' +
-//         productList[i].price +
-//         "đ</div>" +
-//         "</div>";
-//       count4++;
-//       // productList4.push(productList[i]);
-//     }
-//   }
-// }
-
+//lưu mảng sản phẩm xuống storage
+function saveProductList() {
+  var jsonStr = JSON.stringify(productList);
+  localStorage.setItem("productList", jsonStr);
+}
+//chạy hàm saveProductList 1 lần để khỏi bị load lại mảng
+function runOnce() {
+  localStorage.setItem('hasRun','true')
+  const onSaveList = localStorage.getItem('hasRun');
+  if (!onSaveList) {
+    saveProductList();
+    localStorage.setItem('hasRun','false');
+    return;
+  }
+}
 function productDisplay2() {
   var maxIndex = 3;
   var count = [0, 0, 0, 0];
@@ -172,11 +60,7 @@ function productDisplay2() {
     }
   }
 }
-//lưu mảng sản phẩm xuống storage
-function saveProductList() {
-  var jsonStr = JSON.stringify(productList);
-  localStorage.setItem("productList", jsonStr);
-}
+
 //lấy mảng sản phẩm từ local+add sản phẩm vào mảng
 
 function addProduct(name, price, type, img, img2, img3, img4, id) {
@@ -706,8 +590,7 @@ addProduct(
   "../asset/anh/cosplay/50 4.jpg",
   51
 );
-saveProductList();
-var productStored = localStorage.getItem("productList");
-if (productStored) {
-  productList = JSON.parse(productStored);
-}
+
+// saveProductList();
+runOnce();
+getProductList();

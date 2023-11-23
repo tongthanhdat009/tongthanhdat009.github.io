@@ -14,15 +14,6 @@ function closeNav() {
   }, 150);
 }
 
-//thông tin tài khoản: lựa chọn đăng nhập đăng ký hoặc đăng nhập để sử dụng giỏ hàng
-var optionBox = document.getElementById("option_box");
-function openOption() {
-  optionBox.style.animation = "box-in 2s forwards";
-}
-function closeOption() {
-  optionBox.style.animation = "box-out 2s";
-}
-
 //change_banner
 var bannerImg = document.querySelectorAll(".banner_img"); //lấy class hình ảnh của banner
 var currentIndex = 0;
@@ -80,4 +71,3 @@ inputSearch.addEventListener("submit", function (event) {
   console.log(userInput);
   localStorage.setItem("mainSearch", jsonStr);
 });
-

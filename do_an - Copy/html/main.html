@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/product_list.css">
   <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/sign-in-up.css">
   <link rel="icon" type="image/x-icon" href="../asset/logo.png">
   <title>WIBU STORE</title>
 </head>
@@ -32,6 +33,30 @@
         </div>
     </div>
     <br>
+    <div id="right_site_header">
+      <button class="all_alt_btn" id="sign-up-in_btn">
+          <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
+          Đăng nhập/đăng ký
+      </button>
+      <a href="../html/cart.html">
+          <button class="all_alt_btn"id="cart_btn" onclick="cartDisplay()">
+          <img src="../asset/icon/cart.png" style="width:25px; height: 25px;" alt="cart">
+          Giỏ hàng
+        </button>
+      </a>
+      <button class="all_alt_btn"id="infor_user" onclick="openOption()">
+          <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
+          Thông tin tài khoản
+      </button>
+      <a href="../html/admin.html">
+        <button class="all_alt_btn"id="admin">
+          <img src="../asset/icon/admin.png" style="width:25px; height: 25px;" alt="admin">
+          Quản lý
+        </button>
+      </a>
+  </div>
+<br>
+<br>
 <!-- quay lại đầu trang -->
       <div id="back_t_header">
           <a href="#header">
@@ -76,31 +101,112 @@
           </div>
         </div>
     </div>
-    <div id="right_site_header">
-        <button class="all_alt_btn"id="sign-up-in_btn">
-            <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
-            Đăng nhập/đăng ký
-        </button>
-        <a href="../html/cart.html">
-            <button class="all_alt_btn"id="cart_btn" onclick="cartDisplay()">
-            <img src="../asset/icon/cart.png" style="width:25px; height: 25px;" alt="cart">
-            Giỏ hàng
-          </button>
-        </a>
-        <button class="all_alt_btn"id="infor_user" onclick="openOption()">
-            <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
-            Thông tin tài khoản
-        </button>
-        <a href="../html/admin.html">
-          <button class="all_alt_btn"id="admin">
-            <img src="../asset/icon/admin.png" style="width:25px; height: 25px;" alt="cart">
-            Quản lý
-          </button>
-        </a>
+  <!-- đăng nhập/đăng ký -->
+    <div class="wrapper">
+      <span class="icon-close">
+          <ion-icon name="close-outline">X</ion-icon></span>
+      <div class="dangnhap login">
+          <h2>Đăng nhập</h2>
+          <form action="#">
+              <div class="nhap">
+                  <span class="icon">
+                      <ion-icon name="people-outline"></ion-icon></span>
+                  <input type="taikhoan" required />
+                  <label> Tài khoản</label>
+              </div>
+              <div class="nhap">
+                  <span class="icon">
+                      <ion-icon name="lock-open-outline"></ion-icon></span>
+                  <input type="password" required />
+                  <label> Mật Khẩu</label>
+              </div>
+              <div class="quenmatkhau">
+                  <label
+                      ><input type="checkbox" /> ghi nhớ đăng nhập
+                  </label>
+                  <a href="#"> quên mật khẩu ? </a>
+              </div>
+              <button type="submit" class="btn">login</button>
+              <div class="login-register">
+                  <p>
+                      không có tài khoản ?
+                      <a href="#" class="register-link"> Đăng kí </a>
+                  </p>
+              </div>
+          </form>
+      </div>
+
+      <div class="dangki register" style="display: none">
+          <h2>Đăng kí</h2>
+          <form action="#">
+              <div class="wrapper-flex">
+                  <div class="left-content">
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="people-outline"></ion-icon
+                          ></span>
+                          <input
+                              type="username"
+                              required
+                              oninput="checkInputLength(this)"
+                              id="checkaccount"
+                          />
+                          <span id="error"> </span>
+                          <label> Tên đăng nhập</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon
+                                  name="lock-open-outline"
+                              ></ion-icon
+                          ></span>
+                          <input type="password" required />
+                          <label> Mật khẩu</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon
+                                  name="lock-open-outline"
+                              ></ion-icon
+                          ></span>
+                          <input type="password" required />
+                          <label>Nhập Lại Mật khẩu</label>
+                      </div>
+                  </div>
+                  <div class="right-content">
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="mail-outline"></ion-icon>
+                          </span>
+                          <input type="email" required id="email" />
+
+                          <label> Email</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="call-outline"></ion-icon>
+                          </span>
+                          <input type="phonenumber" required />
+                          <label> Số Điện Thoại</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="quenmatkhau">
+                  <label style="font-weight: 900"
+                      ><input type="checkbox" style= /> tôi đồng ý với
+                      khai báo trên là đúng
+                  </label>
+              </div>
+              <button type="submit" class="btn">register</button>
+              <div class="login-register">
+                  <p>
+                      Đã có tài khoản ?
+                      <a href="#" class="login-link"> Đăng nhập </a>
+                  </p>
+              </div>
+          </form>
     </div>
-  <br>
-  <br>
-  
+        </div>
   <!-- banner ảnh -->
     <div id="box">
         <div id="banner_content">
@@ -297,5 +403,6 @@
   <script src="../js/add_product.js"></script>
   <script src="../js/cart.js"></script>
   <script src="../js/item_detail.js"></script>
+  <script src="../js/sign-in-up.js"></script>
 </body>
 </html>

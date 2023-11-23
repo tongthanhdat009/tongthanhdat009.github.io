@@ -11,14 +11,12 @@ function saveProductList() {
   var jsonStr = JSON.stringify(productList);
   localStorage.setItem("productList", jsonStr);
 }
-//chạy hàm saveProductList 1 lần để khỏi bị load lại mảng
-function runOnce() {
-  localStorage.setItem('hasRun','true')
-  const onSaveList = localStorage.getItem('hasRun');
-  if (!onSaveList) {
+//chạy hàm save 1 lần
+function runSave(){
+  var hasRun = localStorage.getItem('hasRun');
+  if (!hasRun) {
     saveProductList();
-    localStorage.setItem('hasRun','false');
-    return;
+    localStorage.setItem('hasRun', true);
   }
 }
 function productDisplay2() {
@@ -590,7 +588,5 @@ addProduct(
   "../asset/anh/cosplay/50 4.jpg",
   51
 );
-
-// saveProductList();
-runOnce();
+runSave();
 getProductList();

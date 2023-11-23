@@ -327,4 +327,19 @@ a
     font-size: 20px;
     width: 70%;
 }
-
+.edit-btn{
+    height: 45px;
+    width: 50px;
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    left: calc(50% - 25px);
+}
+.remove-button{
+    height: 45px;
+    width: 50px;
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    left: calc(50% - 25px);
+}

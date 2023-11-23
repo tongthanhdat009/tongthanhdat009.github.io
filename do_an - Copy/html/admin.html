@@ -521,7 +521,7 @@
                 '<td><h5>'+a[i].name+'</h5></td>'+
                 '<td><h5>'+a[i].price+'</h5></td>'+
                 '<td><h5>'+a[i].type+'</h5></td>'+
-                '<td><h5><button onclick="config('+a[i].id+')" >&#9881;</button></h5></td>'+
+                '<td><h5><button class="edit-btn" onclick="config('+a[i].id+')" >&#9881;</button></h5></td>'+
                 '<td><h5><button class="remove-button" onclick="remove('+a[i].id+')" style="background-color: red;">&times;</button></h5></td>'+
                 '</tr>';
                 table.appendChild(element);
@@ -562,7 +562,6 @@
                 adminmode(searchADList);
                 displayProduct(productList);
                 saveProductList();
-                getProductList();
             };
             var no = document.getElementById("NO");
             no.onclick = function(){disappear_sure()};
@@ -627,7 +626,6 @@
                 search_admin();
                 adminmode(searchADList);
                 displayProduct(productList);
-                saveProductList();
                 closeConfig();
                 clearconfig();
             }

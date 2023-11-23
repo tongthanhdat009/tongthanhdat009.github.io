@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/product_list.css">
+  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/sign-in-up.css">
+  <link rel="icon" type="image/x-icon" href="../asset/logo.png">
+  <title>WIBU STORE</title>
+</head>
+<body>
+<!-- header -->
+    <div id="header">
+        <div id="heading_img_name">
+          <a href="../html/main.html">
+              <img id="logo" src="../asset/bienthaisucvat.png " alt="logo">
+          </a>
+        </div>
+        <div id="header_sm">
+          <div id="sm_link_container">
+            <a href="https://www.facebook.com/">
+              <img src="../asset/icon/facebook.png" class="link_eff" alt="1">
+            </a>
+            <a href="https://www.youtube.com/" >
+              <img src="../asset/icon/youtube.png" class="link_eff" alt="2">
+            </a>
+            <a href="https://www.instagram.com/">
+              <img src="../asset/icon/instagram.png" class="link_eff" alt="3">
+            </a>
+          </div>
+        </div>
+    </div>
+    <br>
+    <div id="right_site_header">
+      <button class="all_alt_btn" id="sign-up-in_btn">
+          <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
+          Đăng nhập/đăng ký
+      </button>
+      <button class="all_alt_btn" id="logout">
+          <img src="../asset/icon/logout.png" style="width:25px; height: 25px;" alt="login-icon">
+          Đăng xuất
+      </button>
+      <a href="../html/cart.html">
+          <button class="all_alt_btn"id="cart_btn" onclick="cartDisplay()">
+          <img src="../asset/icon/cart.png" style="width:25px; height: 25px;" alt="cart">
+          Giỏ hàng
+        </button>
+      </a>
+      <button class="all_alt_btn"id="infor_user" onclick="openOption()">
+          <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
+          Thông tin tài khoản
+      </button>
+      <a href="../html/admin.html">
+        <button class="all_alt_btn"id="admin">
+          <img src="../asset/icon/admin.png" style="width:25px; height: 25px;" alt="admin">
+          Quản lý
+        </button>
+      </a>
+  </div>
+<br>
+<br>
+<!-- quay lại đầu trang -->
+      <div id="back_t_header">
+          <a href="#header">
+            <img src="../asset/icon/up.png"/>
+          </a>
+      </div>
+<!-- menu -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../html/main.html">Trang chủ</a>
+        <a href="#introduce">Thông tin thêm</a>
+        <a href="#contact">Dịch vụ</a>
+        <a href="../html/order.html">Hàng có sẵn/Hàng order</a>
+    </div>
+    <span id="menu_label" onclick="openNav()">&#9776; WIBU STORE</span>
+<!-- search -->
+<div id="search">
+  <br>
+  <form action="../html/order.html" id="search_input">
+      <label for="search">Tìm kiếm:</label>
+      <input
+              id="name_input"
+              type="text"
+              placeholder="Nhập tên sản phẩm"
+              name="search">
+      <button id="search_btn" type="submit">
+          <img src="../asset/icon/loupe.png" alt="loupe">
+      </button>
+  </form>
+</div>
+<!-- lựa chọn đăng ký hoặc đăng nhập để xem thông tin cá nhân -->
+    <div id="option_box">
+        <p>Bạn có muốn đăng ký/đăng nhập để sử dụng?</p>
+        <img src="../asset/sign-in-img.jpg" alt="image">
+        <p id="slogan">Đăng ký ngay</p>
+        <div id="option_container">
+          <div id="btn_option1">
+            <button class="btn_yes">Có chứ</button>
+          </div>
+          <div id="btn_option2">
+            <button class="btn_no" onclick="closeOption()">Không</button>
+          </div>
+        </div>
+    </div>
+  <!-- đăng nhập/đăng ký -->
+    <div class="wrapper">
+      <span class="icon-close">
+          <ion-icon name="close-outline">X</ion-icon></span>
+      <div class="dangnhap login">
+          <h2>Đăng nhập</h2>
+          <form action="#">
+              <div class="nhap">
+                  <span class="icon">
+                      <ion-icon name="people-outline"></ion-icon></span>
+                  <input type="taikhoan" required />
+                  <label> Tài khoản</label>
+              </div>
+              <div class="nhap">
+                  <span class="icon">
+                      <ion-icon name="lock-open-outline"></ion-icon></span>
+                  <input type="password" required />
+                  <label> Mật Khẩu</label>
+              </div>
+              <div class="quenmatkhau">
+                  <label
+                      ><input type="checkbox" /> ghi nhớ đăng nhập
+                  </label>
+                  <a href="#"> quên mật khẩu ? </a>
+              </div>
+              <button type="submit" class="btn">login</button>
+              <div class="login-register">
+                  <p>
+                      không có tài khoản ?
+                      <a href="#" class="register-link"> Đăng kí </a>
+                  </p>
+              </div>
+          </form>
+      </div>
+
+      <div class="dangki register" style="display: none">
+          <h2>Đăng kí</h2>
+          <form action="#">
+              <div class="wrapper-flex">
+                  <div class="left-content">
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="people-outline"></ion-icon
+                          ></span>
+                          <input
+                              type="username"
+                              required
+                              oninput="checkInputLength(this)"
+                              id="checkaccount"
+                          />
+                          <span id="error"> </span>
+                          <label> Tên đăng nhập</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon
+                                  name="lock-open-outline"
+                              ></ion-icon
+                          ></span>
+                          <input type="password" required />
+                          <label> Mật khẩu</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon
+                                  name="lock-open-outline"
+                              ></ion-icon
+                          ></span>
+                          <input type="password" required />
+                          <label>Nhập Lại Mật khẩu</label>
+                      </div>
+                  </div>
+                  <div class="right-content">
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="mail-outline"></ion-icon>
+                          </span>
+                          <input type="email" required id="email" />
+
+                          <label> Email</label>
+                      </div>
+                      <div class="nhap">
+                          <span class="icon">
+                              <ion-icon name="call-outline"></ion-icon>
+                          </span>
+                          <input type="phonenumber" required />
+                          <label> Số Điện Thoại</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="quenmatkhau">
+                  <label style="font-weight: 900"
+                      ><input type="checkbox" style= /> tôi đồng ý với
+                      khai báo trên là đúng
+                  </label>
+              </div>
+              <button type="submit" class="btn">register</button>
+              <div class="login-register">
+                  <p>
+                      Đã có tài khoản ?
+                      <a href="#" class="login-link"> Đăng nhập </a>
+                  </p>
+              </div>
+          </form>
+    </div>
+        </div>
+  <!-- banner ảnh -->
+    <div id="box">
+        <div id="banner_content">
+            <div class="banner_img">
+            <img id="img_1" src="../asset/banner/1.png" alt="banner">
+        </div>
+        <div class="banner_img">
+            <img id="img_2" src="../asset/banner/2.png" alt="banner">
+        </div>
+        <div class="banner_img">
+            <img id="img_3" src="../asset/banner/3.png" alt="banner">
+        </div>
+        <div class="banner_img">
+            <img id="img_4" src="../asset/banner/4.png" alt="banner">
+        </div>
+        </div>
+    </div>
+    <div id="promo">
+        <p><strong>FREE SHIP TOÀN QUỐC</strong></p>
+    </div>
+    <div id="promotion_container">
+        <div id="promo1">
+            <a href="#list_1">
+                <p class="promo_p"><strong>Mô hình</strong></p>
+                <img class="promo_img" src="../asset/promo/promo1.png" alt="promo1">
+                <p class="promo_p2">
+                    Mô hình chất lượng cao
+                </p>
+            </a>
+        </div>
+        <div id="promo2">
+            <a href="#list_4">
+                <p class="promo_p"><strong>Cosplay</strong></p>
+                <img class="promo_img" src="../asset/promo/promo2.png" alt="promo2">
+                <p class="promo_p2">
+                    Phụ kiện, trang phục cosplay chất lượng cao
+                </p>
+            </a>
+        </div>
+    </div>
+  
+  <br>
+  <!-- items_list -->
+  <!-- list-1 -->
+  <br>
+  <div class="banner_fl">
+    <img src="../asset/banner_fl/5.png">
+  </div>
+  <div class="list_title">
+    <p>Mô hình lẻ</p>
+  </div>
+  <table id="list_1" border="5">
+  </table>
+  <button class="all_alt_btn" id="btn_alt_1" onclick="altlist1()">xem nhiều hơn</button>
+  <a href="../html/order.html">
+    <button class="all_alt_btn" id="all_list1_btn" style="float: right;">
+      xem tất cả
+    </button>
+  </a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- list-2 -->
+  <div class="banner_fl">
+    <img src="../asset/banner_fl/6.png">
+  </div>
+  <div class="list_title">
+    <p>MÔ HÌNH MINI</p>
+  </div>
+  <table id="list_2" border="5">
+  </table>
+  <button class="all_alt_btn" id="btn_alt_2" onclick="altlist2()">xem nhiều hơn</button>
+  <a href="../html/order.html ">
+    <button class="all_alt_btn" id="all_list2_btn" style="float: right;">
+      xem tất cả
+    </button>
+  </a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- list-3 -->
+  <div class="banner_fl">
+    <img src="../asset/banner_fl/7.png">
+  </div>
+  <div class="list_title">
+    <p>BỘ MÔ HÌNH</p>
+  </div>
+  <table id="list_3" border="5">
+  </table>
+  <button class="all_alt_btn" id="btn_alt_3" onclick="altlist3()">xem nhiều hơn</button>
+  <a href="../html/order.html">
+    <button class="all_alt_btn" id="all_list3_btn" style="float: right;">
+      xem tất cả
+    </button>
+  </a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--list-4-->
+  <div class="banner_fl">
+    <img src="../asset/banner_fl/8.png">
+  </div>
+  <div class="list_title">
+    <p>COSPLAY</p>
+  </div>
+  <table id="list_4" border="5">
+  </table>
+  <button class="all_alt_btn" id="btn_alt_4" onclick="altlist4()">xem nhiều hơn</button>
+  <a href="../html/order.html">
+    <button class="all_alt_btn" id="all_list4_btn" style="float: right;">
+      xem tất cả
+    </button>
+  </a>
+  <br>
+  <br>
+  <br>
+  <br>
+<!-- ITEM DETAIL -->
+  <div class="itemdetail">
+  </div>
+<!-- SERVICES -->
+  <br>
+  <table id="services_container">
+    <tr>
+      <td class="name_service"><strong>SẢN PHẨM CHÍNH HÃNG</strong></td>
+      <td class="name_service"><strong>FREE SHIP TOÀN QUỐC</strong></td>
+    </tr>
+    <tr>
+      <td >
+        <img class="img_service" src="../asset/icon/service1.png" alt="services1">
+      </td>
+      <td>
+        <img  class="img_service" src="../asset/icon/service2.png" alt="services2">
+      </td>
+    </tr>
+      <tr>
+        <!-- link trang giới thiệu và trang hàng order -->
+        <td><a class="link_service" href="../html/order.html">XEM TẠI ĐÂY</a></td>
+        <td><a class="link_service" href="">XEM TẠI ĐÂY</a></td>
+      </tr>
+  </table>
+  <!--footer-->
+  <div class="infor_container">
+    <div id="footer_logo">
+      <img src="../asset/logo.png" alt="logo_footer">
+    </div>
+    <div id="social_media">
+      <div class="footer_title"><strong>Truyền thông</strong></div>
+      <hr>
+        <p>
+          <strong>Facebook:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.facebook.com/">WIBU STORE</a>
+        </p>
+        <p>
+          <strong>Youtube:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.youtube.com/">WIBU STORE</a>
+        </p>
+        <p>
+          <strong>Instagram:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.instagram.com/">WIBU_STORE</a>
+        </p>
+        <p>
+          <strong>ONLYFANS:</strong>
+          <a style="text-decoration: none; color: black;" href="https://onlyfans.com/">WIBU STORE</a>
+        </p>
+    </div>
+    <div id="introduce">
+      <div class="footer_title"><strong>Giới thiệu</strong></div>
+      <hr>
+        <p>
+          CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI
+        </p>
+    </div>
+    <div id="contact">
+      <div class="footer_title"><strong>Thông tin liên hệ</strong></div>
+      <hr>
+        <p>
+          <strong>Gmail:</strong>
+          <a style="text-decoration: none; color: black;" href="https://mail.google.com/mail/u/0/#drafts?compose=GTvVlcSGKZXNZFmbPpbnSJsmddvtGSScDzJxpQXtxshcNcslsZClTWPGrntrPTsJqvplgLVffSgzh">wibustore</a>
+        </p>
+        <p>
+          <strong>Phone number:</strong>
+          012345679
+        </p>
+    </div>
+  </div>
+  <footer>
+    <p style="text-align: center;"><strong>created by: </strong>group 2</p>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/add_product.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/item_detail.js"></script>
+  <script src="../js/sign-in-up.js"></script>
+</body>
+</html>

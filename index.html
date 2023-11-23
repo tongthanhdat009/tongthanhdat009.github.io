@@ -11,13 +11,6 @@
             <h2 class="logo">Wibu Store</h2>
 
             <nav class="navigation">
-                <a href="#" class="href">Trang chu</a>
-
-                <a href="#" class="href">san pham</a>
-
-                <a href="" class="href">Dich vu</a>
-
-                <a href="" class="href">Lien he</a>
                 <button class="login">Dang nhap</button>
             </nav>
         </header>
@@ -39,7 +32,7 @@
                         <span class="icon">
                             <ion-icon name="lock-open-outline"></ion-icon
                         ></span>
-                        <input type="taikhoan" required />
+                        <input type="password" required />
                         <label> Mật Khẩu</label>
                     </div>
                     <div class="quenmatkhau">
@@ -73,6 +66,7 @@
                                     oninput="checkInputLength(this)"
                                     id="checkaccount"
                                 />
+                                <span id="error"> </span>
                                 <label> Tên đăng nhập</label>
                             </div>
                             <div class="nhap">
@@ -81,7 +75,7 @@
                                         name="lock-open-outline"
                                     ></ion-icon
                                 ></span>
-                                <input type="pass" required />
+                                <input type="password" required />
                                 <label> Mật khẩu</label>
                             </div>
                             <div class="nhap">
@@ -90,7 +84,7 @@
                                         name="lock-open-outline"
                                     ></ion-icon
                                 ></span>
-                                <input type="pass" required />
+                                <input type="password" required />
                                 <label>Nhập Lại Mật khẩu</label>
                             </div>
                         </div>
@@ -99,14 +93,15 @@
                                 <span class="icon">
                                     <ion-icon name="mail-outline"></ion-icon>
                                 </span>
-                                <input type="email" required />
+                                <input type="email" required id="email" />
+
                                 <label> Email</label>
                             </div>
                             <div class="nhap">
                                 <span class="icon">
                                     <ion-icon name="call-outline"></ion-icon>
                                 </span>
-                                <input type="email" required />
+                                <input type="phonenumber" required />
                                 <label> Số Điện Thoại</label>
                             </div>
                         </div>

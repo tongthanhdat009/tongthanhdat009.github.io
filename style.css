@@ -106,6 +106,12 @@ body {
     display: flex;
     gap: 10px;
 }
+.wrapper-flex .left-content {
+    width: 50%;
+}
+.wrapper-flex .right-content {
+    width: 50%;
+}
 
 /* .wrapper.active .dangnhap.login{
     transform: translateX(-400px);

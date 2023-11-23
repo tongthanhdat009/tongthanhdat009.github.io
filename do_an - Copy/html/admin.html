@@ -408,7 +408,7 @@
                         '</div>'+
                         '<div class="product-content">'+
                             '<div class="name-figure">'+
-                                '<a href="#"><h3 align="center" style="font-size: 15px;">' + product.name + '</h3></a>'+
+                                '<a href="#"><h3 align="center" style="font-size: 17px;">' + product.name + '</h3></a>'+
                             '</div>'+
                             '<div class="price">'+
                                 '<p class="price-product" data-price=" ' + product.price + ' ">Giá: ' + product.price +'đ </p>'+
@@ -468,7 +468,7 @@
                 var product = productList2[i];
                 productList2[i] = productList2[index];
                 productList2[index] = product;
-                displayProduct(productList2)
+                displayProduct(productList2);
             }
         }
         function sort_by_price()

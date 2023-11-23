@@ -76,15 +76,17 @@ img {
   width: 100%;
 }
 
+/* nút đăng nhập đăng ký */
 #right_site_header #sign-up-in_btn {
   float: right;
   font-size: 25px;
-  cursor: pointer;
-  /* margin:0; */
+  /* visibility: hidden; */
 }
 
-#right_site_header #log-out {
-  right: 5px;
+#right_site_header #logout {
+  /* display: none; */
+  font-size: 25px;
+
 }
 
 #cart_btn {
@@ -370,7 +372,7 @@ img {
 /*PROMOTION*/
 #promo {
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   margin: 0;
 }
 
@@ -381,9 +383,10 @@ img {
 
 #promotion_container {
   display: flex;
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
+  background-color:rgba(139, 139, 127, 0.164);
 }
 
 #promo1 {
@@ -399,13 +402,13 @@ img {
 
 .promo_p {
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .promo_img {
-  height: 200px;
+  height: 250px;
   position: relative;
-  left: calc(50% - 100px);
+  left: calc(50% - 125px);
   transition: transform .2s;
 }
 
@@ -417,6 +420,7 @@ img {
   position: relative;
   text-align: center;
   font-size: 25px;
+  animation: change-color 2s infinite;
 }
 
 #promo1 a {
@@ -439,11 +443,19 @@ img {
 }
 
 .img_service {
-  height: 50px
+  height: 70px
 }
 
 .link_service {
   text-decoration: none;
+  animation: change-color 2s infinite;
+}
+@keyframes change-color {
+  0%{color: aqua;}
+  25%{color:aquamarine}
+  50%{color: #db2626;}
+  75%{color: aquamarine;}
+  100%{color: aqua;}
 }
 
 /* ---- */

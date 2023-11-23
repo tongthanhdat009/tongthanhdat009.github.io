@@ -3,7 +3,7 @@
 /* tên danh sách */
 .list_title p {
   margin-top: 30px;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
 }
 
@@ -145,7 +145,6 @@
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
-  font-size: 25px;
   transition: transform .2s
 }
 

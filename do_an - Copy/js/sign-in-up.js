@@ -68,19 +68,29 @@ usernameInput.addEventListener("input", (event) => {
     }
 });
 
-const isLoggedIn = false;
 
+
+// Tạo nút đăng xuất
+const logoutButton = document.querySelector("#logout");
+
+isLoggedIn = false;
 // Khi đăng nhập thành công
 function onLoginSuccess() {
     isLoggedIn = true;
     localStorage.setItem("isLoggedIn", isLoggedIn);
 }
-
-// Tạo nút đăng xuất
-const logoutButton = document.querySelector("#logout");
-
-// Khi người dùng click vào nút đăng xuất
+function changeOnLoginSuccess(){
+    isLoggedIn = localStorage.getItem("isLoggedIn");
+    if(isLoggedIn){
+        logoutButton.style.visibility="visble";
+        btnPopup.style.visibility="hidden";
+        opt_box.style.visibility="hidden";
+    }
+}
+    // Khi người dùng click vào nút đăng xuất
 logoutButton.addEventListener("click", () => {
     isLoggedIn = false;
     localStorage.setItem("isLoggedIn", isLoggedIn);
+    btnPopup.style.visibility="visible";
+    opt_bo.style.visibility="visible";
 });

@@ -195,14 +195,14 @@ a
 .price 
 {
     display: flex;
-    /* justify-content: center; */
-    margin: 0px;
+    justify-content: center;
 }
 .price p 
 {
     margin: 0px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
+    text-align: center;
 }
 .phantrang
 {

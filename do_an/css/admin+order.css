@@ -4,6 +4,7 @@ body
     height: 100%;
     background-color: rgb(238, 238, 238);
     min-height: 500px;
+    zoom: 75%;
 }
 a:hover
 {

@@ -308,26 +308,28 @@ const passwordError = document.querySelector("#password-login-error");
 
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
-  for(var i=0;i<userList.length;i++){
-    if(userList[i].accountName === accountNameLogin.value){
-      if(userList[i].passWord === passWordLogin.value){
-        userList[i].status= true;
+  var check = false;
+  var i=0;
+  for(i;i<userList.length;i++){
+    if(accountNameLogin.value === userList[i].accountName){
+      console.log("đã tìm thấy tài khoản");
+      if(userList[i].password === passWordLogin.value){
+        console.log("đã tìm thấy mật khẩu");
+        check=true;
+        console.log(check);
+        changeOnLoginSuccess();
       }
-      else{
-        passwordError.textContent = "Sai mật khẩu";
-      }
-      break;
     }
   }
-  userLoginError.textContent = "Tài khoản không tồn tại";
+  if(!check){
+    userLoginError.textContent = "Tài khoản không tồn tại";
+  }
 });
 function changeOnLoginSuccess(){
-    isLoggedIn = localStorage.getItem("isLoggedIn");
-    if(isLoggedIn){
-        logoutButton.style.visibility="visble";
-        btnPopup.style.visibility="hidden";
-        optionBox.style.visibility="hidden";
-    }
+  logoutButton.style.display="block";
+  btnPopup.style.visibility="hidden";
+  optionBox.style.visibility="hidden";
+  loginLink.style.display="none";
 }
 // Khi người dùng click vào nút đăng xuất
 logoutButton.addEventListener("click", () => {

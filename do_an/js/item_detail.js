@@ -239,5 +239,11 @@ function addCartButtonBehavior(name, price, img, content) {
       content.style.zIndex = null;
     }, 490);
     cartAdd(name, price, parseInt(quantity.value), img); //thêm vào mảng của giỏ hàng
+    for(var i=0;i<productList.length;i++)
+    {
+      if(productList[i].name === name) productList[i].count+=parseInt(quantity.value);
+    }
+    saveProductList();
+    console.log(productList);
   });
 }

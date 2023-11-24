@@ -71,6 +71,7 @@ function addProduct(name, price, type, img, img2, img3, img4, id) {
     img3: img3,
     img4: img4,
     id: id,
+    count: 0
   };
   productList.push(product);
   productList2 = productList;

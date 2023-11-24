@@ -241,6 +241,16 @@ a
     justify-content: center;
     align-items: center;
 }
+#statistical
+{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 95%;
+    background-color: white;
+    overflow-x: auto;
+}
 #admin 
 {
     display: none;

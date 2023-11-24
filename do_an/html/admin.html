@@ -381,7 +381,8 @@
                 img2: img2,
                 img3: img3,
                 img4: img4,
-                id: id
+                id: id,
+                count: 0,
             };
             productList.push(product);
         }
@@ -729,8 +730,8 @@
                     }
                 }
                 addProduct(name,price,type,img,img2,img3,img4,id);
-                saveProductList();
                 displayProduct(productList);
+                saveProductList();
                 search_admin();
                 adminmode(searchADList);
                 clearadd();
@@ -800,6 +801,7 @@
         function statistical()
         {   
             var a = document.querySelector("#statistical table");
+            a.innerHTML='';
             b = document.createElement("tr");
             b.innerHTML=
             '<td align=center colspan=2>Sản phẩm</td>'+

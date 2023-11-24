@@ -296,9 +296,9 @@ const logoutButton = document.querySelector("#logout");
 // nút xác nhận đăng nhập
 const loginButton = document.querySelector("#login");
 const accountNameLogin = document.querySelector("#account-login");
-const passWordLogin = document.querySelector("#account-login");
-const userLoginError = document.querySelector("#user-login-error");
-const passwordError = document.querySelector("#user-login-error");
+const passWordLogin = document.querySelector("#password-login");
+const userLoginError = document.querySelector("#username-login-error");
+const passwordError = document.querySelector("#password-login-error");
 // isLoggedIn = false;
 // // Khi đăng nhập thành công
 // function onLoginSuccess() {
@@ -306,7 +306,21 @@ const passwordError = document.querySelector("#user-login-error");
 //   localStorage.setItem("isLoggedIn", isLoggedIn);
 // }
 
-console.log(login);
+loginButton.addEventListener("click",(e) => {
+  e.preventDefault();
+  for(var i=0;i<userList.length;i++){
+    if(userList[i].accountName === accountNameLogin.value){
+      if(userList[i].passWord === passWordLogin.value){
+        userList[i].status= true;
+      }
+      else{
+        passwordError.textContent = "Sai mật khẩu";
+      }
+      break;
+    }
+  }
+  userLoginError.textContent = "Tài khoản không tồn tại";
+});
 function changeOnLoginSuccess(){
     isLoggedIn = localStorage.getItem("isLoggedIn");
     if(isLoggedIn){

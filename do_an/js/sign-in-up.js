@@ -6,8 +6,8 @@ const Iconclose = document.querySelector(".icon-close");
 const usernameIput = document.querySelector("#checkaccount");
 const errorSpan = document.querySelector("#error");
 const passErrorSpan = document.querySelectorAll(".pass-error");
-const phoneNumberErrorSpan = document.querySelector("#phonenumber-error")
 const btn_yes = document.querySelector(".btn_yes");
+const user=[];
 
 let login = document.getElementsByClassName("dangnhap")[0];
 let signup = document.getElementsByClassName("dangki")[0];
@@ -37,7 +37,7 @@ btnPopup.addEventListener("click", () => {
 });
 
 btn_yes.addEventListener("click", () => {
-  opt_box.style.animation = "box-out 2s";
+  optionBox.style.animation = "box-out 2s";
   // wrapper.style.animation = "wrapper-in 2s forwards";
   wrapper.classList.add("active-popup");
 });
@@ -46,18 +46,20 @@ Iconclose.addEventListener("click", () => {
   wrapper.classList.remove("active-popup");
 });
 
+// kiểm tra nhập tên
 function checkInputLength(input) {
   if (input.value.length > 10) {
     input.value = input.value.slice(0, 10);
   }
 }
+
 //kiểm tra mật khẩu đăng ký
 const usernameInput = document.querySelector("#checkaccount");
 const passWordInput = document.querySelectorAll(".checkpasswords");
 
-passWordInput[0].addEventListener("input",()=> {
+passWordInput[0].addEventListener("input",() => {
   var passWord = passWordInput[0].value;
-  if(passWord.length < 8 && passWord.length>1){
+  if(passWord.length < 8 && passWord.length>=1){
     passErrorSpan[0].textContent = "mật khẩu cần ít nhẩt 8 kí tự";
   }
   else{
@@ -78,6 +80,8 @@ passWordInput[1].addEventListener("input",()=> {
 
 //kiểm tra số điện thoại đăng ký
 const phoneNumber = document.getElementById("checkphonenumber");
+const phoneNumberErrorSpan = document.querySelector("#phonenumber-error");
+
 phoneNumber.addEventListener("input",()=>{
   var number = phoneNumber.value;
   var regex = /(84|0[35789])[0-9]{8}$/;
@@ -86,12 +90,14 @@ phoneNumber.addEventListener("input",()=>{
   }
   else{
     phoneNumberErrorSpan.textContent = "số điện thoại không hợp lệ";
+    if(number.length<=10){
+      phoneNumberErrorSpan.textContent ="";
+    }
   }
 });
 usernameInput.addEventListener("input", (event) => {
   // Lấy giá trị của input
   const username = event.target.value;
-
   // Cắt bỏ giá trị nếu vượt quá 8 ký tự
   if (username.length > 9) {
     event.target.value = username.substring(0, 9);
@@ -102,10 +108,114 @@ usernameInput.addEventListener("input", (event) => {
   }
 });
 
-//check đồng ý thông tin
-const acptValue = document.getElementById("acpt-infor");
-acptValue.addEventListener("input",() =>{
-  console.log(acptValue.value);
+//biến check đồng ý thông tin
+const acpt = document.getElementById("acpt-infor");
+
+//check mail
+const checkMail = document.querySelector("#email");
+const mailError = document.querySelector("#email-error");
+checkMail.addEventListener("input", () => {
+  var mail = checkMail.value;
+  const regex = /([a-z]|[A-Z]|[0-9]){1,64}@([a-z]|[A-Z]|[0-9]|.){1,255}$/;
+  if(!mail.match(regex)){
+    mailError.textContent="mail không hợp lệ";
+  }
+  else{
+    mailError.textContent="";
+  }
+});
+
+
+//thêm user
+function addUser(userName, passWord, email, phoneNumber){
+  var newUser={
+    name: userName,
+    password: passWord,
+    email: email,
+    phonenumber:phoneNumber,
+    status: false
+  }
+  user.push(newUser);
+}
+addUser(
+  "dat",
+  12345678,
+  "a@gmail.com",
+  "0395632027"
+)
+// bấm submit đăng ký
+var register=document.querySelector("#register");
+register.addEventListener('click',function(e){
+  e.preventDefault();
+  var name = usernameInput.value;
+  var passWord = passWordInput[0].value;
+  var rewritePassWord = passWordInput[1].value;
+  var mail = checkMail.value;
+  var number = phoneNumber.value;
+  var acptValue = acpt.value;
+  var check = true;
+  const regex1 = /([a-z]|[A-Z]|[0-9]){1,64}@([a-z]|[A-Z]|[0-9]|.){1,255}$/;//biểu thức chính quy mail
+  const regex2 = /(84|0[35789])[0-9]{8}$/; //biểu thức chính quy số điện thoại
+  
+  //check mật khẩu đăng ký
+  if(passWord.length < 8 && passWord.length>=1){
+    check = false;
+    if(!check){
+      alert("Mật khẩu không hợp lệ");
+    }
+  }
+  // check mật khẩu được nhập lại
+  else if(rewritePassWord !== passWord){
+    check = false;
+    if(!check){
+      alert("Mật khẩu không trùng khớp");
+    }
+  }
+  // check mail
+  else if(!mail.match(regex1)){
+    check = false;
+    if(!check){
+      alert("Mail không hợp lệ");
+    }
+  }
+  //check số điện thoại
+  else if(!number.match(regex2)){
+    check = false;
+    if(!check){
+      alert("Số điện thoại không hợp lệ");
+    }
+  }
+  // check xác nhận thông tin
+  else if(!acptValue.match("on")){
+    check = false;
+    if(!check){
+      alert("Vui lòng chọn ô tôi đồng ý với khai báo trên là đúng");
+    }
+  }
+  else{
+    for(var i=0; i<user.length;i++){
+      if(name===user[i].name){
+        alert("Tên đăng nhập đã tồn tại");
+        check=false;
+        usernameInput.value="";
+        break;
+      }
+    }
+  }
+  if(check){
+    // hiển thị bảng đăng ký thành công
+    var alertCustom = document.querySelector("#customalert");
+    alertCustom.style.animation="complete 10s";
+    addUser(name, passWord, mail, number);
+    console.log(user);
+    // xóa thông tin đã nhập lúc đăng ký thành công
+    usernameInput.value="";
+    passWordInput[0].value="";
+    passWordInput[1].value="";
+    checkMail.value="";
+    phoneNumber.value="";
+    
+  }
 });
 
 // Tạo nút đăng xuất
@@ -122,14 +232,13 @@ function changeOnLoginSuccess(){
     if(isLoggedIn){
         logoutButton.style.visibility="visble";
         btnPopup.style.visibility="hidden";
-        opt_box.style.visibility="hidden";
+        optionBox.style.visibility="hidden";
     }
 }
-
 // Khi người dùng click vào nút đăng xuất
 logoutButton.addEventListener("click", () => {
     isLoggedIn = false;
     localStorage.setItem("isLoggedIn", isLoggedIn);
     btnPopup.style.visibility="visible";
-    opt_bo.style.visibility="visible";
+    optionBox.style.visibility="visible";
 });

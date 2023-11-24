@@ -138,7 +138,7 @@
                   </label>
                   <a href="#"> quên mật khẩu ? </a>
               </div>
-              <button type="submit" class="btn">login</button>
+              <button type="submit" class="btn" id="login">login</button>
               <div class="login-register">
                   <p>
                       không có tài khoản ?
@@ -207,6 +207,7 @@
                           <input type="email" required id="email" />
 
                           <label> Email</label>
+                          <span id="email-error"> </span>
                       </div>
                       <div class="nhap">
                           <span class="icon">
@@ -228,7 +229,7 @@
                   tôi đồng ý với khai báo trên là đúng
                 </label>
               </div>
-              <button type="submit" class="btn">register</button>
+              <button type="submit" class="btn" id="register">register</button>
               <div class="login-register">
                   <p>
                       Đã có tài khoản ?
@@ -236,8 +237,11 @@
                   </p>
               </div>
           </form>
+      </div>
     </div>
-        </div>
+    <div id="customalert">
+        <p>Đã đăng ký thành công!<p>
+    </div>
   <!-- banner ảnh -->
     <div id="box">
         <div id="banner_content">

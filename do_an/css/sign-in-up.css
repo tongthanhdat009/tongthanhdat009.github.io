@@ -206,3 +206,41 @@ form .wrapper-flex .right-content {
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+/* thông báo đăng ký thành công */
+#customalert{
+    width: 350px;
+    height: 50px;
+    background-color: rgba(174, 238, 79, 0.753);
+    position: fixed;
+    left: calc(50% - 175px);
+    top: -100%;
+    z-index: 1;
+}
+#customalert p{
+    text-align: center;
+    position: relative;
+    top: 5px;
+    font-size: 30px;
+    color: white;
+}
+@keyframes complete {
+    0% {
+        top: -100%;
+    }
+    20% {
+        top:5%;
+    }
+    40% {
+        top: 5%;
+    }
+    60% {
+        top: 5%;
+    }
+    80% {
+        top: 5%;
+    }
+    100% {
+        top: -100%;
+    }
+}

@@ -1,6 +1,8 @@
+*{
+  zoom: 80%;
+}
 body {
   overflow-x: hidden;
-  zoom: 85%;
 }
 
 html {

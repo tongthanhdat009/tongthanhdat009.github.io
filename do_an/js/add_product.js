@@ -13,10 +13,10 @@ function saveProductList() {
 }
 //chạy hàm save 1 lần
 function runSave(){
-  var hasRun = localStorage.getItem('hasRun');
-  if (!hasRun) {
+  var displayHasRun = localStorage.getItem('displayHasRun');
+  if (!displayHasRun) {
     saveProductList();
-    localStorage.setItem('hasRun', true);
+    localStorage.setItem('displayHasRun', true);
   }
 }
 function productDisplay2() {

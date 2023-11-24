@@ -305,7 +305,8 @@ const passwordError = document.querySelector("#user-login-error");
 //   isLoggedIn = true;
 //   localStorage.setItem("isLoggedIn", isLoggedIn);
 // }
-console.log(login)
+
+console.log(login);
 function changeOnLoginSuccess(){
     isLoggedIn = localStorage.getItem("isLoggedIn");
     if(isLoggedIn){

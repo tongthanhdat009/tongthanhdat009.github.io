@@ -179,29 +179,29 @@ function addUser(userName, accountname, passWord, email, phoneNumber){
   getUserList();
 }
 //tài khoản admin
-// addUser(
-//   "Group 2",
-//   "admin",
-//   "admin",
-//   "wibustore@gmail.com",
-//   "123456789"
-//   );
+addUser(
+  "Group 2",
+  "admin",
+  "admin",
+  "wibustore@gmail.com",
+  "123456789"
+  );
   
 //   //tài khoản user
-// addUser(
-//   "Tống Thành Đạt",
-//   "dat",
-//   "12345678",
-//   "a@gmail.com",
-//   "0395632027"
-//   );
-//   addUser(
-//   "Tống Thành Đạt",
-//   "dat2",
-//   "12345678",
-//   "a@gmail.com",
-//   "0395632027"
-//   );
+addUser(
+  "Tống Thành Đạt",
+  "dat",
+  "12345678",
+  "a@gmail.com",
+  "0395632027"
+  );
+  addUser(
+  "Tống Thành Đạt",
+  "dat2",
+  "12345678",
+  "a@gmail.com",
+  "0395632027"
+  );
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký
 var register=document.querySelector("#register");
@@ -353,8 +353,10 @@ logoutButton.addEventListener("click", (e) => {
     wrapper.style.display="initial";  
     logoutButton.style.display="none";
     adminButton.style.display="none";
-    payButton.removeAttribute("onclick");
-    payButton.setAttribute("onclick","openOption()");
+    if(window.location.pathname === "/do_an/html/cart.html"){
+      payButton.removeAttribute("onclick");
+      payButton.setAttribute("onclick","openOption()");
+    }
     deleteAll();
 });
 //lưu thông tin người đăng nhập hiện tại
@@ -390,4 +392,5 @@ loginButton.addEventListener("click",(e) => {
     alert("vui lòng kiểm tra tài khoản hoặc mật khẩu"); 
   }
 });
-// localStorage.clear();
+console.log(userList.length);
+console.log(localStorage.getItem("currentUser"));

@@ -7,7 +7,6 @@ const closePage = document.querySelector("#user-infor-close");
 const rightContent = document.querySelector("#user-right-content");
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-console.log(currentUser);
 // thêm hình + tiêu đề cho trang thông tin
 altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</div>'+
                     '<div id="alt-page-img">'+
@@ -18,7 +17,7 @@ altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</di
 function openInforTb(){
     userInforCont.style.animation="user-infor-in 2s forwards";    
 }
-
+console.log(currentUser.userName);
 //thêm chức năng đóng trang
 closePage.addEventListener("click",() => {
     userInforCont.style.animation="user-infor-out 2s";
@@ -27,6 +26,7 @@ closePage.addEventListener("click",() => {
 
 checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
+    rightContent.innerHTML='<p>Họ tên: '+currentUser.userName+'</p>'
 });
 
 checkBill.addEventListener('click', () => {
@@ -36,3 +36,5 @@ checkBill.addEventListener('click', () => {
 editInfor.addEventListener('click', () => {
     altPage.style.display="none";
 });
+
+console.log(currentUser);

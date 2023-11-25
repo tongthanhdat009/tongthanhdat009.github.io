@@ -375,7 +375,6 @@ logoutButton.addEventListener("click", (e) => {
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, false);
       }
     }
-    localStorage.removeItem("currentUser");
     btnPopup.style.display="initial";
     optionBox.style.display="initial";
     loginLink.style.display="initial";

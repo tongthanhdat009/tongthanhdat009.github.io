@@ -253,8 +253,18 @@ img {
   min-height: 600px;
   position: fixed;
   left: calc(50% - 600px);
-  top:100px;
+  top: -100%;
   z-index: 5;
+}
+#user-infor-close{
+  width: 50px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+  border-radius: 25px;
+}
+#user-infor-close:hover{
+  background-color: #db2626;
 }
 #user-infor-left{
   width: 30%;
@@ -286,6 +296,22 @@ img {
 #alt-page-img img{
   position: relative;
   left: calc(50% - 250px);
+}
+@keyframes user-infor-in {
+  from{
+    top:-100%;
+  }
+  to{
+    top:20%;
+  }
+}
+@keyframes user-infor-out {
+  from{
+    top:20%;
+  }
+  to{
+    top:-100%;
+  }
 }
 /* ---- */
 

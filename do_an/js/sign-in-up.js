@@ -296,6 +296,10 @@ const loginButton = document.querySelector("#login");
 
 //nút admin
 const adminButton = document.querySelector("#admin");
+
+//nút xem thông tin tài khoản
+const userInforButton = document.querySelector("#infor_user");
+
 //mật khẩu tài khoản đăng nhập
 const accountNameLogin = document.querySelector("#account-login");
 const passWordLogin = document.querySelector("#password-login");
@@ -313,15 +317,17 @@ onLoginSuccess(currentUserLogged);
 function onLoginSuccess(user) {
   if(user && user.status){
     changeOnLoginSuccess();
-    if(user.accountName === "admin"){
-      adminButton.style.display="initial";
-    }
-  if(window.location.pathname === "/do_an/html/cart.html")
-    payButton.setAttribute("onclick","payAll()");
+  }
+  if(user.accountName === "admin"){
+    adminButton.style.display="initial";
   }
 }
 // thay đổi css khi đăng nhập
 function changeOnLoginSuccess(){
+  if(window.location.pathname === "/do_an/html/cart.html"){
+    payButton.setAttribute("onclick","payAll()");
+  }
+  userInforButton.setAttribute("onclick","openInforTb()");
   logoutButton.style.display="initial";
   btnPopup.style.display="none";
   optionBox.style.display="none";
@@ -344,6 +350,7 @@ logoutButton.addEventListener("click", (e) => {
     wrapper.style.display="initial";  
     logoutButton.style.display="none";
     adminButton.style.display="none";
+    userInforButton.setAttribute("onclick","openOption()");
     if(window.location.pathname === "/do_an/html/cart.html"){
       payButton.removeAttribute("onclick");
       payButton.setAttribute("onclick","openOption()");

@@ -349,12 +349,12 @@ function onLoginSuccess(user) {
   if(user && user.status){
     changeOnLoginSuccess();
   }
-  if(user.accountName === "admin"){
-    adminButton.style.display="initial";
-  }
 }
 // thay đổi css khi đăng nhập
 function changeOnLoginSuccess(){
+  if(currentUserLogged.accountName === "admin"){
+    adminButton.style.display="initial";
+  }
   if(window.location.pathname === "/do_an/html/cart.html"){
     payButton.setAttribute("onclick","payAll()");
   }

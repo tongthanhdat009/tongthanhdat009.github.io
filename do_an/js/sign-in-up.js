@@ -15,6 +15,7 @@ var optionBox = document.getElementById("option_box");
 function openOption() {
   optionBox.style.animation = "box-in 2s forwards";
 }
+
 function closeOption() {
   optionBox.style.animation = "box-out 2s";
 }
@@ -202,6 +203,7 @@ addUser(
   "a@gmail.com",
   "0395632027"
   );
+
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký
 var register=document.querySelector("#register");
@@ -291,7 +293,6 @@ register.addEventListener('click',function(e){
     phoneNumber.value="";
   }
 });
-
 getUserList();
 
 // console.log(userList);
@@ -371,6 +372,7 @@ function setCurrentUser(username, accountname, password, email, phonenumber,stat
   }
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
+
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
   var check = false;
@@ -392,5 +394,3 @@ loginButton.addEventListener("click",(e) => {
     alert("vui lòng kiểm tra tài khoản hoặc mật khẩu"); 
   }
 });
-console.log(userList.length);
-console.log(localStorage.getItem("currentUser"));

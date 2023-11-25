@@ -6,7 +6,6 @@
     <title>Hàng có sẵn - WIBU STORE</title>
     <link rel="stylesheet" href="../css/admin+order.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" hreaf="../css/main.css">
     <link rel="icon" type="image/x-icon" href="../asset/Logo.png" />
 </head>
 <body>
@@ -16,16 +15,16 @@
                     <a href="#" id="x" onclick="closeNav()" style="float: right;">&times;</a>
                 </div>
                 <ul>
-                <li><a href="../html/main.html">Trang chủ</a></li>
-                <li><a href="#introduce">About us</a></li>
-                <li><a href="#introduce">Services</a></li>
-                <li><a href="../html/cart.html">Giỏ hàng</a></li>
-                <li><a href="../html/main.html#inforuser">Thông tin tài khoản</a></li>
-                <li id="login-order"><a href="../html/main.html">Đăng nhập/đăng ký</a></li>
-                <li id="logout-order"><a href="../html/main.html" >Đăng xuất</a></li>
+                    <li><a href="../html/main.html">Trang chủ</a></li>
+                    <li><a href="#introduce">About us</a></li>
+                    <li><a href="#introduce">Services</a></li>
+                    <li><a href="../html/cart.html">Giỏ hàng</a></li>
+                    <li id="login-order"><p>Đăng nhập/đăng ký<p></li>
+                    <li id="logout-order"><p>Đăng xuất<p></li>
                 </ul>
             </div>
-        </div>
+        </div>      
+
         <div class="header">
             <div style="width: 200px;"> <span id="trangchu" onclick="openNav()" style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU STORE</strong></span> </div>
             <div class="container" style="width:calc(100% - 200px);">
@@ -157,6 +156,7 @@
     <script src="../js/item_detail.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/add_product.js"></script>
+    <script src="../js/sign-in-up.js"></script>
     <script>
         var currentPage = 1;
         var ProductPerPage = 16;

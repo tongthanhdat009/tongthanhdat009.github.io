@@ -44,7 +44,7 @@
                     <div class="Filter">
                         <div class="min">
                             <p>Min</p>
-                            <input id="min-price" style="margin-left: 12px; width: 100%;" type="number" placeholder="VND">
+                            <input id="min-price" style="margin-left: 13px ;width: 100%;" type="number" placeholder="VND">
                         </div>
                         <div class="max">
                             <p>Max </p>
@@ -85,8 +85,8 @@
                     <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
                     <div id="container-sort" style="display: block ;height: 50px;">
                         <select name="" id="mySelect">
-                            <option value="Theo tên">Theo tên</option>
-                            <option value="Theo giá">Theo giá</option>
+                            <option value="Tăng dần theo tên">Tăng dần theo tên</option>
+                            <option value="Tăng dần theo giá">Tăng dần theo giá</option>
                         </select>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
     <script src="../js/add_product.js"></script>
     <script>
         var currentPage = 1;
-        var ProductPerPage = 5;
+        var ProductPerPage = 16;
         var productList = [];
         var productList2 = [];
         var productStored=localStorage.getItem('productList');
@@ -167,6 +167,13 @@
             productList=JSON.parse(productStored);
             productList2=productList;
         }
+            var select = document.getElementById("mySelect")
+            select.addEventListener('change',function()
+            {
+                var selectOption = select.options[select.selectedIndex];
+                if(selectOption.value === 'Tăng dần theo tên') sort_by_name();
+                if(selectOption.value === 'Tăng dần theo giá') sort_by_price();
+            })
         function phan_trang()
         {
             var trang = document.getElementsByClassName("product-inner");

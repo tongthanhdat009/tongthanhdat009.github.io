@@ -1,28 +1,27 @@
-body
-{
+body {
     margin: 0px;
     height: 100%;
     background-color: rgb(238, 238, 238);
     min-height: 500px;
 }
-a:hover
-{
-    background-color:gray;
+
+a:hover {
+    background-color: gray;
 }
-.header
-{
+
+.header {
     display: flex;
     height: 70px;
     background-color: rgb(113, 117, 111);
     position: relative;
 }
-.header input
-{
+
+.header input {
     height: 40px;
     width: 45%;
 }
-.menu
-{
+
+.menu {
     CONTAIN-INTRINSIC-BLOCK-SIZE: AUTO 100PX;
     width: 300px;
     height: 100%;
@@ -31,22 +30,22 @@ a:hover
     background-color: rgb(44, 43, 43);
     display: none;
 }
-.menu a
-{
+
+.menu a {
     color: white;
     display: block;
     font-size: 25px;
     margin: 20px;
     font-weight: normal;
 }
-.main
-{
+
+.main {
     display: flex;
-    height:calc(100% - 100px);
-    margin-top:20px;
+    height: calc(100% - 100px);
+    margin-top: 20px;
 }
-.bottom
-{
+
+.bottom {
     position: absolute;
     height: 200px;
     display: flex;
@@ -54,80 +53,82 @@ a:hover
     align-items: center;
     width: 100%;
 }
+
 .container {
     justify-content: center;
     align-items: center;
     display: flex;
 }
-.Filter-by-price
-{   
+
+.Filter-by-price {
     display: block;
     width: 100%;
     height: 200px;
 }
-.Filter
-{   
+
+.Filter {
     display: block;
 }
-.min
-{
+
+.min {
     display: flex;
 }
-.max
-{
+
+.max {
     display: flex;
 }
-.tieude
-{
+
+.tieude {
     justify-content: center;
     align-items: center;
     display: flex;
-    height:100%;
+    height: 100%;
     width: 200px;
 }
-.main ul
-{
+
+.main ul {
     margin: 0px;
     padding: 0px;
 }
-.main li
-{   
+
+.main li {
     display: flex;
     height: 50px;
     background-color: rgb(113, 117, 111);
     border-bottom: 3px solid black;
     align-items: center;
-} 
-a
-{
-    text-decoration: none; 
+}
+
+a {
+    text-decoration: none;
     font-size: 20px;
     color: black;
     font-weight: bold;
 }
-.site-main
-{
+
+.site-main {
     position: relative;
     display: block;
-    width:calc(100% - 300px); 
-    height: 100%; 
+    width: calc(100% - 300px);
+    height: 100%;
     left: 300px;
 }
+
 .giaodienmobile {
     display: none;
 }
-.giaodienpc
-{
+
+.giaodienpc {
     height: 100%;
 }
-.sidebar-content
-{
+
+.sidebar-content {
     width: 250px;
     height: 100%;
     position: fixed;
 }
-.archive-product
-{
+
+.archive-product {
     height: 100%;
     min-height: 600px;
     width: 100%;
@@ -135,21 +136,20 @@ a
     flex-wrap: wrap;
     justify-content: center;
 }
-.product-image img
-{
+
+.product-image img {
     width: 100%;
     border-top-right-radius: 5%;
     border-top-left-radius: 5%;
 }
 
-.product-image a
-{
-    outline: none!important;
+.product-image a {
+    outline: none !important;
     width: 100%;
     height: 100%;
 }
-.product-inner
-{
+
+.product-inner {
     width: 325px;
     height: 600px;
     margin: 50px;
@@ -158,63 +158,65 @@ a
     border: 3px solid black;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5%;
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 }
-.product-inner:hover{
+
+.product-inner:hover {
     transform: scale(1.1);
     border: 2px solid white;
 }
-#button-search
-{
+
+#button-search {
     background-color: rgb(113, 117, 111);
 }
-#button-search
-{
+
+#button-search {
     width: 50px;
     cursor: pointer
 }
-#button-refresh
-{
+
+#button-refresh {
     width: 50px;
     height: auto;
     cursor: pointer;
     padding-left: 30px;
 }
-.product-content
-{   
+
+.product-content {
     display: block;
     justify-content: center;
-    
+
 }
+
 /* .name-figure
 {
     display: flex;
     justify-content: center;
     margin: 0px;
 } */
-.price 
-{
+.price {
     display: flex;
     justify-content: center;
 }
-.price p 
-{
+
+.price p {
     margin: 0px;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
-.phantrang
-{
+
+.phantrang {
     display: flex;
     justify-content: center;
 }
-.phantrang button
-{
+
+.phantrang button {
     width: 100px;
 }
-#Page
-{
+
+#Page {
     display: flex;
     border: 2px solid black;
     font-size: 20px;
@@ -222,122 +224,123 @@ a
     justify-content: center;
     color: black;
 }
-#product-per-page
-{   
+
+#product-per-page {
     height: 30px;
     width: 30px;
     margin-left: 75px;
 }
-.sort-button
-{
+
+.sort-button {
     margin: 0px;
     float: right;
     border: 1px solid black;
 }
-#addition
-{
+
+#addition {
     display: flex;
     height: 50px;
     justify-content: center;
     align-items: center;
 }
-#statistical
-{
+
+#statistical {
     display: none;
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: 93%;
+    height: calc(100vh - 70px);
     background-color: white;
     overflow-x: auto;
 }
-#admin 
-{
+
+#admin {
     display: none;
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: 95%;
+    height: calc(100vh - 70px);
     background-color: white;
     overflow-x: auto;
 }
-.tensanpham
-{
+
+.tensanpham {
     position: relative;
     left: 10%
 }
-.gia 
-{
+
+.gia {
     position: relative;
     left: 40%
 }
-.loai
-{
+
+.loai {
     position: relative;
     left: 70%
 }
-#list h5
-{
+
+#list h5 {
     font-size: 20px;
 }
-#are-you-sure
-{
+
+#are-you-sure {
     width: 200px;
     background-color: FFA3FD;
     display: none;
 }
-#YES 
-{
+
+#YES {
     width: 100px;
     height: 50px;
     background-color: rgb(75, 241, 75);
 }
-#NO 
-{
+
+#NO {
     width: 100px;
     height: 50px;
     background-color: red;
 }
-#config
-{
+
+#config {
     display: none;
     width: 350px;
     border: 5px solid black;
     height: 800px;
     z-index: 1000;
 }
-#config input
-{
+
+#config input {
     font-size: 20px;
     width: 70%;
 }
-.choice
-{
+
+.choice {
     width: 100%;
 }
-.choice button 
-{
+
+.choice button {
     height: 30px;
     font-size: 20px;
     margin-top: 30px;
 }
-#add-product
-{   
+
+#add-product {
     border: 5px solid black;
     width: 350px;
     height: 800px;
     display: none;
 }
-#add-product h2
-{
+
+#add-product h2 {
     margin-bottom: 5px;
 }
-#add-product input
-{
+
+#add-product input {
     font-size: 20px;
     width: 70%;
 }
-.edit-btn{
+
+.edit-btn {
     height: 45px;
     width: 50px;
     font-size: 40px;
@@ -345,7 +348,8 @@ a
     position: relative;
     left: calc(50% - 25px);
 }
-.remove-button{
+
+.remove-button {
     height: 45px;
     width: 50px;
     font-size: 40px;

@@ -86,8 +86,8 @@ img {
 #right_site_header #logout {
   display: none;
   font-size: 25px;
-  margin-left:20px;
-  z-index:999;
+  margin-left: 20px;
+  z-index: 999;
 }
 
 #cart_btn {
@@ -246,7 +246,7 @@ img {
 
 /* ---- */
 /* thông tin tài khoản */
-#user-infor-container{
+#user-infor-container {
   display: flex;
   background-color: palegoldenrod;
   width: 1200px;
@@ -256,63 +256,77 @@ img {
   top: -100%;
   z-index: 5;
 }
-#user-infor-close{
+
+#user-infor-close {
   width: 50px;
   height: 50px;
   float: right;
   cursor: pointer;
   border-radius: 25px;
 }
-#user-infor-close:hover{
+
+#user-infor-close:hover {
   background-color: #db2626;
 }
-#user-infor-left{
+
+#user-infor-left {
   width: 30%;
   border-right: 2px solid;
 }
-#user-infor-left > div{
-  margin:20px;
+
+#user-infor-left>div {
+  margin: 20px;
   font-size: 20px;
 }
-#user-infor-left > div:hover{
-  background-color: white; 
-  color: #818181; 
+
+#user-infor-left>div:hover {
+  background-color: white;
+  color: #818181;
   cursor: pointer;
 }
-#user-infor-right{
+
+#user-infor-right {
   width: 70%;
 }
+
 .check-infor-title,
 .check-bill-title,
-.edit-infor-title{
+.edit-infor-title {
   text-align: center;
   font-size: 30px;
   display: none;
 }
-#alt-page-title{
+
+#alt-page-title {
   text-align: center;
-  font-size:30px;
+  font-size: 30px;
 }
-#alt-page-img img{
+
+#alt-page-img img {
   position: relative;
   left: calc(50% - 250px);
 }
+
 @keyframes user-infor-in {
-  from{
-    top:-100%;
+  from {
+    top: -100%;
   }
-  to{
-    top:20%;
+
+  to {
+    top: 20%;
   }
 }
+
 @keyframes user-infor-out {
-  from{
-    top:20%;
+  from {
+    top: 20%;
   }
-  to{
-    top:-100%;
+
+  to {
+    top: -100%;
   }
 }
+
 /* ---- */
 
 /* menu */
@@ -457,7 +471,7 @@ img {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  background-color:rgba(139, 139, 127, 0.164);
+  background-color: rgba(139, 139, 127, 0.164);
 }
 
 #promo1 {
@@ -521,12 +535,27 @@ img {
   text-decoration: none;
   animation: change-color 2s infinite;
 }
+
 @keyframes change-color {
-  0%{color: aqua;}
-  25%{color:aquamarine}
-  50%{color: #db2626;}
-  75%{color: aquamarine;}
-  100%{color: aqua;}
+  0% {
+    color: aqua;
+  }
+
+  25% {
+    color: aquamarine
+  }
+
+  50% {
+    color: #db2626;
+  }
+
+  75% {
+    color: aquamarine;
+  }
+
+  100% {
+    color: aqua;
+  }
 }
 
 /* ---- */
@@ -760,9 +789,10 @@ img {
 }
 
 .right-content .amount {
-  width: 13em;
+  width: 100%;
   display: flex;
   margin-bottom: 2rem;
+  align-items: center;
 }
 
 .right-content .amount .header {
@@ -774,6 +804,7 @@ img {
 
 .right-content .amount * {
   padding: 0.5em;
+  height: 30px;
 }
 
 .amount .increase,
@@ -935,7 +966,8 @@ img {
   #infor_user {
     margin: 0;
   }
-  #promotion_container{
+
+  #promotion_container {
     width: 100%;
   }
 

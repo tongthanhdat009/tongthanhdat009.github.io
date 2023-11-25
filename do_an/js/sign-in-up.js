@@ -398,14 +398,6 @@ function setCurrentUser(username, accountname, password, email, phonenumber,addr
   }
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
-setCurrentUser(
-  "Group 2",
-  "admin",
-  "admin",
-  "a@gmail.com",
-  "0395632027",
-  true
-  );
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
   var check = false;

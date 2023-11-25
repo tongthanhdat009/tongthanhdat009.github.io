@@ -235,6 +235,18 @@
                         <label> Số Điện Thoại</label>
                         <span id="phonenumber-error"> </span>
                     </div>
+                    <div class="nhap">
+                      <span class="icon">
+                          <ion-icon name="call-outline"></ion-icon>
+                      </span>
+                      <input
+                          type="address"
+                          required
+                          id="checkaddress"
+                      />
+                      <label> Địa chỉ</label>
+                      <span id="erroraddress"> </span>
+                    </div>
                   </div>
               </div>
               <button type="submit" class="btn" id="register">register</button>
@@ -254,13 +266,13 @@
   <!-- thông tin tài khoản -->
   <div id="user-infor-container">
     <div id="user-infor-left">
-      <div class="check-infor">
+      <div id="check-infor">
         xem thông tin
       </div>
-      <div class="check-bill">
+      <div id="check-bill">
         xem đơn hàng đã đặt
       </div>
-      <div class="edit-user-infor">
+      <div id="edit-user-infor">
         chỉnh sửa thông tin tài khoản
       </div>
     </div>
@@ -269,14 +281,9 @@
         <img src="../asset/icon/close.png" alt="">
       </div>
       <div id="alt-page">
-        
       </div>
-      <div class="check-infor">
+      <div id="user-right-content">
       </div>
-      <div class="check-bill">
-      </div>
-      <div class="edit-user-infor">
-      </div>      
     </div>
   </div>
   <!-- banner ảnh -->
@@ -319,7 +326,6 @@
             </a>
         </div>
     </div>
-  
   <br>
   <!-- items_list -->
   <!-- list-1 -->

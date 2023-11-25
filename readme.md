@@ -2,13 +2,13 @@
 
 [thongtindaotao.sgu.edu.vn](https://tongthanhdat009.github.io/MayCaiConLai[ONWORKING])
 
-[main](https://tongthanhdat009.github.io/do_an%20-%20Copy/html/main.html)
+[main](https://tongthanhdat009.github.io/do_an/html/main.html)
 
-[cart](https://tongthanhdat009.github.io/do_an%20-%20Copy/html/cart.html)
+[cart](https://tongthanhdat009.github.io/do_an/html/cart.html)
 
-[admin](https://tongthanhdat009.github.io/do_an%20-%20Copy/html/admin.html)
+[admin](https://tongthanhdat009.github.io/do_an/html/admin.html)
 
-[order](https://tongthanhdat009.github.io/do_an%20-%20Copy/html/order.html)
+[order](https://tongthanhdat009.github.io/do_an/html/order.html)
 
 [template1](https://tongthanhdat009.github.io/template1/index.html)
 

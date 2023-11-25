@@ -5,9 +5,6 @@ const editInfor= document.querySelector("#edit-user-infor");
 const altPage = document.querySelector("#alt-page");
 const closePage = document.querySelector("#user-infor-close");
 const rightContent = document.querySelector("#user-right-content");
-// [0]: phần bên trái;
-// [1]: phần bên phải;
-// var currentUser = localStorage.getItem("currentUser");
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 console.log(currentUser);

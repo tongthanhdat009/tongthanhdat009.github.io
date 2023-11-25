@@ -294,7 +294,7 @@ register.addEventListener('click',function(e){
 });
 
 getUserList();
-console.log(userList);
+// console.log(userList);
 //LIÊN QUAN TỚI ĐĂNG NHẬP/ ĐĂNG XUẤT:
 
 // nút đăng xuất
@@ -315,7 +315,7 @@ const passwordError = document.querySelector("#password-login-error");
 
 //nút thanh toán giỏ hàng
 const payButton = document.querySelector("#pay button");
-console.log(payButton);
+// console.log(payButton);
 // Khi đăng nhập thành công
 var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
 onLoginSuccess(currentUserLogged);
@@ -342,7 +342,7 @@ logoutButton.addEventListener("click", (e) => {
     e.preventDefault;
     for(var i=0;i<userList.length;i++){
       if(currentUserLogged.accountName === userList[i].accountName){
-        console.log(currentUserLogged);
+        // console.log(currentUserLogged);
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, false);
       }
     }
@@ -373,11 +373,10 @@ loginButton.addEventListener("click",(e) => {
   var i=0;
   for(i;i<userList.length;i++){
     if(accountNameLogin.value === userList[i].accountName){
-      console.log("đã tìm thấy tài khoản");
-      console.log(passWordLogin.value);
+      // console.log("đã tìm thấy tài khoản");
       if(userList[i].password === passWordLogin.value){
         check=true;
-        console.log("đã tìm thấy mật khẩu");
+        // console.log("đã tìm thấy mật khẩu");
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
       }

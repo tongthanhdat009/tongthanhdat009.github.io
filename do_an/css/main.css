@@ -853,8 +853,8 @@ img {
 
   /* chỉnh sửa quyền lợi shop */
   .promo_img {
-    left: 10px;
     height: 150px;
+    left: calc(50% - 75px);
   }
 
   /* chỉnh sửa nút vào giỏ hàng */
@@ -866,12 +866,12 @@ img {
   #infor_user {
     margin: 0;
   }
-
-  /* chỉnh sửa nút mở trang admin */
+  #promotion_container{
+    width: 100%;
+  }
 
   /* Duy thái */
   /* chỉnh sửa chi tiết sản phẩm */
-
   .itemdetail {
     width: 100%;
     top: 0;

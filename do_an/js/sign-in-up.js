@@ -265,7 +265,6 @@ register.addEventListener('click',function(e){
       alert("Họ và tên không hợp lệ");
     }
   }
-  
   //check tài khoản
   else{
     for(var i=0; i<userList.length;i++){
@@ -294,6 +293,7 @@ register.addEventListener('click',function(e){
 });
 
 getUserList();
+
 // console.log(userList);
 //LIÊN QUAN TỚI ĐĂNG NHẬP/ ĐĂNG XUẤT:
 
@@ -325,6 +325,7 @@ function onLoginSuccess(user) {
     if(user.accountName === "admin"){
       adminButton.style.display="initial";
     }
+  if(window.location.pathname === "/do_an/html/cart.html")
     payButton.setAttribute("onclick","payAll()");
   }
 }
@@ -354,6 +355,7 @@ logoutButton.addEventListener("click", (e) => {
     adminButton.style.display="none";
     payButton.removeAttribute("onclick");
     payButton.setAttribute("onclick","openOption()");
+    deleteAll();
 });
 //lưu thông tin người đăng nhập hiện tại
 function setCurrentUser(username, accountname, password, email, phonenumber,status){
@@ -379,6 +381,8 @@ loginButton.addEventListener("click",(e) => {
         // console.log("đã tìm thấy mật khẩu");
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
+        accountNameLogin.value="";
+        passWordLogin.value="";
       }
     }
   }

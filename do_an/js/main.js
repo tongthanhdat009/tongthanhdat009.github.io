@@ -1,7 +1,6 @@
 // menu: giao diện điều hướng
 function openNav() {
   document.getElementById("mySidenav").style.width = "300px"; //lấy id thanh điều hướng
-  document.querySelector("#web_name a").style.visibility = "hidden"; //điều chỉnh logo + tên web
   setTimeout(() => {
     document.querySelector("#logo").style.visibility = "hidden";
   }, 150);
@@ -9,7 +8,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   setTimeout(() => {
-    document.querySelector("#web_name a").style.visibility = "visible";
     document.querySelector("#logo").style.visibility = "visible";
   }, 150);
 }

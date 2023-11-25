@@ -86,7 +86,8 @@ img {
 #right_site_header #logout {
   display: none;
   font-size: 25px;
-  margin-left:20px
+  margin-left:20px;
+  z-index:999;
 }
 
 #cart_btn {

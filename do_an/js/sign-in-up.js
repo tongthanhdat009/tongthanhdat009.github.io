@@ -296,22 +296,36 @@ register.addEventListener('click',function(e){
 getUserList();
 console.log(userList);
 //LIÊN QUAN TỚI ĐĂNG NHẬP/ ĐĂNG XUẤT:
+
 // nút đăng xuất
 const logoutButton = document.querySelector("#logout");
+
 // nút xác nhận đăng nhập
 const loginButton = document.querySelector("#login");
+
 //nút admin
 const adminButton = document.querySelector("#admin");
+//mật khẩu tài khoản đăng nhập
 const accountNameLogin = document.querySelector("#account-login");
 const passWordLogin = document.querySelector("#password-login");
+
+//thông báo nếu lỗi thông tin 
 const userLoginError = document.querySelector("#username-login-error");
 const passwordError = document.querySelector("#password-login-error");
+
+//nút thanh toán giỏ hàng
+const payButton = document.querySelector("#pay button");
+console.log(payButton);
 // Khi đăng nhập thành công
 var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
 onLoginSuccess(currentUserLogged);
 function onLoginSuccess(user) {
   if(user && user.status){
     changeOnLoginSuccess();
+    if(user.accountName === "admin"){
+      adminButton.style.display="initial";
+    }
+    payButton.setAttribute("onclick","payAll()");
   }
 }
 // thay đổi css khi đăng nhập
@@ -338,6 +352,8 @@ logoutButton.addEventListener("click", (e) => {
     wrapper.style.display="initial";  
     logoutButton.style.display="none";
     adminButton.style.display="none";
+    payButton.removeAttribute("onclick");
+    payButton.setAttribute("onclick","openOption()");
 });
 //lưu thông tin người đăng nhập hiện tại
 function setCurrentUser(username, accountname, password, email, phonenumber,status){
@@ -362,9 +378,6 @@ loginButton.addEventListener("click",(e) => {
       if(userList[i].password === passWordLogin.value){
         check=true;
         console.log("đã tìm thấy mật khẩu");
-        if(accountNameLogin.value === "admin"){
-          adminButton.style.display="initial"
-        }
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
       }

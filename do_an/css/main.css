@@ -81,14 +81,12 @@ img {
   font-size: 25px;
   margin-left: 20px;
   margin-right: 20px;
-  /* visibility: hidden; */
-  /* display: none; */
 }
 
 #right_site_header #logout {
-  /* display: none; */
+  display: none;
   font-size: 25px;
-
+  margin-left:20px
 }
 
 #cart_btn {
@@ -108,6 +106,7 @@ img {
   font-size: 25px;
   margin-right: 20px;
   float: right;
+  display: none;
 }
 
 /* sign-up/in option */
@@ -868,9 +867,6 @@ img {
   }
 
   /* chỉnh sửa nút mở trang admin */
-  #admin {
-    margin: 0;
-  }
 
   /* Duy thái */
   /* chỉnh sửa chi tiết sản phẩm */

@@ -160,11 +160,11 @@ function getUserList(){
   }
 }
 //hàm chạy save user 1 lần
-function runSave(){
-  var displayHasRun = localStorage.getItem('displayHasRun');
-  if (!displayHasRun) {
+function runSaveUserList(){
+  var userHasRun = localStorage.getItem('userHasRun');
+  if (!userHasRun) {
     saveUserList();
-    localStorage.setItem('displayHasRun', true);
+    localStorage.setItem('userHasRun', true);
   }
 }
 
@@ -176,7 +176,7 @@ function addUser(userName, accountname, passWord, email, phoneNumber){
     password: passWord,
     email: email,
     phoneNumber:phoneNumber,
-    status: false
+    status: false // trạng thái đăng nhập
   }
   userList.push(newUser);
 }
@@ -295,17 +295,57 @@ register.addEventListener('click',function(e){
 const logoutButton = document.querySelector("#logout");
 // nút xác nhận đăng nhập
 const loginButton = document.querySelector("#login");
+//nút admin
+const adminButton = document.querySelector("#admin");
 const accountNameLogin = document.querySelector("#account-login");
 const passWordLogin = document.querySelector("#password-login");
 const userLoginError = document.querySelector("#username-login-error");
 const passwordError = document.querySelector("#password-login-error");
-// isLoggedIn = false;
-// // Khi đăng nhập thành công
-// function onLoginSuccess() {
-//   isLoggedIn = true;
-//   localStorage.setItem("isLoggedIn", isLoggedIn);
-// }
+// Khi đăng nhập thành công
+var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
+console.log(currentUserLogged);
+onLoginSuccess(currentUserLogged);
+function onLoginSuccess(user) {
+  if(user && user.status){
+    changeOnLoginSuccess();
+  }
+}
+// thay đổi css khi đăng nhập
+function changeOnLoginSuccess(){
+  logoutButton.style.display="initial";
+  btnPopup.style.display="none";
+  optionBox.style.display="none";
+  loginLink.style.display="none";
+  wrapper.style.display="none";
+}
 
+// Khi người dùng click vào nút đăng xuất
+logoutButton.addEventListener("click", (e) => {
+    e.preventDefault;
+    for(var i=0;i<userList.length;i++){
+      if(currentUserLogged.accountName === userList[i].accountName){
+        setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, false);
+      }
+    }
+    btnPopup.style.display="initial";
+    optionBox.style.display="initial";
+    loginLink.style.display="initial";
+    wrapper.style.display="initial";  
+    logoutButton.style.display="none";
+    adminButton.style.display="none";
+});
+//lưu thông tin người đăng nhập hiện tại
+function setCurrentUser(username, accountname, password, email, phonenumber,status){
+  var currentUser={
+    userName: username,
+    accountName: accountname,
+    password: password,
+    email: email,
+    phoneNumber:phonenumber,
+    status: status
+  }
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+}
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
   var check = false;
@@ -314,27 +354,17 @@ loginButton.addEventListener("click",(e) => {
     if(accountNameLogin.value === userList[i].accountName){
       console.log("đã tìm thấy tài khoản");
       if(userList[i].password === passWordLogin.value){
-        console.log("đã tìm thấy mật khẩu");
         check=true;
-        console.log(check);
-        changeOnLoginSuccess();
+        console.log("đã tìm thấy mật khẩu");
+        if(accountNameLogin.value === "admin"){
+          adminButton.style.display="initial"
+        }
+        setCurrentUser(userList[i].userNam, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
+        onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
       }
     }
   }
   if(!check){
     userLoginError.textContent = "Tài khoản không tồn tại";
   }
-});
-function changeOnLoginSuccess(){
-  logoutButton.style.display="block";
-  btnPopup.style.visibility="hidden";
-  optionBox.style.visibility="hidden";
-  loginLink.style.display="none";
-}
-// Khi người dùng click vào nút đăng xuất
-logoutButton.addEventListener("click", () => {
-    isLoggedIn = false;
-    localStorage.setItem("isLoggedIn", isLoggedIn);
-    btnPopup.style.visibility="visible";
-    optionBox.style.visibility="visible";
 });

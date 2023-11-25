@@ -12,7 +12,7 @@ function saveProductList() {
   localStorage.setItem("productList", jsonStr);
 }
 //chạy hàm save 1 lần
-function runSave(){
+function runSaveProductList(){
   var displayHasRun = localStorage.getItem('displayHasRun');
   if (!displayHasRun) {
     saveProductList();
@@ -589,5 +589,5 @@ addProduct(
   "../asset/anh/cosplay/50 4.jpg",
   51
 );
-runSave();
+runSaveProductList();
 getProductList();

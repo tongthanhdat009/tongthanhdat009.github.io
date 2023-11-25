@@ -51,176 +51,140 @@
   <!-- đăng nhập/đăng ký -->
   <div class="wrapper">
     <span class="icon-close">
-        <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
     </span>
     <div class="dangnhap login">
-        <h2>Đăng nhập</h2>
-        <form action="#">
-            <div class="nhap">
-                <span class="icon">
-                    <ion-icon name="people-outline"></ion-icon>
-                </span>
-                <input
-                    id="account-login"
-                    type="taikhoan"
-                    required
-                    autocomplete="on"
-                />
-                <label>Tài khoản</label>
-                <span id="username-login-error"> </span>
-            </div>
-            <div class="nhap">
-                <span class="icon">
-                    <ion-icon name="lock-open-outline"></ion-icon>
-                </span>
-                <input
-                    id="password-login"
-                    type="password"
-                    required
-                    name="login-password"
-                    autocomplete="on"
-                />
-                <label>Mật Khẩu</label>
-                <span id="password-login-error"> </span>
-            </div>
-            <div class="quenmatkhau">
-                <label>
-                  <input type="checkbox" /> ghi nhớ đăng nhập
-                </label>
-                <a href="#"> quên mật khẩu ? </a>
-            </div>
-            <button type="submit" class="btn" id="login">login</button>
-            <div class="login-register">
-                <p>
-                    không có tài khoản ?
-                    <a href="#" class="register-link"> Đăng kí </a>
-                </p>
-            </div>
-        </form>
+      <h2>Đăng nhập</h2>
+      <form action="#">
+        <div class="nhap">
+          <span class="icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </span>
+          <input id="account-login" type="taikhoan" required autocomplete="on" />
+          <label>Tài khoản</label>
+          <span id="username-login-error"> </span>
+        </div>
+        <div class="nhap">
+          <span class="icon">
+            <ion-icon name="lock-open-outline"></ion-icon>
+          </span>
+          <input id="password-login" type="password" required name="login-password" autocomplete="on" />
+          <label>Mật Khẩu</label>
+          <span id="password-login-error"> </span>
+        </div>
+        <div class="quenmatkhau">
+          <label>
+            <input type="checkbox" /> ghi nhớ đăng nhập
+          </label>
+          <a href="#"> quên mật khẩu ? </a>
+        </div>
+        <button type="submit" class="btn" id="login">login</button>
+        <div class="login-register">
+          <p>
+            không có tài khoản ?
+            <a href="#" class="register-link"> Đăng kí </a>
+          </p>
+        </div>
+      </form>
     </div>
 
     <div class="dangki register" style="display: none">
-        <h2>Đăng kí</h2>
-        <form action="#">
-            <div class="wrapper-flex">
-                <div class="left-content">
-                    <div class="nhap">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <input
-                            type="username"
-                            required
-                            oninput="checkInputLength(this)"
-                            id="checkaccount"
-                        />
-                        <span id="error"> </span>
-                        <label> Tên đăng nhập</label>
-                    </div>
-                    <div class="nhap">
-                        <span class="icon">
-                            <ion-icon
-                                name="lock-open-outline">
-                            </ion-icon>
-                        </span>
-                        <input
-                            type="password"
-                            required
-                            name="sign-in-password"
-                            class="checkpasswords"
-                            autocomplete="on"
-                        />
-                        <span class="pass-error"> </span>
-                        <label> Mật khẩu</label>
-                    </div>
-                    <div class="nhap">
-                        <span class="icon">
-                          <ion-icon
-                              name="lock-open-outline">
-                          </ion-icon>
-                        </span>
-                        <input
-                            type="password"
-                            required
-                            name="rewrite-sign-in-password"
-                            class="checkpasswords"
-                            autocomplete="on"
-                        />
-                        <span class="pass-error"> </span>
-                        <label>Nhập Lại Mật khẩu</label>
-                    </div>
-                </div>
-                <div class="right-content">
-                  <div class="nhap">
-                    <span class="icon">
-                        <ion-icon name="call-outline"></ion-icon>
-                    </span>
-                    <input
-                        type="name"
-                        required
-                        id="checkusername"
-                    />
-                    <label> Họ và tên</label>
-                    <span id="username-error"> </span>
-                  </div>
-                  <div class="nhap">
-                      <span class="icon">
-                          <ion-icon name="mail-outline"></ion-icon>
-                      </span>
-                      <input type="email" required id="email" />
+      <h2>Đăng kí</h2>
+      <form action="#">
+        <div class="wrapper-flex">
+          <div class="left-content">
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </span>
+              <input type="username" required oninput="checkInputLength(this)" id="checkaccount" />
+              <span id="error"> </span>
+              <label> Tên đăng nhập</label>
+            </div>
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="lock-open-outline">
+                </ion-icon>
+              </span>
+              <input type="password" required name="sign-in-password" class="checkpasswords" autocomplete="on" />
+              <span class="pass-error"> </span>
+              <label> Mật khẩu</label>
+            </div>
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="lock-open-outline">
+                </ion-icon>
+              </span>
+              <input type="password" required name="rewrite-sign-in-password" class="checkpasswords"
+                autocomplete="on" />
+              <span class="pass-error"> </span>
+              <label>Nhập Lại Mật khẩu</label>
+            </div>
+          </div>
+          <div class="right-content">
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </span>
+              <input type="name" required id="checkusername" />
+              <label> Họ và tên</label>
+              <span id="username-error"> </span>
+            </div>
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="mail-outline"></ion-icon>
+              </span>
+              <input type="email" required id="email" />
 
-                      <label> Email</label>
-                      <span id="email-error"> </span>
-                  </div>
-                  <div class="nhap">
-                      <span class="icon">
-                          <ion-icon name="call-outline"></ion-icon>
-                      </span>
-                      <input
-                          type="phonenumber"
-                          required
-                          id="checkphonenumber"
-                      />
-                      <label> Số Điện Thoại</label>
-                      <span id="phonenumber-error"> </span>
-                  </div>
-                </div>
+              <label> Email</label>
+              <span id="email-error"> </span>
             </div>
-            <div class="quenmatkhau">
-              <label style="font-weight: 900">
-                <input type="checkbox" id="acpt-infor"/> 
-                tôi đồng ý với khai báo trên là đúng
-              </label>
+            <div class="nhap">
+              <span class="icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </span>
+              <input type="phonenumber" required id="checkphonenumber" />
+              <label> Số Điện Thoại</label>
+              <span id="phonenumber-error"> </span>
             </div>
-            <button type="submit" class="btn" id="register">register</button>
-            <div class="login-register">
-                <p>
-                    Đã có tài khoản ?
-                    <a href="#" class="login-link"> Đăng nhập </a>
-                </p>
-            </div>
-        </form>
+          </div>
+        </div>
+        <div class="quenmatkhau">
+          <label style="font-weight: 900">
+            <input type="checkbox" id="acpt-infor" />
+            tôi đồng ý với khai báo trên là đúng
+          </label>
+        </div>
+        <button type="submit" class="btn" id="register">register</button>
+        <div class="login-register">
+          <p>
+            Đã có tài khoản ?
+            <a href="#" class="login-link"> Đăng nhập </a>
+          </p>
+        </div>
+      </form>
     </div>
   </div>
   <div id="customalert">
-      <p>Đã đăng ký thành công!<p>
+    <p>Đã đăng ký thành công!
+    <p>
   </div>
 
   <div id="right_site_header">
     <button class="all_alt_btn" id="sign-up-in_btn">
-        <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
-        Đăng nhập/đăng ký
+      <img src="../asset/icon/login.png" style="width:25px; height: 25px;" alt="login-icon">
+      Đăng nhập/đăng ký
     </button>
     <button class="all_alt_btn" id="logout">
-        <img src="../asset/icon/logout.png" style="width:25px; height: 25px;" alt="login-icon">
-        Đăng xuất
+      <img src="../asset/icon/logout.png" style="width:25px; height: 25px;" alt="login-icon">
+      Đăng xuất
     </button>
-    <button class="all_alt_btn"id="infor_user" onclick="openOption()">
-        <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
-        Thông tin tài khoản
+    <button class="all_alt_btn" id="infor_user" onclick="openOption()">
+      <img src="../asset/icon/user.png" style="width:25px; height: 25px;" alt="cart">
+      Thông tin tài khoản
     </button>
     <a href="../html/admin.html">
-      <button class="all_alt_btn"id="admin">
+      <button class="all_alt_btn" id="admin">
         <img src="../asset/icon/admin.png" style="width:25px; height: 25px;" alt="admin">
         Quản lý
       </button>
@@ -258,8 +222,8 @@
         <button class="all_alt_btn" onclick="deleteAll()">Xóa tất cả</button>
       </div>
       <div id="pay">
-        <button class="all_alt_btn" onclick="openOption()">Thanh toán</button>
-        <!-- <button class="all_alt_btn" onclick="payAll()" onclick="openOption()">Thanh toán</button> -->
+        <!-- <button class="all_alt_btn" onclick="openOption()">Thanh toán</button> -->
+        <button class="all_alt_btn" onclick="payAll()" onclick="openOption()">Thanh toán</button>
       </div>
     </div>
   </div>

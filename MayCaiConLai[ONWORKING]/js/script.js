@@ -1,4 +1,8 @@
-localStorage.removeItem("orderList");
+// localStorage.removeItem("orderList");
+
+let userList = localStorage.getItem("userList")
+  ? JSON.parse(localStorage.getItem("userList"))
+  : [];
 
 let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
@@ -28,12 +32,7 @@ tkDonHang.addEventListener("click", () => {
   displayOrderManagement(orderList);
 });
 
-function displayOrderManagement(
-  orderList,
-  fromDate = "",
-  toDate = "",
-  inputVal = ""
-) {
+function displayOrderManagement(orderList) {
   content.innerHTML =
     '<ul id="dsDonHang" class="dsDonHang">' +
     '<li class="donHang">' +
@@ -118,7 +117,7 @@ function loadOrderList(orderElm, orderList) {
     let status = li.getElementsByClassName("Trangthai")[0];
 
     accept.addEventListener("click", () => {
-      if (status.innerHTML.localeCompare("Da Giao Hang")) return;
+      if (status.innerHTML.localeCompare("Da Giao Hang") === 0) return;
       if (status.innerHTML.localeCompare("Da Huy") === 0)
         return alert("khong the giao don hang da huy");
       let ans = confirm("Bạn chắc chắn muốn giao hàng ?");
@@ -130,7 +129,7 @@ function loadOrderList(orderElm, orderList) {
     });
 
     deny.addEventListener("click", () => {
-      if (status.innerHTML.localeCompare("Da Huy")) return;
+      if (status.innerHTML.localeCompare("Da Huy") === 0) return;
       if (status.innerHTML.localeCompare("Da Giao Hang") === 0)
         return alert("Khong the huy don hang da giao");
       let ans = confirm("Bạn chắc chắn muốn hủy,thao tác không thể hoàn tác!?");
@@ -140,6 +139,12 @@ function loadOrderList(orderElm, orderList) {
       }
     });
   }
+}
+
+function setOrderStatus(Ma, status) {
+  let res = orderList.find((item) => item.maDon == Ma);
+  if (res) res.trangThai = status;
+  localStorage.setItem("orderList", JSON.stringify(orderList));
 }
 
 function conditionSearch(condition) {
@@ -179,12 +184,104 @@ function conditionSearch(condition) {
         break;
     }
   }
+  if (condition.localeCompare("User") == 0) {
+    let userSearchType = document.getElementById("userSearchType").value;
+    let inputVal = document.getElementById("userSearchValue").value;
+    userList.forEach((user) => {
+      switch (userSearchType) {
+        case "1":
+          if (user.accountName == inputVal) searchOrderList.push(user);
+          break;
+        case "2":
+          if (user.userName == inputVal) searchOrderList.push(user);
+          break;
+        case "3":
+          if (user.email == inputVal) searchOrderList.push(user);
+          break;
+        default:
+          break;
+      }
+    });
+  }
   console.table(searchOrderList);
   return searchOrderList;
 }
 
-function setOrderStatus(Ma, status) {
-  let res = orderList.find((item) => item.maDon == Ma);
-  if (res) res.trangThai = status;
-  localStorage.setItem("orderList", JSON.stringify(orderList));
+function displayUserManagement(userList) {
+  content.innerHTML =
+    '<ul class="userList">' +
+    '<li class="user">' +
+    '<div class="STT">STT' +
+    "</div>" +
+    '<div class="HoTen">Ho ten</div>' +
+    '<div class="Email">Email</div>' +
+    '<div class="TenDangNhap">Ten dang nhap</div>' +
+    '<div class="matKhau">Mat khau</div>' +
+    '<div class="hanhDong">HanhDong</div>' +
+    "</li>" +
+    "</ul>" +
+    '<div class="searchBar flex-start"' +
+    '<form action="" id="userSearch">' +
+    '<select name="userSeach" id="userSearchType">' +
+    '<option value="1">Tim theo ten dang nhap</option>' +
+    '<option value="2">Tim theo ho ten</option>' +
+    '<option value="3">Tim theo email</option>' +
+    "</select>" +
+    '<input type="text" placeholder="Tim kiem thong tin..." id="userSearchValue">' +
+    "</form>" +
+    '<label class="addAccount">' +
+    '<div class="addUsrBtn">+</div>' +
+    '<div id="addUsrTitle">Tao tai khoan</div>' +
+    "</label>" +
+    "</div>";
+
+  let userElm = document.getElementsByClassName("userList")[0];
+  let searchBar = document.getElementById("userSearchValue");
+  searchBar.addEventListener("keypress", (e) => {
+    if (e.key != "Enter") return;
+    let list = conditionSearch("User");
+    if (list.length == 0) {
+      displayUserManagement(JSON.parse(localStorage.getItem("userList")));
+      return;
+    }
+    displayUserManagement(list);
+  });
+  loadUserList(userElm, userList);
+}
+
+function loadUserList(userElm, userList) {
+  userList.forEach((user, index) => {
+    let li = document.createElement("li");
+    li.setAttribute("class", "user");
+    li.innerHTML =
+      '<div class="STT">' +
+      index +
+      "</div>" +
+      '<div class="HoTen">' +
+      user.userName +
+      "</div>" +
+      '<div class="Email">' +
+      user.email +
+      "</div>" +
+      '<div class="TenDangNhap">' +
+      user.accountName +
+      "</div>" +
+      '<div class="matKhau">' +
+      user.password +
+      "</div>" +
+      '<div class="hanhDong">' +
+      '<div class="delete">X</div>' +
+      "</div>";
+    userElm.appendChild(li);
+    li.getElementsByClassName("delete")[0].addEventListener("click", () => {
+      let ans = confirm(
+        "Ban chac chan muon xoa tai khoan nay? Viec xoa tai khoan se xoa toan bo thong tin ve don hang va thong tin khach hang?"
+      );
+      if (ans == 1) {
+        userList.splice(index, 1);
+        displayUserManagement(userList);
+        // localStorage.setItem("userList", userList);
+      }
+    });
+  });
 }

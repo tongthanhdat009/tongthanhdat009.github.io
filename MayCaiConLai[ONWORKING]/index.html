@@ -36,24 +36,26 @@
       </li>
     </ul>
     <div class="content" id="mngContent">
-      <!-- <div class="searchBar">
-        <form action="" id="dateSearch" class="dateSearch">
-          <label for="fromDate">Tu ngay</label>
-          <input type="date" name="ngayXaNhat" id="fromDate">
-          <label for="toDate">Den ngay</label>
-          <input type="date" name="ngayXaNhat" id="toDate">
-          <button class="applySearch" id="dateSearchBtn">Search</button>
-        </form>
-        <form action="" id="otherSearch" class="otherSearch" onclick="conditionSearch('Value')">
-          <select name="searchyype" id="searchType">
-            <option value="1">Tim theo ma hoa don</option>
-            <option value="2">Tim theo ten khach hang</option>
-            <option value="3">Tim theo trang thai</option>
-          </select>
-          <input type="text" id="inputValue">
-          <button class="applySearch" id="typeSearchBtn" onclick="conditionSearch('Date')">Search</button>
-        </form>
-      </div> -->
+      <form action="" id="createAccountBox">
+        <div class="closeBtn">X</div>
+        <label for="name">Ho ten</label>
+        <label for="name" name="nameErr"></label>
+        <input type="text" id="name">
+        <label for="loginName">Ten dang nhap</label>
+        <label for="loginName" id="loginNameErr"></label>
+        <input type="text" id="loginName">
+        <label for="loginPassword">Mat Khau</label>
+        <label for="loginPassword" id="loginPasswordErr"></label>
+        <input type="password" id="loginPassword">
+        <label for="email">Email</label>
+        <label for="email" id="emailErr"></label>
+        <input type="email" id="email">
+
+        <div class="btnWrapper">
+          <button type="submit" class="submitBtn">Submit</button>
+          <button type="reset">reset</button>
+        </div>
+      </form>
     </div>
   </div>
   <script src="./js/script.js"></script>

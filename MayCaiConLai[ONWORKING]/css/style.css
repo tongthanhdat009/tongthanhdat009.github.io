@@ -135,7 +135,10 @@ nav.navigationbar {
     margin: 2rem;
     margin-bottom: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 
@@ -148,24 +151,20 @@ nav.navigationbar {
     position: sticky;
     inset: calc(5rem/16);
     top: 0;
-    width: fit-content;
     background-color: var(--accent-color);
     border-top: calc(5rem/16) solid white;
     overflow: scroll;
+    min-height: 2rem;
+    font-size: 1.25rem;
 }
 
 .content .dsDonHang .donHang {
     display: grid;
-    grid-template-columns: calc(50rem/16) repeat(7, 155px);
+    grid-template-columns: calc(50rem/16) repeat(7, 1fr);
     gap: 1px;
     margin: calc(5rem / 16);
 }
 
-
-.donHang:first-child {
-    min-height: 2rem;
-    font-size: 1.5rem;
-}
 
 .donHang * {
     text-align: center;
@@ -236,6 +235,156 @@ form.otherSearch :is(input, select) {
     width: 100px;
     text-overflow: ellipsis;
     min-height: 70%;
+}
+
+.userList {
+    height: 90%;
+    overflow: scroll;
+}
+
+.userList .user {
+    display: grid;
+    grid-template-columns: calc(50rem/16) repeat(5, 1fr);
+    gap: 1px;
+    margin: calc(5rem/16);
+}
+
+.user>* {
+    border: 1px solid red;
+    text-align: center;
+}
+
+.userList .user:first-child {
+    position: sticky;
+    inset: calc(5rem/16);
+    top: 0;
+    background-color: var(--accent-color);
+    border-top: calc(5rem/16) solid white;
+    font-size: 1.25rem;
+}
+
+.user .hanhDong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.user .hanhDong .delete {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    caret-color: transparent;
+}
+
+.hanhDong .delete:hover {
+    color: red;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    caret-color: transparent;
+}
+
+.switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background-color: red;
+    border-radius: 17px;
+}
+
+.slider::before {
+    position: absolute;
+    background: blue;
+    inset: 0;
+    width: 13px;
+    height: 13px;
+    left: 2px;
+    top: 2px;
+    content: "";
+    transition: all 400ms;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: lime;
+}
+
+input:checked+.slider::before {
+    transform: translateX(13px);
+}
+
+.searchBar.flex-start {
+    justify-content: flex-start;
+}
+
+.addAccount {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+#userSearchType {
+    margin: 0 2px 0 1rem;
+}
+
+
+#userSearchValue {
+    margin-right: auto;
+}
+
+#createAccountBox {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: fit-content;
+    padding: 1rem;
+    position: absolute;
+    inset: 50%;
+    translate: -50% -50%;
+    animation: show-up 400ms 10ms ease;
+}
+
+#createAccountBox .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#createAccountBox .btnWrapper {
+    margin-top: 20px;
+    border: 0;
+}
+
+#createAccountBox input {
+    margin-bottom: 20px;
+}
+
+
+@keyframes show-up {
+    0% {
+        opacity: 0;
+        translate: 0 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 

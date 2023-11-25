@@ -5,7 +5,7 @@ const btnPopup = document.querySelector("#sign-up-in_btn");
 const Iconclose = document.querySelector(".icon-close");
 const errorSpan = document.querySelector("#error");
 const btn_yes = document.querySelector(".btn_yes");
-const userList=[];
+var userList=[];
 
 let login = document.getElementsByClassName("dangnhap")[0];
 let signup = document.getElementsByClassName("dangki")[0];
@@ -148,16 +148,12 @@ checkMail.addEventListener("input", () => {
 
 // hàm lưu danh sách người dùng
 function saveUserList() {
-  var list = JSON.stringify(userList);
-  localStorage.setItem("userList",list);
+  localStorage.setItem("userList",JSON.stringify(userList));
 }
 
 // hàm lấy danh sách người dùng
 function getUserList(){
-  var list = localStorage.getItem("userList");
-  if (list) {
-    userList = JSON.parse(list);
-  }
+  userList = JSON.parse(localStorage.getItem("userList"));
 }
 //hàm chạy save user 1 lần
 function runSaveUserList(){
@@ -179,25 +175,33 @@ function addUser(userName, accountname, passWord, email, phoneNumber){
     status: false // trạng thái đăng nhập
   }
   userList.push(newUser);
+  saveUserList();
+  getUserList();
 }
-
 //tài khoản admin
-addUser(
-  "Group 2",
-  "admin",
-  "admin",
-  "wibustore@gmail.com",
-  "123456789"
-);
-
-//tài khoản user
-addUser(
-  "Tống Thành Đạt",
-  "dat",
-  "12345678",
-  "a@gmail.com",
-  "0395632027"
-);
+// addUser(
+//   "Group 2",
+//   "admin",
+//   "admin",
+//   "wibustore@gmail.com",
+//   "123456789"
+//   );
+  
+//   //tài khoản user
+// addUser(
+//   "Tống Thành Đạt",
+//   "dat",
+//   "12345678",
+//   "a@gmail.com",
+//   "0395632027"
+//   );
+//   addUser(
+//   "Tống Thành Đạt",
+//   "dat2",
+//   "12345678",
+//   "a@gmail.com",
+//   "0395632027"
+//   );
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký
 var register=document.querySelector("#register");
@@ -278,7 +282,7 @@ register.addEventListener('click',function(e){
     var alertCustom = document.querySelector("#customalert");
     alertCustom.style.animation="complete 10s";
     addUser(userName, accountName, passWord, mail, number);
-    console.log(userList);
+    saveUserList();
     // xóa thông tin đã nhập lúc đăng ký thành công
     userNameInput.value="";
     accountNameInput.value="";
@@ -286,10 +290,11 @@ register.addEventListener('click',function(e){
     passWordInput[1].value="";
     checkMail.value="";
     phoneNumber.value="";
-    
   }
 });
 
+getUserList();
+console.log(userList);
 //LIÊN QUAN TỚI ĐĂNG NHẬP/ ĐĂNG XUẤT:
 // nút đăng xuất
 const logoutButton = document.querySelector("#logout");
@@ -303,7 +308,6 @@ const userLoginError = document.querySelector("#username-login-error");
 const passwordError = document.querySelector("#password-login-error");
 // Khi đăng nhập thành công
 var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
-console.log(currentUserLogged);
 onLoginSuccess(currentUserLogged);
 function onLoginSuccess(user) {
   if(user && user.status){
@@ -324,6 +328,7 @@ logoutButton.addEventListener("click", (e) => {
     e.preventDefault;
     for(var i=0;i<userList.length;i++){
       if(currentUserLogged.accountName === userList[i].accountName){
+        console.log(currentUserLogged);
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, false);
       }
     }
@@ -353,18 +358,20 @@ loginButton.addEventListener("click",(e) => {
   for(i;i<userList.length;i++){
     if(accountNameLogin.value === userList[i].accountName){
       console.log("đã tìm thấy tài khoản");
+      console.log(passWordLogin.value);
       if(userList[i].password === passWordLogin.value){
         check=true;
         console.log("đã tìm thấy mật khẩu");
         if(accountNameLogin.value === "admin"){
           adminButton.style.display="initial"
         }
-        setCurrentUser(userList[i].userNam, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
+        setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
       }
     }
   }
   if(!check){
-    userLoginError.textContent = "Tài khoản không tồn tại";
+    alert("vui lòng kiểm tra tài khoản hoặc mật khẩu"); 
   }
 });
+// localStorage.clear();

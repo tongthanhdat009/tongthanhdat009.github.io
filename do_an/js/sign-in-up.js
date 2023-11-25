@@ -220,6 +220,7 @@ addUser(
   "0395632027",
   "tphcm"
 );
+runSaveUserList();
 
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký
@@ -341,7 +342,9 @@ const payButton = document.querySelector("#pay button");
 
 // Khi đăng nhập thành công
 var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
-onLoginSuccess(currentUserLogged);
+if(currentUserLogged){
+  onLoginSuccess(currentUserLogged);
+}
 function onLoginSuccess(user) {
   if(user && user.status){
     changeOnLoginSuccess();
@@ -372,6 +375,7 @@ logoutButton.addEventListener("click", (e) => {
         setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, false);
       }
     }
+    localStorage.removeItem("currentUser");
     btnPopup.style.display="initial";
     optionBox.style.display="initial";
     loginLink.style.display="initial";
@@ -394,10 +398,11 @@ function setCurrentUser(username, accountname, password, email, phonenumber,addr
     email: email,
     phoneNumber:phonenumber,
     address: address,
-    status: status
+    status: status || false
   }
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
+// setCurrentUser("","","","","","",true);
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
   var check = false;

@@ -124,9 +124,13 @@ phoneNumber.addEventListener("input",() => {
 //kiểm tra địa chỉ đăng ký
 checkAddress.addEventListener("input",() => {
   var address = checkAddress.value;
-  if(address.length>256)[
-    addressError.textContent = ""
-  ]
+  if(address.length>256){
+    addressError.textContent = "Địa chỉ không hợp lệ";
+  }
+  else{
+    addressError.textContent = "";    
+  }
+
 });
 
 //kiểm tra tên đăng nhập
@@ -274,7 +278,7 @@ register.addEventListener('click',function(e){
   }
 
   //check địa chỉ
-  else if(ddress.length>256){
+  else if(address.length>256){
     check = false;
     if(!check){
       alert("Địa chỉ không hợp lệ");
@@ -296,8 +300,7 @@ register.addEventListener('click',function(e){
     // hiển thị bảng đăng ký thành công
     var alertCustom = document.querySelector("#customalert");
     alertCustom.style.animation="complete 10s";
-    addUser(userName, accountName, passWord, mail, number);
-    saveUserList();
+    addUser(userName, accountName, passWord, mail, number, address);
     // xóa thông tin đã nhập lúc đăng ký thành công
     userNameInput.value="";
     accountNameInput.value="";
@@ -305,6 +308,7 @@ register.addEventListener('click',function(e){
     passWordInput[1].value="";
     checkMail.value="";
     phoneNumber.value="";
+    checkAddress.value="";
   }
 });
 getUserList();
@@ -334,7 +338,7 @@ const passwordError = document.querySelector("#password-login-error");
 
 //nút thanh toán giỏ hàng
 const payButton = document.querySelector("#pay button");
-// console.log(payButton);
+
 // Khi đăng nhập thành công
 var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
 onLoginSuccess(currentUserLogged);
@@ -382,29 +386,42 @@ logoutButton.addEventListener("click", (e) => {
     deleteAll();
 });
 //lưu thông tin người đăng nhập hiện tại
-function setCurrentUser(username, accountname, password, email, phonenumber,status){
+function setCurrentUser(username, accountname, password, email, phonenumber,address,status){
   var currentUser={
     userName: username,
     accountName: accountname,
     password: password,
     email: email,
     phoneNumber:phonenumber,
+    address: address,
     status: status
   }
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
-
+setCurrentUser(
+  "Group 2",
+  "admin",
+  "admin",
+  "a@gmail.com",
+  "0395632027",
+  true
+  );
 loginButton.addEventListener("click",(e) => {
   e.preventDefault();
   var check = false;
-  var i=0;
-  for(i;i<userList.length;i++){
+  for(i=0;i<userList.length;i++){
     if(accountNameLogin.value === userList[i].accountName){
       // console.log("đã tìm thấy tài khoản");
       if(userList[i].password === passWordLogin.value){
         check=true;
         // console.log("đã tìm thấy mật khẩu");
-        setCurrentUser(userList[i].userName, userList[i].accountName, userList[i].password, userList[i].email, userList[i].phonenumber, true);
+        setCurrentUser(userList[i].userName,
+                       userList[i].accountName,
+                       userList[i].password,
+                       userList[i].email,
+                       userList[i].phonenumber,
+                       userList[i].address,
+                       true);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
         accountNameLogin.value="";
         passWordLogin.value="";

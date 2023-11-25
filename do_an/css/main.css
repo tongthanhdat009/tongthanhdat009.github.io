@@ -245,6 +245,49 @@ img {
 }
 
 /* ---- */
+/* thông tin tài khoản */
+#user-infor-container{
+  display: flex;
+  background-color: palegoldenrod;
+  width: 1200px;
+  min-height: 600px;
+  position: fixed;
+  left: calc(50% - 600px);
+  top:100px;
+  z-index: 5;
+}
+#user-infor-left{
+  width: 30%;
+  border-right: 2px solid;
+}
+#user-infor-left > div{
+  margin:20px;
+  font-size: 20px;
+}
+#user-infor-left > div:hover{
+  background-color: white; 
+  color: #818181; 
+  cursor: pointer;
+}
+#user-infor-right{
+  width: 70%;
+}
+.check-infor-title,
+.check-bill-title,
+.edit-infor-title{
+  text-align: center;
+  font-size: 30px;
+  display: none;
+}
+#alt-page-title{
+  text-align: center;
+  font-size:30px;
+}
+#alt-page-img img{
+  position: relative;
+  left: calc(50% - 250px);
+}
+/* ---- */
 
 /* menu */
 .sidenav {

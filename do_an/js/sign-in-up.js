@@ -68,8 +68,6 @@ const phoneNumberErrorSpan = document.querySelector("#phonenumber-error");
 const checkMail = document.querySelector("#email");
 const mailError = document.querySelector("#email-error");
 
-const acpt = document.getElementById("acpt-infor");
-
 //kiểm tra tên người dùng trong lúc nhập
 userNameInput.addEventListener("input",() =>{
   var userName = userNameInput.value;
@@ -186,7 +184,7 @@ addUser(
   "admin",
   "wibustore@gmail.com",
   "123456789"
-  );
+);
   
 //   //tài khoản user
 addUser(
@@ -195,14 +193,14 @@ addUser(
   "12345678",
   "a@gmail.com",
   "0395632027"
-  );
-  addUser(
+);
+addUser(
   "Tống Thành Đạt",
   "dat2",
   "12345678",
   "a@gmail.com",
   "0395632027"
-  );
+);
 
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký
@@ -215,7 +213,6 @@ register.addEventListener('click',function(e){
   var rewritePassWord = passWordInput[1].value;
   var mail = checkMail.value;
   var number = phoneNumber.value;
-  var acptValue = acpt.value;
   var check = true;
   const regex1 = /([a-z]|[A-Z]|[0-9]){1,64}@([a-z]|[A-Z]|[0-9]|.){1,255}$/;//biểu thức chính quy mail
   const regex2 = /(84|0[35789])[0-9]{8}$/; //biểu thức chính quy số điện thoại
@@ -252,14 +249,6 @@ register.addEventListener('click',function(e){
     }
   }
 
-  // check xác nhận thông tin
-  else if(!acptValue==="on"){
-    check = false;
-    if(!check){
-      alert("Vui lòng chọn ô tôi đồng ý với khai báo trên là đúng");
-    }
-  }
-
   //check tên người dùng
   else if(!userName.match(regex3) && userName.length){
     check = false;
@@ -267,6 +256,7 @@ register.addEventListener('click',function(e){
       alert("Họ và tên không hợp lệ");
     }
   }
+
   //check tài khoản
   else{
     for(var i=0; i<userList.length;i++){

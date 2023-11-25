@@ -66,6 +66,5 @@ inputSearch.addEventListener("submit", function (event) {
     sign: true,
   };
   var jsonStr = JSON.stringify(userInput);
-  console.log(userInput);
   localStorage.setItem("mainSearch", jsonStr);
 });

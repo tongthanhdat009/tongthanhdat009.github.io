@@ -110,6 +110,7 @@ function cartDisplay() {
 
 // phương thức xóa sản phẩm
 function deleteProduct(button) {
+  console.log(button);
   var row = button.parentNode.parentNode; //lấy chỉ số hàng trong bảng quản lý
   var table = row.parentNode; //lấy hàng từ bảng quản lý
   var cell = row.cells; //lấy ô từ hàng trong bảng quản lý

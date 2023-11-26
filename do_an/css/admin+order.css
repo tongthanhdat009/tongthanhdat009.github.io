@@ -249,7 +249,7 @@ a {
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
 }
@@ -259,7 +259,7 @@ a {
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
 }

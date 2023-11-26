@@ -361,6 +361,10 @@ img {
     background-color:tomato ;
   }
 }
+#user-content table{
+  width: 100%;
+  font-size: 25px;
+}
 /* ---- */
 
 /* menu */

@@ -14,6 +14,7 @@ function cartAdd(name, price, amount, img) {
     price: price,
     amount: amount,
     img: img,
+    status: "chưa xử lý"
   };
 
   //deobiet sao no hoat dong dc :v
@@ -69,11 +70,10 @@ function cartDisplay() {
   }
   for (var i = 0; i < productAdded.length; i++) {
     var cartRow = table.insertRow(-1); //thêm dòng vào bảng cart
-    var deleteIcon, cartPrice, cartName, cartAmount, cartProduct;
+    var deleteIcon, cartPrice, cartName, cartAmount, cartProduct, billStatus;
     deleteIcon = cartRow.insertCell(0);
     deleteIcon.innerHTML =
       '<div class="delete_icon" onclick="deleteProduct(this)"><img src="../asset/icon/delete.png" alt="delete_icon"></div>';
-
     cartAmount = cartRow.insertCell(0);
     cartAmount.innerHTML =
       '<div class="product-amount">' +
@@ -89,7 +89,6 @@ function cartDisplay() {
       '<button onclick="increment(this)">+</button>' +
       "</div>" +
       "</div>";
-
     cartPrice = cartRow.insertCell(0);
     cartPrice.innerHTML =
       '<div class="product-price">' + productAdded[i].price + "</div>";
@@ -108,9 +107,46 @@ function cartDisplay() {
   }
 }
 
+//thanh toán
+function payAll() {
+  var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (!productAdded.length) {
+    alert("Bạn chưa mua gì cả :(");
+    return;
+  }
+  if (!confirm("Bạn có chắc chắn muốn mua hàng?")) return;
+  
+  let madon =
+    "WB" +
+    new Date().getDate() +
+    "-" +
+    new Date().getMonth() +
+    (parseInt(new Date().getTime()) % 1e8);
+  let khachhang = currentUser.userName;
+  let sp = "";
+  productAdded.forEach((item) => {
+    sp += item.name + "[" + item.amount + "]</br>";
+  });
+  let date = new Date().toLocaleDateString();
+  let order = {
+    userAccount: currentUser.accountName,//đã thêm chỗ này
+    maDon: madon,
+    khachHang: khachhang,
+    sanPham: sp,
+    tongTien: total,
+    ngayLap: date,
+    trangThai: "waiting",
+  };
+  saveProductAdded();
+  productAdded.length = 0;
+  deleteAll();
+  orderList.push(order);
+  console.log(orderList);
+  localStorage.setItem("orderList", JSON.stringify(orderList));
+}
+
 // phương thức xóa sản phẩm
 function deleteProduct(button) {
-  console.log(button);
   var row = button.parentNode.parentNode; //lấy chỉ số hàng trong bảng quản lý
   var table = row.parentNode; //lấy hàng từ bảng quản lý
   var cell = row.cells; //lấy ô từ hàng trong bảng quản lý
@@ -169,35 +205,3 @@ function updateQuantity(a) {
   totalProduct();
 }
 
-function payAll() {
-  if (!productAdded.length) {
-    alert("Bạn chưa mua gì cả :(");
-    return;
-  }
-  if (!confirm("Bạn có chắc chắn muốn mua hàng?")) return;
-
-  let madon =
-    "WB" +
-    new Date().getDate() +
-    "-" +
-    new Date().getMonth() +
-    (parseInt(new Date().getTime()) % 1e8);
-  let khachhang = "none";
-  let sp = "";
-  productAdded.forEach((item) => {
-    sp += item.name + "[" + item.amount + "]</br>";
-  });
-  let date = new Date().toLocaleDateString();
-  let order = {
-    maDon: madon,
-    khachHang: khachhang,
-    sanPham: sp,
-    tongTien: total,
-    ngayLap: date,
-    trangThai: "waiting",
-  };
-  productAdded.length = 0;
-  deleteAll();
-  orderList.push(order);
-  localStorage.setItem("orderList", JSON.stringify(orderList));
-}

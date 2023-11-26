@@ -7,15 +7,16 @@
     <title>Admin - WIBU STORE</title>
     <link rel="stylesheet" href="../css/admin+order.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/quanlydonhang+quanlytaikhoan.css">
     <link rel="icon" type="image/x-icon" href="../asset/logo.png">
-
 </head>
 
 <body>
     <div class="menu" id="menu1">
         <div>
             <div style="height: 50px;">
-                <a href="#" id="x" onclick="closeNav()" style="float: right;">&times;</a>
+                <a href="#" id="x" onclick="closeNav()"
+                    style="float: right; background-color: red; width: 30px;height: 30px; display: flex;justify-content: center; align-items: center;">&times;</a>
             </div>
             <ul>
                 <li><a href="../html/main.html">Trang chủ</a></li>
@@ -25,13 +26,19 @@
                 <li><a href="../html/main.html#inforuser">Thông tin tài khoản</a></li>
                 <li id="login-order"><a href="../html/main.html">Đăng nhập/đăng ký</a></li>
                 <li id="logout-order"><a href="../html/main.html">Đăng xuất</a></li>
+                <li id="tkSanPham"><a>Thong ke san pham</a></li>
+                <li id="tkDonHang"><a> Thong ke don hang </a></li>
+                <li id="userManagement"><a> Quan ly tai khoan</a> </li>
             </ul>
         </div>
     </div>
     <div class="header">
-        <div style="width: 200px;"> <span id="trangchu" onclick="openNav()"
+        <div style="width: 200px;">
+            <span id="trangchu" onclick="openNav()"
                 style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU
-                    STORE</strong></span> </div>
+                    STORE</strong>
+            </span>
+        </div>
         <div class="container" style="width:calc(100% - 200px);">
             <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
             <img id="button-search" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
@@ -93,13 +100,14 @@
                         <h3 style="margin: 10px;" align="center">Tùy chỉnh</h3>
                         <h4 style="margin-bottom: 3px; margin-top: 5px;">ID mới</h4> <input id="config-id" type="number"
                             placeholder="New ID">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên mới</h4> <input id="config-name" type="text"
-                            placeholder="New name">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá mới</h4> <input id="config-price" type="number"
-                            placeholder="New price">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại mới</h4> <input id="config-type" type="number"
-                            placeholder="New type">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh mới</h4> <input id="config-img" type="file" placeholder="">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên mới</h4> <input id="config-name"
+                            type="text" placeholder="New name">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá mới</h4> <input id="config-price"
+                            type="number" placeholder="New price">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại mới</h4> <input id="config-type"
+                            type="number" placeholder="New type">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh mới</h4> <input id="config-img" type="file"
+                            placeholder="">
                         <input id="config-img2" type="file" placeholder="">
                         <input id="config-img3" type="file" placeholder="">
                         <input id="config-img4" type="file" placeholder="">
@@ -111,11 +119,16 @@
                     </div>
                     <div id="add-product">
                         <h3 align="center" style=" margin: 10px;">Thêm sản phẩm</h3>
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id" type="number" placeholder="ID">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên sản phẩm</h4> <input id="add-name" type="text" placeholder="Name">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá sản phẩm</h4> <input id="add-price" type="number" placeholder="Price">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại</h4> <input id="add-type" type="number" placeholder="Type">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh sản phẩm</h4> <input id="add-img" type="file" placeholder="Ảnh 1">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id"
+                            type="number" placeholder="ID">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên sản phẩm</h4> <input id="add-name"
+                            type="text" placeholder="Name">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá sản phẩm</h4> <input id="add-price"
+                            type="number" placeholder="Price">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại</h4> <input id="add-type" type="number"
+                            placeholder="Type">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh sản phẩm</h4> <input id="add-img"
+                            type="file" placeholder="Ảnh 1">
                         <input id="add-img2" type="file" placeholder="Ảnh 2">
                         <input id="add-img3" type="file" placeholder="Ảnh 3">
                         <input id="add-img4" type="file" placeholder="Ảnh 4">
@@ -138,74 +151,84 @@
             </table>
         </div>
     </div>
-    <div class="main">
-        <div class="sidebar-content">
-            <div class="Filter-by-price">
-                <div class="container" style="height: 50px; background-color: #c5d654 ;border: 3px solid black;">
-                    <h2 style="color: white;">Lọc theo giá</h2>
-                </div>
-                <div class="Filter">
-                    <div class="min">
-                        <p>Min</p>
-                        <input id="min-price" style="margin-left: 12px; width: 100%;" type="number" placeholder="VND">
+
+    <div class="content" id="mngContent" style="display: none;"></div>
+
+    <div class="display-product">
+        <div class="main">
+            <div class="sidebar-content">
+                <div class="Filter-by-price">
+                    <div class="container" style="height: 50px; background-color: #c5d654 ;border: 3px solid black;">
+                        <h2 style="color: white;">Lọc theo giá</h2>
                     </div>
-                    <div class="max">
-                        <p>Max </p>
-                        <input id="max-price" style="margin-left: 10px;width: 100%;" type="number" placeholder="VND">
+                    <div class="Filter">
+                        <div class="min">
+                            <p>Min</p>
+                            <input id="min-price" style="margin-left: 12px; width: 100%;" type="number"
+                                placeholder="VND">
+                        </div>
+                        <div class="max">
+                            <p>Max </p>
+                            <input id="max-price" style="margin-left: 10px;width: 100%;" type="number"
+                                placeholder="VND">
+                        </div>
+                        <button style="float: right;" onclick="Filterbyprice()">Lọc</button>
                     </div>
-                    <button style="float: right;" onclick="Filterbyprice()">Lọc</button>
                 </div>
+                <ul>
+                    <li
+                        style="background-color: #c5d654; color:white; border: 3px solid black; justify-content: center;">
+                        <h2>Danh mục sản phầm</h2>
+                    </li>
+                    <li>
+                        <img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
+                            style="width: 25px; margin-right: 10px;" alt="">
+                        <a onclick="refresh()" href="#">Tất cả sản phẩm</a>
+                    </li>
+                    <li>
+                        <img src="../asset/category_img/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;"
+                            alt="">
+                        <a onclick="figure()" href="#">Firuge</a>
+                    </li>
+                    <li>
+                        <img src="../asset/category_img/kunai naruto.png" style="width: 25px; margin-right: 10px;"
+                            alt="">
+                        <a onclick="set_figure()" href="#">Bộ Firuge</a>
+                    </li>
+                    <li>
+                        <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;"
+                            alt="">
+                        <a onclick="mini_figure()" href="#">Firuge mini</a>
+                    </li>
+                    <li>
+                        <img src="../asset/category_img/logo fairy tail.png" style="width: 25px; margin-right: 10px;"
+                            alt="">
+                        <a onclick="cosplay()" href="#">Cosplay</a>
+                    </li>
+                </ul>
             </div>
-            <ul>
-                <li style="background-color: #c5d654; color:white; border: 3px solid black; justify-content: center;">
-                    <h2>Danh mục sản phầm</h2>
-                </li>
-                <li>
-                    <img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
-                        style="width: 25px; margin-right: 10px;" alt="">
-                    <a onclick="refresh()" href="#">Tất cả sản phẩm</a>
-                </li>
-                <li>
-                    <img src="../asset/category_img/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;"
-                        alt="">
-                    <a onclick="figure()" href="#">Firuge</a>
-                </li>
-                <li>
-                    <img src="../asset/category_img/kunai naruto.png" style="width: 25px; margin-right: 10px;" alt="">
-                    <a onclick="set_figure()" href="#">Bộ Firuge</a>
-                </li>
-                <li>
-                    <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;" alt="">
-                    <a onclick="mini_figure()" href="#">Firuge mini</a>
-                </li>
-                <li>
-                    <img src="../asset/category_img/logo fairy tail.png" style="width: 25px; margin-right: 10px;"
-                        alt="">
-                    <a onclick="cosplay()" href="#">Cosplay</a>
-                </li>
-            </ul>
-        </div>
-        <div class="site-main">
-            <!-- <div class="container" style="height: 47px;">
+            <div class="site-main">
+                <div class="container" style="height: 47px;">
                     <h2 class="tieude" style="background-color: aquamarine">Hàng có sẵn</h2>
-                </div> -->
-            <div style="display: flex; width:200px;">
-                <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
-                <div id="container-sort" style="display: block;height: 50px;">
-                    <select name="" id="mySelect">
-                        <option value="Theo tên">Theo tên</option>
-                        <option value="Theo giá">Theo giá</option>
-                    </select>
+                </div>
+                <div style="display: flex; width:200px;">
+                    <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
+                    <div id="container-sort" style="display: block;height: 50px;">
+                        <select name="" id="mySelect">
+                            <option value="Theo tên">Theo tên</option>
+                            <option value="Theo giá">Theo giá</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="archive-product">
                 </div>
             </div>
-            <div class="archive-product">
-            </div>
         </div>
-    </div>
-    <div class="phantrang">
-        <button onclick="previousPage()" class="pagination-button">Previous</button>
-        <div id="Page"></div>
-        <button onclick="nextPage()" class="pagination-button">Next</button>
+        <div class="phantrang">
+            <button onclick="previousPage()" class="pagination-button">Previous</button>
+            <div id="Page"></div>
+            <button onclick="nextPage()" class="pagination-button">Next</button>
+        </div>
     </div>
     <br>
     <br>
@@ -261,6 +284,7 @@
     <script src="../js/add_product.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/item_detail.js"></script>
+    <script src="../js/quanlydonhang+quanlytaikhoan.js"></script>
     <script>
         var currentPage = 1;
         var ProductPerPage = 12;
@@ -752,7 +776,7 @@
             b = document.createElement("tr");
             b.innerHTML =
                 '<td align=center colspan=2>Sản phẩm</td>' +
-                '<td>Đã bán</td>'+
+                '<td>Đã bán</td>' +
                 '<td>Tổng tiền</td>'
             a.appendChild(b);
             for (var i = 0; i < productList.length; i++) {
@@ -766,9 +790,9 @@
                     '</td>' +
                     '<td>' +
                     '' + productList[i].count + '' +
-                    '</td>'+
+                    '</td>' +
                     '<td>' +
-                    '' + productList[i].count * productList[i].price+ 'đ' +
+                    '' + productList[i].count * productList[i].price + 'đ' +
                     '</td>'
                 a.appendChild(b);
             }

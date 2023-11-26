@@ -25,16 +25,27 @@ orderList.push({
   trangThai: "none",
 });
 let content = document.getElementById("mngContent");
-// content.innerHTML = "";
+let display_product = document.getElementsByClassName("display-product")[0];
 
-// let tkDonHang = document.getElementById("tkDonHang");
-// tkDonHang.addEventListener("click", () => {
-//   displayOrderManagement(orderList);
-// });
+let tkSanPham = document.getElementById("tkSanPham");
+tkSanPham.addEventListener("click", () => {
+  content.style.display = "none";
+  display_product.style.display = "block";
+});
 
-window.onload = () => {
+let tkDonHang = document.getElementById("tkDonHang");
+tkDonHang.addEventListener("click", () => {
+  content.style.display = "block";
+  display_product.style.display = "none";
+  displayOrderManagement(orderList);
+});
+
+let qlTaiKhoan = document.getElementById("userManagement");
+qlTaiKhoan.addEventListener("click", () => {
+  content.style.display = "block";
+  display_product.style.display = "none";
   displayUserManagement(userList);
-};
+});
 
 function displayOrderManagement(orderList) {
   content.innerHTML =

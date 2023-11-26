@@ -1,8 +1,10 @@
 body {
     margin: 0px;
-    height: 100%;
+    min-height: 100vh;
     background-color: rgb(238, 238, 238);
-    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 a:hover {
@@ -31,12 +33,14 @@ a:hover {
     display: none;
 }
 
-.menu a {
+.menu li,
+.menu li a {
     color: white;
     display: block;
     font-size: 25px;
     margin: 20px;
     font-weight: normal;
+    caret-color: transparent;
 }
 
 .main {
@@ -84,6 +88,11 @@ a:hover {
     display: flex;
     height: 100%;
     width: 200px;
+}
+
+
+.display-product {
+    position: relative;
 }
 
 .main ul {
@@ -249,6 +258,7 @@ a {
     position: fixed;
     z-index: 999;
     width: 100%;
+    top: 70px;
     height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
@@ -259,6 +269,7 @@ a {
     position: fixed;
     z-index: 999;
     width: 100%;
+    top: 70px;
     height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
@@ -365,4 +376,8 @@ a {
     text-align: center;
     position: relative;
     left: calc(50% - 25px);
+}
+
+.infor_container {
+    margin-top: auto;
 }

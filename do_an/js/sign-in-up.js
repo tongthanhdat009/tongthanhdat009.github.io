@@ -340,31 +340,7 @@ const passwordError = document.querySelector("#password-login-error");
 //nút thanh toán giỏ hàng
 const payButton = document.querySelector("#pay button");
 
-// Khi đăng nhập thành công
-var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
-if(currentUserLogged){
-  onLoginSuccess(currentUserLogged);
-}
-function onLoginSuccess(user) {
-  if(user && user.status){
-    changeOnLoginSuccess();
-  }
-}
-// thay đổi css khi đăng nhập
-function changeOnLoginSuccess(){
-  if(currentUserLogged.accountName === "admin"){
-    adminButton.style.display="initial";
-  }
-  if(window.location.pathname === "/do_an/html/cart.html"){
-    payButton.setAttribute("onclick","payAll()");
-  }
-  userInforButton.setAttribute("onclick","openInforTb()");
-  logoutButton.style.display="initial";
-  btnPopup.style.display="none";
-  optionBox.style.display="none";
-  loginLink.style.display="none";
-  wrapper.style.display="none";
-}
+
 
 // Khi người dùng click vào nút đăng xuất
 logoutButton.addEventListener("click", (e) => {
@@ -389,7 +365,7 @@ logoutButton.addEventListener("click", (e) => {
     deleteAll();
 });
 //lưu thông tin người đăng nhập hiện tại
-function setCurrentUser(username, accountname, password, email, phonenumber,address,status){
+function setCurrentUser(username, accountname, password, email, phonenumber, address, status){
   var currentUser={
     userName: username,
     accountName: accountname,
@@ -415,10 +391,12 @@ loginButton.addEventListener("click",(e) => {
                        userList[i].accountName,
                        userList[i].password,
                        userList[i].email,
-                       userList[i].phonenumber,
+                       userList[i].phoneNumber,
                        userList[i].address,
                        true);
+        console.log(userList[i]);
         onLoginSuccess(JSON.parse(localStorage.getItem("currentUser")));
+        location.reload();
         accountNameLogin.value="";
         passWordLogin.value="";
       }
@@ -428,3 +406,29 @@ loginButton.addEventListener("click",(e) => {
     alert("vui lòng kiểm tra tài khoản hoặc mật khẩu"); 
   }
 });
+// Khi đăng nhập thành công
+var currentUserLogged = JSON.parse(localStorage.getItem("currentUser"));
+if(currentUserLogged){
+  onLoginSuccess(currentUserLogged);
+}
+function onLoginSuccess(user) {
+  if(user && user.status){
+    changeOnLoginSuccess();
+    if(currentUserLogged.accountName === "admin"){
+      adminButton.style.display="initial";
+    }
+  }
+}
+
+// thay đổi css khi đăng nhập
+function changeOnLoginSuccess(){
+  if(window.location.pathname === "/do_an/html/cart.html"){
+    payButton.setAttribute("onclick","payAll()");
+  }
+  userInforButton.setAttribute("onclick","openInforTb()");
+  logoutButton.style.display="initial";
+  btnPopup.style.display="none";
+  optionBox.style.display="none";
+  loginLink.style.display="none";
+  wrapper.style.display="none";
+}

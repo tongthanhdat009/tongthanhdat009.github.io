@@ -4,7 +4,7 @@ const checkBill = document.querySelector("#check-bill");
 const editInfor= document.querySelector("#edit-user-infor");
 const altPage = document.querySelector("#alt-page");
 const closePage = document.querySelector("#user-infor-close");
-const rightContent = document.querySelector("#user-right-content");
+const rightContent = document.querySelector("#user-content");
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // thêm hình + tiêu đề cho trang thông tin
@@ -17,7 +17,6 @@ altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</di
 function openInforTb(){
     userInforCont.style.animation="user-infor-in 2s forwards";    
 }
-console.log(currentUser.userName);
 //thêm chức năng đóng trang
 closePage.addEventListener("click",() => {
     userInforCont.style.animation="user-infor-out 2s";
@@ -26,9 +25,13 @@ closePage.addEventListener("click",() => {
 
 checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
-    rightContent.innerHTML='<p>Họ tên: '+currentUser.userName+'</p>'
+    rightContent.innerHTML='<h1 class="user-infor-title">THÔNG TIN TÀI KHOẢN</h1>' +
+                           '<p><strong>Họ tên</strong>: ' + currentUser.userName+'</p>' +
+                           '<p><strong>Tên đăng nhập:</strong>' + currentUser.accountName + '</p>' +
+                           '<p><strong>Địa chỉ:</strong>' + currentUser.address+'</p>' +
+                           '<p><strong>Địa chỉ email:</strong>' + currentUser.email+'</p>' +
+                           '<p><strong>Số điện thoại:</strong>' + currentUser.phoneNumber + '</p>';
 });
-
 checkBill.addEventListener('click', () => {
     altPage.style.display="none";
 });

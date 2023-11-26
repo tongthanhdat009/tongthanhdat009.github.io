@@ -40,10 +40,10 @@
             <button onclick="mix_product_per_page()">enter</button>
             <img id="button-refresh" src="../asset/icon/reload.png" onclick="refresh()" alt="">
             <button style="margin-left: 50px;" onclick="admin_mode()">
-                <h2>Thêm/Xóa/Tùy chọn sản phẩm</h2>
+                <h3>Thêm/Xóa/Tùy chỉnh sản phẩm</h3>
             </button>
             <button style="margin-left: 50px;" onclick="openstatistical()">
-                <h2>Thống kê sản phẩm</h2>
+                <h3>Thống kê sản phẩm</h3>
             </button>
         </div>
     </div>
@@ -55,16 +55,16 @@
         <div style="width: 400px; margin: 0px;">
             <div style="display: block;">
                 <div style="margin: 20px;">
-                    <table border="5">
+                    <table style="position: fixed;" border="5">
                         <tr>
                             <td>
-                                <p style="font-size: 25px;">Tìm kiếm</p>
+                                <p style="font-size: 18px;">Tìm kiếm</p>
                             </td>
                             <td><input id="searchByNameAdmin" type="text" name="" id=""></td>
                         </tr>
                         <tr>
                             <td>
-                                <p style="font-size: 25px;">Lọc theo loại: </p>
+                                <p style="font-size: 18px;">Lọc theo loại: </p>
                             </td>
                             <td>
                                 <select name="" id="searchByTypeAdmin">
@@ -81,25 +81,25 @@
                         </tr>
                     </table>
                 </div>
-                <div style="width: 400px; height: 300px; display: flex; justify-content: center;">
+                <div style="width: 400px; display: flex; justify-content: center;">
                     <div id="are-you-sure">
-                        <h2 style="display: flex; justify-content: center;">Are you sure</h2>
+                        <h3 style="display: flex; justify-content: center;">Are you sure</h3>
                         <div style="display: flex;">
                             <button id="YES">Yes</button>
                             <button id="NO">No</button>
                         </div>
                     </div>
                     <div id="config">
-                        <h2 align="center">Tùy chỉnh</h2>
-                        <h2 style="margin-bottom: 5px;">ID mới</h2> <input id="config-id" type="number"
+                        <h3 style="margin: 10px;" align="center">Tùy chỉnh</h3>
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID mới</h4> <input id="config-id" type="number"
                             placeholder="New ID">
-                        <h2 style="margin-bottom: 5px;">Tên mới</h2> <input id="config-name" type="text"
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên mới</h4> <input id="config-name" type="text"
                             placeholder="New name">
-                        <h2 style="margin-bottom: 5px;">Giá mới</h2> <input id="config-price" type="number"
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá mới</h4> <input id="config-price" type="number"
                             placeholder="New price">
-                        <h2 style="margin-bottom: 5px;">Loại mới</h2> <input id="config-type" type="number"
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại mới</h4> <input id="config-type" type="number"
                             placeholder="New type">
-                        <h2 style="margin-bottom: 5px;">Ảnh mới</h2> <input id="config-img" type="file" placeholder="">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh mới</h4> <input id="config-img" type="file" placeholder="">
                         <input id="config-img2" type="file" placeholder="">
                         <input id="config-img3" type="file" placeholder="">
                         <input id="config-img4" type="file" placeholder="">
@@ -110,12 +110,12 @@
                         </div>
                     </div>
                     <div id="add-product">
-                        <h2 style="display: flex; justify-content: center;">Thêm sản phẩm</h2>
-                        <h2>ID sản phẩm</h2> <input id="add-id" type="number" placeholder="ID">
-                        <h2>Tên sản phẩm</h2> <input id="add-name" type="text" placeholder="Name">
-                        <h2>Giá sản phẩm</h2> <input id="add-price" type="number" placeholder="Price">
-                        <h2>Loại</h2> <input id="add-type" type="number" placeholder="Type">
-                        <h2>Ảnh sản phẩm</h2> <input id="add-img" type="file" placeholder="Ảnh 1">
+                        <h3 align="center" style=" margin: 10px;">Thêm sản phẩm</h3>
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id" type="number" placeholder="ID">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên sản phẩm</h4> <input id="add-name" type="text" placeholder="Name">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá sản phẩm</h4> <input id="add-price" type="number" placeholder="Price">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại</h4> <input id="add-type" type="number" placeholder="Type">
+                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh sản phẩm</h4> <input id="add-img" type="file" placeholder="Ảnh 1">
                         <input id="add-img2" type="file" placeholder="Ảnh 2">
                         <input id="add-img3" type="file" placeholder="Ảnh 3">
                         <input id="add-img4" type="file" placeholder="Ảnh 4">
@@ -511,7 +511,7 @@
                     '<td><h5>' + a[i].name + '</h5></td>' +
                     '<td><h5>' + a[i].price + '</h5></td>' +
                     '<td><h5>' + a[i].type + '</h5></td>' +
-                    '<td><h5><button class="edit-btn" onclick="config(' + a[i].id + ')" >&#9881;</button></h5></td>' +
+                    '<td><h5><button class="edit-btn" onclick="config(' + a[i].id + ')" >&#9881</button></h5></td>' +
                     '<td><h5><button class="remove-button" onclick="remove(' + a[i].id + ')" style="background-color: red;">&times;</button></h5></td>' +
                     '</tr>';
                 table.appendChild(element);
@@ -752,7 +752,8 @@
             b = document.createElement("tr");
             b.innerHTML =
                 '<td align=center colspan=2>Sản phẩm</td>' +
-                '<td>Đã bán</td>'
+                '<td>Đã bán</td>'+
+                '<td>Tổng tiền</td>'
             a.appendChild(b);
             for (var i = 0; i < productList.length; i++) {
                 b = document.createElement("tr");
@@ -765,6 +766,9 @@
                     '</td>' +
                     '<td>' +
                     '' + productList[i].count + '' +
+                    '</td>'+
+                    '<td>' +
+                    '' + productList[i].count * productList[i].price+ 'đ' +
                     '</td>'
                 a.appendChild(b);
             }

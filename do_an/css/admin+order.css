@@ -150,8 +150,8 @@ a {
 }
 
 .product-inner {
-    width: 325px;
-    height: 600px;
+    width: 300px;
+    height: 575px;
     margin: 50px;
     display: block;
     background-color: white;
@@ -259,7 +259,7 @@ a {
     position: fixed;
     z-index: 999;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 93%;
     background-color: white;
     overflow-x: auto;
 }
@@ -287,6 +287,9 @@ a {
     width: 200px;
     background-color: FFA3FD;
     display: none;
+    border: 3px solid black;
+    position: fixed;
+    top: 270px;
 }
 
 #YES {
@@ -302,11 +305,13 @@ a {
 }
 
 #config {
+    position: fixed;
     display: none;
     width: 350px;
     border: 5px solid black;
-    height: 800px;
+    height: 523px;
     z-index: 1000;
+    top: 270px;
 }
 
 #config input {
@@ -327,8 +332,10 @@ a {
 #add-product {
     border: 5px solid black;
     width: 350px;
-    height: 800px;
+    height: 525px;
     display: none;
+    position: fixed;
+    top: 270px;
 }
 
 #add-product h2 {
@@ -341,6 +348,8 @@ a {
 }
 
 .edit-btn {
+    display: flex;
+    align-items: center;
     height: 45px;
     width: 50px;
     font-size: 40px;

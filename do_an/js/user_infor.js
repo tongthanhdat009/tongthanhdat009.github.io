@@ -20,12 +20,11 @@ function openInforTb(){
 closePage.addEventListener("click",() => {
     userInforCont.style.animation="user-infor-out 2s";
     altPage.style.display="initial";
-    rightContent.style.display="none";
+    rightContent.innerHTML="";
 });
 
 checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
-
     rightContent.innerHTML='<h1 class="user-infor-title">THÔNG TIN TÀI KHOẢN</h1>' +
                            '<p><strong>Họ tên</strong>: ' + currentUser.userName+'</p>' +
                            '<p><strong>Tên đăng nhập: </strong>' + currentUser.accountName + '</p>' +
@@ -39,6 +38,7 @@ checkBill.addEventListener('click', () => {
 
 editInfor.addEventListener('click', () => {
     altPage.style.display="none";
+    rightContent.innerHTML="<h1>CHỈNH SỬA THÔNG TIN TÀI KHOẢN</h1>";
 });
 
 console.log(currentUser);

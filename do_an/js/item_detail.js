@@ -244,6 +244,6 @@ function addCartButtonBehavior(name, price, img, content) {
       if(productList[i].name === name) productList[i].count+=parseInt(quantity.value);
     }
     saveProductList();
-    console.log(productList);
+    // console.log(productList);
   });
 }

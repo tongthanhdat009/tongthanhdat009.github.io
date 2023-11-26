@@ -5,7 +5,6 @@ const editInfor= document.querySelector("#edit-user-infor");
 const altPage = document.querySelector("#alt-page");
 const closePage = document.querySelector("#user-infor-close");
 const rightContent = document.querySelector("#user-content");
-
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // thêm hình + tiêu đề cho trang thông tin
 altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</div>'+
@@ -21,10 +20,12 @@ function openInforTb(){
 closePage.addEventListener("click",() => {
     userInforCont.style.animation="user-infor-out 2s";
     altPage.style.display="initial";
+    rightContent.style.display="none";
 });
 
 checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
+
     rightContent.innerHTML='<h1 class="user-infor-title">THÔNG TIN TÀI KHOẢN</h1>' +
                            '<p><strong>Họ tên</strong>: ' + currentUser.userName+'</p>' +
                            '<p><strong>Tên đăng nhập: </strong>' + currentUser.accountName + '</p>' +

@@ -57,14 +57,17 @@ window.onload = function () {
 };
 
 //tìm kiếm sản phẩm
+
 var inputSearch = document.querySelector("#search_input");
-inputSearch.addEventListener("submit", function (event) {
-  // event.preventDefault();
-  var nameInput = document.querySelector("#name_input").value;
-  var userInput = {
-    name: nameInput,
-    sign: true,
-  };
-  var jsonStr = JSON.stringify(userInput);
-  localStorage.setItem("mainSearch", jsonStr);
-});
+if(window.location.pathname === "/do_an/html/cart.html"){
+  inputSearch.addEventListener("submit", function (event) {
+    // event.preventDefault();
+    var nameInput = document.querySelector("#name_input").value;
+    var userInput = {
+      name: nameInput,
+      sign: true,
+    };
+    var jsonStr = JSON.stringify(userInput);
+    localStorage.setItem("mainSearch", jsonStr);
+  });
+}

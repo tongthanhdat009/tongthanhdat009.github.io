@@ -1,9 +1,7 @@
 // localStorage.removeItem("orderList");
-
 let userList = localStorage.getItem("userList")
   ? JSON.parse(localStorage.getItem("userList"))
   : [];
-
 let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
   : [];

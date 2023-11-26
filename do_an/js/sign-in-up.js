@@ -5,7 +5,7 @@ const btnPopup = document.querySelector("#sign-up-in_btn");
 const Iconclose = document.querySelector(".icon-close");
 const errorSpan = document.querySelector("#error");
 const btn_yes = document.querySelector(".btn_yes");
-var userList=[];
+var userList;
 
 let login = document.getElementsByClassName("dangnhap")[0];
 let signup = document.getElementsByClassName("dangki")[0];
@@ -170,13 +170,14 @@ function getUserList(){
   userList = JSON.parse(localStorage.getItem("userList"));
 }
 //hàm chạy save user 1 lần
-function runSaveUserList(){
-  var userHasRun = localStorage.getItem('userHasRun');
-  if (!userHasRun) {
-    saveUserList();
-    localStorage.setItem('userHasRun', true);
-  }
-}
+// function runSaveUserList(){
+//   var userHasRun = localStorage.getItem('userHasRun');
+//   if (!userHasRun) {
+//     saveUserList();
+//     localStorage.setItem('userHasRun', true);
+//   }
+// }
+getUserList();
 
 //thêm user
 function addUser(userName, accountname, passWord, email, phoneNumber, address){
@@ -193,34 +194,65 @@ function addUser(userName, accountname, passWord, email, phoneNumber, address){
   saveUserList();
   getUserList();
 }
-//tài khoản admin
-addUser(
+if(userList == null){
+  userList = [];
+  addUser(
   "Group 2",
   "admin",
   "admin",
   "wibustore@gmail.com",
   "123456789",
   "tphcm"
-);
+  );
   
-//   //tài khoản user
-addUser(
-  "Tống Thành Đạt",
-  "dat",
-  "12345678",
-  "a@gmail.com",
-  "0395632027",
-  "tphcm"
-);
-addUser(
-  "Tống Thành Đạt",
-  "dat2",
-  "12345678",
-  "a@gmail.com",
-  "0395632027",
-  "tphcm"
-);
-runSaveUserList();
+  //tài khoản user
+  addUser(
+    "Tống Thành Đạt",
+    "dat",
+    "12345678",
+    "a@gmail.com",
+    "0395632027",
+    "tphcm"
+  );
+  addUser(
+    "Tống Thành Đạt",
+    "dat2",
+    "12345678",
+    "a@gmail.com",
+    "0395632027",
+    "tphcm"
+  );
+}
+//tài khoản admin
+// addUser(
+//   "Group 2",
+//   "admin",
+//   "admin",
+//   "wibustore@gmail.com",
+//   "123456789",
+//   "tphcm"
+// );
+  
+// //   //tài khoản user
+// addUser(
+//   "Tống Thành Đạt",
+//   "dat",
+//   "12345678",
+//   "a@gmail.com",
+//   "0395632027",
+//   "tphcm"
+// );
+// addUser(
+//   "Tống Thành Đạt",
+//   "dat2",
+//   "12345678",
+//   "a@gmail.com",
+//   "0395632027",
+//   "tphcm"
+// );
+
+console.log(userList);
+// runSaveUserList();
 
 // LIÊN QUAN TỚI ĐĂNG KÝ TÀI KHOẢN
 // bấm submit đăng ký

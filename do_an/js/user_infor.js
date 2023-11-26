@@ -6,7 +6,6 @@ const altPage = document.querySelector("#alt-page");
 const closePage = document.querySelector("#user-infor-close");
 const rightContent = document.querySelector("#user-content");
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-console.log(currentUser);
 // thêm hình + tiêu đề cho trang thông tin
 altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</div>'+
                     '<div id="alt-page-img">'+

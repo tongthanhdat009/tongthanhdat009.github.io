@@ -203,7 +203,6 @@ function conditionSearch(condition) {
       }
     });
   }
-  console.table(searchOrderList);
   return searchOrderList;
 }
 
@@ -283,5 +282,87 @@ function loadUserList(userElm, userList) {
         // localStorage.setItem("userList", userList);
       }
     });
+  });
+}
+
+// displayUserManagement(userList);
+
+createAccountFunc();
+
+function createAccountFunc() {
+  let createAccountForm = document.getElementById("createAccountBox");
+
+  let name = document.getElementById("name");
+  let loginName = document.getElementById("loginName");
+  let loginPass = document.getElementById("loginPassword");
+  let email = document.getElementById("email");
+
+  const nameReg = /[a-zA-Z]{3,}$/;
+  const loginNameReg = /[a-zA-Z0-9]{1,128}$/;
+  const loginPassReg = /[a-zA-Z0-9]{8,}$/;
+  const emailReg = /([a-z]|[A-Z]|[0-9]){1,64}@([a-z]|[A-Z]|[0-9]|.){1,255}$/;
+
+  let nameErr = document.getElementById("nameErr");
+  let loginNameErr = document.getElementById("loginNameErr");
+  let loginPassErr = document.getElementById("loginPasswordErr");
+  let emailErr = document.getElementById("emailErr");
+  nameErr.style.display = "none";
+  loginNameErr.style.display = "none";
+  loginPassErr.style.display = "none";
+  emailErr.style.display = "none";
+  createAccountForm.addEventListener("submit", (e) => {
+    nameErr.style.display = "none";
+    loginNameErr.style.display = "none";
+    loginPassErr.style.display = "none";
+    emailErr.style.display = "none";
+
+    name.style.borderColor = "black";
+    loginName.style.borderColor = "black";
+    loginPass.style.borderColor = "black";
+    email.style.borderColor = "black";
+
+    e.preventDefault();
+
+    let nameVal = name.value;
+    let loginNameVal = loginName.value;
+    let loginPassVal = loginPass.value;
+    let emailVal = email.value;
+
+    if (!emailReg.test(emailVal)) {
+      emailErr.style.display = "block";
+      email.style.borderColor = "red";
+      email.focus();
+    }
+    if (!loginPassReg.test(loginPassVal)) {
+      loginPassErr.style.display = "block";
+      loginPass.style.borderColor = "red";
+      loginPass.focus();
+    }
+    if (!loginNameReg.test(loginNameVal)) {
+      loginNameErr.style.display = "block";
+      loginName.style.borderColor = "red";
+      loginName.focus();
+    }
+    if (!nameReg.test(nameVal)) {
+      nameErr.style.display = "block";
+      name.style.borderColor = "red";
+      name.focus();
+    }
+
+    alert("Tao tai khoan thanh cong");
+    var newUser = {
+      userName: nameVal,
+      accountName: loginNameVal,
+      password: loginPassVal,
+      email: emailVal,
+      phoneNumber: "none",
+      address: "none",
+      status: false, // trạng thái đăng nhập
+    };
+    userList.push(newUser);
+    localStorage.setItem("userList", JSON.stringify(userList));
+    displayUserManagement(userList);
+    console.table(userList);
+    return false;
   });
 }

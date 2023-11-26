@@ -39,17 +39,19 @@
       <form action="" id="createAccountBox">
         <div class="closeBtn">X</div>
         <label for="name">Ho ten</label>
-        <label for="name" name="nameErr"></label>
-        <input type="text" id="name">
+        <label for="name" id="nameErr" style="color:red">Ho ten khong chua ky tu dac biet va toi da 128 ky tu</label>
+        <input type="text" id="name" placeholder="Ho va ten">
         <label for="loginName">Ten dang nhap</label>
-        <label for="loginName" id="loginNameErr"></label>
-        <input type="text" id="loginName">
+        <label for="loginName" id="loginNameErr" style="color:red">Ten dang nhap khong toi da 8 ky tu va khong chua ky
+          tu dac biet</label>
+        <input type="text" id="loginName" placeholder="Ten dang nhap">
         <label for="loginPassword">Mat Khau</label>
-        <label for="loginPassword" id="loginPasswordErr"></label>
-        <input type="password" id="loginPassword">
+        <label for="loginPassword" id="loginPasswordErr" style="color:red">Mat khau toi da 8 ky tu khong chua ky tu dac
+          biet</label>
+        <input type="password" id="loginPassword" placeholder="mat khau">
         <label for="email">Email</label>
-        <label for="email" id="emailErr"></label>
-        <input type="email" id="email">
+        <label for="email" id="emailErr" style="color:red">Email phai tuan thu abc@email.com</label>
+        <input type="email" id="email" placeholder="Email">
 
         <div class="btnWrapper">
           <button type="submit" class="submitBtn">Submit</button>

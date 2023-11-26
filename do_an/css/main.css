@@ -251,7 +251,7 @@ img {
   display: flex;
   background-color: palegoldenrod;
   width: 1200px;
-  min-height: 600px;
+  min-height: 625px;
   position: fixed;
   left: calc(50% - 600px);
   top: -100%;

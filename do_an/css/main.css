@@ -275,12 +275,20 @@ img {
   border-right: 2px solid;
 }
 
-#user-infor-left>div {
+#check-bill,
+#edit-user-infor,
+#check-infor {
   font-size: 24px;
   border:2px solid black;
   text-align: center;
 }
-
+#img-left-content{
+  width: 250px;
+  height: 250px;
+  position: relative;
+  left: calc(50% - 125px);
+  display: none;
+}
 #user-infor-right {
   width: 70%;
 }

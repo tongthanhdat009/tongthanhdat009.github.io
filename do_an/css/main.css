@@ -276,14 +276,9 @@ img {
 }
 
 #user-infor-left>div {
-  margin: 20px;
-  font-size: 20px;
-}
-
-#user-infor-left>div:hover {
-  background-color: white;
-  color: #818181;
-  cursor: pointer;
+  font-size: 24px;
+  border:2px solid black;
+  text-align: center;
 }
 
 #user-infor-right {
@@ -317,17 +312,47 @@ img {
     top: 20%;
   }
 }
-
 @keyframes user-infor-out {
   from {
     top: 20%;
   }
-
+  
   to {
     top: -100%;
   }
 }
+.user-infor-title{
+  text-align: center;
+}
+#user-content p{
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
 
+#check-bill:hover,
+#edit-user-infor:hover,
+#check-infor:hover{
+  animation: infi 2s infinite;
+  cursor: pointer;
+}
+@keyframes infi {
+  0%{
+    background-color: red;
+  }
+  25%{
+    background-color: aqua;
+  }
+  50%{
+    background-color: green;
+  }
+  75%{
+    background-color: aquamarine;
+  }
+  100%{
+    background-color:tomato ;
+  }
+}
 /* ---- */
 
 /* menu */

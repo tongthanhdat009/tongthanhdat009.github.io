@@ -27,10 +27,10 @@ checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
     rightContent.innerHTML='<h1 class="user-infor-title">THÔNG TIN TÀI KHOẢN</h1>' +
                            '<p><strong>Họ tên</strong>: ' + currentUser.userName+'</p>' +
-                           '<p><strong>Tên đăng nhập:</strong>' + currentUser.accountName + '</p>' +
-                           '<p><strong>Địa chỉ:</strong>' + currentUser.address+'</p>' +
-                           '<p><strong>Địa chỉ email:</strong>' + currentUser.email+'</p>' +
-                           '<p><strong>Số điện thoại:</strong>' + currentUser.phoneNumber + '</p>';
+                           '<p><strong>Tên đăng nhập: </strong>' + currentUser.accountName + '</p>' +
+                           '<p><strong>Địa chỉ: </strong>' + currentUser.address+'</p>' +
+                           '<p><strong>Địa chỉ email: </strong>' + currentUser.email+'</p>' +
+                           '<p><strong>Số điện thoại: </strong>' + currentUser.phoneNumber + '</p>';
 });
 checkBill.addEventListener('click', () => {
     altPage.style.display="none";

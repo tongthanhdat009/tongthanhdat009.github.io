@@ -895,7 +895,7 @@ img {
 }
 
 /* giao diện nhỏ hơn */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 
   /* chỉnh sửa kích cỡ banner */
   .banner_fl img {

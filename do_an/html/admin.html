@@ -96,7 +96,7 @@
                             <button id="NO">No</button>
                         </div>
                     </div>
-                    <div id="config">
+                    <div id="config" class="config-add">
                         <h3 style="margin: 10px;" align="center">Tùy chỉnh</h3>
                         <h4 style="margin-bottom: 3px; margin-top: 5px;">ID mới</h4> <input id="config-id" type="number"
                             placeholder="New ID">
@@ -117,7 +117,7 @@
                             <button id="config-clear" onclick="clearconfig()">Clear</button>
                         </div>
                     </div>
-                    <div id="add-product">
+                    <div id="add-product" class="config-add">
                         <h3 align="center" style=" margin: 10px;">Thêm sản phẩm</h3>
                         <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id"
                             type="number" placeholder="ID">
@@ -398,6 +398,22 @@
             displayProduct(productList2);
         }
 
+        function getBase64Image(img) {
+            const image = img.files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener('load', () => {
+                localStorage.setItem('image64', reader.result);
+            });
+
+            if (image) {
+                reader.readAsDataURL(image);
+            }
+            let newImageSrc = localStorage.getItem('image64');
+            localStorage.removeItem('image64');
+            return newImageSrc;
+        }
+
         function addProduct(name, price, type, img, img2, img3, img4, id) {
             var product = {
                 name: name,
@@ -591,10 +607,10 @@
                 var price = parseFloat(pricetext);
                 var type_text = document.getElementById("config-type").value;
                 var type = parseFloat(type_text);
-                var img = document.getElementById("config-img").value;
-                var img2 = document.getElementById("config-img2").value;
-                var img3 = document.getElementById("config-img3").value;
-                var img4 = document.getElementById("config-img4").value;
+                var img = document.getElementById("config-img");
+                var img2 = document.getElementById("config-img2");
+                var img3 = document.getElementById("config-img3");
+                var img4 = document.getElementById("config-img4");
                 var checktype = /^[1-4]{1}$/
                 for (var k = 0; k < productList.length; k++)
                     if (productList[k].id != idproduct)
@@ -608,11 +624,14 @@
                         return;
                     }
                 }
-                console.log(img);
-                img = img.replace(/C:\\fakepath\\/, "../asset/add/");
-                img2 = img2.replace(/C:\\fakepath\\/, "../asset/add/");
-                img3 = img3.replace(/C:\\fakepath\\/, "../asset/add/");
-                img4 = img4.replace(/C:\\fakepath\\/, "../asset/add/");
+                img = getBase64Image(img);
+                img2 = getBase64Image(img2);
+                img3 = getBase64Image(img3);
+                img4 = getBase64Image(img4);
+                // img = img.replace(/C:\\fakepath\\/, "../asset/add/");
+                // img2 = img2.replace(/C:\\fakepath\\/, "../asset/add/");
+                // img3 = img3.replace(/C:\\fakepath\\/, "../asset/add/");
+                // img4 = img4.replace(/C:\\fakepath\\/, "../asset/add/");
                 for (var k = 0; k < productList.length; k++) {
                     if (productList[k].id == idproduct) {
                         if (idtext !== "") productList[k].id = id;
@@ -680,10 +699,10 @@
                 var img3 = document.getElementById("add-img3").value;
                 var img4 = document.getElementById("add-img4").value;
                 var checktype = /^[1-4]{1}$/
-                img = img.replace(/C:\\fakepath\\/, '../asset/add/');
-                img2 = img2.replace(/C:\\fakepath\\/, '../asset/add/');
-                img3 = img3.replace(/C:\\fakepath\\/, '../asset/add/');
-                img4 = img4.replace(/C:\\fakepath\\/, '../asset/add/');
+                img = getBase64Image(img);
+                img2 = getBase64Image(img2);
+                img3 = getBase64Image(img3);
+                img4 = getBase64Image(img4);
                 if (isNaN(id)) {
                     alert("Thiếu ID");
                     return;

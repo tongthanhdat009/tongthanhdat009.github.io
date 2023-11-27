@@ -315,14 +315,16 @@ a {
     background-color: red;
 }
 
-#config {
+.config-add {
     position: fixed;
     display: none;
-    width: 350px;
+    width: 370px;
     border: 5px solid black;
+    background: white;
     min-height: 523px;
     z-index: 1000;
-    top: 270px;
+    inset: 0;
+    top: 70px;
 }
 
 #config input {
@@ -340,14 +342,6 @@ a {
     margin-top: 30px;
 }
 
-#add-product {
-    border: 5px solid black;
-    width: 350px;
-    min-height: 525px;
-    display: none;
-    position: fixed;
-    top: 270px;
-}
 
 #add-product h2 {
     margin-bottom: 5px;

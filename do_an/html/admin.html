@@ -56,9 +56,9 @@
         </table>
     </div>
     <div id="admin">
-        <div style="width: 400px; margin: 0px;">
-            <div style="display: block;">
-                <div style="margin: 20px;">
+         <div style="width: 400px; margin: 0px;">
+            <div style="display: block;"> 
+                 <div style="margin: 20px;">
                     <table style="position: fixed;" border="5">
                         <tr>
                             <td>
@@ -84,8 +84,8 @@
                             <td colspan="2" align="center"><button onclick="search_admin()">Submit</button></td>
                         </tr>
                     </table>
-                </div>
-                <div style="width: 400px; display: flex; justify-content: center;">
+                </div> 
+                 <div style="width: 400px; display: flex; justify-content: center;">
                     <div id="are-you-sure">
                         <h3 style="display: flex; justify-content: center;">Are you sure</h3>
                         <div style="display: flex;">
@@ -93,7 +93,7 @@
                             <button id="NO">No</button>
                         </div>
                     </div>
-                    <div id="config" class="config-add">
+                    <div id="config">
                         <h3 style="margin: 10px;" align="center">Tùy chỉnh</h3>
                         <h4 style="margin-bottom: 3px; margin-top: 5px;">ID mới</h4> <input id="config-id" type="number"
                             placeholder="New ID">
@@ -114,7 +114,7 @@
                             <button id="config-clear" onclick="clearconfig()">Clear</button>
                         </div>
                     </div>
-                    <div id="add-product" class="config-add">
+                    <div id="add-product">
                         <h3 align="center" style=" margin: 10px;">Thêm sản phẩm</h3>
                         <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id"
                             type="number" placeholder="ID">
@@ -135,12 +135,18 @@
                             <button id="add-clear" onclick="clearadd()">Clear</button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div style="justify-content: right; width: 100%; position: relative;">
+                </div> 
+             </div>
+        </div> 
+
+
+
+
+
+
+        <div style="justify-content: right; width: 60%; position: relative;">
             <div style="height: 100px; ">
-                <h2 style="position: absolute;left: 45%;">Danh sách sản phẩm</h2>
+                <h2 style="position: absolute;left: 30%;">Danh sách sản phẩm</h2>
                 <img style="position: absolute; left: 75%; width: 65px; top: 0%;" onclick="add()" style="width:50px;"
                     src="../asset/icon/add.png" alt="">
             </div>
@@ -154,69 +160,34 @@
     <div class="display-product">
         <div class="main">
             <div class="sidebar-content">
-                <div class="Filter-by-price">
-                    <div class="container" style="height: 50px; background-color: #c5d654 ;border: 3px solid black;">
-                        <h2 style="color: white;">Lọc theo giá</h2>
-                    </div>
-                    <div class="Filter">
-                        <div class="min">
-                            <p>Min</p>
-                            <input id="min-price" style="margin-left: 12px; width: 100%;" type="number"
-                                placeholder="VND">
-                        </div>
-                        <div class="max">
-                            <p>Max </p>
-                            <input id="max-price" style="margin-left: 10px;width: 100%;" type="number"
-                                placeholder="VND">
-                        </div>
-                        <button style="float: right;" onclick="Filterbyprice()">Lọc</button>
-                    </div>
-                </div>
                 <ul>
                     <li
-                        style="background-color: #c5d654; color:white; border: 3px solid black; justify-content: center;">
-                        <h2>Danh mục sản phầm</h2>
+                        style="background-color: #c5d654; color:white; justify-content: center;">
+                        <h2>Chức năng</h2>
                     </li>
                     <li>
                         <img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
                             style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="refresh()" href="#">Tất cả sản phẩm</a>
+                        <a onclick="refresh()" href="#">Quản lý đơn hàng</a>
                     </li>
                     <li>
                         <img src="../asset/category_img/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;"
                             alt="">
-                        <a onclick="figure()" href="#">Firuge</a>
-                    </li>
-                    <li>
-                        <img src="../asset/category_img/kunai naruto.png" style="width: 25px; margin-right: 10px;"
-                            alt="">
-                        <a onclick="set_figure()" href="#">Bộ Firuge</a>
+                        <a onclick="figure()" href="#">Quản lý tài khoản</a>
                     </li>
                     <li>
                         <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;"
                             alt="">
-                        <a onclick="mini_figure()" href="#">Firuge mini</a>
+                        <a onclick="openstatistical()"  href="#">Thống kê sản phẩm</a>
                     </li>
                     <li>
                         <img src="../asset/category_img/logo fairy tail.png" style="width: 25px; margin-right: 10px;"
                             alt="">
-                        <a onclick="cosplay()" href="#">Cosplay</a>
+                        <a onclick="admin_mode()" href="#">Quản lý sản phẩm</a>
                     </li>
                 </ul>
             </div>
             <div class="site-main">
-                <div class="container" style="height: 47px;">
-                    <h2 class="tieude" style="background-color: aquamarine">Hàng có sẵn</h2>
-                </div>
-                <div style="display: flex; width:200px;">
-                    <p style="margin: 0px; cursor: pointer;" onclick="sort()">Sort by:</p>
-                    <div id="container-sort" style="display: block;height: 50px;">
-                        <select name="" id="mySelect">
-                            <option value="Theo tên">Theo tên</option>
-                            <option value="Theo giá">Theo giá</option>
-                        </select>
-                    </div>
-                </div>
                 <div class="archive-product">
                 </div>
             </div>
@@ -441,12 +412,6 @@
             };
             productList.push(product);
         }
-        var select = document.getElementById("mySelect")
-        select.addEventListener('change', function () {
-            var selectOption = select.options[select.selectedIndex];
-            if (selectOption.value === 'Theo tên') sort_by_name();
-            if (selectOption.value === 'Theo giá') sort_by_price();
-        })
         function displayProduct(a) // xuất sản phẩm của mảng a ra màn hình
         {
             var archiveProduct = document.querySelector('.archive-product');
@@ -464,7 +429,7 @@
                     '</div>' +
                     '<div class="product-content">' +
                     '<div class="name-figure">' +
-                    '<a href="#"><h3 align="center" style="font-size: 17px;">' + product.name + '</h3></a>' +
+                    '<a href="#"><h3 align="center">' + product.name + '</h3></a>' +
                     '</div>' +
                     '<div class="price">' +
                     '<p class="price-product" data-price=" ' + product.price + ' ">Giá: ' + product.price + 'đ </p>' +
@@ -532,15 +497,27 @@
             }
         }
 
-        var openadminmode = false; //mở admin mode
+        var openadminmode = 0; //mở admin mode
         function admin_mode() {
             a = document.getElementById("admin");
-            if (openadminmode === false) {
+            if (openadminmode === 0) {
                 a.style.display = "flex";
                 adminmode(searchADList);
+                closeStatistical_mode();
+                openadminmode = 1;
             }
-            else a.style.display = "none";
-            openadminmode = !openadminmode;
+            else
+            {   
+                a.style.display = "none";
+                openadminmode = 0;
+            }
+        }
+
+        function closeAdminMode()
+        {
+            var a = document.getElementById("admin");
+            a.style.display = "none";
+            openadminmode = 0;
         }
         searchADList = productList;
         function adminmode(a) //cập nhật danh sách sản phẩm
@@ -553,20 +530,20 @@
                 '<td><h5>Tên</h5></td>' +
                 '<td><h5>Giá</h5></td>' +
                 '<td><h5>Loại</h5></td>' +
-                '<td><h5>edit</h5></td>' +
-                '<td><h5>remove</h5></td>' +
+                '<td><h5 style="padding:17px">Edit</h5></td>' +
+                '<td><h5>Remove</h5></td>' +
                 '</tr>'
             for (var i = 0; i < a.length; i++) {
                 var element = document.createElement("tr");
                 element.innerHTML =
                     '<tr>' +
                     '<td><h5>' + a[i].id + '</h5></td>' +
-                    '<td><img style="height:150px;position:relative;" src="' + a[i].img + '"></td>' +
+                    '<td><img style="height:75px;position:relative;" src="' + a[i].img + '"></td>' +
                     '<td><h5>' + a[i].name + '</h5></td>' +
-                    '<td><h5>' + a[i].price + '</h5></td>' +
-                    '<td><h5>' + a[i].type + '</h5></td>' +
+                    '<td><h5 style="text-align:center; padding: 0 10px 0 10px;">' + a[i].price + 'đ</h5></td>' +
+                    '<td><h5 style="text-align:center;">' + a[i].type + '</h5></td>' +
                     '<td><h5><button class="edit-btn" onclick="config(' + a[i].id + ')" >&#9881</button></h5></td>' +
-                    '<td><h5><button class="remove-button" onclick="remove(' + a[i].id + ')" style="background-color: red;">&times;</button></h5></td>' +
+                    '<td><h5 style=""><button class="remove-button" onclick="remove(' + a[i].id + ')" style="background-color: red;">&times;</button></h5></td>' +
                     '</tr>';
                 table.appendChild(element);
             }
@@ -798,13 +775,20 @@
             var open = document.getElementById("statistical");
             if (statistical_mode == 0) {
                 statistical_mode = 1;
+                closeAdminMode();
                 open.style.display = "block";
-                statistical()
+                statistical();
             }
             else {
                 statistical_mode = 0;
                 open.style.display = "none";
             }
+        }
+        function closeStatistical_mode()
+        {
+            var open = document.getElementById("statistical");
+            statistical_mode = 0;
+            open.style.display = "none";
         }
         function statistical() {
             var a = document.querySelector("#statistical table");

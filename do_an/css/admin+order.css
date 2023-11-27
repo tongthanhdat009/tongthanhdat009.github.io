@@ -141,16 +141,15 @@ a {
 .site-main {
     position: relative;
     display: block;
-    width: calc(100% - 300px);
+    width:calc(100% - 270px);
     height: 100%;
-    left: 300px;
+    left: 270px;
 }
 
 .sidebar-content {
     width: 250px;
     height: fit-content;
     position: fixed;
-    border: 3px solid black;
 }
 
 .archive-product {
@@ -175,8 +174,8 @@ a {
 }
 
 .product-inner {
-    width: 300px;
-    height: 575px;
+    width: 250px;
+    height: 480px;
     margin: 50px;
     background-color: white;
     border: 3px solid black;
@@ -209,7 +208,6 @@ a {
 .product-content {
     display: block;
     justify-content: center;
-
 }
 
 /* .name-figure
@@ -273,6 +271,7 @@ a {
     z-index: 999;
     width: 100%;
     top: 70px;
+    left: 270px;
     height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
@@ -284,9 +283,11 @@ a {
     z-index: 999;
     width: 100%;
     top: 70px;
+    left: 270px;
     height: calc(100% - 70px);
     background-color: white;
     overflow-x: auto;
+    overflow-y: auto;
 }
 
 .tensanpham {
@@ -340,7 +341,26 @@ a {
     inset: 0;
     top: 70px;
 }
-
+#config
+    {
+        display: none;
+        width: 350px;
+        border: 5px solid black;
+        height: 536px;
+        z-index: 1000;
+        position: fixed;
+        top: 220px;
+    }
+#add-product
+{
+    display: none;
+    width: 350px;
+    border: 5px solid black;
+    height: 536px;
+    z-index: 1000;
+    position: fixed;
+    top: 220px;
+}
 #config input {
     font-size: 20px;
     width: 70%;
@@ -372,7 +392,7 @@ a {
     height: 45px;
     width: 50px;
     font-size: 40px;
-    text-align: center;
+    justify-content: center;
     position: relative;
     left: calc(50% - 25px);
 }
@@ -385,7 +405,10 @@ a {
     position: relative;
     left: calc(50% - 25px);
 }
-
+.name-figure h3 
+{   
+    font-size: 17px;
+}
 .infor_container {
     margin-top: auto;
 }
@@ -395,10 +418,24 @@ a {
     height: 100%;
 }
 
-@media screen and (max-height: 800px) {
-    .product-inner{
-        margin: 0;
-        width: 150px;
-        height: 400px;
-    }
-  }
+@media screen and (max-width: 900px) {
+.sidebar-content{
+    display: none;
+}
+.site-main {
+    left: 0px;
+    width: 100%;
+}
+.product-inner {
+    width: 125px;
+    height: 240px;
+    margin: 20px;
+}
+.name-figure h3 
+{   
+    font-size: 8px;
+}
+.price p {
+    font-size: 13px;
+}
+}

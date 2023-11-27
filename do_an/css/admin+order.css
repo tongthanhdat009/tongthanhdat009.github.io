@@ -178,13 +178,11 @@ a {
     width: 300px;
     height: 575px;
     margin: 50px;
-    display: block;
     background-color: white;
     border: 3px solid black;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5%;
     cursor: pointer;
-    ;
 }
 
 .product-inner:hover {
@@ -396,3 +394,11 @@ a {
 #mySelect{
     height: 100%;
 }
+
+@media screen and (max-height: 800px) {
+    .product-inner{
+        margin: 0;
+        width: 150px;
+        height: 400px;
+    }
+  }

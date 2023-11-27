@@ -1045,9 +1045,44 @@ img {
     font-size: 20px;
     width: max-content;
   }
-
+  #admin{
+    margin:0;
+  }
+  #right_site_header #logout{
+    margin:0;
+    float: right;
+  }
 }
 
+/* giao diện nhỏ hơn */
+@media screen and (max-width: 400px) {
+  /* chỉnh sửa kích cỡ banner */
+  .banner_fl img {
+    height: 300px;
+  }
+
+  #box img{
+    height: 300px;
+  }
+  #box {
+    height: 300px;
+  }
+
+  .banner_img img{
+    height: 300px;
+  }
+  #right_site_header #logout{
+    margin:0;
+    float: right;
+  }
+  .promo_p2{
+    font-size: 18px;
+  }
+  .img_service{
+    height: 50px;
+    width: 50px;
+  }
+}
 @media screen and (max-width: 600px) {
   * {
     font-size: 16px;

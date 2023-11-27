@@ -4,21 +4,21 @@
     padding: 0;
 }
 
-:root[data-theme="light"] {
-    --primary-color: #f2bed1;
-    --secondary-color: #d6c1d7;
-    --accent-color: #7b517b;
-    --background-color: #dde0f8;
+:root {
+    --primary-color: #ffc2ff;
+    --secondary-color: #d6c2ff;
+    --accent-color: #a488b3;
+    --background-color: #EBF1F4;
     --text-color: #090609;
 }
 
-:root[data-theme="dark"] {
+/* :root[data-theme="dark"] {
     --primary-color: #cbe90c;
     --secondary-color: #070227;
     --accent-color: #ff00ff;
     --background-color: #2c2e43;
     --text-color: #f2f0ff;
-}
+} */
 
 *::-webkit-scrollbar {
     display: none;
@@ -49,20 +49,24 @@ ul {
     list-style-type: none;
 }
 
+option {
+    border-radius: 0;
+}
+
 .content {
     width: 100%;
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
     position: relative;
-    background: white;
     height: 100vh;
+    background: var(--background-color);
 }
 
-.content * {
-    border: 1px solid red;
+.content>* {
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
-
 
 .dsDonHang {
     height: 90%;
@@ -73,11 +77,11 @@ ul {
     position: sticky;
     inset: calc(5rem/16);
     top: 0;
-    background-color: #7b517b;
-    border-top: calc(5rem/16) solid white;
+    border-top: calc(5rem/16) solid var(--background-color);
     overflow: scroll;
     min-height: 2rem;
     font-size: 1.25rem;
+    background-color: var(--primary-color);
 }
 
 .content .dsDonHang .donHang {
@@ -91,6 +95,7 @@ ul {
 .donHang>* {
     text-align: center;
     min-width: 100px;
+    border: 1px solid var(--secondary-color);
 }
 
 
@@ -133,6 +138,10 @@ ul {
     flex-wrap: wrap;
 }
 
+.searchBar>* {
+    margin-bottom: 2rem;
+}
+
 .searchBar form {
     display: flex;
     align-items: center;
@@ -173,16 +182,18 @@ form.otherSearch :is(input, select) {
 }
 
 .user>* {
-    border: 1px solid red;
     text-align: center;
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
 }
+
 
 .userList .user:first-child {
     position: sticky;
     inset: calc(5rem/16);
     top: 0;
-    background-color: var(--accent-color);
-    border-top: calc(5rem/16) solid white;
+    background-color: var(--primary-color);
+    border-top: calc(5rem/16) solid var(--background-color);
     font-size: 1.25rem;
 }
 
@@ -204,48 +215,6 @@ form.otherSearch :is(input, select) {
     color: red;
 }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 17px;
-    caret-color: transparent;
-}
-
-.switch input {
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
-
-.slider {
-    position: absolute;
-    inset: 0;
-    background-color: red;
-    border-radius: 17px;
-}
-
-.slider::before {
-    position: absolute;
-    background: blue;
-    inset: 0;
-    width: 13px;
-    height: 13px;
-    left: 2px;
-    top: 2px;
-    content: "";
-    transition: all 400ms;
-    border-radius: 50%;
-}
-
-input:checked+.slider {
-    background-color: lime;
-}
-
-input:checked+.slider::before {
-    transform: translateX(13px);
-}
-
 .searchBar.flex-start {
     justify-content: flex-start;
 }
@@ -253,16 +222,37 @@ input:checked+.slider::before {
 .addAccount {
     display: flex;
     align-items: center;
-    margin-right: 1rem;
+    margin-right: 2rem;
+    border: 2px solid var(--accent-color);
+    background-color: var(--secondary-color);
+}
+
+.addAccount>* {
+    margin: 2px;
+    font-weight: 900;
+}
+
+.addAccount:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color)
 }
 
 #userSearchType {
-    margin: 0 2px 0 1rem;
+    margin: 0 2px 2rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
+
 
 
 #userSearchValue {
     margin-right: auto;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+#userSearchValue::placeholder {
+    color: white;
 }
 
 #createAccountBox {

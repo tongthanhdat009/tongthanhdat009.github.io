@@ -263,7 +263,12 @@ a {
     float: right;
     border: 1px solid black;
 }
-
+#bang
+{
+    width: 60%; 
+    left: 350px; 
+    position: relative;
+}
 #addition {
     display: flex;
     height: 50px;
@@ -332,17 +337,14 @@ a {
 #list h5 {
     font-size: 20px;
 }
-#list
-{
-    position: relative;
-}
 #are-you-sure {
     width: 200px;
-    background-color: FFA3FD;
+    background-color: pink;
     display: none;
     border: 3px solid black;
     position: fixed;
     top: 270px;
+    z-index: 100;
 }
 
 #YES {
@@ -365,8 +367,8 @@ a {
     height: 536px;
     z-index: 1000;
     position: fixed;
-    top: 20px;
-    background: white;
+    top: 220px;
+    background: pink;
 }
 
 #add-product {
@@ -377,6 +379,7 @@ a {
     z-index: 1000;
     position: fixed;
     top: 220px;
+    background-color: pink;
 }
 
 #config input {
@@ -456,6 +459,17 @@ a {
     width: 65px;
     top: 0%;
 }
+#timkiem2
+{
+    position: fixed;
+}
+#add-imga
+{
+    position: absolute; 
+    left: calc(100% - 90px); 
+    width: 65px; 
+    top: 0%;
+}
 @media screen and (max-width: 900px) {
 .sidebar-content{
     display: none;
@@ -492,13 +506,13 @@ a {
 #per-page
 {
     position: absolute;
-    left: 0px;
+    left: -50px;
     top: 100px;
+    margin-left: 0px;
 }
 #button-refresh{
-    display: none;
     position: absolute;
-    left: 110px;
+    left:calc(100% - 100px);
 }
 #wibu{
     display: none;
@@ -530,13 +544,14 @@ a {
 {
     display: none;
 }
+#config
+{   
+    left: 0px;
+    width: 200px;
+}
 #list
 {
-    left: 200px;
-}
-#config
-{
-    width: 200px;
+    left: 0px;
 }
 #add-imga
 {
@@ -544,6 +559,9 @@ a {
     left: 500px;
     width: 65px;
     top: 0%;
+}
+#bang{
+    left: 230px;
 }
 #add-product
 {   
@@ -571,6 +589,27 @@ a {
 
     .price p {
         font-size: 13px;
+    }
+    #timkiem2
+    {
+        display: none;
+    }
+    #add-product
+    {
+        top: 100px;
+        height: 569px;
+    }
+    #config
+    {
+        top: 100px;
+    }
+    #text-DMSP
+    {
+        display: none;
+    }
+    #add-imga
+    {
+        left:calc(50% - 100px)
     }
 }
 

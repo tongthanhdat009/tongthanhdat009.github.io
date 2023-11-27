@@ -53,14 +53,13 @@
         </div>
     </div>
     <div id="statistical">
-        <table>
+        <table cellspacing = "1" border="1" bordercolor="purple">
         </table>
     </div>
     <div id="admin">
-        <div style="width: 400px; margin: 0px;">
             <div style="display: block;">
                 <div style="margin: 20px;">
-                    <table style="position: fixed;" border="5">
+                    <table id="timkiem2" border="5">
                         <tr>
                             <td>
                                 <p style="font-size: 18px;">Tìm kiếm</p>
@@ -86,7 +85,7 @@
                         </tr>
                     </table>
                 </div>
-                <div style="width: 400px; display: flex; justify-content: center;">
+                <div style="display: flex;">
                     <div id="are-you-sure">
                         <h3 style="display: flex; justify-content: center;">Are you sure</h3>
                         <div style="display: flex;">
@@ -137,15 +136,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
-        <div style="justify-content: right; width: 60%; position: relative;">
-            <div style="height: 100px; ">
-                <h2 style="position: absolute;left: 30%;">Danh sách sản phẩm</h2>
-                <img style="position: absolute; left: 75%; width: 65px; top: 0%;" onclick="add()" style="width:50px;"
+        <div id="bang">
+            <div style="height: 100px;position: relative ">
+                <h2 id="text-DMSP" style="position: absolute;left: calc(50% - 200px);">Danh sách sản phẩm</h2>
+                <img id="add-imga" onclick="add()" style="width:50px;"
                     src="../asset/icon/add.png" alt="">
             </div>
-            <table border="2px" cellspacing="0" id="list" style="width: 100%;">
+            <table border="1px" cellspacing="0" bordercolor="purple" id="list" style="width: 100%;">
             </table>
         </div>
     </div>
@@ -482,7 +480,7 @@
         {
             table = document.getElementById("list");
             table.innerHTML =
-                '<tr style="background-color: cadetblue">' +
+                '<tr style="background-color: pink">' +
                 '<td><h5>ID</h5></td>' +
                 '<td><h5>Ảnh</h5></td>' +
                 '<td><h5>Tên</h5></td>' +
@@ -863,10 +861,12 @@
             var a = document.querySelector("#statistical table");
             a.innerHTML = '';
             b = document.createElement("tr");
+            b.style.backgroundColor = "pink";
             b.innerHTML =
-                '<td align=center colspan=2>Sản phẩm</td>' +
-                '<td>Đã bán</td>' +
-                '<td>Tổng tiền</td>'
+                '<td><h3>ID</h3></td>'+
+                '<td><h3>Sản phẩm</h3></td>' +
+                '<td><h3>Đã bán</h3></td>' +
+                '<td><h3>Tổng tiền</h3></td>'
             a.appendChild(b);
             for (var i = 0; i < productList.length; i++) {
                 b = document.createElement("tr");

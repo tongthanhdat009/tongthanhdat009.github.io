@@ -56,7 +56,7 @@
                 <p>Product Per Page</p>
                 <button class="all_alt_btn" style="height:30px;
                                                    padding:0 10px 0 10px;" onclick="mix_product_per_page()">Enter</button>
-                <img id="button-refresh" src="../asset/icon/reload.png" onclick="refresh()" alt="">
+                <img id="button-refresh" style="width: 50px;" src="../asset/icon/reload.png" onclick="refresh()" alt="">
                 <button class="all_alt_btn" style="position: relative;
                                                    left:100px;
                                                    padding:0 10px 0 10px;
@@ -403,9 +403,7 @@
         function dark_mode()
         {   
             var color = document.body;
-            var color2 = document.getElementsByClassName("product-inner");
-            var color3= document.getElementsByClassName("price-product");
-            var color4 = document.querySelectorAll(".name-figure h3");
+
             var color5=document.querySelector(".max p");
             var color6=document.querySelector(".min p");
             var color7=document.querySelector(".site-main p");
@@ -422,12 +420,7 @@
                 color8.style.color="black";
                 color8.style.border="2px solid black";
                 color9.style.color="black";
-                for(var i=0;i<color2.length;i++)
-                {
-                    color2[i].style.backgroundColor = "rgb(238, 238, 238)";
-                    color3[i].style.color="black";
-                    color4[i].style.color="black";
-                }
+
             }
             else 
             {
@@ -440,12 +433,7 @@
                 color8.style.color="white";
                 color8.style.border="2px solid white";
                 color9.style.color="white";
-                for(var i=0;i<color2.length;i++)
-                {
-                    color2[i].style.backgroundColor="rgb(50, 50, 50)";
-                    color3[i].style.color = "white";
-                    color4[i].style.color="white";
-                }
+
             }
         }
         function sort_by_name()

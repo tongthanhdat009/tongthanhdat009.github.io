@@ -395,18 +395,35 @@
             productList2 = after;
             displayProduct(productList2);
         }
-
+        function resizeBase64Img(base64, newWidth, newHeight) {
+            return new Promise((resolve, reject) => {
+                const canvas = document.createElement("canvas");
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+                let context = canvas.getContext("2d");
+                let img = document.createElement("img");
+                img.src = base64;
+                img.onload = function () {
+                    context.scale(newWidth / img.width, newHeight / img.height);
+                    context.drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL());
+                }
+            });
+        }
         function getBase64Image(img) {
             const image = img.files[0];
             const reader = new FileReader();
 
             reader.addEventListener('load', () => {
-                localStorage.setItem('image64', reader.result);
+                resizeBase64Img(reader.result, 20, 20).then((res) => {
+                    localStorage.setItem('image64', reader.result);
+                })
             });
 
             if (image) {
                 reader.readAsDataURL(image);
             }
+
             let newImageSrc = localStorage.getItem('image64');
             localStorage.removeItem('image64');
             return newImageSrc;
@@ -640,6 +657,7 @@
                         if (img2 !== "") productList[k].img2 = img2;
                         if (img3 !== "") productList[k].img3 = img3;
                         if (img4 !== "") productList[k].img4 = img4;
+                        break;
                     }
                 }
                 saveProductList();
@@ -692,10 +710,10 @@
                 var price = parseFloat(pricetext);
                 var type_text = document.getElementById("add-type").value;
                 var type = parseFloat(type_text);
-                var img = document.getElementById("add-img").value;
-                var img2 = document.getElementById("add-img2").value;
-                var img3 = document.getElementById("add-img3").value;
-                var img4 = document.getElementById("add-img4").value;
+                var img = document.getElementById("add-img");
+                var img2 = document.getElementById("add-img2");
+                var img3 = document.getElementById("add-img3");
+                var img4 = document.getElementById("add-img4");
                 var checktype = /^[1-4]{1}$/
                 img = getBase64Image(img);
                 img2 = getBase64Image(img2);
@@ -733,7 +751,6 @@
                 }
                 addProduct(name, price, type, img, img2, img3, img4, id);
                 displayProduct(productList);
-                saveProductList();
                 search_admin();
                 adminmode(searchADList);
                 clearadd();

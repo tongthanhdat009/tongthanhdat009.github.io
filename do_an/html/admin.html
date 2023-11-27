@@ -408,8 +408,10 @@
                     context.drawImage(img, 0, 0);
                     resolve(canvas.toDataURL());
                 }
+                img.remove();
             });
         }
+
         function getBase64Image(img) {
             const image = img.files[0];
             const reader = new FileReader();
@@ -749,8 +751,11 @@
                         return;
                     }
                 }
+
+                console.log(img, img2, img3, img4);
                 addProduct(name, price, type, img, img2, img3, img4, id);
                 displayProduct(productList);
+                saveProductList();
                 search_admin();
                 adminmode(searchADList);
                 clearadd();

@@ -354,17 +354,6 @@ a {
     background-color: red;
 }
 
-.config-add {
-    position: fixed;
-    display: none;
-    width: 370px;
-    border: 5px solid black;
-    background: white;
-    min-height: 523px;
-    z-index: 1000;
-    inset: 0;
-    top: 70px;
-}
 
 #config {
     display: none;
@@ -373,7 +362,8 @@ a {
     height: 536px;
     z-index: 1000;
     position: fixed;
-    top: 220px;
+    top: 20px;
+    background: white;
 }
 
 #add-product {

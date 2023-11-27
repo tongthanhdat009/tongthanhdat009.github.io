@@ -56,9 +56,9 @@
         </table>
     </div>
     <div id="admin">
-         <div style="width: 400px; margin: 0px;">
-            <div style="display: block;"> 
-                 <div style="margin: 20px;">
+        <div style="width: 400px; margin: 0px;">
+            <div style="display: block;">
+                <div style="margin: 20px;">
                     <table style="position: fixed;" border="5">
                         <tr>
                             <td>
@@ -84,8 +84,8 @@
                             <td colspan="2" align="center"><button onclick="search_admin()">Submit</button></td>
                         </tr>
                     </table>
-                </div> 
-                 <div style="width: 400px; display: flex; justify-content: center;">
+                </div>
+                <div style="width: 400px; display: flex; justify-content: center;">
                     <div id="are-you-sure">
                         <h3 style="display: flex; justify-content: center;">Are you sure</h3>
                         <div style="display: flex;">
@@ -135,9 +135,9 @@
                             <button id="add-clear" onclick="clearadd()">Clear</button>
                         </div>
                     </div>
-                </div> 
-             </div>
-        </div> 
+                </div>
+            </div>
+        </div>
 
 
 
@@ -161,8 +161,7 @@
         <div class="main">
             <div class="sidebar-content">
                 <ul>
-                    <li
-                        style="background-color: #c5d654; color:white; justify-content: center;">
+                    <li style="background-color: #c5d654; color:white; justify-content: center;">
                         <h2>Chức năng</h2>
                     </li>
                     <li>
@@ -178,7 +177,7 @@
                     <li>
                         <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;"
                             alt="">
-                        <a onclick="openstatistical()"  href="#">Thống kê sản phẩm</a>
+                        <a onclick="openstatistical()" href="#">Thống kê sản phẩm</a>
                     </li>
                     <li>
                         <img src="../asset/category_img/logo fairy tail.png" style="width: 25px; margin-right: 10px;"
@@ -471,15 +470,13 @@
                 closeStatistical_mode();
                 openadminmode = 1;
             }
-            else
-            {   
+            else {
                 a.style.display = "none";
                 openadminmode = 0;
             }
         }
 
-        function closeAdminMode()
-        {
+        function closeAdminMode() {
             var a = document.getElementById("admin");
             a.style.display = "none";
             openadminmode = 0;
@@ -549,14 +546,44 @@
         }
         //sửa sản phẩm
 
-        function getBase64Image(img, index) {
+        const blobToBase64 = blob => {
             const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                localStorage.setItem("image64" + index, reader.result);
-                reader.abort();
-            }, false);
+            reader.readAsDataURL(blob);
+            return new Promise(resolve => {
+                reader.onloadend = () => {
+                    resolve(reader.result);
+                };
+            });
+        };
+        const resize = (datas, wantedWidth, wantedHeight) => {
 
-            if (img.files[0]) reader.readAsDataURL(img.files[0]);
+            var img = document.createElement('img');
+
+            img.src = datas;
+            // When the event "onload" is triggered we can resize the image.
+            return new Promise(resolve => {
+                img.onload = () => {
+                    // We create a canvas and get its context.
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+
+                    // We set the dimensions at the wanted size.
+                    canvas.width = wantedWidth;
+                    canvas.height = wantedHeight;
+
+                    // We resize the image with the canvas method drawImage();
+                    ctx.drawImage(img, 0, 0, wantedWidth, wantedHeight);
+
+                    var dataURI = canvas.toDataURL();
+                    resolve(dataURI);
+                };
+            });
+            // We put the Data URI in the image's src attribute
+        }
+        function init() {
+            saveProductList();
+            displayProduct(productList);
+            admin_mode();
         }
 
         function config(idproduct) {
@@ -590,40 +617,48 @@
                         return;
                     }
                 }
-                getBase64Image(img, 0);
-                getBase64Image(img2, 1);
-                getBase64Image(img3, 2);
-                getBase64Image(img4, 3);
-                img = localStorage.getItem("image640");
-                localStorage.removeItem("image640");
-                img2 = localStorage.getItem("image641");
-                localStorage.removeItem("image641");
-                img3 = localStorage.getItem("image642");
-                localStorage.removeItem("image642");
-                img4 = localStorage.getItem("image643");
-                localStorage.removeItem("image643");
 
-                // img = URL.createObjectURL(img.files[0]);
-                // img2 = URL.createObjectURL(img2.files[0]);
-                // img3 = URL.createObjectURL(img3.files[0]);
-                // img4 = URL.createObjectURL(img4.files[0]);
-                // img = img.replace(/C:\\fakepath\\/, "../asset/add/");
-                // img2 = img2.replace(/C:\\fakepath\\/, "../asset/add/");
-                // img3 = img3.replace(/C:\\fakepath\\/, "../asset/add/");
-                // img4 = img4.replace(/C:\\fakepath\\/, "../asset/add/");
+                let i = 0;
                 for (var k = 0; k < productList.length; k++) {
                     if (productList[k].id == idproduct) {
                         if (idtext !== "") productList[k].id = id;
                         if (name !== "") productList[k].name = name;
                         if (pricetext !== "") productList[k].price = price;
                         if (type_text !== "") productList[k].type = type;
-                        if (img !== "") productList[k].img = img;
-                        if (img2 !== "") productList[k].img2 = img2;
-                        if (img3 !== "") productList[k].img3 = img3;
-                        if (img4 !== "") productList[k].img4 = img4;
+                        i = k;
                         break;
                     }
                 }
+                if (img.files[0]) blobToBase64(img.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img = res2;
+                        productList[i].img = res2;
+                        console.log(init());
+                    });
+                })
+
+                if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img2 = res2;
+                        productList[i].img2 = img2;
+                        console.log(init());
+                    });
+                })
+                if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img3 = res2;
+                        productList[i].img3 = img3;
+                        console.log(init());
+                    });
+                })
+
+                if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img4 = res2;
+                        productList[i].img4 = img4;
+                        console.log(init());
+                    });
+                })
                 saveProductList();
                 search_admin();
                 adminmode(searchADList);
@@ -659,6 +694,16 @@
         function closeAdd() {
             var close = document.getElementById("add-product")
             close.style.display = "none";
+        }
+
+        function reload(newproduct) {
+            addProduct(newproduct.name, newproduct.price, newproduct.type, newproduct.img, newproduct.img2, newproduct.img3, newproduct.img4, newproduct.id);
+            displayProduct(productList);
+            saveProductList();
+            search_admin();
+            adminmode(searchADList);
+            clearadd();
+            closeAdd();
         }
         function add() {
             closeConfig();
@@ -714,14 +759,53 @@
                     }
                 }
 
-                console.log(img, img2, img3, img4);
-                addProduct(name, price, type, img, img2, img3, img4, id);
-                displayProduct(productList);
-                saveProductList();
-                search_admin();
-                adminmode(searchADList);
-                clearadd();
-                closeAdd();
+                var newproduct = {
+                    name: name,
+                    price: price,
+                    type: type,
+                    img: img,
+                    img2: img2,
+                    img3: img3,
+                    img4: img4,
+                    id: id,
+                    count: 0,
+                }
+                let count = 0;
+                if (img.files[0]) blobToBase64(img.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img = res2;
+                        newproduct.img = res2;
+                        console.log(count++);
+                        if (count == 4) reload(newproduct);
+                    });
+                })
+
+                if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img2 = res2;
+                        newproduct.img2 = img2;
+                        console.log(count++);
+                        if (count == 4) reload(newproduct);
+                    });
+                })
+                if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img3 = res2;
+                        newproduct.img3 = img3;
+                        console.log(count++);
+                        if (count == 4) reload(newproduct);
+                    });
+                })
+
+                if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
+                    resize(res, 500, 300).then(res2 => {
+                        img4 = res2;
+                        newproduct.img4 = img4;
+                        console.log(count++);
+                        if (count == 4) reload(newproduct);
+                    });
+                })
+
             }
             NO.onclick = function () {
                 closeAdd();
@@ -773,8 +857,7 @@
                 open.style.display = "none";
             }
         }
-        function closeStatistical_mode()
-        {
+        function closeStatistical_mode() {
             var open = document.getElementById("statistical");
             statistical_mode = 0;
             open.style.display = "none";

@@ -362,41 +362,6 @@
             productList2 = after;
             displayProduct(productList2);
         }
-        function resizeBase64Img(base64, newWidth, newHeight) {
-            return new Promise((resolve, reject) => {
-                const canvas = document.createElement("canvas");
-                canvas.width = newWidth;
-                canvas.height = newHeight;
-                let context = canvas.getContext("2d");
-                let img = document.createElement("img");
-                img.src = base64;
-                img.onload = function () {
-                    context.scale(newWidth / img.width, newHeight / img.height);
-                    context.drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL());
-                }
-                img.remove();
-            });
-        }
-
-        function getBase64Image(img) {
-            const image = img.files[0];
-            const reader = new FileReader();
-
-            reader.addEventListener('load', () => {
-                resizeBase64Img(reader.result, 20, 20).then((res) => {
-                    localStorage.setItem('image64', reader.result);
-                })
-            });
-
-            if (image) {
-                reader.readAsDataURL(image);
-            }
-
-            let newImageSrc = localStorage.getItem('image64');
-            localStorage.removeItem('image64');
-            return newImageSrc;
-        }
 
         function addProduct(name, price, type, img, img2, img3, img4, id) {
             var product = {
@@ -583,6 +548,17 @@
             no.onclick = function () { disappear_sure() };
         }
         //sửa sản phẩm
+
+        function getBase64Image(img, index) {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                localStorage.setItem("image64" + index, reader.result);
+                reader.abort();
+            }, false);
+
+            if (img.files[0]) reader.readAsDataURL(img.files[0]);
+        }
+
         function config(idproduct) {
             closeAdd();
             disappear_sure();
@@ -603,21 +579,34 @@
                 var img4 = document.getElementById("config-img4");
                 var checktype = /^[1-4]{1}$/
                 for (var k = 0; k < productList.length; k++)
-                    if (productList[k].id != idproduct)
-                        if (productList[k].id == id) {
-                            alert("ID đã tồn tại");
-                            return;
-                        }
+                    if (productList[k].id != idproduct && productList[k].id == id) {
+                        alert("ID đã tồn tại");
+                        return;
+                    }
+
                 if (type_text !== "") {
                     if (!checktype.test(type)) {
                         alert("Loại phải là 1-4");
                         return;
                     }
                 }
-                img = getBase64Image(img);
-                img2 = getBase64Image(img2);
-                img3 = getBase64Image(img3);
-                img4 = getBase64Image(img4);
+                getBase64Image(img, 0);
+                getBase64Image(img2, 1);
+                getBase64Image(img3, 2);
+                getBase64Image(img4, 3);
+                img = localStorage.getItem("image640");
+                localStorage.removeItem("image640");
+                img2 = localStorage.getItem("image641");
+                localStorage.removeItem("image641");
+                img3 = localStorage.getItem("image642");
+                localStorage.removeItem("image642");
+                img4 = localStorage.getItem("image643");
+                localStorage.removeItem("image643");
+
+                // img = URL.createObjectURL(img.files[0]);
+                // img2 = URL.createObjectURL(img2.files[0]);
+                // img3 = URL.createObjectURL(img3.files[0]);
+                // img4 = URL.createObjectURL(img4.files[0]);
                 // img = img.replace(/C:\\fakepath\\/, "../asset/add/");
                 // img2 = img2.replace(/C:\\fakepath\\/, "../asset/add/");
                 // img3 = img3.replace(/C:\\fakepath\\/, "../asset/add/");
@@ -690,10 +679,10 @@
                 var img3 = document.getElementById("add-img3");
                 var img4 = document.getElementById("add-img4");
                 var checktype = /^[1-4]{1}$/
-                img = getBase64Image(img);
-                img2 = getBase64Image(img2);
-                img3 = getBase64Image(img3);
-                img4 = getBase64Image(img4);
+                // img = getBase64Image(img);
+                // img2 = getBase64Image(img2);
+                // img3 = getBase64Image(img3);
+                // img4 = getBase64Image(img4);
                 if (isNaN(id)) {
                     alert("Thiếu ID");
                     return;

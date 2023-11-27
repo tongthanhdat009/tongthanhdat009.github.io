@@ -1,10 +1,10 @@
-const userInforCont = document.querySelector("#user-infor-container");
-const checkInfor = document.querySelector("#check-infor");
-const checkBill = document.querySelector("#check-bill");
-const altPage = document.querySelector("#alt-page");
-const closePage = document.querySelector("#user-infor-close");
-const rightContent = document.querySelector("#user-content");
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const userInforCont = document.querySelector("#user-infor-container"); //khung chứa bảng thông tin
+const checkInfor = document.querySelector("#check-infor");//xem thông tin tài khoản bên trái
+const checkBill = document.querySelector("#check-bill");//xem thông tin đơn hàng đã đặt bên trái
+const altPage = document.querySelector("#alt-page");//trang thay thế khi vừa nhấn vào 
+const closePage = document.querySelector("#user-infor-close");//nút đóng trang
+const rightContent = document.querySelector("#user-content");//phần hiển thị nội dung bên phải
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));//lấy giá trị của người dùng hiện tại 
 // thêm hình + tiêu đề cho trang thông tin
 altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</div>'+
                     '<div id="alt-page-img">'+
@@ -21,6 +21,7 @@ closePage.addEventListener("click",() => {
     altPage.style.display="initial";
     rightContent.innerHTML="";
 });
+
 //thêm chức năng xem thông tin tài khoản
 checkInfor.addEventListener('click', () => {
     altPage.style.display="none";
@@ -32,9 +33,10 @@ checkInfor.addEventListener('click', () => {
                            '<p><strong>Số điện thoại: </strong>' + currentUser.phoneNumber + '</p>';
 });
 
+//thêm chức năng xem đơn hàng đã đặt
 checkBill.addEventListener('click', () => {
     altPage.style.display="none";
-    var orderList = JSON.parse(localStorage.getItem("orderList"));
+    var orderList = JSON.parse(localStorage.getItem("orderList"));//lấy mảng giá trị đơn hàng đã đặt
     console.log(orderList);
     rightContent.innerHTML='<h1 class="user-infor-title">ĐƠN HÀNG ĐÃ ĐẶT</h1>'+
     `<table border="2" id="userBill">
@@ -47,8 +49,9 @@ checkBill.addEventListener('click', () => {
     </table>`;
     var userBillTb = document.querySelector("#userBill");
     for(var i=0;i<orderList.length;i++){
-        if(orderList[i].userAccount === currentUser.accountName){
+        if(orderList[i].userAccount === currentUser.accountName){ //nếu tên account của đơn hàng bằng với tên account của currentUser thì xuất ra thông tin
             console.log(orderList[i]);
+            // xuất
             var row = userBillTb.insertRow(-1);
             var cell1, cell2, cell3, cell4;
             cell4 = row.insertCell(0);

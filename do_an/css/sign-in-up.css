@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family: "Popipins", sans-serif;
 }
-
+/* khung chứa đăng nhập đăng ký */
 .wrapper {
     position: fixed;
     width: 600px;
@@ -21,8 +21,7 @@
     translate: 0 -120%;
     opacity: 0;
 }
-
-
+/* hiển thị khung */
 .wrapper.active-popup {
     opacity: 1;
     z-index: 1;

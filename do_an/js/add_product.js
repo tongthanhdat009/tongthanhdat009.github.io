@@ -1,9 +1,9 @@
 //lấy giá trị mảng productList
 var productList = [];
-function getProductList() {
-  var productStored = localStorage.getItem("productList");
+function getProductList() {//hàm lấy mảng từ storage
+  var productStored = localStorage.getItem("productList"); //lấy mảng sản phẩm vào storage
   if (productStored) {
-    productList = JSON.parse(productStored);
+    productList = JSON.parse(productStored);//gán giá trị
   }
 }
 //lưu mảng sản phẩm xuống storage
@@ -19,15 +19,18 @@ function runSaveProductList(){
     localStorage.setItem('displayHasRun', true);
   }
 }
+// hiển thị sản phẩm 
 function productDisplay2() {
-  var maxIndex = 3;
-  var count = [0, 0, 0, 0];
+  var maxIndex = 3;//số lượng sản phẩm hiển thị trong 1 hàng của bảng
+  var count = [0, 0, 0, 0];//mảng đếm số sản phẩm để xét điều kiện thêm sản phẩm
   var list = [null, null, null, null];
-
+  
+  //khởi tạo danh sách
   for (let i = 1; i <= 4; ++i) {
     list[i - 1] = document.getElementById("list_" + i);
   }
 
+  //thêm sản phẩm
   for (var i = 0; i < productList.length; i++) {
     let productType = parseInt(productList[i].type) - 1;
     if (count[productType] < 9) {
@@ -60,7 +63,6 @@ function productDisplay2() {
 }
 
 //lấy mảng sản phẩm từ local+add sản phẩm vào mảng
-
 function addProduct(name, price, type, img, img2, img3, img4, id) {
   var product = {
     name: name,
@@ -76,6 +78,7 @@ function addProduct(name, price, type, img, img2, img3, img4, id) {
   productList.push(product);
   productList2 = productList;
 }
+//thêm sản phẩm
 addProduct(
   "Mô hình: Super Saiya God Goku",
   400000,
@@ -589,5 +592,5 @@ addProduct(
   "../asset/anh/cosplay/50 4.jpg",
   51
 );
-runSaveProductList();
-getProductList();
+runSaveProductList();//lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
+getProductList();//lấy mảng giá trị từ storage

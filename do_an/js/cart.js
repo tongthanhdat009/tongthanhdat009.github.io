@@ -17,27 +17,28 @@ function cartAdd(name, price, amount, img) {
     status: "chưa xử lý"
   };
 
-  //deobiet sao no hoat dong dc :v
   if (!productAdded) productAdded = [product];
-  else if ((res = productAdded.find((item) => item.name == product.name))) {
+  else if ((res = productAdded.find((item) => item.name == product.name))) { //xét theo tên sản phẩm nếu trùng thị tăng thêm số lượng
     res.amount += parseFloat(amount);
   } else {
     productAdded.push(product);
   }
   saveProductAdded();
-  console.log(productAdded);
 }
+
 //lưu mảng productAdded vào local storage
 function saveProductAdded() {
   var jsonStr = JSON.stringify(productAdded);
   localStorage.setItem("productAdded", jsonStr);
 }
+
 //lấy giá trị mảng productAdded từ storage
 var storedData = localStorage.getItem("productAdded");
 if (storedData) {
   productAdded = JSON.parse(storedData);
 }
 
+// cập nhật giá trị tiền + sản phẩm
 function updateTotal() {
   table.innerHTML = "";
   cartDisplay(); //hiển thị sản phẩm

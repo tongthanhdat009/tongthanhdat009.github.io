@@ -91,7 +91,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Titan Thiết Giáp",
-  400000,
+  1600000,
   1,
   "../asset/anh/figure/2 1.jpg",
   "../asset/anh/figure/2 2.jpg",
@@ -101,7 +101,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Gray Fullbuster",
-  400000,
+  1600000,
   1,
   "../asset/anh/figure/3 1.jpg",
   "../asset/anh/figure/3 2.jpg",
@@ -111,7 +111,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Satoru Gojo",
-  400000,
+  1800000,
   1,
   "../asset/anh/figure/4 1.jpg",
   "../asset/anh/figure/4 2.jpg",
@@ -121,7 +121,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Huggy Wuggy",
-  400000,
+  2100000,
   1,
   "../asset/anh/figure/5 1.jpg",
   "../asset/anh/figure/5 2.jpg",
@@ -131,7 +131,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Komi không thể nói",
-  400000,
+  1600000,
   1,
   "../asset/anh/figure/6 1.jpg",
   "../asset/anh/figure/6 2.jpg",
@@ -141,7 +141,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: SAO Kirito",
-  400000,
+  4250000,
   1,
   "../asset/anh/figure/7 1.jpg",
   "../asset/anh/figure/7 2.jpg",
@@ -151,7 +151,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Cloud Strife cầm kiếm",
-  400000,
+  5200000,
   1,
   "../asset/anh/figure/8 1.jpg",
   "../asset/anh/figure/8 2.jpg",
@@ -161,7 +161,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Thầy Aizawa chiến đấu",
-  400000,
+  2000000,
   1,
   "../asset/anh/figure/9 1.jpg",
   "../asset/anh/figure/9 2.jpg",
@@ -171,7 +171,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Shoto ngồi",
-  400000,
+  1900000,
   1,
   "../asset/anh/figure/10 1.jpg",
   "../asset/anh/figure/10 2.jpg",
@@ -181,7 +181,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: North Star Kenshiro",
-  400000,
+  5200000,
   1,
   "../asset/anh/figure/11 1.jpg",
   "../asset/anh/figure/11 2.jpg",
@@ -191,7 +191,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Kana Arima",
-  400000,
+  4380000,
   1,
   "../asset/anh/figure/12 1.jpg",
   "../asset/anh/figure/12 2.jpg",
@@ -201,7 +201,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: Hatsune Miku",
-  400000,
+  8200000,
   1,
   "../asset/anh/figure/13 1.jpg",
   "../asset/anh/figure/13 2.jpg",
@@ -211,7 +211,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: HxH Hisoka",
-  400000,
+  1720000,
   1,
   "../asset/anh/figure/14 1.jpg",
   "../asset/anh/figure/14 2.jpg",
@@ -221,7 +221,7 @@ addProduct(
 );
 addProduct(
   "Mô hình: The Seven Deadly Sins: Dragon's Judgement King",
-  400000,
+  1600000,
   1,
   "../asset/anh/figure/15 1.jpg",
   "../asset/anh/figure/14 2.jpg",
@@ -593,4 +593,4 @@ addProduct(
   51
 );
 runSaveProductList();//lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
-getProductList();//lấy mảng giá trị từ storage
+// getProductList();//lấy mảng giá trị từ storage

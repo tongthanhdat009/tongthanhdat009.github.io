@@ -146,14 +146,6 @@ a {
     left: 300px;
 }
 
-.giaodienmobile {
-    display: none;
-}
-
-.giaodienpc {
-    height: 100%;
-}
-
 .sidebar-content {
     width: 250px;
     height: fit-content;

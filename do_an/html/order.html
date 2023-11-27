@@ -365,31 +365,33 @@
         }
 
         // hiển thị kết quả tìm kiếm từ trang chủ
-        var out = localStorage.getItem('mainSearch');
-        var searchRtxt = document.getElementById('search_result_txt');
+        var out = localStorage.getItem('mainSearch'); //nhận kết quả tìm kiếm từ local
+        var searchRtxt = document.getElementById('search_result_txt'); //hiển thị dòng kết quả: out
         out = JSON.parse(out);
         if(out!=null) {
             if(out.name !=='')
+                //hiển thị kết quả tìm kiếm
                 searchRtxt.innerHTML = 'kết quả tìm kiểm:<strong> '+out.name+'</strong>.';
             var mainNameInput=out.name;
             if(out.sign){
+                ProductPerPage=5;//hiển thị số kết quả sản phẩm
                 searchProducts2();
             }
         }
-        else displayProduct(productList);
+        else displayProduct(productList); //hiển thị sản phẩm
         function searchProducts2()
         {   
-            var input = mainNameInput.toLowerCase();
-            var after = [];
+            var input = mainNameInput.toLowerCase();// chuyển kết quả tìm kiếm thành chữ thường
+            var after = [];//sau khi tìm kiếm
             for (var i = 0; i < productList2.length; i++) 
             {
                 if (productList2[i].name.toLowerCase().indexOf(input) > -1) 
                 {
-                    after.push(productList2[i]);
+                    after.push(productList2[i]);//đưa sản phẩm đủ điều kiện vào after
                 } 
             }
-            productList2 = after;
-            displayProduct(productList2);
+            productList2 = after;//gán kết quả cho productList2
+            displayProduct(productList2);//hiển thị sản phẩm productList2
         }
         function mix_product_per_page()
         {
@@ -478,8 +480,9 @@
             }
         }
         //tải lại dữ liệu mặc định của trang
-        window.addEventListener('beforeunload', function () {
+        window.addEventListener('beforeunload', function(){
             refresh();
+            ProductPerPage = 16; // chỉnh số sản phẩm sau khi thoát ra 
         });
     </script>
 </body>

@@ -30,7 +30,7 @@
 
 @keyframes wrapper-in {
     0% {
-        top: -100%;
+        top: -150%;
     }
 
     100% {
@@ -44,7 +44,7 @@
     }
 
     100% {
-        top: -100%;
+        top: -150%;
     }
 }
 
@@ -217,5 +217,23 @@ form .wrapper-flex .right-content {
     }
     100% {
         top: -100%;
+    }
+}
+@media screen and (max-width:400px) {
+    .wrapper{
+        width: 100%;
+        left:0;
+        height: fit-content;
+        flex-wrap: nowrap;
+        overflow: scroll;        
+    }
+    .wrapper .left-content{
+        height: 200px;
+    }
+    .wrapper .right-content{
+        height: 200px;
+    }
+    .left-content .icon{
+        bottom:0px
     }
 }

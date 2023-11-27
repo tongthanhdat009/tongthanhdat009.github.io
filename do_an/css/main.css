@@ -905,6 +905,9 @@ img {
   #box {
     height: 400px;
   }
+  #box img{
+    height: 400px;
+  }
 
   /* chỉnh sửa footer */
   #introduce,
@@ -971,11 +974,16 @@ img {
   /* chỉnh sửa vị trí icon mạng xã hội đầu trang */
   #header_sm {
     z-index: 98;
-    top: 50px;
+    top: 0;
+    height: fit-content;
     width: 70%;
     padding: 0;
   }
 
+  #header_sm img{
+    height: 30px;
+    width: 60px;
+  }
   /* chỉnh sửa quyền lợi shop */
   .promo_img {
     height: 150px;
@@ -1047,10 +1055,33 @@ img {
   }
   #admin{
     margin:0;
+    z-index: 10000;
   }
   #right_site_header #logout{
     margin:0;
     float: right;
+  }
+
+  /* chỉnh phần thông tin tài khoản */
+  #user-infor-container{
+    width: 100%;
+    left:0;
+    height: 50px;
+  }
+  #check-bill,
+  #edit-user-infor,
+  #check-infor {
+    font-size: 18px;
+  }
+  #alt-page-img img{
+    left:0;
+  }
+  .user-infor-title,
+  #alt-page-title{
+    font-size: 20px;
+  }
+  #user-content table{
+    font-size: 15px;
   }
 }
 
@@ -1082,12 +1113,15 @@ img {
     height: 50px;
     width: 50px;
   }
+  #right_site_header #sign-up-in_btn{
+    margin: 0;
+    float: right;
+  }
+  .infor_container p{
+    font-size: 15px;
+  }
 }
 @media screen and (max-width: 600px) {
-  * {
-    font-size: 16px;
-  }
-
   .left-content,
   .right-content {
     margin: 0;

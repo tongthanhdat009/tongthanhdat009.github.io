@@ -164,8 +164,8 @@
   }
 
   .product-img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 
   .product-price {
@@ -175,7 +175,7 @@
   }
 
   .product-name {
-    font-size: 19px;
+    font-size: 14px;
     width: 100%;
     min-height: 50px;
     font-weight: bold;

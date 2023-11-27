@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    min-height: 100vh;
+    min-height: 500px;
     background-color: rgb(238, 238, 238);
     display: flex;
     flex-direction: column;
@@ -29,7 +29,6 @@ body {
     display: none;
     transition: 0.15s
 }
-
 ul {
     padding: 0;
 }
@@ -156,6 +155,7 @@ a {
     width: 250px;
     height: fit-content;
     position: fixed;
+    z-index: 1000z;
 }
 
 .archive-product {
@@ -205,7 +205,7 @@ a {
 }
 
 #button-refresh {
-    width: 50px;
+    width: 75px;
     height: auto;
     cursor: pointer;
     padding-left: 30px;
@@ -332,7 +332,10 @@ a {
 #list h5 {
     font-size: 20px;
 }
-
+#list
+{
+    position: relative;
+}
 #are-you-sure {
     width: 200px;
     background-color: FFA3FD;
@@ -428,13 +431,125 @@ a {
 .infor_container {
     margin-top: auto;
 }
-
 /* lựa chọn sort */
 #mySelect {
     height: 100%;
 }
-
+#TKSP{
+    display: none;
+}
+#QLSP{
+    display: none;
+}
+#TKDH
+{
+    display: none;
+}
+#QLTK
+{
+    display: none;
+}
+#add-imga
+{
+    position: absolute;
+    left: 75%;
+    width: 65px;
+    top: 0%;
+}
 @media screen and (max-width: 900px) {
+.sidebar-content{
+    display: none;
+}
+.site-main {
+    left: 0px;
+    width: 100%;
+    margin-top: 50px;
+}
+.product-inner {
+    width: 125px;
+    height: 240px;
+    margin: 20px;
+}
+.name-figure h3 
+{   
+    font-size: 8px;
+}
+.price p {
+    font-size: 13px;
+}
+#searchInput{
+    position: absolute;
+    top: 100px;
+    width: 200px;
+    left: 50%
+}
+#button-search{
+    position: absolute;
+    background-color: rgb(238, 238, 238);
+    top: 90px;
+    left: calc(50% + 200px);
+}
+#per-page
+{
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+#button-refresh{
+    display: none;
+    position: absolute;
+    left: 110px;
+}
+#wibu{
+    display: none;
+}
+#QLSP{
+    position: absolute;
+    left: 50px;
+    height: 100%;
+    display: block;
+}
+#TKSP{
+    display: block;
+    position: absolute;
+    left: 190px;
+    height: 100%;
+}
+.text-QL
+{  
+    font-size: 15px;;
+}
+#admin {
+    left: 0px;
+}
+#statistical
+{
+    left: 0px;
+}
+#timkiemadmin
+{
+    display: none;
+}
+#list
+{
+    left: 200px;
+}
+#config
+{
+    width: 200px;
+}
+#add-imga
+{
+    position: absolute;
+    left: 500px;
+    width: 65px;
+    top: 0%;
+}
+#add-product
+{   
+    width: 200px;
+    height: 600px;
+}
     .sidebar-content {
         display: none;
     }
@@ -458,3 +573,4 @@ a {
         font-size: 13px;
     }
 }
+

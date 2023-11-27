@@ -8,7 +8,6 @@ let orderList = localStorage.getItem("orderList")
 
 let content = document.getElementById("mngContent");
 let display_product = document.getElementsByClassName("display-product")[0];
-
 let tkSanPham = document.getElementById("tkSanPham");
 tkSanPham.addEventListener("click", () => {
   content.style.display = "none";
@@ -17,6 +16,8 @@ tkSanPham.addEventListener("click", () => {
 
 let tkDonHang = document.getElementById("tkDonHang");
 tkDonHang.addEventListener("click", () => {
+  closeAdminMode();
+  closeStatistical_mode();
   content.style.display = "block";
   display_product.style.display = "none";
   displayOrderManagement(orderList);
@@ -24,13 +25,20 @@ tkDonHang.addEventListener("click", () => {
 
 let qlTaiKhoan = document.getElementById("userManagement");
 qlTaiKhoan.addEventListener("click", () => {
+  closeAdminMode();
+  closeStatistical_mode();
   content.style.display = "block";
   display_product.style.display = "none";
   displayUserManagement(userList);
 });
-
+function closeOrderManagement()
+{
+  content.style.display = "none";
+  location.reload();
+}
 function displayOrderManagement(orderList) {
   content.innerHTML =
+    '<img onclick="closeOrderManagement()" style="width: 50px; float: right;" src="../asset/icon/close.png" </img>'+
     '<ul id="dsDonHang" class="dsDonHang">' +
     '<li class="donHang">' +
     '<div class="STT">STT</div>' +
@@ -205,6 +213,7 @@ function conditionSearch(condition) {
 
 function displayUserManagement(userList) {
   content.innerHTML =
+    '<img onclick="closeOrderManagement()" style="width: 50px; float: right;" src="../asset/icon/close.png" </img>'+
     '<ul class="userList">' +
     '<li class="user">' +
     '<div class="STT">STT' +

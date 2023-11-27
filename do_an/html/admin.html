@@ -24,30 +24,30 @@
                 <li><a href="#introduce">Services</a></li>
                 <li><a href="../html/cart.html">Giỏ hàng</a></li>
                 <li id="tkSanPham"><a>Thống kê sản phẩm</a></li>
-                <li id="tkDonHang"><a> Thống kê đơn hàng </a></li>
-                <li id="userManagement"><a> Quản lý tài khoản</a> </li>
             </ul>
         </div>
     </div>
     <div class="header">
         <div style="width: 200px;">
             <span id="trangchu" onclick="openNav()"
-                style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong> WIBU
+                style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong id="wibu"> WIBU
                     STORE</strong>
             </span>
         </div>
         <div class="container" style="width:calc(100% - 200px);">
-            <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
-            <img id="button-search" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
-            <input type="number" id="product-per-page">
-            <p>Product Per Page</p>
-            <button onclick="mix_product_per_page()">enter</button>
+            <input id="searchInput" style="z-index: 10;;border-radius: 25px;" type="text" placeholder="Tìm kiếm">
+            <img id="button-search" style="z-index: 10;" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
+            <div style="z-index: 10; display: flex;" id="per-page">
+                <input type="number" id="product-per-page">
+                <p>Product Per Page</p>
+                <button onclick="mix_product_per_page()">enter</button>
+            </div>
             <img id="button-refresh" src="../asset/icon/reload.png" onclick="refresh()" alt="">
-            <button style="margin-left: 50px;" onclick="admin_mode()">
-                <h3>Thêm/Xóa/Tùy chỉnh sản phẩm</h3>
+            <button id="QLSP" onclick="admin_mode()">
+                <h4 class="text-QL">Quản lý sản phẩm</h4 class="text-QL">
             </button>
-            <button style="margin-left: 50px;" onclick="openstatistical()">
-                <h3>Thống kê sản phẩm</h3>
+            <button id="TKSP" onclick="openstatistical()">
+                <h4 class="text-QL">Thống kê sản phẩm</h4 class="text-QL">
             </button>
         </div>
     </div>
@@ -138,12 +138,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
         <div style="justify-content: right; width: 60%; position: relative;">
             <div style="height: 100px; ">
                 <h2 style="position: absolute;left: 30%;">Danh sách sản phẩm</h2>
@@ -155,7 +149,8 @@
         </div>
     </div>
 
-    <div class="content" id="mngContent" style="display: none;"></div>
+
+    <div class="content" id="mngContent" style="z-index: 1000;;display: none;"></div>
 
     <div class="display-product">
         <div class="main">
@@ -164,15 +159,15 @@
                     <li style="background-color: #c5d654; color:white; justify-content: center;">
                         <h2>Chức năng</h2>
                     </li>
-                    <li>
+                    <li id="tkDonHang">
                         <img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
                             style="width: 25px; margin-right: 10px;" alt="">
-                        <a onclick="refresh()" href="#">Quản lý đơn hàng</a>
+                        <a>Quản lý đơn hàng</a>
                     </li>
-                    <li>
+                    <li id="userManagement">
                         <img src="../asset/category_img/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;"
                             alt="">
-                        <a onclick="figure()" href="#">Quản lý tài khoản</a>
+                        <a>Quản lý tài khoản</a>
                     </li>
                     <li>
                         <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;"
@@ -617,6 +612,14 @@
                         return;
                     }
                 }
+                img = getBase64Image(img);
+                img2 = getBase64Image(img2);
+                img3 = getBase64Image(img3);
+                img4 = getBase64Image(img4);
+                img = img.replace(/C:\\fakepath\\/, "../asset/add/");
+                img2 = img2.replace(/C:\\fakepath\\/, "../asset/add/");
+                img3 = img3.replace(/C:\\fakepath\\/, "../asset/add/");
+                img4 = img4.replace(/C:\\fakepath\\/, "../asset/add/");
 
                 let i = 0;
                 for (var k = 0; k < productList.length; k++) {

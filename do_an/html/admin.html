@@ -629,11 +629,12 @@
                         break;
                     }
                 }
+                let count = 0;
                 if (img.files[0]) blobToBase64(img.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
                         img = res2;
                         productList[i].img = res2;
-                        console.log(init());
+                        if (++count == 4) init();
                     });
                 })
 
@@ -641,14 +642,14 @@
                     resize(res, 500, 300).then(res2 => {
                         img2 = res2;
                         productList[i].img2 = img2;
-                        console.log(init());
+                        if (++count == 4) init();
                     });
                 })
                 if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
                         img3 = res2;
                         productList[i].img3 = img3;
-                        console.log(init());
+                        if (++count == 4) init();
                     });
                 })
 
@@ -656,7 +657,7 @@
                     resize(res, 500, 300).then(res2 => {
                         img4 = res2;
                         productList[i].img4 = img4;
-                        console.log(init());
+                        if (++count == 4) init();
                     });
                 })
                 saveProductList();

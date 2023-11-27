@@ -50,13 +50,13 @@ function displayOrderManagement(orderList) {
     '<ul id="dsDonHang" class="dsDonHang">' +
     '<li class="donHang">' +
     '<div class="STT">STT</div>' +
-    '<div class="MaDon">Ma Don</div>' +
-    '<div class="Khach">Khach</div>' +
-    '<div class="SanPham">San Pham</div>' +
-    '<div class="TongTien">Tong tien</div>' +
-    '<div class="Ngaygio">Ngay gio</div>' +
-    '<div class="Trangthai">Trang Thai</div>' +
-    '<div class="HanhDong">Hanh Dong</div>' +
+    '<div class="MaDon">Mã Đơn</div>' +
+    '<div class="Khach">Khách</div>' +
+    '<div class="SanPham">Sản phẩm</div>' +
+    '<div class="TongTien">Tổng tiền</div>' +
+    '<div class="Ngaygio">Ngày giờ</div>' +
+    '<div class="Trangthai">Trạng thái</div>' +
+    '<div class="HanhDong">Hành động</div>' +
     "</li>" +
     "</ul>" +
     '<div class="searchBar">' +

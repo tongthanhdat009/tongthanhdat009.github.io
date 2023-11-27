@@ -7,10 +7,6 @@ body {
     justify-content: flex-start;
 }
 
-a:hover {
-    background-color: gray;
-}
-
 .header {
     display: flex;
     height: 70px;
@@ -29,20 +25,41 @@ a:hover {
     height: 100%;
     z-index: 100000;
     position: fixed;
-    background-color: rgb(44, 43, 43);
+    background-color: black;
     display: none;
+    transition: 0.15s
 }
-
+ul{
+    padding:0;
+}
 .menu li,
 .menu li a {
-    color: white;
+    color: #818181;
     display: block;
     font-size: 25px;
-    margin: 20px;
+    margin: 10px;
     font-weight: normal;
     caret-color: transparent;
+    cursor: pointer;
+}
+.menu li a{
+    padding:  0 0 0 32px;
+}
+.menu li,
+.menu li a:hover{
+    color:white;
 }
 
+#closeNav-btn a{
+    color: #818181;
+    font-size: 40px;
+    position: relative;
+    right: 18px
+}
+
+#closeNav-btn a:hover{
+    color:white;
+}
 .main {
     display: flex;
     height: calc(100% - 100px);
@@ -104,8 +121,14 @@ a:hover {
     display: flex;
     height: 50px;
     background-color: rgb(113, 117, 111);
+    border-top: 3px solid black;
     border-bottom: 3px solid black;
     align-items: center;
+    margin-top:5px;
+    cursor: pointer;
+}
+.main li a:hover{
+    color:white
 }
 
 a {
@@ -133,8 +156,9 @@ a {
 
 .sidebar-content {
     width: 250px;
-    height: 100%;
+    height: fit-content;
     position: fixed;
+    border: 3px solid black;
 }
 
 .archive-product {
@@ -173,7 +197,7 @@ a {
 
 .product-inner:hover {
     transform: scale(1.1);
-    border: 2px solid white;
+    border: 2px solid rgb(255, 111, 111);
 }
 
 #button-search {
@@ -374,4 +398,9 @@ a {
 
 .infor_container {
     margin-top: auto;
+}
+
+/* lựa chọn sort */
+#mySelect{
+    height: 100%;
 }

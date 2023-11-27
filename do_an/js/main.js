@@ -42,7 +42,7 @@ function altlist(i) {
     for (var i = 0; i < list.length; i++) {
       list[i].style.visibility = clickCount % 2 === 0 ? "visible" : "collapse"; //hiển thị thêm sau khi số lần click chia hết cho 2
     }
-    button.innerText = clickCount % 2 === 0 ? "xem ít hơn" : "xem nhiều hơn"; //xét thuộc tính để hiển thị thêm hoặc bớt
+    button.innerText = clickCount % 2 === 0 ? "Xem ít hơn" : "Xem nhiều hơn"; //xét thuộc tính để hiển thị thêm hoặc bớt
     clickCount++; //đếm số lần click vào nút
   }
 

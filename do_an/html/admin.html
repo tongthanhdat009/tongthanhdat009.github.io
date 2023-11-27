@@ -630,7 +630,8 @@
                         productList[i].img = res2;
                         if (++count == 4) init();
                     });
-                })
+                });
+                else count++;
 
                 if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
@@ -638,14 +639,16 @@
                         productList[i].img2 = img2;
                         if (++count == 4) init();
                     });
-                })
+                });
+                else count++;
                 if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
                         img3 = res2;
                         productList[i].img3 = img3;
                         if (++count == 4) init();
                     });
-                })
+                });
+                else count++;
 
                 if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
@@ -653,7 +656,8 @@
                         productList[i].img4 = img4;
                         if (++count == 4) init();
                     });
-                })
+                });
+                else count++;
                 saveProductList();
                 search_admin();
                 adminmode(searchADList);
@@ -773,7 +777,8 @@
                         console.log(count++);
                         if (count == 4) reload(newproduct);
                     });
-                })
+                });
+                else count++;
 
                 if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
@@ -782,7 +787,8 @@
                         console.log(count++);
                         if (count == 4) reload(newproduct);
                     });
-                })
+                });
+                else count++;
                 if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
                         img3 = res2;
@@ -790,7 +796,8 @@
                         console.log(count++);
                         if (count == 4) reload(newproduct);
                     });
-                })
+                });
+                else count++;
 
                 if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
                     resize(res, 500, 300).then(res2 => {
@@ -799,7 +806,8 @@
                         console.log(count++);
                         if (count == 4) reload(newproduct);
                     });
-                })
+                });
+                else count++;
 
             }
             NO.onclick = function () {

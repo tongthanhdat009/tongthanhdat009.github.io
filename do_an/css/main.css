@@ -293,8 +293,7 @@ img {
 }
 
 .check-infor-title,
-.check-bill-title,
-.edit-infor-title {
+.check-bill-title {
   text-align: center;
   font-size: 30px;
   display: none;
@@ -400,7 +399,9 @@ img {
   font-size: 36px;
   margin-left: 50px;
 }
+/* ---- */
 
+/* thanh tìm kiếm */
 #search {
   display: inline-flex;
   position: absolute;
@@ -446,6 +447,7 @@ img {
 }
 
 /* ---- */
+
 /* BANNER */
 #box {
   height: 600px;
@@ -545,11 +547,7 @@ img {
   animation: change-color 2s infinite;
 }
 
-#promo1 a {
-  text-decoration: none;
-  color: black;
-}
-
+#promo1 a,
 #promo2 a {
   text-decoration: none;
   color: black;
@@ -668,7 +666,6 @@ img {
   width: 25%;
 }
 
-/* Duy Thái */
 /* itemdetail */
 .itemdetail {
   position: fixed;
@@ -910,18 +907,9 @@ img {
   }
 
   /* chỉnh sửa footer */
-  #introduce {
-    width: 100%;
-  }
-
-  #social_media {
-    width: 100%;
-  }
-
-  #contact {
-    width: 100%;
-  }
-
+  #introduce,
+  #social_media,
+  #contact,
   #footer_logo {
     width: 100%;
   }
@@ -1008,7 +996,6 @@ img {
     width: 100%;
   }
 
-  /* Duy thái */
   /* chỉnh sửa chi tiết sản phẩm */
   .itemdetail {
     width: 100%;

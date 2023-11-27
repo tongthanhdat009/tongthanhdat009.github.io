@@ -75,5 +75,6 @@ inputSearch.addEventListener("submit", function (event) {//thêm event submit ch
   };
 
   var jsonStr = JSON.stringify(userInput);
+  nameInput.value ="";
   localStorage.setItem("mainSearch", jsonStr);//lưu vào storage để cho trang order lấy ra dùng
 });

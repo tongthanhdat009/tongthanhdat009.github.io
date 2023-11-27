@@ -374,7 +374,6 @@
                 searchRtxt.innerHTML = 'kết quả tìm kiểm:<strong> '+out.name+'</strong>.';
             var mainNameInput=out.name;
             if(out.sign){
-                ProductPerPage=5;//hiển thị số kết quả sản phẩm
                 searchProducts2();
             }
         }
@@ -482,7 +481,7 @@
         //tải lại dữ liệu mặc định của trang
         window.addEventListener('beforeunload', function(){
             refresh();
-            ProductPerPage = 16; // chỉnh số sản phẩm sau khi thoát ra 
+            localStorage.removeItem("mainSearch");
         });
     </script>
 </body>

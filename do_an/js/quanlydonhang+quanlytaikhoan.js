@@ -6,22 +6,6 @@ let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
   : [];
 
-orderList.push({
-  maDon: "none",
-  khachHang: "none",
-  sanPham: "none",
-  tongTien: "none",
-  ngayLap: "11/23/2023",
-  trangThai: "none",
-});
-orderList.push({
-  maDon: "none",
-  khachHang: "none",
-  sanPham: "none",
-  tongTien: "none",
-  ngayLap: "11/25/2023",
-  trangThai: "none",
-});
 let content = document.getElementById("mngContent");
 let display_product = document.getElementsByClassName("display-product")[0];
 

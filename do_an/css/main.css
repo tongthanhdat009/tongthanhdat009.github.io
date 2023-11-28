@@ -616,6 +616,7 @@ img {
 /* FOOTER */
 .infor_container {
   display: flex;
+  z-index: -1;
 }
 
 .infor_container>div {

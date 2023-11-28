@@ -130,13 +130,14 @@ ul {
 
 .main li {
     display: flex;
-    height: 50px;
-    background-color: rgb(113, 117, 111);
+    height: 35px;
+    background-color: rgb(179, 234, 152);
     border-top: 3px solid black;
     border-bottom: 3px solid black;
     align-items: center;
     margin-top: 5px;
     cursor: pointer;
+    border-right: 3px solid black;
 }
 
 .main li a:hover {
@@ -485,6 +486,10 @@ a {
 
 #mix-product {
     display: flex;
+}
+
+#max-price {
+    height: 50px;
 }
 
 @media screen and (max-width: 900px) {

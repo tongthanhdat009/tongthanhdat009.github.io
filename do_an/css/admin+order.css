@@ -470,6 +470,10 @@ a {
     width: 65px; 
     top: 0%;
 }
+#mix-product
+{
+    display: flex;
+}
 @media screen and (max-width: 900px) {
 .sidebar-content{
     display: none;
@@ -494,14 +498,14 @@ a {
 #searchInput{
     position: absolute;
     top: 100px;
-    width: 200px;
+    width: 100px;
     left: 50%
 }
 #button-search{
     position: absolute;
     background-color: rgb(238, 238, 238);
     top: 90px;
-    left: calc(50% + 200px);
+    left: calc(50% + 100px);
 }
 #per-page
 {
@@ -610,6 +614,14 @@ a {
     #add-imga
     {
         left:calc(50% - 100px)
+    }
+    .all_alt_btn
+    {
+        display: none;
+    }
+    #mix-product
+    {
+        display: none;
     }
 }
 

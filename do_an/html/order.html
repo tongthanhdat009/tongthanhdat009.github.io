@@ -52,13 +52,15 @@
             <div class="container" style="width:calc(100% - 200px);">
                 <input id="searchInput" style="border-radius: 25px;" type="text" placeholder="Tìm kiếm">
                 <img id="button-search" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
-                <input type="number" id="product-per-page">
-                <p>Product Per Page</p>
-                <button class="all_alt_btn" style="height:30px;
+                <div id="mix-product">
+                    <input type="number" id="product-per-page">
+                    <p>Product Per Page</p>
+                    <button class="all_alt_btn" style="height:30px;
                                                    padding:0 10px 0 10px;" onclick="mix_product_per_page()">Enter</button>
+                </div>
                 <img id="button-refresh" style="width: 50px;" src="../asset/icon/reload.png" onclick="refresh()" alt="">
                 <button class="all_alt_btn" style="position: relative;
-                                                   left:100px;
+                                                   left:0px;
                                                    padding:0 10px 0 10px;
                                                    height: 60px;" onclick="dark_mode()"><h2 id="darkmode">Dark Mode</h2></button>
             </div>

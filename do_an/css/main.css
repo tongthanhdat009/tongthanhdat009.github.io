@@ -278,16 +278,18 @@ img {
 #edit-user-infor,
 #check-infor {
   font-size: 24px;
-  border:2px solid black;
+  border: 2px solid black;
   text-align: center;
 }
-#img-left-content{
+
+#img-left-content {
   width: 250px;
   height: 250px;
   position: relative;
   left: calc(50% - 125px);
   display: none;
 }
+
 #user-infor-right {
   width: 70%;
 }
@@ -318,19 +320,22 @@ img {
     top: 20%;
   }
 }
+
 @keyframes user-infor-out {
   from {
     top: 20%;
   }
-  
+
   to {
     top: -100%;
   }
 }
-.user-infor-title{
+
+.user-infor-title {
   text-align: center;
 }
-#user-content p{
+
+#user-content p {
   font-size: 25px;
   margin-top: 10px;
   margin-left: 20px;
@@ -338,31 +343,38 @@ img {
 
 #check-bill:hover,
 #edit-user-infor:hover,
-#check-infor:hover{
+#check-infor:hover {
   animation: infi 2s infinite;
   cursor: pointer;
 }
+
 @keyframes infi {
-  0%{
+  0% {
     background-color: red;
   }
-  25%{
+
+  25% {
     background-color: aqua;
   }
-  50%{
+
+  50% {
     background-color: green;
   }
-  75%{
+
+  75% {
     background-color: aquamarine;
   }
-  100%{
-    background-color:tomato ;
+
+  100% {
+    background-color: tomato;
   }
 }
-#user-content table{
+
+#user-content table {
   width: 100%;
   font-size: 25px;
 }
+
 /* ---- */
 
 /* menu */
@@ -399,6 +411,7 @@ img {
   font-size: 36px;
   margin-left: 50px;
 }
+
 /* ---- */
 
 /* thanh tìm kiếm */
@@ -906,7 +919,8 @@ img {
   #box {
     height: 400px;
   }
-  #box img{
+
+  #box img {
     height: 400px;
   }
 
@@ -981,10 +995,11 @@ img {
     padding: 0;
   }
 
-  #header_sm img{
+  #header_sm img {
     height: 30px;
     width: 60px;
   }
+
   /* chỉnh sửa quyền lợi shop */
   .promo_img {
     height: 150px;
@@ -1017,7 +1032,7 @@ img {
     display: block;
     max-width: 100%;
     /*magic number*/
-    max-height: 111vh;
+    max-height: calc(99vh - 30px);
     overflow: scroll;
   }
 
@@ -1054,75 +1069,90 @@ img {
     font-size: 20px;
     width: max-content;
   }
-  #admin{
-    margin:0;
+
+  #admin {
+    margin: 0;
     z-index: 10000;
   }
-  #right_site_header #logout{
-    margin:0;
+
+  #right_site_header #logout {
+    margin: 0;
     float: right;
   }
 
   /* chỉnh phần thông tin tài khoản */
-  #user-infor-container{
+  #user-infor-container {
     width: 100%;
-    left:0;
+    left: 0;
     height: 50px;
   }
+
   #check-bill,
   #edit-user-infor,
   #check-infor {
     font-size: 18px;
   }
-  #alt-page-img img{
-    left:0;
+
+  #alt-page-img img {
+    left: 0;
   }
+
   .user-infor-title,
-  #alt-page-title{
+  #alt-page-title {
     font-size: 20px;
   }
-  #user-content table{
+
+  #user-content table {
     font-size: 15px;
   }
 }
 
 /* giao diện nhỏ hơn */
 @media screen and (max-width: 400px) {
+
   /* chỉnh sửa kích cỡ banner */
   .banner_fl img {
     height: 300px;
   }
 
-  #box img{
+  #box img {
     height: 300px;
   }
+
   #box {
     height: 300px;
   }
 
-  .banner_img img{
+  .banner_img img {
     height: 300px;
   }
-  #right_site_header #logout{
-    margin:0;
-    float: right;
-  }
-  .promo_p2{
-    font-size: 18px;
-  }
-  .img_service{
-    height: 50px;
-    width: 50px;
-  }
-  #right_site_header #sign-up-in_btn{
+
+  #right_site_header #logout {
     margin: 0;
     float: right;
   }
-  .infor_container p{
+
+  .promo_p2 {
+    font-size: 18px;
+  }
+
+  .img_service {
+    height: 50px;
+    width: 50px;
+  }
+
+  #right_site_header #sign-up-in_btn {
+    margin: 0;
+    float: right;
+  }
+
+  .infor_container p {
     font-size: 15px;
   }
 }
+
 @media screen and (max-width: 600px) {
+
   .left-content,
   .right-content {
     margin: 0;

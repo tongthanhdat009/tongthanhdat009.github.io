@@ -1,9 +1,10 @@
 //lấy giá trị mảng productList
 var productList = [];
-function getProductList() {//hàm lấy mảng từ storage
+function getProductList() {
+  //hàm lấy mảng từ storage
   var productStored = localStorage.getItem("productList"); //lấy mảng sản phẩm vào storage
   if (productStored) {
-    productList = JSON.parse(productStored);//gán giá trị
+    productList = JSON.parse(productStored); //gán giá trị
   }
 }
 //lưu mảng sản phẩm xuống storage
@@ -12,19 +13,19 @@ function saveProductList() {
   localStorage.setItem("productList", jsonStr);
 }
 //chạy hàm save 1 lần
-function runSaveProductList(){
-  var displayHasRun = localStorage.getItem('displayHasRun');
+function runSaveProductList() {
+  var displayHasRun = localStorage.getItem("displayHasRun");
   if (!displayHasRun) {
     saveProductList();
-    localStorage.setItem('displayHasRun', true);
+    localStorage.setItem("displayHasRun", true);
   }
 }
-// hiển thị sản phẩm 
+// hiển thị sản phẩm
 function productDisplay2() {
-  var maxIndex = 3;//số lượng sản phẩm hiển thị trong 1 hàng của bảng
-  var count = [0, 0, 0, 0];//mảng đếm số sản phẩm để xét điều kiện thêm sản phẩm
+  var maxIndex = 3; //số lượng sản phẩm hiển thị trong 1 hàng của bảng
+  var count = [0, 0, 0, 0]; //mảng đếm số sản phẩm để xét điều kiện thêm sản phẩm
   var list = [null, null, null, null];
-  
+
   //khởi tạo danh sách
   for (let i = 1; i <= 4; ++i) {
     list[i - 1] = document.getElementById("list_" + i);
@@ -73,7 +74,7 @@ function addProduct(name, price, type, img, img2, img3, img4, id) {
     img3: img3,
     img4: img4,
     id: id,
-    count: 0
+    count: 0,
   };
   productList.push(product);
   productList2 = productList;
@@ -592,5 +593,5 @@ addProduct(
   "../asset/anh/cosplay/50 4.jpg",
   51
 );
-runSaveProductList();//lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
-// getProductList();//lấy mảng giá trị từ storage
+runSaveProductList(); //lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
+// getProductList(); //lấy mảng giá trị từ storage

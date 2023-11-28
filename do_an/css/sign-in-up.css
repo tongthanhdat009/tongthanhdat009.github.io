@@ -2,6 +2,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 /* khung chứa đăng nhập đăng ký */
 .wrapper {
     position: fixed;
@@ -20,6 +21,7 @@
     translate: 0 -120%;
     opacity: 0;
 }
+
 /* hiển thị khung */
 .wrapper.active-popup {
     opacity: 1;
@@ -183,8 +185,10 @@ form .wrapper-flex .right-content {
 }
 
 /* thông báo đăng ký thành công */
-#customalert{
+#customalert {
     width: 350px;
+    min-width: fit-content;
+    text-wrap: nowrap;
     height: 50px;
     background-color: rgba(174, 238, 79, 0.753);
     position: fixed;
@@ -192,48 +196,59 @@ form .wrapper-flex .right-content {
     top: -100%;
     z-index: 1;
 }
-#customalert p{
+
+#customalert p {
     text-align: center;
     position: relative;
     top: 5px;
     font-size: 30px;
     color: white;
 }
+
 @keyframes complete {
     0% {
         top: -100%;
     }
+
     20% {
-        top:5%;
+        top: 5%;
     }
+
     40% {
         top: 5%;
     }
+
     60% {
         top: 5%;
     }
+
     80% {
         top: 5%;
     }
+
     100% {
         top: -100%;
     }
 }
+
 @media screen and (max-width:400px) {
-    .wrapper{
+    .wrapper {
         width: 100%;
-        left:0;
+        left: 0;
         height: fit-content;
         flex-wrap: nowrap;
-        overflow: scroll;        
+        overflow: scroll;
     }
-    .wrapper .left-content{
+
+    .wrapper .left-content {
         height: 200px;
     }
-    .wrapper .right-content{
+
+    .wrapper .right-content {
         height: 200px;
     }
-    .left-content .icon{
-        bottom:0px
+
+    .left-content .icon {
+        bottom: 0px
     }
 }

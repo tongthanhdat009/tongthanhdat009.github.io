@@ -25,7 +25,7 @@ body
 #text-input-search
 {
     position: absolute;
-    left: calc(15% + 5%);
+    left: calc(15% + 10%);
     height: 40px;
     top:calc(50% - 25px);
     width: 50%;
@@ -33,7 +33,7 @@ body
 #search-button
 {   
     position: absolute;
-    left:calc(20% + 50% - 65px);
+    left:calc(25% + 50% - 65px);
     height: 40px;
     width: 70px;
     top:calc(50% - 22px);
@@ -72,7 +72,7 @@ body
     border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     position: absolute;
-    left:calc(70% + 50px);
+    left:calc(75% + 50px);
     top: calc(50% - 30px);
 }
 #danh-muc
@@ -185,7 +185,7 @@ body
 }
 .inner-product
 {
-    width: 19%;
+    width: 250px;
     margin: 40px;
     border: 3px solid black;
     border-radius: 10%;
@@ -207,7 +207,8 @@ body
     justify-content: center;
     flex-wrap: wrap;
 }
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1150px)
+{
     #user
     {
         display: none;
@@ -246,20 +247,25 @@ body
     }
     #cart
     {
-        left: calc(100% - 200px);
+        left: calc(100% - 100px);
     }
     #loc-theo-gia
     {
         display: none;
     }
-    #hien-thi
+    #filter
     {
-        display: none;
+        left: 150px;
+    }
+    #filter input
+    {
+        width: 40px;
     }
     #productPerPage
     {
         height: 85%;
-        left: calc(50% - 100px + 250px);
+        left: 40%;
+        top: 100%;
     }
     #type-output
     {
@@ -281,5 +287,21 @@ body
     {
         margin: 20px;
         border: 1px solid black;
+    }
+    #img-theme
+    {
+        height: 30px;
+        top: calc(50% - 20px);
+    }
+}
+@media screen and (max-width: 500px) 
+{
+    #danh-muc-mobile
+    {
+        margin-left:  0px ;
+    }
+    .inner-product
+    {
+        width: 125px;
     }
 }

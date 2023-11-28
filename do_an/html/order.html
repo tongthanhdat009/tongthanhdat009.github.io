@@ -68,7 +68,7 @@
                                                    left:0px;
                                                    padding:0 10px 0 10px;
                                                    height: 60px;" onclick="dark_mode()">
-                <h2 id="darkmode">Dark Mode</h2>
+                <h2 id="darkmode">Theme</h2>
             </button>
         </div>
     </div>
@@ -389,17 +389,14 @@
         function dark_mode() {
             var color = document.body;
 
-            var color5 = document.querySelector(".max p");
-            var color6 = document.querySelector(".min p");
+
             var color7 = document.querySelector(".site-main p");
             var color8 = document.getElementById("Page");
             var color9 = document.getElementById("search_result_txt")
             if (color.style.backgroundColor === "rgb(50, 50, 50)") {
                 color.style.backgroundColor = "rgb(238, 238, 238)";
                 var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Dark mode";
-                color5.style.color = "black";
-                color6.style.color = "black";
+
                 color7.style.color = "black";
                 color8.style.color = "black";
                 color8.style.border = "2px solid black";
@@ -409,9 +406,7 @@
             else {
                 color.style.backgroundColor = "rgb(50, 50, 50)";
                 var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Light mode"
-                color5.style.color = "white";
-                color6.style.color = "white";
+
                 color7.style.color = "white";
                 color8.style.color = "white";
                 color8.style.border = "2px solid white";

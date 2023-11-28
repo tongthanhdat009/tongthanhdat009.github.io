@@ -1,3 +1,8 @@
+html {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     margin: 0px;
     min-height: 500px;
@@ -5,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    min-width: 100vw;
 }
 
 .header {
@@ -29,6 +35,7 @@ body {
     display: none;
     transition: 0.15s
 }
+
 ul {
     padding: 0;
 }
@@ -263,12 +270,13 @@ a {
     float: right;
     border: 1px solid black;
 }
-#bang
-{
-    width: 55%; 
-    left: 350px; 
+
+#bang {
+    width: 55%;
+    left: 350px;
     position: relative;
 }
+
 #addition {
     display: flex;
     height: 50px;
@@ -337,6 +345,7 @@ a {
 #list h5 {
     font-size: 20px;
 }
+
 #are-you-sure {
     width: 200px;
     background-color: pink;
@@ -434,144 +443,161 @@ a {
 .infor_container {
     margin-top: auto;
 }
+
 /* lựa chọn sort */
 #mySelect {
     height: 100%;
 }
-#TKSP{
+
+#TKSP {
     display: none;
 }
-#QLSP{
+
+#QLSP {
     display: none;
 }
-#TKDH
-{
+
+#TKDH {
     display: none;
 }
-#QLTK
-{
+
+#QLTK {
     display: none;
 }
-#add-imga
-{
+
+#add-imga {
     position: absolute;
     left: 75%;
     width: 65px;
     top: 0%;
 }
-#timkiem2
-{
+
+#timkiem2 {
     position: fixed;
 }
-#add-imga
-{
-    position: absolute; 
-    left: calc(100% - 90px); 
-    width: 65px; 
-    top: 0%;
-}
-#mix-product
-{
-    display: flex;
-}
-@media screen and (max-width: 900px) {
-.sidebar-content{
-    display: none;
-}
-.site-main {
-    left: 0px;
-    width: 100%;
-    margin-top: 50px;
-}
-.product-inner {
-    width: 125px;
-    height: 240px;
-    margin: 20px;
-}
-.name-figure h3 
-{   
-    font-size: 8px;
-}
-.price p {
-    font-size: 13px;
-}
-#searchInput{
+
+#add-imga {
     position: absolute;
-    top: 100px;
-    width: 100px;
-    left: 50%
-}
-#button-search{
-    position: absolute;
-    background-color: rgb(238, 238, 238);
-    top: 90px;
-    left: calc(50% + 100px);
-}
-#per-page
-{
-    position: absolute;
-    left: -50px;
-    top: 100px;
-    margin-left: 0px;
-}
-#button-refresh{
-    position: absolute;
-    left:calc(100% - 100px);
-}
-#wibu{
-    display: none;
-}
-#QLSP{
-    position: absolute;
-    left: 50px;
-    height: 100%;
-    display: block;
-}
-#TKSP{
-    display: block;
-    position: absolute;
-    left: 190px;
-    height: 100%;
-}
-.text-QL
-{  
-    font-size: 15px;;
-}
-#admin {
-    left: 0px;
-}
-#statistical
-{
-    left: 0px;
-}
-#timkiemadmin
-{
-    display: none;
-}
-#config
-{   
-    left: 0px;
-    width: 200px;
-}
-#list
-{
-    left: 0px;
-}
-#add-imga
-{
-    position: absolute;
-    left: 500px;
+    left: calc(100% - 90px);
     width: 65px;
     top: 0%;
 }
-#bang{
-    left: 230px;
+
+#mix-product {
+    display: flex;
 }
-#add-product
-{   
-    width: 200px;
-    height: 600px;
-}
+
+@media screen and (max-width: 900px) {
+    .sidebar-content {
+        display: none;
+    }
+
+    .site-main {
+        left: 0px;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .product-inner {
+        width: 125px;
+        height: 240px;
+        margin: 20px;
+    }
+
+    .name-figure h3 {
+        font-size: 8px;
+    }
+
+    .price p {
+        font-size: 13px;
+    }
+
+    #searchInput {
+        position: absolute;
+        top: 100px;
+        width: 100px;
+        left: 50%
+    }
+
+    #button-search {
+        position: absolute;
+        background-color: rgb(238, 238, 238);
+        top: 90px;
+        left: calc(50% + 100px);
+    }
+
+    #per-page {
+        position: absolute;
+        left: -50px;
+        top: 100px;
+        margin-left: 0px;
+    }
+
+    #button-refresh {
+        position: absolute;
+        left: calc(100% - 100px);
+    }
+
+    #wibu {
+        display: none;
+    }
+
+    #QLSP {
+        position: absolute;
+        left: 50px;
+        height: 100%;
+        display: block;
+    }
+
+    #TKSP {
+        display: block;
+        position: absolute;
+        left: 190px;
+        height: 100%;
+    }
+
+    .text-QL {
+        font-size: 15px;
+        ;
+    }
+
+    #admin {
+        left: 0px;
+    }
+
+    #statistical {
+        left: 0px;
+    }
+
+    #timkiemadmin {
+        display: none;
+    }
+
+    #config {
+        left: 0px;
+        width: 200px;
+    }
+
+    #list {
+        left: 0px;
+    }
+
+    #add-imga {
+        position: absolute;
+        left: 500px;
+        width: 65px;
+        top: 0%;
+    }
+
+    #bang {
+        left: 230px;
+    }
+
+    #add-product {
+        width: 200px;
+        height: 600px;
+    }
+
     .sidebar-content {
         display: none;
     }
@@ -594,34 +620,33 @@ a {
     .price p {
         font-size: 13px;
     }
-    #timkiem2
-    {
+
+    #timkiem2 {
         display: none;
     }
-    #add-product
-    {
+
+    #add-product {
         top: 100px;
         height: 569px;
     }
-    #config
-    {
+
+    #config {
         top: 100px;
     }
-    #text-DMSP
-    {
+
+    #text-DMSP {
         display: none;
     }
-    #add-imga
-    {
-        left:calc(50% - 100px)
+
+    #add-imga {
+        left: calc(50% - 100px)
     }
-    .all_alt_btn
-    {
+
+    .all_alt_btn {
         display: none;
     }
-    #mix-product
-    {
+
+    #mix-product {
         display: none;
     }
 }
-

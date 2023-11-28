@@ -187,6 +187,11 @@ form.otherSearch :is(input, select) {
     border: 1px solid var(--secondary-color);
 }
 
+.user>*:not(:first-child) {
+    min-width: 300px;
+    text-wrap: wrap;
+}
+
 
 .userList .user:first-child {
     position: sticky;

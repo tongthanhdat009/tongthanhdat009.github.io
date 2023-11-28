@@ -1,0 +1,284 @@
+body
+{
+    margin: 0px;
+}
+#icon-web
+{
+    width: 10%;
+    height: auto;
+    min-width: 100px;
+}
+#header
+{
+    display: flex;
+    position: relative;
+    height: 130px;
+    background-color: grey;
+}
+#header ul
+{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+#text-input-search
+{
+    position: absolute;
+    left: calc(15% + 5%);
+    height: 40px;
+    top:calc(50% - 25px);
+    width: 50%;
+}
+#search-button
+{   
+    position: absolute;
+    left:calc(20% + 50% - 65px);
+    height: 40px;
+    width: 70px;
+    top:calc(50% - 22px);
+    background-color: pink;
+}
+#lam-mau p
+{
+    margin-right: 20px;
+}
+#lam-mau img
+{
+    height: 20px;
+}
+#lam-mau
+{
+    display: flex;
+    position: absolute;
+    top:calc(50% + 17px);
+    left: calc(15% + 5%);
+    align-items: center;
+}
+#user
+{
+    position: absolute;
+    left: calc(100% - 200px);
+    top:calc(50% - 40px);
+}
+#user h4
+{
+    margin: 10px;
+    text-align: end;
+}
+#img-theme
+{
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left:calc(70% + 50px);
+    top: calc(50% - 30px);
+}
+#danh-muc
+{   
+    position: relative;
+    background-color: white;
+    display: flex;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+#danh-muc ul
+{
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#danh-muc ul li
+{   
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0px;
+    width: 200px;
+    justify-content: center;
+}
+#danh-muc ul li a
+{
+    color: black;
+    text-decoration: none;
+}
+#danh-muc ul li img
+{
+    height: 30px;
+}
+#cart img
+{
+    height: 30px;
+}
+#cart
+{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    left: calc(100% - 200px);
+    align-items: center;
+    height: 59px;
+}
+#danh-muc-mobile
+{
+    display: none;
+    margin-left: 50px;
+}
+#banner
+{
+    width: 60%;
+}
+#banner img
+{
+    width: 100%;
+    height: 100%;
+}
+#banner-type
+{
+    display: flex;
+    border-bottom: 2px solid black;
+}
+#type
+{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+#sort-filter-productPerPage
+{
+    position: relative;
+}
+#sort
+{
+    display: flex;
+    margin-left: 30px;
+}
+#filter
+{   
+    position: absolute;
+    display: flex;
+    margin: 0 50px 0 50px;
+    left:calc(50% - 100px);
+    top: calc(50% - 30px);
+}
+#filter p
+{
+    margin-left: 10px;
+}
+.filter-price
+{
+    width: 50px;
+}
+#productPerPage
+{
+    display: flex;
+    position: absolute;
+    left: calc(50% - 100px + 350px);
+    top: calc(50% - 30px);
+}
+#so-luong
+{
+    margin-left: 30px;
+}
+.inner-product
+{
+    width: 19%;
+    margin: 40px;
+    border: 3px solid black;
+    border-radius: 10%;
+    box-sizing: border-box;
+}
+.inner-product img
+{
+    width: 100%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+.product-content
+{
+    text-align: center;
+}
+#archive-product
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 1150px) {
+    #user
+    {
+        display: none;
+    }
+    #lam-mau p
+    {
+        font-size: 13px;
+    }
+    #cart h3
+    {
+        font-size: 13px;
+    }
+    #cart
+    {
+        left: calc(100% - 100px);
+        height: 54px;
+        top:calc(50% - 27px);
+    }
+    #danh-muc ul li a h3
+    {
+        font-size: 13px;
+    }
+    #danh-muc ul li
+    {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 850px) {
+    #danh-muc-mobile
+    {
+        display: flex;
+    }
+    #danh-muc ul
+    {
+        display: none;
+    }
+    #cart
+    {
+        left: calc(100% - 200px);
+    }
+    #loc-theo-gia
+    {
+        display: none;
+    }
+    #hien-thi
+    {
+        display: none;
+    }
+    #productPerPage
+    {
+        height: 85%;
+        left: calc(50% - 100px + 250px);
+    }
+    #type-output
+    {
+        font-size: 20px;
+    }
+    #sort
+    {
+        margin-left: 0px;
+    }
+    .name-product
+    {
+        font-size: 10px;
+    }
+    .price-product
+    {
+        font-size: 12px;
+    }
+    .inner-product
+    {
+        margin: 20px;
+    }
+}

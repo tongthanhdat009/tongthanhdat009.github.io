@@ -332,10 +332,10 @@
   </div>
   <table id="list_1" border="5">
   </table>
-  <button class="all_alt_btn" id="btn_alt_1" onclick="altlist1()">xem nhiều hơn</button>
+  <button class="all_alt_btn" id="btn_alt_1" onclick="altlist1()">Xem nhiều hơn</button>
   <a href="../html/order.html">
     <button class="all_alt_btn" id="all_list1_btn" style="float: right;">
-      xem tất cả
+      Xem tất cả
     </button>
   </a>
   <br>
@@ -351,10 +351,10 @@
   </div>
   <table id="list_2" border="5">
   </table>
-  <button class="all_alt_btn" id="btn_alt_2" onclick="altlist2()">xem nhiều hơn</button>
+  <button class="all_alt_btn" id="btn_alt_2" onclick="altlist2()">Xem nhiều hơn</button>
   <a href="../html/order.html ">
     <button class="all_alt_btn" id="all_list2_btn" style="float: right;">
-      xem tất cả
+      Xem tất cả
     </button>
   </a>
   <br>
@@ -370,10 +370,10 @@
   </div>
   <table id="list_3" border="5">
   </table>
-  <button class="all_alt_btn" id="btn_alt_3" onclick="altlist3()">xem nhiều hơn</button>
+  <button class="all_alt_btn" id="btn_alt_3" onclick="altlist3()">Xem nhiều hơn</button>
   <a href="../html/order.html">
     <button class="all_alt_btn" id="all_list3_btn" style="float: right;">
-      xem tất cả
+      Xem tất cả
     </button>
   </a>
   <br>
@@ -389,10 +389,10 @@
   </div>
   <table id="list_4" border="5">
   </table>
-  <button class="all_alt_btn" id="btn_alt_4" onclick="altlist4()">xem nhiều hơn</button>
+  <button class="all_alt_btn" id="btn_alt_4" onclick="altlist4()">Xem nhiều hơn</button>
   <a href="../html/order.html">
     <button class="all_alt_btn" id="all_list4_btn" style="float: right;">
-      xem tất cả
+      Xem tất cả
     </button>
   </a>
   <br>
@@ -410,19 +410,43 @@
       <td class="name_service"><strong>FREE SHIP TOÀN QUỐC</strong></td>
     </tr>
     <tr>
-      <td >
+      <td>
         <img class="img_service" src="../asset/icon/service1.png" alt="services1">
       </td>
       <td>
         <img  class="img_service" src="../asset/icon/service2.png" alt="services2">
       </td>
     </tr>
-      <tr>
-        <!-- link trang giới thiệu và trang hàng order -->
-        <td><a class="link_service" href="../html/order.html">XEM TẠI ĐÂY</a></td>
-        <td><a class="link_service" href="">XEM TẠI ĐÂY</a></td>
-      </tr>
+    <tr>
+      <!-- link trang giới thiệu và trang hàng order -->
+      <td onclick="openServ1()"><p class="link_service" style="cursor: pointer;" >XEM TẠI ĐÂY</p></td>
+      <td><a class="link_service" href="../html/order.html">XEM TẠI ĐÂY</a></td>
+    </tr>
   </table>
+  <!-- bảng thông tin giới thiệu trang -->
+  <div id="serv1-tb">
+    <div id="close-serv1" onclick="closeServ1()">
+      <img src="../asset/icon/close.png" alt="close"/>
+    </div>
+    <p id="serv1-title">GIỚI THIỆU VỀ WIBU STORE</p>
+    <div id="serv1-banner">
+      img
+    </div>
+    <div id="serv1-content">
+      <div id="serv1-left">
+        <h2>P1</h2>
+        <p class="serv1-para">
+          test1<br>
+        </p>
+      </div>
+      <div id="serv1-right">
+        <h2>P2</h2>
+        <p class="serv1-para">
+          test1
+        </p>
+      </div>
+    </div>
+  </div>
   
   <!--footer-->
   <div class="infor_container">
@@ -446,7 +470,7 @@
         </p>
     </div>
     <div id="introduce">
-      <div class="footer_title"><strong>Giới thiệu</strong></div>
+      <div class="footer_title"><strong>Giới thiệu </strong></div>
       <hr>
         <p>
           CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI

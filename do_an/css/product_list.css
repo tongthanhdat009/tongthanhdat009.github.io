@@ -26,6 +26,7 @@
   border-radius: 5%;
   height: 300px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+  border-spacing: 50px
 }
 
 #list_1 td,
@@ -223,6 +224,7 @@
   /* danh sách 1 */
   #list_1 {
     width: 100%;
+    border-spacing: 0;
   }
 
   /* danh sách 2, 3, 4 */
@@ -231,6 +233,7 @@
   #list_4 {
     width: 100%;
     margin-top: 50px;
+    border-spacing: 0;
   }
 
   /* nút hiển thị thêm sản phẩm */
@@ -247,4 +250,20 @@
   #all_list4_btn {
     right: 0;
   }
+}
+@media screen and (max-width:900px){
+    /* danh sách 1 */
+    #list_1 {
+      width: 100%;
+      border-spacing: 0;
+    }
+  
+    /* danh sách 2, 3, 4 */
+    #list_2,
+    #list_3,
+    #list_4 {
+      width: 100%;
+      margin-top: 50px;
+      border-spacing: 0;
+    }
 }

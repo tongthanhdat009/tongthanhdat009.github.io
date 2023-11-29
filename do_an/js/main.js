@@ -78,3 +78,12 @@ inputSearch.addEventListener("submit", function (event) {//thêm event submit ch
   nameInput.value ="";
   localStorage.setItem("mainSearch", jsonStr);//lưu vào storage để cho trang order lấy ra dùng
 });
+
+//Mở bảng thông tin giới thiệu về trang
+const serv1 = document.getElementById("serv1-tb");
+function openServ1(){
+  serv1.style.animation = "serv1-in 2s forwards";
+}
+function closeServ1(){
+  serv1.style.animation = "serv1-out 2s";
+}

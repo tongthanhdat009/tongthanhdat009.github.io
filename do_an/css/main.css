@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 html {
@@ -28,7 +29,8 @@ img {
 #header {
   height: 120px;
   width: 100%;
-  background-color: gray;
+  background-image: linear-gradient(to left, #BDBBBE 100%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+  background-blend-mode: normal, lighten, soft-light;
   display: flex;
 }
 
@@ -584,6 +586,53 @@ img {
   animation: change-color 2s infinite;
 }
 
+#serv1-tb{
+  width: 80%;
+  height: 850px;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  background-color: blue;
+  left: 10%;
+  overflow-y: scroll;
+}
+
+#close-serv1{
+  width: 50px;
+  height: 50px;
+  float: right;
+  border-radius: 55px;
+  cursor: pointer;
+}
+
+#close-serv1:hover{
+  background-color: red;
+}
+
+#serv1-tb #serv1-title{
+  text-align: center;
+  font-size:30px;
+  margin-top:20px
+}
+
+#serv1-banner{
+  height: 450px;
+  width: 100%;
+}
+
+#serv1-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+#serv1-left,
+#serv1-right{
+  min-width: 50%;
+  text-align: center;
+  font-size: 25px;
+}
+#serv1-right{
+  float: right;
+}
 @keyframes change-color {
   0% {
     color: aqua;
@@ -604,6 +653,15 @@ img {
   100% {
     color: aqua;
   }
+}
+
+@keyframes serv1-in {
+  from{top:-200%}
+  to{top:50px}
+}
+@keyframes serv1-out {
+  from{top:50px}
+  to{top:-200%}
 }
 
 /* ---- */
@@ -630,10 +688,11 @@ img {
 .infor_container {
   display: flex;
   z-index: -1;
+  background-image: linear-gradient(to left, #BDBBBE 100%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+  background-blend-mode: normal, lighten, soft-light;
 }
 
 .infor_container>div {
-  background-color: rgb(113, 117, 111);
   font-size: 30px;
 }
 
@@ -1105,6 +1164,24 @@ img {
   #user-content table {
     font-size: 15px;
   }
+
+  /* chỉnh khung giới thiệu về shop */
+  #serv1-tb{
+    width: 100%;
+    left:0;
+    max-height: 400px;
+  }
+  #serv1-left,
+  #serv1-right{
+    width: 100%;
+  }
+  #serv1-banner{
+    width: 100%;
+    height: 200px;
+  }
+  #serv1-tb #serv1-title{
+    font-size: 23px;
+  }
 }
 
 /* giao diện nhỏ hơn */
@@ -1149,6 +1226,8 @@ img {
   .infor_container p {
     font-size: 15px;
   }
+
+
 }
 
 @media screen and (max-width: 600px) {

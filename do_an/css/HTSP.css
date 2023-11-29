@@ -8,14 +8,23 @@ body
     position: relative;
     height: 130px;
     background-color: pink;
+    align-items: center;
 }
-#header ul
+a
+{
+    text-decoration: none;
+    color: black;
+}
+#headertuan ul
 {
     display: flex;
     list-style: none;
     align-items: center;
 }
-
+#icon-web
+{
+    height: 125px;
+}
 #text-input-search
 {
     position: absolute;
@@ -150,6 +159,7 @@ body
     display: flex;
     margin-left: 30px;
     align-items: center;
+    height: 50px;
 }
 #filter
 {   
@@ -169,7 +179,7 @@ body
     display: flex;
     position: absolute;
     left: calc(50% - 100px + 350px);
-    top: calc(50% - 30px);
+    top: calc(50% - 28px);
     align-items: center;
 }
 hr
@@ -185,15 +195,20 @@ hr
 {
     margin: 0px;
     padding-left: 30px;
-    padding-top: 25px;
+    padding-top: 12px;
 }
 .inner-product
 {
     width: 250px;
     margin: 40px;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 10%;
     box-sizing: border-box;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.inner-product:hover {
+    transform: scale(1.1);
+    border: 2px solid black;
 }
 .inner-product img
 {
@@ -222,7 +237,7 @@ hr
 }
 #filter input
 {
-    width: 40px;
+    width: 80px;
 }
 #phanTrang
 {
@@ -287,6 +302,10 @@ hr
     #filter
     {
         left:calc(100% - 280px);
+    }
+    #filter input
+    {
+        width: 45px;;
     }
     #productPerPage
     {

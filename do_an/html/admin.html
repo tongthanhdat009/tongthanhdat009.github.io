@@ -1,199 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - WIBU STORE</title>
-    <link rel="stylesheet" href="../css/admin+order.css">
+    <title>Gian hàng Wibu</title>
+    <link rel="stylesheet" href="../css/HTSP.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/quanlydonhang+quanlytaikhoan.css">
-    <link rel="icon" type="image/x-icon" href="../asset/logo.png">
+    <link rel="icon" type="image/x-icon" href="../asset/Logo.png" />
 </head>
-
 <body>
-    <div class="menu" id="menu1">
-        <div>
-            <div style="height: 50px;">
-                <a href="#" id="x" onclick="closeNav()"
-                    style="float: right; background-color: red; width: 30px;height: 30px; display: flex;justify-content: center; align-items: center;">&times;</a>
-            </div>
-            <ul>
-                <li><a href="../html/main.html">Trang chủ</a></li>
-                <li><a href="#introduce">Thông tin thêm</a></li>
-                <li><a href="#introduce">Dịch vụ</a></li>
-                <li><a href="../html/cart.html">Giỏ hàng</a></li>
-                <li id="tkSanPham"><a>Thống kê sản phẩm</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="header">
-        <div style="width: 200px;">
-            <span id="trangchu" onclick="openNav()"
-                style="position: absolute;top:calc(50% - 20px); font-size:25px;cursor:pointer;">&#9776;<strong
-                    id="wibu"> WIBU
-                    STORE</strong>
-            </span>
-        </div>
-        <div class="container" style="width:calc(100% - 200px);">
-            <input id="searchInput" style="z-index: 10;;border-radius: 25px;" type="text" placeholder="Tìm kiếm">
-            <img id="button-search" style="z-index: 10;" src="../asset/icon/loupe.png" onclick="searchProducts()"></img>
-            <div style="z-index: 10; display: flex;" id="per-page">
-                <input type="number" id="product-per-page">
-                <p>Product Per Page</p>
-                <button onclick="mix_product_per_page()">enter</button>
-            </div>
-            <img id="button-refresh" src="../asset/icon/reload.png" onclick="refresh()" alt="">
-            <button id="QLSP" onclick="admin_mode()">
-                <h4 class="text-QL">Quản lý sản phẩm</h4 class="text-QL">
-            </button>
-            <button id="TKSP" onclick="openstatistical()">
-                <h4 class="text-QL">Thống kê sản phẩm</h4 class="text-QL">
-            </button>
-        </div>
-    </div>
-    <div id="statistical">
-        <table cellspacing = "1" border="1" bordercolor="purple">
-        </table>
-    </div>
-    <div id="admin">
-            <div style="display: block;">
-                <div style="margin: 20px;">
-                    <table id="timkiem2" border="5">
-                        <tr>
-                            <td>
-                                <p style="font-size: 18px;">Tìm kiếm</p>
-                            </td>
-                            <td><input id="searchByNameAdmin" type="text" name="" id=""></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="font-size: 18px;">Lọc theo loại: </p>
-                            </td>
-                            <td>
-                                <select name="" id="searchByTypeAdmin">
-                                    <option value="0">Tất cả</option>
-                                    <option value="1">Figure</option>
-                                    <option value="2">Chibi Figure</option>
-                                    <option value="3">Set Figure</option>
-                                    <option value="4">Cosplay</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center"><button onclick="search_admin()">Submit</button></td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="display: flex;">
-                    <div id="are-you-sure">
-                        <h3 style="display: flex; justify-content: center;">Are you sure</h3>
-                        <div style="display: flex;">
-                            <button id="YES">Yes</button>
-                            <button id="NO">No</button>
-                        </div>
-                    </div>
-                    <div id="config">
-                        <h3 style="margin: 10px;" align="center">Tùy chỉnh</h3>
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID mới</h4> <input id="config-id" type="number"
-                            placeholder="New ID">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên mới</h4> <input id="config-name"
-                            type="text" placeholder="New name">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá mới</h4> <input id="config-price"
-                            type="number" placeholder="New price">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại mới</h4> <input id="config-type"
-                            type="number" placeholder="New type">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh mới</h4> <input id="config-img" type="file"
-                            placeholder="">
-                        <input id="config-img2" type="file" placeholder="">
-                        <input id="config-img3" type="file" placeholder="">
-                        <input id="config-img4" type="file" placeholder="">
-                        <div class="choice">
-                            <button id="config-OK" style="float: right;">Đồng ý</button>
-                            <button id="config-NO" style="float: right;">Hủy</button>
-                            <button id="config-clear" onclick="clearconfig()">Clear</button>
-                        </div>
-                    </div>
-                    <div id="add-product">
-                        <h3 align="center" style=" margin: 10px;">Thêm sản phẩm</h3>
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">ID sản phẩm</h4> <input id="add-id"
-                            type="number" placeholder="ID">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Tên sản phẩm</h4> <input id="add-name"
-                            type="text" placeholder="Name">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Giá sản phẩm</h4> <input id="add-price"
-                            type="number" placeholder="Price">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Loại</h4> <input id="add-type" type="number"
-                            placeholder="Type">
-                        <h4 style="margin-bottom: 3px; margin-top: 5px;">Ảnh sản phẩm</h4> <input id="add-img"
-                            type="file" placeholder="Ảnh 1">
-                        <input id="add-img2" type="file" placeholder="Ảnh 2">
-                        <input id="add-img3" type="file" placeholder="Ảnh 3">
-                        <input id="add-img4" type="file" placeholder="Ảnh 4">
-                        <div class="choice">
-                            <button id="add-OK" style="float: right;">Đồng ý</button>
-                            <button id="add-NO" style="float: right;">Hủy</button>
-                            <button id="add-clear" onclick="clearadd()">Clear</button>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div id="bang">
-            <div style="height: 100px;position: relative ">
-                <h2 id="text-DMSP" style="position: absolute;left: calc(50% - 200px);">Danh sách sản phẩm</h2>
-                <img id="add-imga" onclick="add()" style="width:50px;"
-                    src="../asset/icon/add.png" alt="">
-            </div>
-            <table border="1px" cellspacing="0" bordercolor="purple" id="list" style="width: 100%;">
-            </table>
-        </div>
-    </div>
-
-
-    <div class="content" id="mngContent" style="z-index: 1000;;display: none;"></div>
-
-    <div class="display-product">
-        <div class="main">
-            <div class="sidebar-content">
-                <ul>
-                    <li style="background-color: #c5d654; color:white; justify-content: center;">
-                        <h2>Chức năng</h2>
-                    </li>
-                    <li id="tkDonHang">
-                        <img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
-                            style="width: 25px; margin-right: 10px;" alt="">
-                        <a>Quản lý đơn hàng</a>
-                    </li>
-                    <li id="userManagement">
-                        <img src="../asset/category_img/ngoc rong 4 sao.png" style="width: 25px; margin-right: 10px;"
-                            alt="">
-                        <a>Quản lý tài khoản</a>
-                    </li>
-                    <li>
-                        <img src="../asset/category_img/dau saitama.png" style="width: 25px; margin-right: 10px;"
-                            alt="">
-                        <a onclick="openstatistical()" href="#">Thống kê sản phẩm</a>
-                    </li>
-                    <li>
-                        <img src="../asset/category_img/logo fairy tail.png" style="width: 25px; margin-right: 10px;"
-                            alt="">
-                        <a onclick="admin_mode()" href="#">Quản lý sản phẩm</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="site-main">
-                <div class="archive-product">
-                </div>
+    <header id="headertuan">
+        <a href="../html/main.html"><img id="icon-web" src="../asset/logo.png" alt=""></a>
+        <div id="search-input">
+            <input id="text-input-search" type="text" placeholder="Tìm kiếm">
+            <button onclick="search()" id="search-button"><img style="height: 30px;" src="../asset/icon/loupe.png" alt=""></button>
+            <div id="lam-mau">
+                <img src="../asset/icon/uy_tin.png" alt=""><p>Mua 1 tặng 10</p>
+                <img src="../asset/icon/hop_qua.png" alt=""><p>Bảo hành vĩnh viễn</p>
+                <img src="../asset/icon/van_chuyen.png" alt=""><p>Free ship toàn quốc</p>
             </div>
         </div>
-        <div class="phantrang">
-            <button onclick="previousPage()" class="pagination-button">Previous</button>
-            <div id="Page"></div>
-            <button onclick="nextPage()" class="pagination-button">Next</button>
+        <div id="user">
+            <h4>Nguyễn Minh Tuấn</h4>
+            <h4>xxx.xxx.xxxVNĐ</h4>
+        </div>
+        <div id="theme">
+            <img onclick="darkLightMode()" id="img-theme" src="../asset/icon/dark_mode.png" alt="">
+        </div>
+    </header>
+    <div id="danh-muc">
+        <ul>
+            <li onclick="all1()"><img src="../asset/category_img/dau saitama.png" alt=""><a href="#"><h3 class="darkMode">Tất Cả Sản Phẩm</h3></a></li>
+            <li onclick="figure()"><img src="../asset/category_img/logo fairy tail.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Lẻ</h3></a></li>
+            <li onclick="chibi()"><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Chibi</h3></a></li>
+            <li onclick="set()"><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href="#"><h3 class="darkMode">Bộ Mô Hình</h3></a></li>
+            <li onclick="cosplay()"><img src="../asset/category_img/kunai naruto.png" alt=""><a href="#"><h3 class="darkMode">Cosplay</h3></a></li>
+        </ul>
+        <div id="cart">
+            <img src="../asset/icon/cart.png" alt="">
+            <a href="../html/cart.html"><h3 class="darkMode">Giỏ Hàng</h3></a>
+        </div>
+        <div id="danh-muc-mobile">
+            <p class="darkMode">Thể loại:</p>
+            <select>
+                <option value="0">Tất cả sản phẩm</option>
+                <option value="1">Mô hình lẻ</option>
+                <option value="2">Mô hình Chibi</option>
+                <option value="3">Bộ mô hình</option>
+                <option value="4">Cosplay</option>
+            </select>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
+    <div id="banner-type">
+        <div id="banner">
+            <img src="../asset/banner_fl/5.png" alt="">
+        </div>
+        <div id="type">
+            <h1 class="darkMode" id="type-output">Tất cả sản phẩm</h1>
+        </div>
+    </div>
+    <div id="sort-filter-productPerPage">
+        <div id="sort">
+            <p class="xoa">Sort by:</p>
+            <select class="option">
+                <option value="nameup">Tăng dần theo tên</option>
+                <option value="namedown">Giảm dần theo tên</option>
+                <option value="priceup">Tăng dần theo giá</option>
+                <option value="pricedown">Giảm dần theo giá</option>
+            </select>
+        </div>
+        <div id="filter">
+            <p class="darkMode">min</p><input class="option" id="min-price" type="number">
+            <p class="darkMode">max</p><input class="option" id="max-price" type="number">
+            <button onclick="filterbyprice()" class="option" id="loc-theo-gia">Lọc</p>
+        </div>
+        <div id="productPerPage">
+            <p class="darkMode" id="hien-thi">Hiển thị:</p>
+            <select>
+                <option value="40">40 sản phẩm</option>
+                <option value="20">20 sản phẩm</option>
+                <option value="10">10 sản phẩm</option>
+                <option value="5">5 sản phẩm</option>
+                <option value="9999">Tất cả</option>
+            </select>
+        </div>
+        <hr style="width: 99%;">
+    </div>
+    <div class="darkMode" id="so-luong"><p>1000 sản phẩm</p></div>
+    <div id="archive-product"></div>
+    <div id="phanTrang">
+        <button onclick="previousPage()">Previous</button>
+        <p class="darkMode" id="current"></p>
+        <button onclick="nextPage()">Next</button>
+    </div>
     <div class="infor_container">
         <div id="footer_logo">
             <img src="../asset/logo.png" alt="logo_footer">
@@ -238,663 +137,294 @@
     <footer>
         <p style="text-align: center;"><strong>created by: </strong>group 2</p>
     </footer>
-    <script src="../js/add_product.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/item_detail.js"></script>
-    <script src="../js/quanlydonhang+quanlytaikhoan.js"></script>
-    <script src="../js/sign-in-up.js"></script>
-    <script src="../js/cart.js"></script>
-    <script>
-        var currentPage = 1;
-        var ProductPerPage = 12;
-        var productList = []; //mảng để lưu sản phẩm
-        // var productList2 = [];//mảng phụ để tìm kiếm, phân loại
-        var searchADList = [];
-        getProductList();
-        productList2 = productList;
-
-        //phân trang
-        function phan_trang() {
-            var trang = document.getElementsByClassName("product-inner");
-            var StartIndex = (currentPage - 1) * ProductPerPage;
-            var EndIndex = StartIndex + ProductPerPage;
-            var page = document.getElementById("Page");
-            page.innerHTML = currentPage;
-            for (var i = 0; i < trang.length; i++) {
-                trang[i].style.display = 'none';
-            }
-            for (var i = StartIndex; i < EndIndex; i++) {
-                trang[i].style.display = 'block';
-            }
-        }
-        function previousPage() {
-            if (currentPage > 1) {
-                currentPage--;
-            }
-            phan_trang()
-        }
-        function nextPage() {
-            var product = document.getElementsByClassName("product-inner");
-            var max = Math.ceil(product.length / ProductPerPage);
-            if (currentPage < max) {
-                currentPage++;
-            }
-            phan_trang()
-        }
-        function openNav() {
-            const danhsach = document.getElementById('menu1')
-            danhsach.style.display = 'block';
-        }
-        function closeNav() {
-            const close = document.getElementById('menu1')
-            close.style.display = 'none';
-        }
-        function searchProducts() {
-            var input = document.getElementById("searchInput").value.toLowerCase();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].name.toLowerCase().indexOf(input) > -1) {
-                    after.push(productList2[i]);
-                }
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function Filterbyprice() {
-            var max = parseFloat(document.getElementById("max-price").value);
-            var min = parseFloat(document.getElementById("min-price").value);
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].price >= min && productList2[i].price <= max) {
-                    after.push(productList2[i]);
-                }
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function refresh() {
-            productList2 = productList;
-            displayProduct(productList2);
-        }
-        //phân loại 
-        function figure() {
-            refresh();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].type === 1) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-            currentPage = 1;
-            phan_trang();
-        }
-        function mini_figure() {
-            refresh();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].type === 2) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function set_figure() {
-            refresh();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].type === 3) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-        function cosplay() {
-            refresh();
-            var after = [];
-            for (var i = 0; i < productList2.length; i++) {
-                if (productList2[i].type === 4) after.push(productList2[i]);
-            }
-            productList2 = after;
-            displayProduct(productList2);
-        }
-
-        function addProduct(name, price, type, img, img2, img3, img4, id) {
-            var product = {
-                name: name,
-                price: price,
-                type: type,
-                img: img,
-                img2: img2,
-                img3: img3,
-                img4: img4,
-                id: id,
-                count: 0,
-            };
-            productList.push(product);
-        }
-        function displayProduct(a) // xuất sản phẩm của mảng a ra màn hình
-        {
-            var archiveProduct = document.querySelector('.archive-product');
-            archiveProduct.innerHTML = '';
-            var parent = document.getElementsByClassName("archive-product");
-            for (var i = 0; i < a.length; i++) {
-                var product = a[i];
-                var element = document.createElement("div");
-                element.className = "product-inner";
-                element.innerHTML =
-                    '<div class="product-image">' +
-                    '<a href="#">' +
-                    '<img src=" ' + product.img + ' " alt=" ' + product.name + ' ">' +
-                    '</a>' +
-                    '</div>' +
-                    '<div class="product-content">' +
-                    '<div class="name-figure">' +
-                    '<a href="#"><h3 align="center">' + product.name + '</h3></a>' +
-                    '</div>' +
-                    '<div class="price">' +
-                    '<p class="price-product" data-price=" ' + product.price + ' ">Giá: ' + product.price + 'đ </p>' +
-                    '</div>' +
-                    '</div>'
-                parent[0].appendChild(element);
-            }
-            currentPage = 1;
-            phan_trang();
-        }
-        function mix_product_per_page() {
-            var productInput = document.getElementById("product-per-page");
-            var product = parseFloat(productInput.value);
-            if (product > 0) {
-                ProductPerPage = product;
-                currentPage = 1;
-                phan_trang();
-            }
-        }
-        window.onload = function () {
-            displayProduct(productList);
-        };
-        function dark_mode() {
-            var color = document.body;
-            if (color.style.backgroundColor === "black") {
-                color.style.backgroundColor = "wheat";
-                var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Dark mode";
-            }
-            else {
-                color.style.backgroundColor = "black";
-                var myButton = document.getElementById("darkmode");
-                myButton.innerHTML = "Light mode"
-            }
-        }
-        // var sort1 = false;
-        // // sắp xếp 
-        // function sort()
-        // {
-        //     var sortbutton = document.getElementById("container-sort")
-        //     if(sort1 === false) sortbutton.style.display = "block";
-        //     else sortbutton.style.display = "none";
-        //     sort1=!sort1;
-        // }
-        function sort_by_name() {
-            for (var i = 0; i < productList2.length - 1; i++) {
-                var index = i;
-                for (var j = i + 1; j < productList2.length; j++)
-                    if (productList2[index].name > productList2[j].name) index = j;
-                var product = productList2[i];
-                productList2[i] = productList2[index];
-                productList2[index] = product;
-                displayProduct(productList2);
-            }
-        }
-        function sort_by_price() {
-            for (var i = 0; i < productList2.length - 1; i++) {
-                var index = i;
-                for (var j = i + 1; j < productList2.length; j++)
-                    if (productList2[index].price > productList2[j].price) index = j;
-                var product = productList2[i];
-                productList2[i] = productList2[index];
-                productList2[index] = product;
-                displayProduct(productList2)
-            }
-        }
-
-        var openadminmode = 0; //mở admin mode
-        function admin_mode() {
-            a = document.getElementById("admin");
-            if (openadminmode === 0) {
-                a.style.display = "flex";
-                adminmode(searchADList);
-                closeStatistical_mode();
-                openadminmode = 1;
-            }
-            else {
-                a.style.display = "none";
-                openadminmode = 0;
-            }
-        }
-
-        function closeAdminMode() {
-            var a = document.getElementById("admin");
-            a.style.display = "none";
-            openadminmode = 0;
-        }
-        searchADList = productList;
-        function adminmode(a) //cập nhật danh sách sản phẩm
-        {
-            table = document.getElementById("list");
-            table.innerHTML =
-                '<tr style="background-color: pink">' +
-                '<td><h5>ID</h5></td>' +
-                '<td><h5>Ảnh</h5></td>' +
-                '<td><h5>Tên</h5></td>' +
-                '<td><h5>Giá</h5></td>' +
-                '<td><h5>Loại</h5></td>' +
-                '<td><h5 style="padding:17px">Edit</h5></td>' +
-                '<td><h5>Remove</h5></td>' +
-                '</tr>'
-            for (var i = 0; i < a.length; i++) {
-                var element = document.createElement("tr");
-                element.innerHTML =
-                    '<tr>' +
-                    '<td><h5>' + a[i].id + '</h5></td>' +
-                    '<td><img style="height:75px;position:relative;" src="' + a[i].img + '"></td>' +
-                    '<td><h5>' + a[i].name + '</h5></td>' +
-                    '<td><h5 style="text-align:center; padding: 0 10px 0 10px;">' + a[i].price + 'đ</h5></td>' +
-                    '<td><h5 style="text-align:center;">' + a[i].type + '</h5></td>' +
-                    '<td><h5><button class="edit-btn" onclick="config(' + a[i].id + ')" >&#9881</button></h5></td>' +
-                    '<td><h5 style=""><button class="remove-button" onclick="remove(' + a[i].id + ')" style="background-color: red;">&times;</button></h5></td>' +
-                    '</tr>';
-                table.appendChild(element);
-            }
-        }
-        //xóa sản phẩm
-        function remove_product(id) {
-            var copy = [];
-            for (var k = 0; k < productList.length; k++) {
-                if (productList[k].id != id) copy.push(productList[k]);
-            }
-            productList = copy;
-            productList2 = copy;
-
-        }
-        function appear_sure() {
-            open = document.getElementById("are-you-sure");
-            open.style.display = "block";
-        }
-        function disappear_sure() {
-            open = document.getElementById("are-you-sure");
-            open.style.display = "none";
-        }
-        function remove(id) {
-            closeAdd();
-            closeConfig();
-            appear_sure()
-            var yes = document.getElementById("YES");
-            yes.onclick = function () {
-                disappear_sure();
-                remove_product(id);
-                search_admin();
-                adminmode(searchADList);
-                displayProduct(productList);
-                saveProductList();
-            };
-            var no = document.getElementById("NO");
-            no.onclick = function () { disappear_sure() };
-        }
-        //sửa sản phẩm
-
-        const blobToBase64 = blob => {
-            const reader = new FileReader();
-            reader.readAsDataURL(blob);
-            return new Promise(resolve => {
-                reader.onloadend = () => {
-                    resolve(reader.result);
-                };
-            });
-        };
-        const resize = (datas, wantedWidth, wantedHeight) => {
-
-            var img = document.createElement('img');
-
-            img.src = datas;
-            // When the event "onload" is triggered we can resize the image.
-            return new Promise(resolve => {
-                img.onload = () => {
-                    // We create a canvas and get its context.
-                    var canvas = document.createElement('canvas');
-                    var ctx = canvas.getContext('2d');
-
-                    // We set the dimensions at the wanted size.
-                    canvas.width = wantedWidth;
-                    canvas.height = wantedHeight;
-
-                    // We resize the image with the canvas method drawImage();
-                    ctx.drawImage(img, 0, 0, wantedWidth, wantedHeight);
-
-                    var dataURI = canvas.toDataURL();
-                    resolve(dataURI);
-                };
-            });
-            // We put the Data URI in the image's src attribute
-        }
-        function init() {
-            saveProductList();
-            displayProduct(productList);
-            admin_mode();
-        }
-
-        function config(idproduct) {
-            closeAdd();
-            disappear_sure();
-            openConfig();
-            var ok = document.getElementById("config-OK");
-            var no = document.getElementById("config-NO");
-            ok.onclick = function () {
-                var idtext = document.getElementById("config-id").value;
-                var id = parseFloat(idtext);
-                var name = document.getElementById("config-name").value;
-                var pricetext = document.getElementById("config-price").value;
-                var price = parseFloat(pricetext);
-                var type_text = document.getElementById("config-type").value;
-                var type = parseFloat(type_text);
-                var img = document.getElementById("config-img");
-                var img2 = document.getElementById("config-img2");
-                var img3 = document.getElementById("config-img3");
-                var img4 = document.getElementById("config-img4");
-                var checktype = /^[1-4]{1}$/
-                for (var k = 0; k < productList.length; k++)
-                    if (productList[k].id != idproduct && productList[k].id == id) {
-                        alert("ID đã tồn tại");
-                        return;
-                    }
-
-                if (type_text !== "") {
-                    if (!checktype.test(type)) {
-                        alert("Loại phải là 1-4");
-                        return;
-                    }
-                }
-
-                let i = 0;
-                for (var k = 0; k < productList.length; k++) {
-                    if (productList[k].id == idproduct) {
-                        if (idtext !== "") productList[k].id = id;
-                        if (name !== "") productList[k].name = name;
-                        if (pricetext !== "") productList[k].price = price;
-                        if (type_text !== "") productList[k].type = type;
-                        i = k;
-                        break;
-                    }
-                }
-                let count = 0;
-                if (img.files[0]) blobToBase64(img.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img = res2;
-                        productList[i].img = res2;
-                        if (++count == 4) init();
-                    });
-                });
-                else count++;
-
-                if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img2 = res2;
-                        productList[i].img2 = img2;
-                        if (++count == 4) init();
-                    });
-                });
-                else count++;
-                if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img3 = res2;
-                        productList[i].img3 = img3;
-                        if (++count == 4) init();
-                    });
-                });
-                else count++;
-
-                if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img4 = res2;
-                        productList[i].img4 = img4;
-                        if (++count == 4) init();
-                    });
-                });
-                else count++;
-                saveProductList();
-                search_admin();
-                adminmode(searchADList);
-                displayProduct(productList);
-                closeConfig();
-                clearconfig();
-            }
-            no.onclick = function () {
-                closeConfig();
-            }
-        }
-        // function configProduct(i, name, price, type, img)
-        // {
-        //     if(name !== "") productList[i].name = name;
-        //     if(price !== "") productList[i].price = price;
-        //     if(!isNaN(type)) productList[i].type = type;
-        //     if(img !== "") productList[i].img = img;
-        //     productList2 = productList;
-        // }
-        function openConfig() {
-            var open = document.getElementById("config");
-            open.style.display = "block";
-        }
-        function closeConfig() {
-            var close = document.getElementById("config");
-            close.style.display = "none";
-        }
-        //thêm sản phẩm
-        function openAdd() {
-            var open = document.getElementById("add-product")
-            open.style.display = "block";
-        }
-        function closeAdd() {
-            var close = document.getElementById("add-product")
-            close.style.display = "none";
-        }
-
-        function reload(newproduct) {
-            addProduct(newproduct.name, newproduct.price, newproduct.type, newproduct.img, newproduct.img2, newproduct.img3, newproduct.img4, newproduct.id);
-            displayProduct(productList);
-            saveProductList();
-            search_admin();
-            adminmode(searchADList);
-            clearadd();
-            closeAdd();
-        }
-        function add() {
-            closeConfig();
-            openAdd();
-            disappear_sure()
-            var OK = document.getElementById("add-OK");
-            var NO = document.getElementById("add-NO");
-            OK.onclick = function () {
-                var idtext = document.getElementById("add-id").value;
-                var id = parseFloat(idtext);
-                var name = document.getElementById("add-name").value;
-                var pricetext = document.getElementById("add-price").value;
-                var price = parseFloat(pricetext);
-                var type_text = document.getElementById("add-type").value;
-                var type = parseFloat(type_text);
-                var img = document.getElementById("add-img");
-                var img2 = document.getElementById("add-img2");
-                var img3 = document.getElementById("add-img3");
-                var img4 = document.getElementById("add-img4");
-                var checktype = /^[1-4]{1}$/
-                // img = getBase64Image(img);
-                // img2 = getBase64Image(img2);
-                // img3 = getBase64Image(img3);
-                // img4 = getBase64Image(img4);
-                if (isNaN(id)) {
-                    alert("Thiếu ID");
-                    return;
-                }
-                if (name === "") {
-                    alert("Thiếu tên");
-                    return;
-                }
-                if (isNaN(price)) {
-                    alert("Thiếu giá");
-                    return;
-                }
-                if (!checktype.test(type)) {
-                    alert("Loại phải là 1-4")
-                    return;
-                }
-                if (isNaN(type)) {
-                    alert("Thiếu loại");
-                    return;
-                }
-                if (img === "" || img2 === "" || img3 === "" || img4 === "") {
-                    alert("Thiếu ảnh");
-                    return;
-                }
-                for (var k = 0; k < productList.length; k++) {
-                    if (id == productList[k].id) {
-                        alert("ID đã tồn tại");
-                        return;
-                    }
-                }
-
-                var newproduct = {
-                    name: name,
-                    price: price,
-                    type: type,
-                    img: img,
-                    img2: img2,
-                    img3: img3,
-                    img4: img4,
-                    id: id,
-                    count: 0,
-                }
-                let count = 0;
-                if (img.files[0]) blobToBase64(img.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img = res2;
-                        newproduct.img = res2;
-                        console.log(count++);
-                        if (count == 4) reload(newproduct);
-                    });
-                });
-                else count++;
-
-                if (img2.files[0]) blobToBase64(img2.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img2 = res2;
-                        newproduct.img2 = img2;
-                        console.log(count++);
-                        if (count == 4) reload(newproduct);
-                    });
-                });
-                else count++;
-                if (img3.files[0]) blobToBase64(img3.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img3 = res2;
-                        newproduct.img3 = img3;
-                        console.log(count++);
-                        if (count == 4) reload(newproduct);
-                    });
-                });
-                else count++;
-
-                if (img4.files[0]) blobToBase64(img4.files[0]).then(res => {
-                    resize(res, 500, 300).then(res2 => {
-                        img4 = res2;
-                        newproduct.img4 = img4;
-                        console.log(count++);
-                        if (count == 4) reload(newproduct);
-                    });
-                });
-                else count++;
-
-            }
-            NO.onclick = function () {
-                closeAdd();
-            }
-        }
-        console.log(productList);
-        function search_admin() {
-            var name = document.getElementById("searchByNameAdmin").value.toLowerCase();
-            var type = document.getElementById("searchByTypeAdmin").value;
-            type = parseFloat(type);
-            var type;
-            searchADList = [];
-            if (type === 0) {
-                for (var i = 0; i < productList.length; i++)
-                    if (productList[i].name.toLowerCase().indexOf(name) > -1) searchADList.push(productList[i]);
-            }
-            else {
-                for (var i = 0; i < productList.length; i++) {
-                    if (productList[i].type === type && productList[i].name.toLowerCase().indexOf(name) > -1)
-                        searchADList.push(productList[i]);
-                }
-            }
-            adminmode(searchADList);
-            displayProduct(productList);
-        }
-        function clearconfig() {
-            var clear = document.querySelectorAll("#config input");
-            for (var i = 0; i < clear.length; i++) {
-                clear[i].value = "";
-            }
-        }
-        function clearadd() {
-            var clear = document.querySelectorAll("#add-product input");
-            for (var i = 0; i < clear.length; i++) {
-                clear[i].value = "";
-            }
-        }
-        var statistical_mode = 0;
-        function openstatistical() {
-            var open = document.getElementById("statistical");
-            if (statistical_mode == 0) {
-                statistical_mode = 1;
-                closeAdminMode();
-                open.style.display = "block";
-                statistical();
-            }
-            else {
-                statistical_mode = 0;
-                open.style.display = "none";
-            }
-        }
-        function closeStatistical_mode() {
-            var open = document.getElementById("statistical");
-            statistical_mode = 0;
-            open.style.display = "none";
-        }
-        function statistical() {
-            var a = document.querySelector("#statistical table");
-            a.innerHTML = '';
-            b = document.createElement("tr");
-            b.style.backgroundColor = "pink";
-            b.innerHTML =
-                '<td><h3>ID</h3></td>'+
-                '<td><h3>Sản phẩm</h3></td>' +
-                '<td><h3>Đã bán</h3></td>' +
-                '<td><h3>Tổng tiền</h3></td>'
-            a.appendChild(b);
-            for (var i = 0; i < productList.length; i++) {
-                b = document.createElement("tr");
-                b.innerHTML =
-                    '<td>' +
-                    '' + productList[i].id + '' +
-                    '</td>' +
-                    '<td>' +
-                    '' + productList[i].name + ': ' +
-                    '</td>' +
-                    '<td>' +
-                    '' + productList[i].count + '' +
-                    '</td>' +
-                    '<td>' +
-                    '' + productList[i].count * productList[i].price + 'đ' +
-                    '</td>'
-                a.appendChild(b);
-            }
-        }
-    </script>
 </body>
+<script src="../js/item_detail.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/add_product.js"></script>
+<script src="../js/user_infor.js"></script>
+<script>
+    var productList = [];
+    var productList2 = [];
+    var kq = [];
+    var productPerPage = 40;
+    var currentPage  = 1;
+    var productStored = localStorage.getItem('productList');
+    if (productStored) productList = JSON.parse(productStored);
+    productList2 = productList;
+    kq = productList;
 
+    // hiển thị sản phẩm
+    function displayProduct(d)
+    {
+        var b = document.querySelector("#so-luong");
+        b.innerHTML = 
+        '<p>'+ kq.length +' sản phẩm</p>'
+        var a = document.getElementById("archive-product");
+        if(d.length == 0)
+        {
+            a.innerHTML = 
+            '<h1>Không có sản phẩm theo yêu cầu</h1>';
+            return;
+        }
+        a.innerHTML="";
+        if(d.length == 0)
+        {
+            a.innerHTML = 
+            '<h1>Không có sản phẩm theo yêu cầu</h1>'
+        }
+        for(var i=0;i<d.length;i++)
+        {   
+            var b = document.createElement("div");
+            b.className = "inner-product";
+            b.innerHTML =  
+            '<div class="product-img"><img src="'+d[i].img+'" alt=""></div>'+
+            '<div class="product-content">'+
+                '<p class="name-product">'+d[i].name+'</p>'+
+                '<p class="price-product">'+d[i].price+'đ</p>'+
+            '</div>'
+            a.appendChild(b);
+        }
+    }
+    displayProduct(productList2)
+
+    // Tìm kiếm bằng tên
+    function search()
+    {
+        kq = [];
+        var input = document.getElementById("text-input-search").value.toLowerCase();
+        for(var i = 0; i<productList2.length;i++)
+        if(productList2[i].name.toLowerCase().indexOf(input) > -1)
+        kq.push(productList2[i]);
+        displayProduct(kq);
+    }
+
+    function all1()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Tất Cả Mô Hình</h1>';
+        productList2 = [];
+        productList2 = productList;
+        kq = productList2;
+        displayProduct(kq);
+        phanTrang(1);
+    }
+
+    function figure()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Mô Hình Lẻ</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  1) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+
+    function chibi()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Mô Hình Chibi</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  2) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+
+    function set()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Bộ Mô Hình</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  3) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+
+    function cosplay()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Cosplay</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  4) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+
+    var select = document.querySelector("#danh-muc-mobile select")
+    select.addEventListener('change', function () {
+        var selectOption = select.options[select.selectedIndex];
+        if (selectOption.value === '0') all1();
+        if (selectOption.value === '1') figure();
+        if (selectOption.value === '2') chibi();
+        if (selectOption.value === '3') set();
+        if (selectOption.value === '4') cosplay();
+    })
+    var select2 = document.querySelector("#sort select")
+    select2.addEventListener('change', function () {
+        var selectOption2 = select2.options[select2.selectedIndex];
+        if (selectOption2.value === 'nameup') nameup();
+        if (selectOption2.value === 'namedown') namedown();
+        if (selectOption2.value === 'priceup') priceup();
+        if (selectOption2.value === 'pricedown') pricedown();
+    })
+    var select3 = document.querySelector("#productPerPage select")
+    select3.addEventListener('change', function () {
+        var selectOption3 = select3.options[select3.selectedIndex];
+        productPerPage = parseFloat(selectOption3.value);
+        phanTrang(1);
+    })
+
+    function nameup()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(kq[index].name<kq[j].name) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+
+    function namedown()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(kq[index].name>kq[j].name) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+
+    function priceup()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(parseFloat(kq[index].price)>parseFloat(kq[j].price)) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+
+    function pricedown()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(parseFloat(kq[index].price)<parseFloat(kq[j].price)) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+
+    function filterbyprice()
+    {
+        var min = document.getElementById("min-price").value;
+        var max = document.getElementById("max-price").value;
+        var search = document.getElementById("text-input-search").value.toLowerCase();
+        min = parseFloat(min);
+        max = parseFloat(max);
+        kq = [];
+        if (!min) min = 0;
+        if (!max) max = Infinity;
+        for(var i=0;i<productList2.length;i++)
+        if(productList2[i].price>=min&&productList2[i].price<=max &&productList2[i].name.toLowerCase().indexOf(search) > -1) kq.push(productList2[i]);
+        phanTrang(1);
+    }
+
+    phanTrang(currentPage);
+
+    function phanTrang(Page)
+    {   
+        currentPage = Page;
+        var output = document.querySelector("#phanTrang p")
+        output.innerHTML = currentPage
+        var after = []
+        var first = (currentPage-1)*productPerPage;
+        var end = first + productPerPage;
+        for(var i=first;i<end;i++)
+        after.push(kq[i]);
+        displayProduct(after);
+    }
+
+    function nextPage()
+    {
+        var max = Math.ceil(kq.length/productPerPage);
+        if(currentPage == max) return;
+        currentPage++;
+        phanTrang(currentPage);
+    }
+
+    function previousPage()
+    {
+        if(currentPage == 1) return;
+        currentPage--;
+        phanTrang(currentPage);
+    }
+
+    var theme = 0;
+    function darkLightMode()
+    {   
+        var color1 = document.getElementById("danh-muc");
+        var color2 = document.getElementsByClassName("darkMode");
+        var color3 = document.getElementById("sort-filter-productPerPage");
+        var color4 = document.getElementsByClassName("xoa");
+        var color5 = document.getElementById("type")
+        var color6 = document.getElementById("archive-product");
+        var color7 = document.getElementById("so-luong");
+        var color10 = document.getElementById("phanTrang")
+        var color11 = document.getElementById("img-theme");
+        if(theme == 0) 
+        {
+            color1.style.backgroundColor = "rgb(50, 50, 50)";
+            color3.style.backgroundColor = "rgb(50, 50, 50)";
+            color5.style.backgroundColor = "rgb(50, 50, 50)";
+            color6.style.backgroundColor = "rgb(50, 50, 50)";
+            color7.style.backgroundColor = "rgb(50, 50, 50)";
+            color10.style.backgroundColor = "rgb(50, 50, 50)";
+            for(var i=0;i<color2.length;i++)
+            color2[i].style.color = "white";
+            for(var i=0;i<color4.length;i++)
+            color4[i].style.color = "white";
+            color11.src = "../asset/icon/Light_mode.png"
+            theme = 1;
+        }
+        else
+        {
+            color1.style.backgroundColor = "rgb(238, 238, 238)";
+            color3.style.backgroundColor = "rgb(238, 238, 238)";
+            color5.style.backgroundColor = "rgb(238, 238, 238)";
+            color6.style.backgroundColor = "rgb(238, 238, 238)";
+            color7.style.backgroundColor = "rgb(238, 238, 238)";
+            color10.style.backgroundColor = "rgb(238, 238, 238)";
+            for(var i=0;i<color2.length;i++)
+            color2[i].style.color = "black";
+            for(var i=0;i<color4.length;i++)
+            color4[i].style.color = "black";
+            color11.src = "../asset/icon/dark_mode.png"
+            theme = 0;
+        }
+    }
+</script>
 </html>

@@ -591,8 +591,8 @@ img {
   height: 850px;
   position: fixed;
   z-index: 1;
-  top: 50px;
-  background-color: blue;
+  top: -200%;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   left: 10%;
   overflow-y: scroll;
 }
@@ -616,7 +616,12 @@ img {
 }
 
 #serv1-banner{
-  height: 450px;
+  height: 600px;
+  width: 100%;
+}
+
+#serv1-banner img{
+  height: 600px;
   width: 100%;
 }
 
@@ -624,14 +629,26 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+
 #serv1-left,
 #serv1-right{
   min-width: 50%;
   text-align: center;
   font-size: 25px;
 }
+
+#serv1-left img,
+#serv1-right img{
+  width: 80%;
+  height: 600px;
+  padding: 10px;
+}
 #serv1-right{
   float: right;
+}
+
+.serv1-para{
+  text-align: justify;
 }
 @keyframes change-color {
   0% {
@@ -1169,7 +1186,7 @@ img {
   #serv1-tb{
     width: 100%;
     left:0;
-    max-height: 400px;
+    max-height: 550px;
   }
   #serv1-left,
   #serv1-right{
@@ -1179,8 +1196,22 @@ img {
     width: 100%;
     height: 200px;
   }
+
+  #serv1-banner img{
+    width: 100%;
+    height: 200px;
+  }
+
   #serv1-tb #serv1-title{
     font-size: 23px;
+    font-weight: bold;
+  }
+
+  #serv1-left img,
+  #serv1-right img{
+    width: 100%;
+    height: 200px;
+    padding:0;
   }
 }
 

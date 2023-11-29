@@ -189,6 +189,7 @@
             a.appendChild(b);
         }
     }
+
     displayProduct(productList2)
     // Tìm kiếm bằng tên
     function search() {
@@ -199,6 +200,7 @@
                 kq.push(productList2[i]);
         displayProduct(kq);
     }
+
     function all1() {
         var type = document.getElementById("type-output");
         type.innerHTML =
@@ -208,6 +210,7 @@
         displayProduct(kq);
         phanTrang(1);
     }
+
     function figure() {
         var type = document.getElementById("type-output");
         type.innerHTML =
@@ -218,6 +221,7 @@
         kq = productList2;
         phanTrang(1);
     }
+
     function chibi() {
         var type = document.getElementById("type-output");
         type.innerHTML =
@@ -228,6 +232,7 @@
         kq = productList2;
         phanTrang(1);
     }
+
     function set() {
         var type = document.getElementById("type-output");
         type.innerHTML =
@@ -238,6 +243,7 @@
         kq = productList2;
         phanTrang(1);
     }
+
     function cosplay() {
         var type = document.getElementById("type-output");
         type.innerHTML =
@@ -248,6 +254,7 @@
         kq = productList2;
         phanTrang(1);
     }
+
     var select = document.querySelector("#danh-muc-mobile select")
     select.addEventListener('change', function () {
         var selectOption = select.options[select.selectedIndex];
@@ -257,6 +264,7 @@
         if (selectOption.value === '3') set();
         if (selectOption.value === '4') cosplay();
     })
+
     var select2 = document.querySelector("#sort select")
     select2.addEventListener('change', function () {
         var selectOption2 = select2.options[select2.selectedIndex];
@@ -265,12 +273,14 @@
         if (selectOption2.value === 'priceup') priceup();
         if (selectOption2.value === 'pricedown') pricedown();
     })
+
     var select3 = document.querySelector("#productPerPage select")
     select3.addEventListener('change', function () {
         var selectOption3 = select3.options[select3.selectedIndex];
         productPerPage = parseInt(selectOption3.value);
         phanTrang(1);
     })
+
     function nameup() {
         for (var i = 0; i < kq.length; i++) {
             var index = i;
@@ -282,6 +292,7 @@
         }
         phanTrang(1);
     }
+
     function namedown() {
         for (var i = 0; i < kq.length; i++) {
             var index = i;
@@ -293,6 +304,7 @@
         }
         phanTrang(1);
     }
+
     function priceup() {
         for (var i = 0; i < kq.length; i++) {
             var index = i;
@@ -304,6 +316,7 @@
         }
         phanTrang(1);
     }
+
     function pricedown() {
         for (var i = 0; i < kq.length; i++) {
             var index = i;
@@ -315,17 +328,22 @@
         }
         phanTrang(1);
     }
+
     function filterbyprice() {
         var min = document.getElementById("min-price").value;
         var max = document.getElementById("max-price").value;
         min = parseFloat(min);
+        if (!min) min = 0;
         max = parseFloat(max);
+        if (!max) max = Infinity;
+        console.log(min, max);
         var after = [];
-        for (var i = 0; i < kq.length; i++)
-            if (kq[i].price >= min && kq[i].price <= max) after.push(kq[i]);
+        for (var i = 0; i < productList.length; i++)
+            if (productList[i].price >= min && productList[i].price <= max) after.push(productList[i]);
         kq = after;
         phanTrang(1);
     }
+
     var productPerPage = 20;
     var currentPage = 1;
     phanTrang(currentPage);
@@ -340,17 +358,20 @@
             after.push(kq[i]);
         displayProduct(after);
     }
+
     function nextPage() {
         var max = Math.ceil(kq.length / productPerPage);
         if (currentPage == max) return;
         currentPage++;
         phanTrang(currentPage);
     }
+
     function previousPage() {
         if (currentPage == 1) return;
         currentPage--;
         phanTrang(currentPage);
     }
+
     var theme = 0
     function darkLightMode() {
         var color1 = document.getElementById("danh-muc");

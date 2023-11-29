@@ -146,6 +146,8 @@
     var productList = [];
     var productList2 = [];
     var kq = [];
+    var productPerPage = 40;
+    var currentPage  = 1;
     var productStored = localStorage.getItem('productList');
     if (productStored) productList = JSON.parse(productStored);
     productList2 = productList;
@@ -276,7 +278,7 @@
     var select3 = document.querySelector("#productPerPage select")
     select3.addEventListener('change', function () {
         var selectOption3 = select3.options[select3.selectedIndex];
-        productPerPage = selectOption3.value;
+        productPerPage = parseFloat(selectOption3.value);
         phanTrang(1);
     })
 
@@ -351,8 +353,6 @@
         phanTrang(1);
     }
 
-    var productPerPage = 40;
-    var currentPage  = 1;
     phanTrang(currentPage);
 
     function phanTrang(Page)

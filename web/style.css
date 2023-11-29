@@ -1,8 +1,20 @@
-
 * {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #333;
+}
+
 header {
     top: 0;
     width: 100%;
@@ -12,58 +24,126 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: palevioletred;
-    border-style: hidden;
 }
 
-
 .mmb {
-
     display: flex;
     justify-content: space-between;
 }
 
-.mmb h3 {
-            margin:20px 20px 20px 20px;
-}
-.leftcontents{
-            max-width: fit-content;
-            float:left;
-            background-color:antiquewhite;
-            height: 30%;
-            border-style:groove;
-
-
-            
-}
-.rightcontents{
-            width: 70%;
-            text-align: left;
-            float: left;
-            height: 630px;
-            border-style:groove;
-            margin: auto;
-            background-color: rgb(250, 214, 214);
-            justify-content: center;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #333;
+.mmb h2 {
+    margin: 20px 20px 20px 20px;
+    padding-left: 0%;
 }
 
-#passwordForm{
-    margin : 20px 20px 20px 20px;
-}
-#addressForm{
-    margin : 20px 20px 20px 20px;
-}
-#nameForm{
-    margin : 20px 20px 20px 20px;
-}
-.temp{
-    margin : 20px 20px 20px 20px;
+.rightcontents {
+    width: 100%; /* Điều chỉnh chiều rộng phần nội dung chính */
+    text-align: left;
+    margin: auto;
+    background-color: rgb(250, 214, 214);
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#nameForm, #passwordForm, #addressForm {
+    margin: 20px 0;
+}
+
+#addressDisplay, #addressStatus {
+    margin-bottom: 20px;
+}
+
+:root {
+    --primary-color: #e74c3c; /* Đỏ */
+    --secondary-color: #3498db; /* Xanh dương */
+    --background-color: #ecf0f1; /* Màu nền xám nhạt */
+    --text-color: #333; /* Màu chữ */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+button:hover {
+    background-color: #2980b9; /* Màu xanh dương đậm hơn khi hover */
+}
+
+.rightcontents {
+    background-color: white; /* Nền trắng cho phần nội dung chính */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    background-color: #f5f5f5; /* Nền xám nhạt cho các form */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    color: var(--secondary-color);
+}
+

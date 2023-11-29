@@ -593,8 +593,9 @@ img {
   z-index: 1;
   top: -200%;
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  left: 10%;
   overflow-y: scroll;
+  border-radius: 25px;
+  left: 10%;
 }
 
 #close-serv1{
@@ -623,11 +624,11 @@ img {
 #serv1-banner img{
   height: 600px;
   width: 100%;
+  border-radius: 25px;
 }
 
 #serv1-content{
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 }
 
 #serv1-left,
@@ -642,6 +643,7 @@ img {
   width: 80%;
   height: 600px;
   padding: 10px;
+  border-radius: 25px;
 }
 #serv1-right{
   float: right;
@@ -649,6 +651,7 @@ img {
 
 .serv1-para{
   text-align: justify;
+  margin:20px
 }
 @keyframes change-color {
   0% {

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="scriptuser.js"></script>
 
 
@@ -15,67 +15,67 @@
         <h2 class="Logo"> WIBU STORE </h2>
         <div class="mmb">
             <h2 class="store"> Cửa Hàng </h2>
-            <h2> Đăng xuất  </h2>
+            <h2> Đăng xuất </h2>
         </div>
     </header>
 
 
 
-        <div class="rightcontents">
+    <div class="rightcontents">
 
-            <h3> Đổi họ tên(Nhập họ tên mà bạn muốn chỉnh sửa) :</h3>
-            <div id="nameForm">
-                <form onsubmit="updateName(event)">
-                    <label for="nameInput"> Họ và tên : </label>
-                    <input type="text" id="nameInput" placeholder="Nguyễn Văn A" required>
-                    <button type="submit">Cập nhật</button>
-                    <button type="button" onclick="cancelEdit()">Hủy</button>
-                </form>
-            </div>
-            <div class="temp">
+        <h3> Đổi họ tên(Nhập họ tên mà bạn muốn chỉnh sửa) :</h3>
+        <div id="nameForm">
+            <form onsubmit="updateName(event)">
+                <label for="nameInput"> Họ và tên : </label>
+                <input type="text" id="nameInput" placeholder="Nguyễn Văn A" required>
+                <button type="submit">Cập nhật</button>
+                <button type="button" onclick="cancelEdit()">Hủy</button>
+            </form>
+        </div>
+        <div class="temp">
             <div id="nameDisplay"></div>
             <button onclick="showEditForm()">Chỉnh sửa Họ tên</button>
-            </div>
-            <h3>Đổi Mật khẩu(Nhập mật khẩu bạn muốn chỉnh sửa) : </h3>
-
-            <div id="passwordForm">
-                <form onsubmit="changePassword(event)">
-                    <label for="currentPassword">Mật khẩu hiện tại:</label>
-                    <input type="password" id="currentPassword" required>
-                    </br>
-                    <label for="newPassword">Mật khẩu mới:</label>
-                    <input type="password" id="newPassword" required>
-                    </br>
-                    <label for="confirmPassword">Xác nhận mật khẩu mới:</label>
-                    <input type="password" id="confirmPassword" required>
-                    </br>
-                    <button type="submit">Đổi Mật khẩu</button>
-                </form>
-                <div id="passwordStatus"></div>
-            </div>
-
-            <h3>Thông Tin Địa Chỉ(Nhập địa chỉ bạn muốn chỉnh sửa) : </h3>
-
-            <div id="addressDisplay">
-                <p>Địa chỉ hiện tại: <span id="currentAddress">123 Main Street, City</span></p>
-            </div>
-
-            <button onclick="showAddressForm()">Chỉnh Sửa Địa Chỉ</button>
-
-            <div id="addressForm" style="display: none;">
-                <form onsubmit="changeAddress(event)">
-                    <label for="newAddress">Địa chỉ mới:</label>
-                    <input type="text" id="newAddress" required></textarea>
-
-                    <button type="submit">Thay Đổi Địa Chỉ</button>
-                </form>
-            </div>
-
-            <div id="addressStatus"></div>
-
         </div>
-    
-    
+        <h3>Đổi Mật khẩu(Nhập mật khẩu bạn muốn chỉnh sửa) : </h3>
+
+        <div id="passwordForm">
+            <form onsubmit="changePassword(event)">
+                <label for="currentPassword">Mật khẩu hiện tại:</label>
+                <input type="password" id="currentPassword" required>
+                </br>
+                <label for="newPassword">Mật khẩu mới:</label>
+                <input type="password" id="newPassword" required>
+                </br>
+                <label for="confirmPassword">Xác nhận mật khẩu mới:</label>
+                <input type="password" id="confirmPassword" required>
+                </br>
+                <button type="submit">Đổi Mật khẩu</button>
+            </form>
+            <div id="passwordStatus"></div>
+        </div>
+
+        <h3>Thông Tin Địa Chỉ(Nhập địa chỉ bạn muốn chỉnh sửa) : </h3>
+
+        <div id="addressDisplay">
+            <p>Địa chỉ hiện tại: <span id="currentAddress">123 Main Street, City</span></p>
+        </div>
+
+        <button onclick="showAddressForm()">Chỉnh Sửa Địa Chỉ</button>
+
+        <div id="addressForm" style="display: none;">
+            <form onsubmit="changeAddress(event)">
+                <label for="newAddress">Địa chỉ mới:</label>
+                <input type="text" id="newAddress" required></textarea>
+
+                <button type="submit">Thay Đổi Địa Chỉ</button>
+            </form>
+        </div>
+
+        <div id="addressStatus"></div>
+
+    </div>
+
+
 
 </body>
 

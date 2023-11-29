@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,21 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="icon" type="image/x-icon" href="../asset/Logo.png" />
 </head>
+
 <body>
     <header id="headertuan">
         <img id="icon-web" src="../asset/logo.png" alt="">
         <div id="search-input">
             <input id="text-input-search" type="text" placeholder="Tìm kiếm">
-            <button onclick="search()" id="search-button"><img style="height: 30px;" src="../asset/icon/loupe.png" alt=""></button>
+            <button onclick="search()" id="search-button"><img style="height: 30px;" src="../asset/icon/loupe.png"
+                    alt=""></button>
             <div id="lam-mau">
-                <img src="../asset/icon/uy_tin.png" alt=""><p>Mua 1 tặng 10</p>
-                <img src="../asset/icon/hop_qua.png" alt=""><p>Bảo hành vĩnh viễn</p>
-                <img src="../asset/icon/van_chuyen.png" alt=""><p>Free ship toàn quốc</p>
+                <img src="../asset/icon/uy_tin.png" alt="">
+                <p>Mua 1 tặng 10</p>
+                <img src="../asset/icon/hop_qua.png" alt="">
+                <p>Bảo hành vĩnh viễn</p>
+                <img src="../asset/icon/van_chuyen.png" alt="">
+                <p>Free ship toàn quốc</p>
             </div>
         </div>
         <div id="user">
@@ -30,11 +36,23 @@
     </header>
     <div id="danh-muc">
         <ul>
-            <li onclick="all1()"><img src="../asset/category_img/dau saitama.png" alt=""><a href="#"><h3 class="darkMode">Tất Cả Sản Phẩm</h3></a></li>
-            <li onclick="figure()"><img src="../asset/category_img/logo fairy tail.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Lẻ</h3></a></li>
-            <li onclick="chibi()"><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Chibi</h3></a></li>
-            <li onclick="set()"><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href="#"><h3 class="darkMode">Bộ Mô Hình</h3></a></li>
-            <li onclick="cosplay()"><img src="../asset/category_img/kunai naruto.png" alt=""><a href="#"><h3 class="darkMode">Cosplay</h3></a></li>
+            <li onclick="all1()"><img src="../asset/category_img/dau saitama.png" alt=""><a href="#">
+                    <h3 class="darkMode">Tất Cả Sản Phẩm</h3>
+                </a></li>
+            <li onclick="figure()"><img src="../asset/category_img/logo fairy tail.png" alt=""><a href="#">
+                    <h3 class="darkMode">Mô Hình Lẻ</h3>
+                </a></li>
+            <li onclick="chibi()"><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href="#">
+                    <h3 class="darkMode">Mô Hình Chibi</h3>
+                </a></li>
+            <li onclick="set()"><img
+                    src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png"
+                    alt=""><a href="#">
+                    <h3 class="darkMode">Bộ Mô Hình</h3>
+                </a></li>
+            <li onclick="cosplay()"><img src="../asset/category_img/kunai naruto.png" alt=""><a href="#">
+                    <h3 class="darkMode">Cosplay</h3>
+                </a></li>
         </ul>
         <div id="cart">
             <img src="../asset/icon/cart.png" alt="">
@@ -86,7 +104,9 @@
         </div>
         <hr style="width: 99%;">
     </div>
-    <div class="darkMode" id="so-luong"><p>1000 sản phẩm</p></div>
+    <div class="darkMode" id="so-luong">
+        <p>1000 sản phẩm</p>
+    </div>
     <div id="archive-product"></div>
     <div id="phanTrang">
         <button onclick="previousPage()">Previous</button>
@@ -151,89 +171,80 @@
     productList2 = productList;
     kq = productList;
     // hiển thị sản phẩm
-    function displayProduct(d)
-    {
+    function displayProduct(d) {
         var b = document.querySelector("#so-luong");
-        b.innerHTML = 
-        '<p>'+ kq.length +' sản phẩm</p>'
+        b.innerHTML =
+            '<p>' + kq.length + ' sản phẩm</p>'
         var a = document.getElementById("archive-product");
-        a.innerHTML="";
-        for(var i=0;i<d.length;i++)
-        {   
+        a.innerHTML = "";
+        for (var i = 0; i < d.length; i++) {
             var b = document.createElement("div")
             b.className = "inner-product";
-            b.innerHTML =  
-            '<div class="product-img"><img src="'+d[i].img+'" alt=""></div>'+
-            '<div class="product-content">'+
-                '<p class="name-product">'+d[i].name+'</p>'+
-                '<p class="price-product">'+d[i].price+'đ</p>'+
-            '</div>'
+            b.innerHTML =
+                '<div class="product-img"><img src="' + d[i].img + '" alt=""></div>' +
+                '<div class="product-content">' +
+                '<p class="name-product">' + d[i].name + '</p>' +
+                '<p class="price-product">' + d[i].price + 'đ</p>' +
+                '</div>'
             a.appendChild(b);
         }
     }
     displayProduct(productList2)
     // Tìm kiếm bằng tên
-    function search()
-    {
+    function search() {
         kq = [];
         var input = document.getElementById("text-input-search").value.toLowerCase();
-        for(var i = 0; i<productList2.length;i++)
-        if(productList2[i].name.toLowerCase().indexOf(input) > -1)
-        kq.push(productList2[i]);
+        for (var i = 0; i < productList2.length; i++)
+            if (productList2[i].name.toLowerCase().indexOf(input) > -1)
+                kq.push(productList2[i]);
         displayProduct(kq);
     }
-    function all1()
-    {
-        var type  = document.getElementById("type-output");
-        type.innerHTML=
-        '<h1 id="type-output">Tất cả mô hình</h1>';
-        productList2 = [];
+    function all1() {
+        var type = document.getElementById("type-output");
+        type.innerHTML =
+            '<h1 id="type-output">Tất cả mô hình</h1>';
         productList2 = productList;
         kq = productList2;
         displayProduct(kq);
         phanTrang(1);
     }
-    function figure()
-    {
-        var type  = document.getElementById("type-output");
-        type.innerHTML=
-        '<h1 id="type-output">Mô Hình Lẻ</h1>';
+    function figure() {
+        var type = document.getElementById("type-output");
+        type.innerHTML =
+            '<h1 id="type-output">Mô Hình Lẻ</h1>';
         productList2 = [];
-        for(var i=0;i<productList.length;i++)
-        if(productList[i].type ==  1) productList2.push(productList[i]);
+        for (var i = 0; i < productList.length; i++)
+            if (productList[i].type == 1) productList2.push(productList[i]);
         kq = productList2;
         phanTrang(1);
     }
-    function chibi()
-    {
-        var type  = document.getElementById("type-output");
-        type.innerHTML=
-        '<h1 id="type-output">Mô Hình Chibi</h1>';
+    function chibi() {
+        var type = document.getElementById("type-output");
+        type.innerHTML =
+            '<h1 id="type-output">Mô Hình Chibi</h1>';
         productList2 = [];
-        for(var i=0;i<productList.length;i++)
-        if(productList[i].type ==  2) productList2.push(productList[i]);
+        for (var i = 0; i < productList.length; i++)
+            if (productList[i].type == 2) productList2.push(productList[i]);
         kq = productList2;
         phanTrang(1);
     }
-    function set()
-    {
-        var type  = document.getElementById("type-output");
-        type.innerHTML=
-        '<h1 id="type-output">Bộ Mô Hình</h1>';
+    function set() {
+        var type = document.getElementById("type-output");
+        type.innerHTML =
+            '<h1 id="type-output">Bộ Mô Hình</h1>';
         productList2 = [];
-        for(var i=0;i<productList.length;i++)
-        if(productList[i].type ==  3) productList2.push(productList[i]);
+        for (var i = 0; i < productList.length; i++)
+            if (productList[i].type == 3) productList2.push(productList[i]);
         kq = productList2;
         phanTrang(1);
     }
-    function cosplay()
-    {
-        var type  = document.getElementById("type-output");
-        type.innerHTML=
-        '<h1 id="type-output">Cosplay</h1>';
+    function cosplay() {
+        var type = document.getElementById("type-output");
+        type.innerHTML =
+            '<h1 id="type-output">Cosplay</h1>';
         productList2 = [];
-        for(var i=0;i<productList.length;i++)
-        if(productList[i].type ==  4) productList2.push(productList[i]);
+        for (var i = 0; i < productList.length; i++)
+            if (productList[i].type == 4) productList2.push(productList[i]);
         kq = productList2;
         phanTrang(1);
     }
@@ -257,104 +268,91 @@
     var select3 = document.querySelector("#productPerPage select")
     select3.addEventListener('change', function () {
         var selectOption3 = select3.options[select3.selectedIndex];
-        productPerPage = selectOption3.value;
+        productPerPage = parseInt(selectOption3.value);
         phanTrang(1);
     })
-    function nameup()
-    {
-        for(var i=0;i<kq.length;i++)
-        {
+    function nameup() {
+        for (var i = 0; i < kq.length; i++) {
             var index = i;
-            for(var j=i+1;j<kq.length;j++)
-            if(kq[index].name<kq[j].name) index = j;
+            for (var j = i + 1; j < kq.length; j++)
+                if (kq[index].name < kq[j].name) index = j;
             var c = kq[i];
             kq[i] = kq[index];
             kq[index] = c;
-        }    
+        }
         phanTrang(1);
     }
-    function namedown()
-    {
-        for(var i=0;i<kq.length;i++)
-        {
+    function namedown() {
+        for (var i = 0; i < kq.length; i++) {
             var index = i;
-            for(var j=i+1;j<kq.length;j++)
-            if(kq[index].name>kq[j].name) index = j;
+            for (var j = i + 1; j < kq.length; j++)
+                if (kq[index].name > kq[j].name) index = j;
             var c = kq[i];
             kq[i] = kq[index];
             kq[index] = c;
-        }    
+        }
         phanTrang(1);
     }
-    function priceup()
-    {
-        for(var i=0;i<kq.length;i++)
-        {
+    function priceup() {
+        for (var i = 0; i < kq.length; i++) {
             var index = i;
-            for(var j=i+1;j<kq.length;j++)
-            if(parseFloat(kq[index].price)>parseFloat(kq[j].price)) index = j;
+            for (var j = i + 1; j < kq.length; j++)
+                if (parseFloat(kq[index].price) > parseFloat(kq[j].price)) index = j;
             var c = kq[i];
             kq[i] = kq[index];
             kq[index] = c;
-        }    
+        }
         phanTrang(1);
     }
-    function pricedown()
-    {
-        for(var i=0;i<kq.length;i++)
-        {
+    function pricedown() {
+        for (var i = 0; i < kq.length; i++) {
             var index = i;
-            for(var j=i+1;j<kq.length;j++)
-            if(parseFloat(kq[index].price)<parseFloat(kq[j].price)) index = j;
+            for (var j = i + 1; j < kq.length; j++)
+                if (parseFloat(kq[index].price) < parseFloat(kq[j].price)) index = j;
             var c = kq[i];
             kq[i] = kq[index];
             kq[index] = c;
-        }    
+        }
         phanTrang(1);
     }
-    function filterbyprice()
-    {
+    function filterbyprice() {
         var min = document.getElementById("min-price").value;
         var max = document.getElementById("max-price").value;
         min = parseFloat(min);
         max = parseFloat(max);
         var after = [];
-        for(var i=0;i<kq.length;i++)
-        if(kq[i].price>=min&&kq[i].price<=max) after.push(kq[i]);
+        for (var i = 0; i < kq.length; i++)
+            if (kq[i].price >= min && kq[i].price <= max) after.push(kq[i]);
         kq = after;
         phanTrang(1);
     }
     var productPerPage = 20;
-    var currentPage  = 1;
+    var currentPage = 1;
     phanTrang(currentPage);
-    function phanTrang(Page)
-    {   
+    function phanTrang(Page) {
         currentPage = Page;
         var output = document.querySelector("#phanTrang p")
         output.innerHTML = currentPage
         var after = []
-        var first = (currentPage-1)*productPerPage;
+        var first = (currentPage - 1) * productPerPage;
         var end = first + productPerPage;
-        for(var i=first;i<end;i++)
-        after.push(kq[i]);
+        for (var i = first; i < end && i < kq.length; i++)
+            after.push(kq[i]);
         displayProduct(after);
     }
-    function nextPage()
-    {
-        var max = Math.ceil(kq.length/productPerPage);
-        if(currentPage == max) return;
+    function nextPage() {
+        var max = Math.ceil(kq.length / productPerPage);
+        if (currentPage == max) return;
         currentPage++;
         phanTrang(currentPage);
     }
-    function previousPage()
-    {
-        if(currentPage == 1) return;
+    function previousPage() {
+        if (currentPage == 1) return;
         currentPage--;
         phanTrang(currentPage);
     }
     var theme = 0
-    function darkLightMode()
-    {   
+    function darkLightMode() {
         var color1 = document.getElementById("danh-muc");
         var color2 = document.getElementsByClassName("darkMode");
         var color3 = document.getElementById("sort-filter-productPerPage");
@@ -363,34 +361,33 @@
         var color6 = document.getElementById("archive-product");
         var color7 = document.getElementById("so-luong");
         var color10 = document.getElementById("phanTrang")
-        if(theme == 0) 
-        {
+        if (theme == 0) {
             color1.style.backgroundColor = "rgb(50, 50, 50)";
             color3.style.backgroundColor = "rgb(50, 50, 50)";
             color5.style.backgroundColor = "rgb(50, 50, 50)";
             color6.style.backgroundColor = "rgb(50, 50, 50)";
             color7.style.backgroundColor = "rgb(50, 50, 50)";
             color10.style.backgroundColor = "rgb(50, 50, 50)";
-            for(var i=0;i<color2.length;i++)
-            color2[i].style.color = "white";
-            for(var i=0;i<color4.length;i++)
-            color4[i].style.color = "white";
+            for (var i = 0; i < color2.length; i++)
+                color2[i].style.color = "white";
+            for (var i = 0; i < color4.length; i++)
+                color4[i].style.color = "white";
             theme = 1;
         }
-        else
-        {
+        else {
             color1.style.backgroundColor = "rgb(238, 238, 238)";
             color3.style.backgroundColor = "rgb(238, 238, 238)";
             color5.style.backgroundColor = "rgb(238, 238, 238)";
             color6.style.backgroundColor = "rgb(238, 238, 238)";
             color7.style.backgroundColor = "rgb(238, 238, 238)";
             color10.style.backgroundColor = "rgb(238, 238, 238)";
-            for(var i=0;i<color2.length;i++)
-            color2[i].style.color = "black";
-            for(var i=0;i<color4.length;i++)
-            color4[i].style.color = "black";
+            for (var i = 0; i < color2.length; i++)
+                color2[i].style.color = "black";
+            for (var i = 0; i < color4.length; i++)
+                color4[i].style.color = "black";
             theme = 0;
         }
     }
 </script>
+
 </html>

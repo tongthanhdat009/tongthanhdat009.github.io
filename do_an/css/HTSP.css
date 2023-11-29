@@ -1,20 +1,13 @@
 body
 {
     margin: 0px;
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
-#icon-web
-{
-    width: 10%;
-    height: auto;
-    min-width: 100px;
-}
-#header
+#headertuan
 {
     display: flex;
     position: relative;
     height: 130px;
-    background-color: grey;
+    background-color: pink;
 }
 #header ul
 {
@@ -53,7 +46,7 @@ body
     display: flex;
     position: absolute;
     top:calc(50% + 17px);
-    left: calc(15% + 5%);
+    left: calc(15% + 10%);
     align-items: center;
 }
 #user
@@ -73,7 +66,7 @@ body
     border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     position: absolute;
-    left:calc(75% + 50px);
+    left:calc(75% + 5%);
     top: calc(50% - 30px);
 }
 #danh-muc
@@ -156,6 +149,7 @@ body
 {
     display: flex;
     margin-left: 30px;
+    align-items: center;
 }
 #filter
 {   
@@ -163,15 +157,12 @@ body
     display: flex;
     margin: 0 50px 0 50px;
     left:calc(50% - 100px);
-    top: calc(50% - 30px);
+    top: calc(50% - 27px);
+    align-items: center;
 }
 #filter p
 {
     margin-left: 10px;
-}
-.filter-price
-{
-    width: 50px;
 }
 #productPerPage
 {
@@ -179,10 +170,22 @@ body
     position: absolute;
     left: calc(50% - 100px + 350px);
     top: calc(50% - 30px);
+    align-items: center;
+}
+hr
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 #so-luong
 {
-    margin-left: 30px;
+    height: 30px;
+}
+#so-luong p
+{
+    margin: 0px;
+    padding-left: 30px;
+    padding-top: 25px;
 }
 .inner-product
 {
@@ -207,6 +210,37 @@ body
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+#loc-theo-gia
+{   
+    display: flex;
+    align-items: center;
+}
+.option
+{
+    height: 20px;
+}
+#filter input
+{
+    width: 40px;
+}
+#phanTrang
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#phanTrang button
+{
+    width: 75px;
+    height: 25px;
+}
+#current
+{
+    border: 1px solid black;
+    width: 15px;
+    text-align: center;
+    font-size: 20px;
 }
 @media screen and (max-width: 1150px)
 {
@@ -250,17 +284,9 @@ body
     {
         left: calc(100% - 100px);
     }
-    #loc-theo-gia
-    {
-        display: none;
-    }
     #filter
     {
-        left: 150px;
-    }
-    #filter input
-    {
-        width: 40px;
+        left:calc(100% - 280px);
     }
     #productPerPage
     {
@@ -305,4 +331,20 @@ body
     {
         width: 125px;
     }
+    .xoa
+    {
+        display: none;
+    }
+    #icon-web
+    {
+        width: 75px;
+        height: 75px;
+    }
 }
+@media screen and (max-width: 350px)
+{
+    body
+    {
+        display: none;
+    }
+} 

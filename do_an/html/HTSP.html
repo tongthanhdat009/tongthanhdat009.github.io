@@ -9,11 +9,11 @@
     <link rel="icon" type="image/x-icon" href="../asset/Logo.png" />
 </head>
 <body>
-    <header id="header">
+    <header id="headertuan">
         <img id="icon-web" src="../asset/logo.png" alt="">
         <div id="search-input">
             <input id="text-input-search" type="text" placeholder="Tìm kiếm">
-            <button id="search-button"><img style="height: 30px;" src="../asset/icon/loupe.png" alt=""></button>
+            <button onclick="search()" id="search-button"><img style="height: 30px;" src="../asset/icon/loupe.png" alt=""></button>
             <div id="lam-mau">
                 <img src="../asset/icon/uy_tin.png" alt=""><p>Mua 1 tặng 10</p>
                 <img src="../asset/icon/hop_qua.png" alt=""><p>Bảo hành vĩnh viễn</p>
@@ -22,32 +22,32 @@
         </div>
         <div id="user">
             <h4>Nguyễn Minh Tuấn</h4>
-            <h4>999.999.999VNĐ</h4>
+            <h4>xxx.xxx.xxxVNĐ</h4>
         </div>
         <div id="theme">
-            <img id="img-theme" src="../asset/icon/dark_mode.png" alt="">
+            <img onclick="darkLightMode()" id="img-theme" src="../asset/icon/dark_mode.png" alt="">
         </div>
     </header>
     <div id="danh-muc">
         <ul>
-            <li><img src="../asset/category_img/dau saitama.png" alt=""><a href=""><h3>Tất Cả Sản Phẩm</h3></a></li>
-            <li><img src="../asset/category_img/logo fairy tail.png" alt=""><a href=""><h3>Mô Hình Lẻ</h3></a></li>
-            <li><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href=""><h3>Mô Hình Chibi</h3></a></li>
-            <li><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href=""><h3>Bộ Mô Hình</h3></a></li>
-            <li><img src="../asset/category_img/kunai naruto.png" alt=""><a href=""><h3>Cosplay</h3></a></li>
+            <li onclick="all()"><img src="../asset/category_img/dau saitama.png" alt=""><a href=""><h3 class="darkMode">Tất Cả Sản Phẩm</h3></a></li>
+            <li onclick="figure()"><img src="../asset/category_img/logo fairy tail.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Lẻ</h3></a></li>
+            <li onclick="chibi()"><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Chibi</h3></a></li>
+            <li onclick="set()"><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href="#"><h3 class="darkMode">Bộ Mô Hình</h3></a></li>
+            <li onclick="cosplay()"><img src="../asset/category_img/kunai naruto.png" alt=""><a href="#"><h3 class="darkMode">Cosplay</h3></a></li>
         </ul>
         <div id="cart">
             <img src="../asset/icon/cart.png" alt="">
-            <h3>Giỏ Hàng</h3>
+            <h3 class="darkMode">Giỏ Hàng</h3>
         </div>
         <div id="danh-muc-mobile">
             <p>Thể loại:</p>
             <select>
-                <option value="">Tất cả sản phẩm</option>
-                <option value="">Mô hình lẻ</option>
-                <option value="">Mô hình Chibi</option>
-                <option value="">Bộ mô hình</option>
-                <option value="">Cosplay</option>
+                <option value="0">Tất cả sản phẩm</option>
+                <option value="1">Mô hình lẻ</option>
+                <option value="2">Mô hình Chibi</option>
+                <option value="3">Bộ mô hình</option>
+                <option value="4">Cosplay</option>
             </select>
         </div>
     </div>
@@ -56,37 +56,43 @@
             <img src="../asset/banner_fl/5.png" alt="">
         </div>
         <div id="type">
-            <h1 id="type-output">Tất cả sản phẩm</h1>
+            <h1 class="darkMode" id="type-output">Tất cả sản phẩm</h1>
         </div>
     </div>
     <div id="sort-filter-productPerPage">
         <div id="sort">
-            <p>Sort by:</p>
-            <select>
-                <option value="">Tăng dần theo tên</option>
-                <option value="">Giảm dần theo tên</option>
-                <option value="">Tăng dần theo giá</option>
-                <option value="">Giảm dần theo giá</option>
+            <p class="xoa">Sort by:</p>
+            <select class="option">
+                <option value="nameup">Tăng dần theo tên</option>
+                <option value="namedown">Giảm dần theo tên</option>
+                <option value="priceup">Tăng dần theo giá</option>
+                <option value="pricedown">Giảm dần theo giá</option>
             </select>
         </div>
         <div id="filter">
-            <p id="loc-theo-gia">Lọc theo giá:</p>
-            <p>min</p><input class="filter-price" id="min-price" type="number">
-            <p>max</p><input class="filter-price" id="max-price" type="number">
+            <p class="darkMode">min</p><input class="option" id="min-price" type="number">
+            <p class="darkMode">max</p><input class="option" id="max-price" type="number">
+            <button onclick="filterbyprice()" class="option" id="loc-theo-gia">Lọc</p>
         </div>
         <div id="productPerPage">
-            <p id="hien-thi">Hiển thị:</p>
+            <p class="darkMode" id="hien-thi">Hiển thị:</p>
             <select>
-                <option value="">4 sản phẩm</option>
-                <option value="">8 sản phẩm</option>
-                <option value="">16 sản phẩm</option>
-                <option value="">32 sản phẩm</option>
+                <option value="40">40 sản phẩm</option>
+                <option value="20">20 sản phẩm</option>
+                <option value="10">10 sản phẩm</option>
+                <option value="5">5 sản phẩm</option>
+                <option value="9999">Tất cả</option>
             </select>
         </div>
         <hr style="width: 99%;">
     </div>
-    <div id="so-luong"><p>1000 sản phẩm</p></div>
+    <div class="darkMode" id="so-luong"><p>1000 sản phẩm</p></div>
     <div id="archive-product"></div>
+    <div id="phanTrang">
+        <button onclick="previousPage()">Previous</button>
+        <p class="darkMode" id="current"></p>
+        <button onclick="nextPage()">Next</button>
+    </div>
     <div class="infor_container">
         <div id="footer_logo">
             <img src="../asset/logo.png" alt="logo_footer">
@@ -139,27 +145,252 @@
 <script>
     var productList = [];
     var productList2 = [];
+    var kq = [];
     var productStored = localStorage.getItem('productList');
     if (productStored) productList = JSON.parse(productStored);
     productList2 = productList;
-    console.log(productList2)
-    function displayProduct(productList2)
+    kq = productList;
+    // hiển thị sản phẩm
+    function displayProduct(d)
     {
+        var b = document.querySelector("#so-luong");
+        b.innerHTML = 
+        '<p>'+ kq.length +' sản phẩm</p>'
         var a = document.getElementById("archive-product");
         a.innerHTML="";
-        for(var i=0;i<productList2.length;i++)
+        for(var i=0;i<d.length;i++)
         {   
             var b = document.createElement("div")
             b.className = "inner-product";
             b.innerHTML =  
-            '<div class="product-img"><img src="'+productList2[i].img+'" alt=""></div>'+
+            '<div class="product-img"><img src="'+d[i].img+'" alt=""></div>'+
             '<div class="product-content">'+
-                '<p class="name-product">'+productList2[i].name+'</p>'+
-                '<p class="price-product">'+productList2[i].price+'đ</p>'+
+                '<p class="name-product">'+d[i].name+'</p>'+
+                '<p class="price-product">'+d[i].price+'đ</p>'+
             '</div>'
             a.appendChild(b);
         }
     }
     displayProduct(productList2)
+    // Tìm kiếm bằng tên
+    function search()
+    {
+        kq = [];
+        var input = document.getElementById("text-input-search").value.toLowerCase();
+        for(var i = 0; i<productList2.length;i++)
+        if(productList2[i].name.toLowerCase().indexOf(input) > -1)
+        kq.push(productList2[i]);
+        displayProduct(kq);
+    }
+    function all()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Tất cả mô hình</h1>';
+        productList2 = [];
+        productList2 = productList;
+        displayProduct(productList2);
+        kq = productList2;
+        phanTrang(1);
+    }
+    function figure()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Mô Hình Lẻ</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  1) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+    function chibi()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Mô Hình Chibi</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  2) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+    function set()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Bộ Mô Hình</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  3) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+    function cosplay()
+    {
+        var type  = document.getElementById("type-output");
+        type.innerHTML=
+        '<h1 id="type-output">Cosplay</h1>';
+        productList2 = [];
+        for(var i=0;i<productList.length;i++)
+        if(productList[i].type ==  4) productList2.push(productList[i]);
+        kq = productList2;
+        phanTrang(1);
+    }
+    var select = document.querySelector("#danh-muc-mobile select")
+    select.addEventListener('change', function () {
+        var selectOption = select.options[select.selectedIndex];
+        if (selectOption.value === '0') all();
+        if (selectOption.value === '1') figure();
+        if (selectOption.value === '2') chibi();
+        if (selectOption.value === '3') set();
+        if (selectOption.value === '4') cosplay();
+    })
+    var select2 = document.querySelector("#sort select")
+    select2.addEventListener('change', function () {
+        var selectOption2 = select2.options[select2.selectedIndex];
+        if (selectOption2.value === 'nameup') nameup();
+        if (selectOption2.value === 'namedown') namedown();
+        if (selectOption2.value === 'priceup') priceup();
+        if (selectOption2.value === 'pricedown') pricedown();
+    })
+    var select3 = document.querySelector("#productPerPage select")
+    select3.addEventListener('change', function () {
+        var selectOption3 = select3.options[select3.selectedIndex];
+        productPerPage = selectOption3.value;
+        phanTrang(1);
+    })
+    function nameup()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(kq[index].name<kq[j].name) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+    function namedown()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(kq[index].name>kq[j].name) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+    function priceup()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(parseFloat(kq[index].price)>parseFloat(kq[j].price)) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+    function pricedown()
+    {
+        for(var i=0;i<kq.length;i++)
+        {
+            var index = i;
+            for(var j=i+1;j<kq.length;j++)
+            if(parseFloat(kq[index].price)<parseFloat(kq[j].price)) index = j;
+            var c = kq[i];
+            kq[i] = kq[index];
+            kq[index] = c;
+        }    
+        phanTrang(1);
+    }
+    function filterbyprice()
+    {
+        var min = document.getElementById("min-price").value;
+        var max = document.getElementById("max-price").value;
+        min = parseFloat(min);
+        max = parseFloat(max);
+        var after = [];
+        for(var i=0;i<kq.length;i++)
+        if(kq[i].price>=min&&kq[i].price<=max) after.push(kq[i]);
+        kq = after;
+        phanTrang(1);
+    }
+    var productPerPage = 20;
+    var currentPage  = 1;
+    phanTrang(currentPage);
+    function phanTrang(Page)
+    {   
+        currentPage = Page;
+        var output = document.querySelector("#phanTrang p")
+        output.innerHTML = currentPage
+        var after = []
+        var first = (currentPage-1)*productPerPage;
+        var end = first + productPerPage;
+        for(var i=first;i<end;i++)
+        after.push(kq[i]);
+        displayProduct(after);
+    }
+    function nextPage()
+    {
+        var max = Math.ceil(kq.length/productPerPage);
+        if(currentPage == max) return;
+        currentPage++;
+        phanTrang(currentPage);
+    }
+    function previousPage()
+    {
+        if(currentPage == 1) return;
+        currentPage--;
+        phanTrang(currentPage);
+    }
+    var theme = 0
+    function darkLightMode()
+    {   
+        var color1 = document.getElementById("danh-muc");
+        var color2 = document.getElementsByClassName("darkMode");
+        var color3 = document.getElementById("sort-filter-productPerPage");
+        var color4 = document.getElementsByClassName("xoa");
+        var color5 = document.getElementById("type")
+        var color6 = document.getElementById("archive-product");
+        var color7 = document.getElementById("so-luong");
+        var color10 = document.getElementById("phanTrang")
+        if(theme == 0) 
+        {
+            color1.style.backgroundColor = "rgb(50, 50, 50)";
+            color3.style.backgroundColor = "rgb(50, 50, 50)";
+            color5.style.backgroundColor = "rgb(50, 50, 50)";
+            color6.style.backgroundColor = "rgb(50, 50, 50)";
+            color7.style.backgroundColor = "rgb(50, 50, 50)";
+            color10.style.backgroundColor = "rgb(50, 50, 50)";
+            for(var i=0;i<color2.length;i++)
+            color2[i].style.color = "white";
+            for(var i=0;i<color4.length;i++)
+            color4[i].style.color = "white";
+            theme = 1;
+        }
+        else
+        {
+            color1.style.backgroundColor = "rgb(238, 238, 238)";
+            color3.style.backgroundColor = "rgb(238, 238, 238)";
+            color5.style.backgroundColor = "rgb(238, 238, 238)";
+            color6.style.backgroundColor = "rgb(238, 238, 238)";
+            color7.style.backgroundColor = "rgb(238, 238, 238)";
+            color10.style.backgroundColor = "rgb(238, 238, 238)";
+            for(var i=0;i<color2.length;i++)
+            color2[i].style.color = "black";
+            for(var i=0;i<color4.length;i++)
+            color4[i].style.color = "black";
+            theme = 0;
+        }
+    }
 </script>
 </html>

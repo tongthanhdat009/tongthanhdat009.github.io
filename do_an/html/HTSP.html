@@ -30,7 +30,7 @@
     </header>
     <div id="danh-muc">
         <ul>
-            <li onclick="all()"><img src="../asset/category_img/dau saitama.png" alt=""><a href="#"><h3 class="darkMode">Tất Cả Sản Phẩm</h3></a></li>
+            <li onclick="all1()"><img src="../asset/category_img/dau saitama.png" alt=""><a href="#"><h3 class="darkMode">Tất Cả Sản Phẩm</h3></a></li>
             <li onclick="figure()"><img src="../asset/category_img/logo fairy tail.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Lẻ</h3></a></li>
             <li onclick="chibi()"><img src="../asset/category_img/ngoc rong 4 sao.png" alt=""><a href="#"><h3 class="darkMode">Mô Hình Chibi</h3></a></li>
             <li onclick="set()"><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href="#"><h3 class="darkMode">Bộ Mô Hình</h3></a></li>
@@ -182,15 +182,15 @@
         kq.push(productList2[i]);
         displayProduct(kq);
     }
-    function all()
+    function all1()
     {
         var type  = document.getElementById("type-output");
         type.innerHTML=
         '<h1 id="type-output">Tất cả mô hình</h1>';
         productList2 = [];
         productList2 = productList;
-        displayProduct(productList2);
         kq = productList2;
+        displayProduct(kq);
         phanTrang(1);
     }
     function figure()
@@ -240,7 +240,7 @@
     var select = document.querySelector("#danh-muc-mobile select")
     select.addEventListener('change', function () {
         var selectOption = select.options[select.selectedIndex];
-        if (selectOption.value === '0') all();
+        if (selectOption.value === '0') all1();
         if (selectOption.value === '1') figure();
         if (selectOption.value === '2') chibi();
         if (selectOption.value === '3') set();

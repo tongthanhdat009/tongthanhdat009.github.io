@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <script defer src="scriptuser.js"></script>
 
 
@@ -14,20 +14,16 @@
     <header>
         <h2 class="Logo"> WIBU STORE </h2>
         <div class="mmb">
-            <h3 class="store"> Cua hang</h3>
-            <h3> Dang xuat </h3>
+            <h2 class="store"> Cửa Hàng </h2>
+            <h2> Đăng xuất  </h2>
         </div>
     </header>
-    <div class="contain">
-        <div class="leftcontents">
-            <h3> Thong tin tai khoan </h3>
 
-            <h3> Don hang </h3>
-        </div>
+
 
         <div class="rightcontents">
 
-            <h1> Đổi họ tên</h1>
+            <h3> Đổi họ tên(Nhập họ tên mà bạn muốn chỉnh sửa) :</h3>
             <div id="nameForm">
                 <form onsubmit="updateName(event)">
                     <label for="nameInput"> Họ và tên : </label>
@@ -40,7 +36,7 @@
             <div id="nameDisplay"></div>
             <button onclick="showEditForm()">Chỉnh sửa Họ tên</button>
             </div>
-            <h1>Đổi Mật khẩu</h1>
+            <h3>Đổi Mật khẩu(Nhập mật khẩu bạn muốn chỉnh sửa) : </h3>
 
             <div id="passwordForm">
                 <form onsubmit="changePassword(event)">
@@ -58,7 +54,7 @@
                 <div id="passwordStatus"></div>
             </div>
 
-            <h1>Thông Tin Địa Chỉ</h1>
+            <h3>Thông Tin Địa Chỉ(Nhập địa chỉ bạn muốn chỉnh sửa) : </h3>
 
             <div id="addressDisplay">
                 <p>Địa chỉ hiện tại: <span id="currentAddress">123 Main Street, City</span></p>
@@ -70,15 +66,15 @@
                 <form onsubmit="changeAddress(event)">
                     <label for="newAddress">Địa chỉ mới:</label>
                     <input type="text" id="newAddress" required></textarea>
+
                     <button type="submit">Thay Đổi Địa Chỉ</button>
-                    <button type="button" onclick="cancelEdit3()">Hủy</button>
                 </form>
             </div>
 
             <div id="addressStatus"></div>
 
         </div>
-    </div>
+    
     
 
 </body>

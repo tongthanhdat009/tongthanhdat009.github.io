@@ -429,6 +429,7 @@ function phantrangQLSP(Page)
   currentPage = Page;
   var start = (currentPage-1) *  productPerPage;
   var end = start + productPerPage;
+  if(end>productList2.length) end = productList2.length;
   var after = [];
   for(var i=start;i<end;i++)
   after.push(productList2[i]);
@@ -436,7 +437,7 @@ function phantrangQLSP(Page)
 }
 function previousPage()
 {
-  if(currentPage == 0) return;
+  if(currentPage == 1) return;
   currentPage--;
   phantrangQLSP(currentPage);
 }
@@ -466,6 +467,7 @@ function searchQLSP()
 }
 function displayQLSP(List)
 {
+  console.log(List);
   content.innerHTML="";
   var khung = document.createElement("div")
   khung.id = "admin-QLSP";

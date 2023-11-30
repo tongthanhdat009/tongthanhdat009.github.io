@@ -1,60 +1,53 @@
 // localStorage.removeItem("orderList");
+
 let userList = localStorage.getItem("userList")
   ? JSON.parse(localStorage.getItem("userList"))
   : [];
+
 let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
   : [];
-let productList = localStorage.getItem("productList")
-  ? JSON.parse(localStorage.getItem("productList"))
-  : [];
-console.log(productList);
+
+orderList.push({
+  maDon: "none",
+  khachHang: "none",
+  sanPham: "none",
+  tongTien: "none",
+  ngayLap: "11/23/2023",
+  trangThai: "none",
+});
+orderList.push({
+  maDon: "none",
+  khachHang: "none",
+  sanPham: "none",
+  tongTien: "none",
+  ngayLap: "11/25/2023",
+  trangThai: "none",
+});
 let content = document.getElementById("mngContent");
-// let display_product = document.getElementsByClassName("display-product")[0];
-// let tkSanPham = document.getElementById("tkSanPham");
-// tkSanPham.addEventListener("click", () => {
-//   content.style.display = "none";
-//   // display_product.style.display = "block";
+// content.innerHTML = "";
+
+// let tkDonHang = document.getElementById("tkDonHang");
+// tkDonHang.addEventListener("click", () => {
+//   displayOrderManagement(orderList);
 // });
 
-let tkDonHang = document.getElementById("tkDonHang");
-tkDonHang.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  displayOrderManagement(orderList);
-});
-
-let qlTaiKhoan = document.getElementById("userManagement");
-qlTaiKhoan.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
+window.onload = () => {
   displayUserManagement(userList);
-});
+};
 
-let QLSP = document.getElementById("QLSP");
-QLSP.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  phantrangQLSP(1);
-});
-
-function closeOrderManagement()
-{
-  content.style.display = "none";
-  location.reload();
-}
 function displayOrderManagement(orderList) {
   content.innerHTML =
     '<ul id="dsDonHang" class="dsDonHang">' +
     '<li class="donHang">' +
     '<div class="STT">STT</div>' +
-    '<div class="MaDon">Mã Đơn</div>' +
-    '<div class="Khach">Khách</div>' +
-    '<div class="SanPham">Sản phẩm</div>' +
-    '<div class="TongTien">Tổng tiền</div>' +
-    '<div class="Ngaygio">Ngày giờ</div>' +
-    '<div class="Trangthai">Trạng thái</div>' +
-    '<div class="HanhDong">Hành động</div>' +
+    '<div class="MaDon">Ma Don</div>' +
+    '<div class="Khach">Khach</div>' +
+    '<div class="SanPham">San Pham</div>' +
+    '<div class="TongTien">Tong tien</div>' +
+    '<div class="Ngaygio">Ngay gio</div>' +
+    '<div class="Trangthai">Trang Thai</div>' +
+    '<div class="HanhDong">Hanh Dong</div>' +
     "</li>" +
     "</ul>" +
     '<div class="searchBar">' +
@@ -420,106 +413,4 @@ function addCloseBehavior(content, form) {
       content.removeChild(form);
     }, 390);
   });
-}
-var productPerPage = 10;
-var currentPage = 1;
-var productList2 = productList;
-function phantrangQLSP(Page)
-{
-  currentPage = Page;
-  var start = (currentPage-1) *  productPerPage;
-  var end = start + productPerPage;
-  var after = [];
-  for(var i=start;i<end;i++)
-  after.push(productList2[i]);
-  displayQLSP(after);
-}
-function previousPage()
-{
-  if(currentPage == 0) return;
-  currentPage--;
-  phantrangQLSP(currentPage);
-}
-function nextPage()
-{ 
-  var max = Math.ceil(productList2.length/productPerPage);
-  if(currentPage == max) return;
-  currentPage++;
-  phantrangQLSP(currentPage);
-}
-function searchQLSP()
-{
-  var input1 = document.getElementById("input-searchByName-QLSP").value.toLowerCase();
-  var input2 = document.getElementById("search-type-QPSP").value;
-  productList2 = [];
-  if(input2==0)
-  {
-    for(var i=0;i<productList.length;i++)
-    if(productList[i].name.toLowerCase().indexOf(input1) > -1) productList2.push(productList[i]);
-  }
-  else
-  {
-    for(var i=0;i<productList.length;i++)
-    if(productList[i].name.toLowerCase().indexOf(input1) > -1&&productList[i].type == input2) productList2.push(productList[i]);
-  }
-  phantrangQLSP(1);
-}
-function displayQLSP(List)
-{
-  content.innerHTML="";
-  var khung = document.createElement("div")
-  khung.id = "admin-QLSP";
-  khung.innerHTML =
-  `<table border="1px" bordercolor="red" id="table-QLSP">
-  <tr style="background-color: #7b517b;">
-    <td>ID</td>
-    <td>Ảnh</td>
-    <td>Tên</td>
-    <td>Loại</td>
-    <td>Giá</td>
-    <td>Chỉnh sửa</td>
-    <td>Xóa</td>
-  </tr>
-  </table>`
-  var table = khung.querySelector("table");
-  for(var i=0;i<List.length;i++)
-  {
-    let element = document.createElement("tr")
-    element.innerHTML=
-      '<td>'+List[i].id+'</td>'+
-      '<td><img class="config" src="'+List[i].img+'" alt=""></td>'+
-      '<td>'+List[i].name+'</td>'+
-      '<td>'+List[i].type+'</td>'+
-      '<td>'+List[i].price+'đ</td>'+
-      '<td align="center"><img class="config" src="../asset/icon/edit.png" alt=""></td>'+
-      '<td align="center"><img class="config" src="../asset/icon/delete.png" alt=""></td>'
-    table.appendChild(element);
-  }
-  let element = document.createElement("div");
-  element.id = "searchBar2";
-  element.innerHTML =
-        `<div id="searchQLSP">
-          <p>Loại:</p>
-          <select id="search-type-QPSP">
-          <option value="0">Tất cả</option>
-          <option value="1">Mô hình lẻ</option>
-          <option value="2">Mô hình chibi</option>
-          <option value="3">Bộ mô hình</option>
-          <option value="4">Cosplay</option>
-          <input id="input-searchByName-QLSP" type="text" placeholder="Tìm kiếm theo tên">
-          <button onclick="searchQLSP()">Submit</button>
-          </select>
-        </div>
-        <div id="addProductQLSP">
-          <a href=""><p>+ Thêm sản phẩm</p></a>
-        </div>`
-  let PT = document.createElement("div");
-  PT.id = "phanTrang";
-  PT.innerHTML =
-        '<button onclick="previousPage()">Previous</button>'+
-        '<p>'+currentPage+'</p>'+
-        '<button onclick="nextPage()">Next</button>'
-  content.appendChild(element);
-  content.appendChild(PT);
-  content.appendChild(khung);
 }

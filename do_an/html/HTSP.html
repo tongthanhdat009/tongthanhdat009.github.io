@@ -93,6 +93,7 @@
         <p class="darkMode" id="current"></p>
         <button onclick="nextPage()">Next</button>
     </div>
+    <div class="itemdetail"></div>
     <div class="infor_container">
         <div id="footer_logo">
             <img src="../asset/logo.png" alt="logo_footer">
@@ -176,11 +177,12 @@
         {   
             var b = document.createElement("div");
             b.className = "inner-product";
+            b.setAttribute('onclick', 'showDetail2(this)');
             b.innerHTML =  
             '<div class="product-img"><img src="'+d[i].img+'" alt=""></div>'+
             '<div class="product-content">'+
                 '<p class="name-product">'+d[i].name+'</p>'+
-                '<p class="price-product">'+d[i].price+'đ</p>'+
+                '<p class="price-product">Giá: '+d[i].price+'đ</p>'+
             '</div>'
             a.appendChild(b);
         }

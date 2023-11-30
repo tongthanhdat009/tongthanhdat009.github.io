@@ -88,10 +88,11 @@ function showDetail(item) {
   }
 }
 function showDetail2(item) {
+  console.log(item);
   document.documentElement.style.overflow = "hidden";
-  var img = item.querySelector(".product-image img").src;
-  var name = item.querySelector(".product-content .name-figure h3").textContent;
-  var price = item.querySelector(".product-content .price").textContent;
+  var img = item.querySelector(".product-img img").src;
+  var name = item.querySelector(".product-content .name-product").textContent;
+  var price = item.querySelector(".product-content .price-product").textContent;
   price = price.replace("Giá:", "");
   for (var i = 0; i < productList.length; i++) {
     if (name === productList[i].name) {

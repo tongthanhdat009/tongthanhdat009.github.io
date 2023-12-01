@@ -8,7 +8,6 @@ let orderList = localStorage.getItem("orderList")
 let productList = localStorage.getItem("productList")
   ? JSON.parse(localStorage.getItem("productList"))
   : [];
-console.log(productList);
 let content = document.getElementById("mngContent");
 // let display_product = document.getElementsByClassName("display-product")[0];
 // let tkSanPham = document.getElementById("tkSanPham");
@@ -465,9 +464,159 @@ function searchQLSP()
   }
   phantrangQLSP(1);
 }
+function deleteQLSP(id)
+{
+  var DLconfirm = confirm("Bạn chắc không");
+  var after = [];
+  if(DLconfirm == 1) 
+  {
+    for(var i=0;i<productList.length;i++)
+    if(productList[i].id !== id) after.push(productList[i]);
+    productList = after;
+    after = [];
+    for(var i=0;i<productList2.length;i++)
+    if(productList2[i].id !== id) after.push(productList2[i]);
+    productList2 = after;
+    phantrangQLSP(currentPage);
+  }
+}
+function closeEditQLSP()
+{
+  var close = document.getElementById("formEditQLSP");
+  close.style.display = "none";
+}
+function editQLSP(id)
+{
+  var name = document.getElementById("nameQLSP").value;
+  var type = document.getElementById("typeQLSP").value;
+  var price = document.getElementById("priceQLSP").value;
+  var img = document.getElementById("imgQLSP").value;
+  var img2 = document.getElementById("img2QLSP").value;
+  var img3 = document.getElementById("img3QLSP").value;
+  var img4 = document.getElementById("img4QLSP").value;
+  var checkType = /^[1-4]{1}$/;
+  if(type !== "") if(!checkType.test(type))
+  {
+    window.alert("Loại phải là 1-4");
+    return;
+  } 
+  if(price !== "") if(price<=0)
+  {
+    window.alert("Sai giá");
+    return;
+  } 
+  for(var i = 0;i<productList.length;i++)
+  {
+    if(productList[i].id == id)
+    {
+      if(name!=="") productList[i].name = name;
+      if(type!=="") productList[i].type = type;
+      if(price!=="") productList[i].price = price;
+      if(img!=="") productList[i].img = img;
+      if(img2!=="") productList[i].img2 = img2;
+      if(img3!=="") productList[i].img3 = img3;
+      if(img4!=="") productList[i].img4 = img4;
+    }
+  }
+  console.log(img);
+  closeEditQLSP()
+  phantrangQLSP(currentPage);
+}
+function openEditQLSP(id)
+{
+  var pa = document.getElementsByClassName("addEditQLSP")[0];
+  pa.innerHTML = "";
+  var form = document.createElement("div")
+  form.id = "formEditQLSP";
+  form.innerHTML =
+  '<h3 style="text-align: center;">Sửa sản phẩm</h3>'+
+  '<label for="">Tên sản phẩm</label><br>'+
+  '<input id="nameQLSP" type="text"><br>'+
+  '<label for="">Loại</label><br>'+
+  '<input id="typeQLSP" type="number"><br>'+
+  '<label for="">Giá</label><br>'+
+  '<input id="priceQLSP" type="number"><br>'+
+  '<label for="">Ảnh</label><br>'+
+  '<input id="imgQLSP" type="file"><br>'+
+  '<input id="img2QLSP" type="file"><br>'+
+  '<input id="img3QLSP" type="file"><br>'+
+  '<input id="img4QLSP" type="file"><br>'+
+  '<button onclick="editQLSP('+id+')" style="float: right;">Submit</button>'+
+  '<button onclick="closeEditQLSP()" style="float: right;">Cancel</button>'
+  pa.appendChild(form);
+}
+function closeAddQLSP()
+{
+  var close = document.getElementById("formAddQLSP");
+  close.style.display = "none";
+}
+function addQLSP()
+{
+  var product ={};
+  product.id = productList.length;
+  var name = document.getElementById("nameQLSP").value;
+  var type = document.getElementById("typeQLSP").value;
+  var price = document.getElementById("priceQLSP").value;
+  var img = document.getElementById("imgQLSP").value;
+  var img2 = document.getElementById("img2QLSP").value;
+  var img3 = document.getElementById("img3QLSP").value;
+  var img4 = document.getElementById("img4QLSP").value;
+  var checkType = /^[1-4]{1}$/;
+  if(!checkType.test(type))
+  {
+    window.alert("Loại phải là 1-4");
+    return;
+  }
+  if(price !== "") if(price<=0)
+  {
+    window.alert("Sai giá");
+    return;
+  } 
+  if(name!==""&&type!==""&&price!==""&&img!==""&&img2!==""&&img3!==""&&img4!=="")
+  { 
+    product.name = name;
+    product.type = type;
+    product.price = price;
+    product.img = img;
+    product.img2 = img2;
+    product.img3 = img3;
+    product.img4 = img4;
+    productList.push(product);
+    productList2=productList;
+    phantrangQLSP(1);
+    closeAddQLSP()
+  }
+  else
+  {
+    window.alert("Thiếu thông tin");
+    return;
+  }
+}
+function openAddQLSP()
+{
+  var pa = document.getElementsByClassName("addEditQLSP")[0];
+  pa.innerHTML = "";
+  var form = document.createElement("div")
+  form.id = "formAddQLSP";
+  form.innerHTML =
+  '<h3 style="text-align: center;">Thêm sản phẩm</h3>'+
+  '<label for="">Tên sản phẩm</label><br>'+
+  '<input id="nameQLSP" type="text"><br>'+
+  '<label for="">Loại</label><br>'+
+  '<input id="typeQLSP" type="number"><br>'+
+  '<label for="">Giá</label><br>'+
+  '<input id="priceQLSP" type="number"><br>'+
+  '<label for="">Ảnh</label><br>'+
+  '<input id="imgQLSP" type="file"><br>'+
+  '<input id="img2QLSP" type="file"><br>'+
+  '<input id="img3QLSP" type="file"><br>'+
+  '<input id="img4QLSP" type="file"><br>'+
+  '<button onclick="addQLSP()" style="float: right;">Submit</button>'+
+  '<button onclick="closeAddQLSP()" style="float: right;">Cancel</button>'
+  pa.appendChild(form);
+}
 function displayQLSP(List)
 {
-  console.log(List);
   content.innerHTML="";
   var khung = document.createElement("div")
   khung.id = "admin-QLSP";
@@ -493,8 +642,8 @@ function displayQLSP(List)
       '<td>'+List[i].name+'</td>'+
       '<td>'+List[i].type+'</td>'+
       '<td>'+List[i].price+'đ</td>'+
-      '<td align="center"><img class="config" src="../asset/icon/edit.png" alt=""></td>'+
-      '<td align="center"><img class="config" src="../asset/icon/delete.png" alt=""></td>'
+      '<td align="center"><img onclick="openEditQLSP('+List[i].id+')" class="config" src="../asset/icon/edit.png" alt=""></td>'+
+      '<td align="center"><img onclick="deleteQLSP('+List[i].id+')" class="config" src="../asset/icon/delete.png" alt=""></td>'
     table.appendChild(element);
   }
   let element = document.createElement("div");
@@ -513,7 +662,7 @@ function displayQLSP(List)
           </select>
         </div>
         <div id="addProductQLSP">
-          <a href=""><p>+ Thêm sản phẩm</p></a>
+          <a href="#"><p onclick="openAddQLSP()">+ Thêm sản phẩm</p></a>
         </div>`
   let PT = document.createElement("div");
   PT.id = "phanTrang";
@@ -521,6 +670,9 @@ function displayQLSP(List)
         '<button onclick="previousPage()">Previous</button>'+
         '<p>'+currentPage+'</p>'+
         '<button onclick="nextPage()">Next</button>'
+  let form = document.createElement("div");
+  form.className="addEditQLSP";
+  content.appendChild(form);
   content.appendChild(element);
   content.appendChild(PT);
   content.appendChild(khung);

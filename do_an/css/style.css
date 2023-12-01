@@ -449,6 +449,17 @@ input:checked+.slider::before {
     width: 100px;
     height: 100%;
 }
+.addEditQLSP
+{   
+    border: none    ;
+    width: 180px;
+    justify-content: center;
+    position: absolute;
+    top:calc(50% - 130px);
+    left:calc(50% - 90px);
+    border-radius: 2%;
+    background-color: pink;
+}
 @keyframes show-up {
     0% {
         opacity: 0;

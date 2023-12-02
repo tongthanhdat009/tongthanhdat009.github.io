@@ -92,13 +92,18 @@ function displayOrderManagement(orderList) {
       if (i === 0) list = conditionSearch("Date");
       if (i === 1) list = conditionSearch("Value");
       if (list.length == 0)
-        displayOrderManagement(JSON.parse(localStorage.getItem("orderList")));
-      else displayOrderManagement(list);
+        loadOrderList(orderElm, JSON.parse(localStorage.getItem("orderList")));
+      else loadOrderList(orderElm, list);
     });
   }
 }
 
 function loadOrderList(orderElm, orderList) {
+  let orderChild = orderElm.children;
+  for (let i = 1; i < orderChild.length; ++i) {
+    orderChild[i].parentNode.removeChild(orderChild[i]);
+  }
+  console.log(orderChild);
   for (let i = 0; i < orderList.length; ++i) {
     let li = document.createElement("li");
     li.setAttribute("class", "donHang");
@@ -207,13 +212,16 @@ function conditionSearch(condition) {
     userList.forEach((user) => {
       switch (userSearchType) {
         case "1":
-          if (user.accountName == inputVal) searchOrderList.push(user);
+          if (user.accountName.localeCompare(inputVal) == 0)
+            searchOrderList.push(user);
           break;
         case "2":
-          if (user.userName == inputVal) searchOrderList.push(user);
+          if (user.userName.localeCompare(inputVal) == 0)
+            searchOrderList.push(user);
           break;
         case "3":
-          if (user.email == inputVal) searchOrderList.push(user);
+          if (user.email.localStorage(inputVal) == 0)
+            searchOrderList.push(user);
           break;
         default:
           break;
@@ -257,12 +265,13 @@ function displayUserManagement(userList) {
 
   searchBar.addEventListener("keypress", (e) => {
     if (e.key != "Enter") return;
-    let list = conditionSearch("User");
+    let list = [];
+    list = conditionSearch("User");
     if (list.length == 0) {
-      displayUserManagement(JSON.parse(localStorage.getItem("userList")));
+      loadUserList(userElm, JSON.parse(localStorage.getItem("userList")));
       return;
     }
-    displayUserManagement(list);
+    loadUserList(userElm, list);
   });
 
   addUserBtn.addEventListener("click", () => {
@@ -298,6 +307,10 @@ function displayUserManagement(userList) {
 }
 
 function loadUserList(userElm, userList) {
+  let userChild = userElm.children;
+  Array.from(userChild).forEach((child, index) => {
+    if (index != 0) child.parentNode.removeChild(child);
+  });
   userList.forEach((user, index) => {
     let li = document.createElement("li");
     li.setAttribute("class", "user");
@@ -328,9 +341,10 @@ function loadUserList(userElm, userList) {
       if (ans == 1) {
         userList.splice(index, 1);
         displayUserManagement(userList);
-        // localStorage.setItem("userList", userList);
+        localStorage.setItem("userList", userList);
       }
     });
+    console.log(li);
   });
 }
 

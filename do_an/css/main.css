@@ -942,6 +942,9 @@ img {
 .right-content .amount * {
   padding: 0.5em;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .amount .increase,

@@ -583,7 +583,7 @@ img {
   animation: change-color 2s infinite;
 }
 
-#serv1-tb{
+#serv1-tb {
   width: 80%;
   height: 850px;
   position: fixed;
@@ -595,7 +595,7 @@ img {
   left: 10%;
 }
 
-#close-serv1{
+#close-serv1 {
   width: 50px;
   height: 50px;
   float: right;
@@ -603,53 +603,55 @@ img {
   cursor: pointer;
 }
 
-#close-serv1:hover{
+#close-serv1:hover {
   background-color: red;
 }
 
-#serv1-tb #serv1-title{
+#serv1-tb #serv1-title {
   text-align: center;
-  font-size:30px;
-  margin-top:20px
+  font-size: 30px;
+  margin-top: 20px
 }
 
-#serv1-banner{
+#serv1-banner {
   height: 600px;
   width: 100%;
 }
 
-#serv1-banner img{
+#serv1-banner img {
   height: 600px;
   width: 100%;
   border-radius: 25px;
 }
 
-#serv1-content{
+#serv1-content {
   display: block;
 }
 
 #serv1-left,
-#serv1-right{
+#serv1-right {
   min-width: 50%;
   text-align: center;
   font-size: 25px;
 }
 
 #serv1-left img,
-#serv1-right img{
+#serv1-right img {
   width: 80%;
   height: 600px;
   padding: 10px;
   border-radius: 25px;
 }
-#serv1-right{
+
+#serv1-right {
   float: right;
 }
 
-.serv1-para{
+.serv1-para {
   text-align: justify;
-  margin:20px
+  margin: 20px
 }
+
 @keyframes change-color {
   0% {
     color: aqua;
@@ -673,12 +675,23 @@ img {
 }
 
 @keyframes serv1-in {
-  from{top:-200%}
-  to{top:50px}
+  from {
+    top: -200%
+  }
+
+  to {
+    top: 50px
+  }
 }
+
 @keyframes serv1-out {
-  from{top:50px}
-  to{top:-200%}
+  from {
+    top: 50px
+  }
+
+  to {
+    top: -200%
+  }
 }
 
 /* ---- */
@@ -1159,7 +1172,6 @@ img {
   /* chỉnh phần thông tin tài khoản */
   #user-infor-container {
     width: 100%;
-    left: 0;
     height: 50px;
   }
 
@@ -1183,35 +1195,37 @@ img {
   }
 
   /* chỉnh khung giới thiệu về shop */
-  #serv1-tb{
+  #serv1-tb {
     width: 100%;
-    left:0;
+    left: 0;
     max-height: 550px;
   }
+
   #serv1-left,
-  #serv1-right{
+  #serv1-right {
     width: 100%;
   }
-  #serv1-banner{
+
+  #serv1-banner {
     width: 100%;
     height: 200px;
   }
 
-  #serv1-banner img{
+  #serv1-banner img {
     width: 100%;
     height: 200px;
   }
 
-  #serv1-tb #serv1-title{
+  #serv1-tb #serv1-title {
     font-size: 23px;
     font-weight: bold;
   }
 
   #serv1-left img,
-  #serv1-right img{
+  #serv1-right img {
     width: 100%;
     height: 200px;
-    padding:0;
+    padding: 0;
   }
 }
 

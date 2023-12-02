@@ -251,12 +251,18 @@ img {
 #user-infor-container {
   display: flex;
   background-color: palegoldenrod;
-  width: 1200px;
+  width: 80%; /* Sử dụng đơn vị linh hoạt thay vì cứng 1200px */
   min-height: 500px;
   position: fixed;
-  left: calc(50% - 600px);
+  left: 50%;
   top: -100%;
+  transform: translateX(-50%); /* Sử dụng transform thay vì left và calc */
   z-index: 5;
+  transition: top 0.5s ease; /* Thêm hiệu ứng transition cho chuyển động top */
+}
+
+#user-infor-container.active {
+  top: 20%; /* Thêm class active để kích hoạt keyframes */
 }
 
 #user-infor-close {
@@ -264,7 +270,12 @@ img {
   height: 50px;
   float: right;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Đặt màu nền trong hover để tránh giãn ra */
+  transition: background-color 0.3s ease; /* Thêm hiệu ứng transition */
 }
 
 #user-infor-close:hover {
@@ -273,7 +284,9 @@ img {
 
 #user-infor-left {
   width: 30%;
-  border-right: 2px solid;
+  border-right: 2px solid black;
+  box-sizing: border-box; /* Đảm bảo padding và border tính vào kích thước tổng cộng */
+  padding: 20px;
 }
 
 #check-bill,
@@ -282,35 +295,29 @@ img {
   font-size: 24px;
   border: 2px solid black;
   text-align: center;
+  margin: 10px 0;
+  padding: 8px; /* Thêm padding để làm cho nút trở nên thoải mái hơn */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Thêm hiệu ứng transition */
 }
 
-#img-left-content {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  left: calc(50% - 125px);
-  display: none;
+#check-bill:hover,
+#edit-user-infor:hover,
+#check-infor:hover {
+  background-color: red; /* Nền màu đỏ trong hover */
+  animation: infi 2s infinite;
 }
 
-#user-infor-right {
-  width: 70%;
+#check-bill:hover {
+  background-color: aqua;
 }
 
-.check-infor-title,
-.check-bill-title {
-  text-align: center;
-  font-size: 30px;
-  display: none;
+#edit-user-infor:hover {
+  background-color: green;
 }
 
-#alt-page-title {
-  text-align: center;
-  font-size: 30px;
-}
-
-#alt-page-img img {
-  position: relative;
-  left: calc(50% - 250px);
+#check-infor:hover {
+  background-color: aquamarine;
 }
 
 @keyframes user-infor-in {
@@ -333,8 +340,17 @@ img {
   }
 }
 
+.check-infor-title,
+.check-bill-title,
+#alt-page-title,
 .user-infor-title {
   text-align: center;
+  font-size: 30px;
+}
+
+#alt-page-img img {
+  display: block;
+  margin: 0 auto; /* Căn giữa hình ảnh */
 }
 
 #user-content p {
@@ -343,41 +359,11 @@ img {
   margin-left: 20px;
 }
 
-#check-bill:hover,
-#edit-user-infor:hover,
-#check-infor:hover {
-  animation: infi 2s infinite;
-  cursor: pointer;
-}
-
-@keyframes infi {
-  0% {
-    background-color: red;
-  }
-
-  25% {
-    background-color: aqua;
-  }
-
-  50% {
-    background-color: green;
-  }
-
-  75% {
-    background-color: aquamarine;
-  }
-
-  100% {
-    background-color: tomato;
-  }
-}
-
 #user-content table {
   width: 100%;
   font-size: 25px;
+  border-collapse: collapse; /* Gộp đường viền */
 }
-
-/* ---- */
 
 /* menu */
 .sidenav {
@@ -389,7 +375,7 @@ img {
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  transition: 0.15s;
+  transition: width 0.15s ease; /* Thêm hiệu ứng transition */
   padding-top: 60px;
 }
 
@@ -399,7 +385,7 @@ img {
   font-size: 25px;
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition: color 0.3s ease; /* Thêm hiệu ứng transition */
 }
 
 .sidenav a:hover {
@@ -412,7 +398,14 @@ img {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Thêm hiệu ứng transition */
 }
+
+.sidenav .closebtn:hover {
+  color: #db2626;
+}
+
 
 /* ---- */
 

@@ -265,6 +265,23 @@ img {
   top: 20%;
 }
 
+#user-infor-close {
+  width: 50px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+#user-infor-close:hover {
+  background-color: #db2626;
+}
+
 #user-infor-left {
   width: 30%;
   border-right: 2px solid black;
@@ -272,14 +289,7 @@ img {
   padding: 20px;
 }
 
-#user-infor-right {
-  width: 70%; /* Tăng kích thước phần bên phải */
-  box-sizing: border-box;
-  padding: 20px; /* Thêm padding để giữ nội dung thoải mái hơn */
-}
-
 #check-bill,
-#edit-user-infor,
 #check-infor {
   font-size: 24px;
   border: 2px solid black;
@@ -291,16 +301,117 @@ img {
 }
 
 #check-bill:hover,
-#edit-user-infor:hover,
 #check-infor:hover {
-  background-color: red;
   animation: infi 2s infinite;
 }
 
-/* ... (các phần CSS khác giữ nguyên) */
+#check-bill:hover {
+  background-color: aqua;
+}
 
+#check-infor:hover {
+  background-color: aquamarine;
+}
 
-/* ---- */
+#edit-user-infor {
+  font-size: 24px;
+  border: 2px solid black;
+  text-align: center;
+  margin: 10px 0;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#edit-user-infor:hover {
+  background-color: green;
+}
+
+@keyframes user-infor-in {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 20%;
+  }
+}
+
+@keyframes user-infor-out {
+  from {
+    top: 20%;
+  }
+
+  to {
+    top: -100%;
+  }
+}
+
+.check-infor-title,
+.check-bill-title,
+#alt-page-title,
+.user-infor-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+#alt-page-img img {
+  display: block;
+  margin: 0 auto;
+}
+
+#user-content p {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#user-content table {
+  width: 100%;
+  font-size: 25px;
+  border-collapse: collapse;
+}
+
+/* menu */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: width 0.15s ease;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.sidenav .closebtn:hover {
+  color: #db2626;
+}
 
 /* thanh tìm kiếm */
 #search {

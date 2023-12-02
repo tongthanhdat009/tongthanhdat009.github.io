@@ -42,7 +42,7 @@ let TKSP = document.getElementById("TKSP");
 TKSP.addEventListener("click", () => {
   content.style.display = "block";
   // display_product.style.display = "none";
-  displayTKSP(productList)
+  displayTKSP(productList);
 });
 
 function closeOrderManagement() {
@@ -430,14 +430,14 @@ function addCloseBehavior(content, form) {
 var productPerPage = 10;
 var currentPage = 1;
 var productList2 = productList;
-function phantrangQLSP(Page) {
+function phantrangQLSP(Page, prevSearchType, prevSearchVal) {
   currentPage = Page;
   var start = (currentPage - 1) * productPerPage;
   var end = start + productPerPage;
   if (end > productList2.length) end = productList2.length;
   var after = [];
   for (var i = start; i < end; i++) after.push(productList2[i]);
-  displayQLSP(after);
+  displayQLSP(after, prevSearchType, prevSearchVal);
 }
 function previousPage() {
   if (currentPage == 1) return;
@@ -468,7 +468,7 @@ function searchQLSP() {
       )
         productList2.push(productList[i]);
   }
-  phantrangQLSP(1);
+  phantrangQLSP(1, input2, input1);
 }
 function deleteQLSP(id) {
   var DLconfirm = confirm("Bạn chắc không");
@@ -732,7 +732,7 @@ function openAddQLSP() {
     '<button onclick="closeAddQLSP()" style="float: right;">Cancel</button>';
   pa.appendChild(form);
 }
-function displayQLSP(List) {
+function displayQLSP(List, searchType = "0", searchVal = "") {
   content.innerHTML = "";
   var khung = document.createElement("div");
   khung.id = "admin-QLSP";
@@ -805,9 +805,12 @@ function displayQLSP(List) {
   content.appendChild(element);
   content.appendChild(PT);
   content.appendChild(khung);
+  let searchTypeElm = document.getElementById("search-type-QPSP");
+  searchTypeElm.value = searchType;
+  let searchValueElm = document.getElementById("input-searchByName-QLSP");
+  searchValueElm.value = searchVal;
 }
-function searchTKSP()
-{
+function searchTKSP() {
   productList2 = productList;
   var after = [];
   var first = document.getElementById("firstDayTKSP").value;
@@ -821,63 +824,67 @@ function searchTKSP()
   first = new Date(first);
   last = new Date(last);
   var searchName = document.getElementById("nameTKSP").value.toLowerCase();
-  for(var i = 0 ;i<productList2.length;i++)
-  productList2[i].count = 0;
-  for(var i = 0;i<productList2.length;i++)
-  {
-    for(var j = 0;j<listTKSP.length;j++)
-    {
+  for (var i = 0; i < productList2.length; i++) productList2[i].count = 0;
+  for (var i = 0; i < productList2.length; i++) {
+    for (var j = 0; j < listTKSP.length; j++) {
       var d = new Date(listTKSP[j].date);
-      if(productList2[i].name === listTKSP[j].name && d >= first && d <= last)
-      productList2[i].count += listTKSP[j].amount;
+      if (productList2[i].name === listTKSP[j].name && d >= first && d <= last)
+        productList2[i].count += listTKSP[j].amount;
     }
   }
-  for(var i = 0;i<productList2.length;i++)
-  {
-    if(productList2[i].name.toLowerCase().indexOf(searchName) > -1)
-    after.push(productList2[i]);
+  for (var i = 0; i < productList2.length; i++) {
+    if (productList2[i].name.toLowerCase().indexOf(searchName) > -1)
+      after.push(productList2[i]);
   }
   displayTKSP(after);
 }
-function displayTKSP(list)
-{ 
+function displayTKSP(list) {
   content.innerHTML = "";
   var khung = document.createElement("div");
   khung.id = "admin-TKSP";
-  var table = document.createElement("table")
+  var table = document.createElement("table");
   table.id = "tableTKSP";
-  table.innerHTML = 
-  `<tr>
+  table.innerHTML = `<tr>
   <td>ID</td>
   <td>Tên</td>
   <td>Loại</td>
   <td>Giá</td>
   <td>Đã bán</td>
   <td>Doanh thu</td>
-  </tr>`
+  </tr>`;
   content.appendChild(khung);
   khung.appendChild(table);
-  for(var i = 0 ;i<list.length;i++)
-  {
+  for (var i = 0; i < list.length; i++) {
     hang = document.createElement("tr");
-    hang.innerHTML = 
-    '<td>'+list[i].id+'</td>'+
-    '<td>'+list[i].name+'</td>'+
-    '<td>'+list[i].type+'</td>'+
-    '<td>'+list[i].price+'đ</td>'+
-    '<td>'+list[i].count+'</td>'+
-    '<td>'+list[i].count*list[i].price+'</td>'
+    hang.innerHTML =
+      "<td>" +
+      list[i].id +
+      "</td>" +
+      "<td>" +
+      list[i].name +
+      "</td>" +
+      "<td>" +
+      list[i].type +
+      "</td>" +
+      "<td>" +
+      list[i].price +
+      "đ</td>" +
+      "<td>" +
+      list[i].count +
+      "</td>" +
+      "<td>" +
+      list[i].count * list[i].price +
+      "</td>";
     table.appendChild(hang);
   }
-  var search  = document.createElement("div");
+  var search = document.createElement("div");
   search.id = "searchBarTKSP";
-  search.innerHTML = 
-`  <p>Từ ngày</p>
+  search.innerHTML = `  <p>Từ ngày</p>
   <input id="firstDayTKSP" type="date">
   <p>Đến ngày</p>
   <input id="lastDayTKSP" type="date">
   <p>Tìm kiếm theo tên</p>
   <input id="nameTKSP" type="text">
-  <button onclick="searchTKSP()">Submit</button>`
+  <button onclick="searchTKSP()">Submit</button>`;
   content.appendChild(search);
 }

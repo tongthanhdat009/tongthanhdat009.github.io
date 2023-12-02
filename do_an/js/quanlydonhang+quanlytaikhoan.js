@@ -5,10 +5,12 @@ let userList = localStorage.getItem("userList")
 let orderList = localStorage.getItem("orderList")
   ? JSON.parse(localStorage.getItem("orderList"))
   : [];
-let productList = localStorage.getItem("productList")
+var productList = localStorage.getItem("productList")
   ? JSON.parse(localStorage.getItem("productList"))
   : [];
+var listTKSP = JSON.parse(localStorage.getItem("listTKSP"));
 let content = document.getElementById("mngContent");
+console.log(listTKSP);
 // let display_product = document.getElementsByClassName("display-product")[0];
 // let tkSanPham = document.getElementById("tkSanPham");
 // tkSanPham.addEventListener("click", () => {
@@ -35,6 +37,12 @@ QLSP.addEventListener("click", () => {
   content.style.display = "block";
   // display_product.style.display = "none";
   phantrangQLSP(1);
+});
+let TKSP = document.getElementById("TKSP");
+TKSP.addEventListener("click", () => {
+  content.style.display = "block";
+  // display_product.style.display = "none";
+  displayTKSP(productList)
 });
 
 function closeOrderManagement() {
@@ -797,4 +805,79 @@ function displayQLSP(List) {
   content.appendChild(element);
   content.appendChild(PT);
   content.appendChild(khung);
+}
+function searchTKSP()
+{
+  productList2 = productList;
+  var after = [];
+  var first = document.getElementById("firstDayTKSP").value;
+  var last = document.getElementById("lastDayTKSP").value;
+  if (first === "") {
+    first = new Date(0);
+  }
+  if (last === "") {
+    last = new Date("9999-12-31");
+  }
+  first = new Date(first);
+  last = new Date(last);
+  var searchName = document.getElementById("nameTKSP").value.toLowerCase();
+  for(var i = 0 ;i<productList2.length;i++)
+  productList2[i].count = 0;
+  for(var i = 0;i<productList2.length;i++)
+  {
+    for(var j = 0;j<listTKSP.length;j++)
+    {
+      var d = new Date(listTKSP[j].date);
+      if(productList2[i].name === listTKSP[j].name && d >= first && d <= last)
+      productList2[i].count += listTKSP[j].amount;
+    }
+  }
+  for(var i = 0;i<productList2.length;i++)
+  {
+    if(productList2[i].name.toLowerCase().indexOf(searchName) > -1)
+    after.push(productList2[i]);
+  }
+  displayTKSP(after);
+}
+function displayTKSP(list)
+{ 
+  content.innerHTML = "";
+  var khung = document.createElement("div");
+  khung.id = "admin-TKSP";
+  var table = document.createElement("table")
+  table.id = "tableTKSP";
+  table.innerHTML = 
+  `<tr>
+  <td>ID</td>
+  <td>Tên</td>
+  <td>Loại</td>
+  <td>Giá</td>
+  <td>Đã bán</td>
+  <td>Doanh thu</td>
+  </tr>`
+  content.appendChild(khung);
+  khung.appendChild(table);
+  for(var i = 0 ;i<list.length;i++)
+  {
+    hang = document.createElement("tr");
+    hang.innerHTML = 
+    '<td>'+list[i].id+'</td>'+
+    '<td>'+list[i].name+'</td>'+
+    '<td>'+list[i].type+'</td>'+
+    '<td>'+list[i].price+'đ</td>'+
+    '<td>'+list[i].count+'</td>'+
+    '<td>'+list[i].count*list[i].price+'</td>'
+    table.appendChild(hang);
+  }
+  var search  = document.createElement("div");
+  search.id = "searchBarTKSP";
+  search.innerHTML = 
+`  <p>Từ ngày</p>
+  <input id="firstDayTKSP" type="date">
+  <p>Đến ngày</p>
+  <input id="lastDayTKSP" type="date">
+  <p>Tìm kiếm theo tên</p>
+  <input id="nameTKSP" type="text">
+  <button onclick="searchTKSP()">Submit</button>`
+  content.appendChild(search);
 }

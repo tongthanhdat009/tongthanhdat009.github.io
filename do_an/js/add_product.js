@@ -20,6 +20,7 @@ function runSaveProductList() {
     localStorage.setItem("displayHasRun", true);
   }
 }
+
 // hiển thị sản phẩm
 function productDisplay2() {
   var maxIndex = 3; //số lượng sản phẩm hiển thị trong 1 hàng của bảng
@@ -594,4 +595,4 @@ addProduct(
   51
 );
 runSaveProductList(); //lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
-// getProductList(); //lấy mảng giá trị từ storage
+getProductList(); //lấy mảng giá trị từ storage

@@ -108,8 +108,21 @@ function cartDisplay() {
   }
 }
 
+var listTKSP = JSON.parse(localStorage.getItem("listTKSP"));
+if(!listTKSP) listTKSP = [];
 //thanh toán
 function payAll() {
+  for(var i = 0;i < productAdded.length;i++)
+  {
+    var a = {};
+    var currentDate = new Date();
+    a.name = productAdded[i].name;
+    a.amount = productAdded[i].amount;
+    a.date = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
+    listTKSP.push(a);
+  }
+  console.log(listTKSP);
+  localStorage.setItem("listTKSP",JSON.stringify(listTKSP));
   var currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!productAdded.length) {
     alert("Bạn chưa mua gì cả :(");
@@ -142,7 +155,6 @@ function payAll() {
   productAdded.length = 0;
   deleteAll();
   orderList.push(order);
-  console.log(orderList);
   localStorage.setItem("orderList", JSON.stringify(orderList));
 }
 

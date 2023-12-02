@@ -384,82 +384,89 @@ input:checked+.slider::before {
     margin-bottom: 20px;
 }
 
-.img-product
-{
+.img-product {
     height: 75px;
 }
-.config
-{
+
+.config {
     height: 55px;
 }
-#searchQLSP
-{
+
+#searchQLSP {
     align-items: center;
     display: flex;
     margin-left: 20px;
 }
-#searchBar2
-{
+
+#searchBar2 {
     display: flex;
     height: 7%;
     margin-top: auto;
     flex-wrap: wrap;
 }
-#searchBar2 input
-{
+
+#searchBar2 input {
     height: 100%;
     margin-left: 2px;
 }
-#searchBar2 select
-{
+
+#searchBar2 select {
     height: 100%;
 }
-#searchBar2 button
-{
+
+#searchBar2 button {
     height: 100%;
     margin-left: 1px;
 }
-#searchBar2 div
-{
+
+#searchBar2 div {
     border: none;
 }
-#admin-QLSP
-{
+
+#admin-QLSP {
     height: 90%;
+    overflow: scroll;
+    position: relative;
 }
-#table-QLSP
-{
+
+#table-QLSP {
     width: 100%;
 }
-#addProductQLSP
-{
+
+#table-QLSP tr:first-child {
+    position: sticky;
+    inset: 0;
+}
+
+#addProductQLSP {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
-#phanTrang
-{
+
+#phanTrang {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 3%;
 }
-#phanTrang button
-{
+
+#phanTrang button {
     width: 100px;
     height: 100%;
 }
-.addEditQLSP
-{   
-    border: none    ;
+
+.addEditQLSP {
+    border: none;
     width: 180px;
     justify-content: center;
     position: absolute;
-    top:calc(50% - 130px);
-    left:calc(50% - 90px);
+    top: calc(50% - 130px);
+    left: calc(50% - 90px);
     border-radius: 2%;
     background-color: pink;
 }
+
 @keyframes show-up {
     0% {
         opacity: 0;

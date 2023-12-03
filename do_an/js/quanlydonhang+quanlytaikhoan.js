@@ -645,6 +645,7 @@ function closeAddQLSP() {
 function init(product) {
   productList.push(product);
   productList2 = productList;
+  localStorage.setItem("productList", JSON.stringify(productList));
   phantrangQLSP(1);
   closeAddQLSP();
 }
@@ -665,7 +666,7 @@ function addQLSP() {
   var img3 = document.getElementById("img3QLSP");
   var img4 = document.getElementById("img4QLSP");
   var checkType = /^[1-4]{1}$/;
-  console.log(img2+" "+img3+" "+img4);
+  console.log(img2 + " " + img3 + " " + img4);
   if (!checkType.test(type)) {
     window.alert("Loại phải là 1-4");
     return;

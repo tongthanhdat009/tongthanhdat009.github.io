@@ -654,11 +654,18 @@ function addQLSP() {
   var name = document.getElementById("nameQLSP").value;
   var type = document.getElementById("typeQLSP").value;
   var price = document.getElementById("priceQLSP").value;
+
+  var imgg = document.getElementById("imgQLSP").value;
+  var imgg2 = document.getElementById("img2QLSP").value;
+  var imgg3 = document.getElementById("img3QLSP").value;
+  var imgg4 = document.getElementById("img4QLSP").value;
+
   var img = document.getElementById("imgQLSP");
   var img2 = document.getElementById("img2QLSP");
   var img3 = document.getElementById("img3QLSP");
   var img4 = document.getElementById("img4QLSP");
   var checkType = /^[1-4]{1}$/;
+  console.log(img2+" "+img3+" "+img4);
   if (!checkType.test(type)) {
     window.alert("Loại phải là 1-4");
     return;
@@ -672,10 +679,10 @@ function addQLSP() {
     name !== "" &&
     type !== "" &&
     price !== "" &&
-    img !== "" &&
-    img2 !== "" &&
-    img3 !== "" &&
-    img4 !== ""
+    imgg !== "" &&
+    imgg2 !== "" &&
+    imgg3 !== "" &&
+    imgg4 !== ""
   ) {
     product.name = name;
     product.type = type;

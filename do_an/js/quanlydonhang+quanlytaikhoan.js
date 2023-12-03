@@ -652,10 +652,11 @@ function init(product) {
 function addQLSP() {
   var product = {};
   product.id = productList.length;
+  product.count = 0;
   var name = document.getElementById("nameQLSP").value;
   var type = document.getElementById("typeQLSP").value;
   var price = document.getElementById("priceQLSP").value;
-
+  
   var imgg = document.getElementById("imgQLSP").value;
   var imgg2 = document.getElementById("img2QLSP").value;
   var imgg3 = document.getElementById("img3QLSP").value;

@@ -289,7 +289,7 @@ img {
   padding: 20px;
 }
 
-#img-left-content{
+#img-left-content {
   display: none;
 }
 
@@ -848,7 +848,7 @@ img {
   color: white;
 }
 
-.wrapper-flex {
+.container1 .wrapper-flex {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1129,11 +1129,11 @@ img {
     transform: none;
   }
 
-  .wrapper-flex {
+  .container1 .wrapper-flex {
     display: block;
     max-width: 100%;
     /*magic number*/
-    max-height: calc(99dvh - 30px);
+    max-height: calc(100dvh - 30px);
     overflow: scroll;
   }
 

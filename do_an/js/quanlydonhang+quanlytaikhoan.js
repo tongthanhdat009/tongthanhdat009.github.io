@@ -19,6 +19,17 @@ console.log(listTKSP);
 //   // display_product.style.display = "block";
 // });
 
+window.onload = () => {
+  let hamburgerbtn = document.getElementById("hamburger-open");
+  hamburgerbtn.addEventListener("click", () => {
+    let leftMenu = document.getElementById("left-menu");
+    if (window.getComputedStyle(hamburgerbtn).display != "none") {
+      leftMenu.style.display =
+        window.getComputedStyle(leftMenu).display == "block" ? "none" : "block";
+    }
+  });
+};
+
 let tkDonHang = document.getElementById("tkDonHang");
 tkDonHang.addEventListener("click", () => {
   content.style.display = "block";
@@ -586,43 +597,43 @@ function editQLSP(id) {
     }
   }
 
-  if(imgg !== "")
-  if (img.files[0])
-    blobToBase64(img.files[0]).then((res) => {
-      resize(res, 500, 300).then((res2) => {
-        img = res2;
-        productList[k].img = res2;
+  if (imgg !== "")
+    if (img.files[0])
+      blobToBase64(img.files[0]).then((res) => {
+        resize(res, 500, 300).then((res2) => {
+          img = res2;
+          productList[k].img = res2;
+        });
       });
-    });
 
-  if(imgg2 !== "")
-  if (img2.files[0])
-    blobToBase64(img2.files[0]).then((res) => {
-      resize(res, 500, 300).then((res2) => {
-        img2 = res2;
-        productList[k].img2 = img2;
+  if (imgg2 !== "")
+    if (img2.files[0])
+      blobToBase64(img2.files[0]).then((res) => {
+        resize(res, 500, 300).then((res2) => {
+          img2 = res2;
+          productList[k].img2 = img2;
+        });
       });
-    });
 
-  if(imgg3 !== "")
-  if (img3.files[0])
-    blobToBase64(img3.files[0]).then((res) => {
-      resize(res, 500, 300).then((res2) => {
-        img3 = res2;
-        productList[k].img3 = img3;
+  if (imgg3 !== "")
+    if (img3.files[0])
+      blobToBase64(img3.files[0]).then((res) => {
+        resize(res, 500, 300).then((res2) => {
+          img3 = res2;
+          productList[k].img3 = img3;
+        });
       });
-    });
 
-  if(imgg4 !== "")
-  if (img4.files[0])
-    blobToBase64(img4.files[0]).then((res) => {
-      resize(res, 500, 300).then((res2) => {
-        img4 = res2;
-        productList[k].img4 = img4;
+  if (imgg4 !== "")
+    if (img4.files[0])
+      blobToBase64(img4.files[0]).then((res) => {
+        resize(res, 500, 300).then((res2) => {
+          img4 = res2;
+          productList[k].img4 = img4;
+        });
       });
-    });
   saveProductList();
-  productListHai = productList; 
+  productListHai = productList;
   phantrangQLSP(1);
   closeEditQLSP();
 }
@@ -664,11 +675,9 @@ function init(product) {
 }
 function addQLSP() {
   var product = {};
-  if(productList.lenth==0){
-    product.id =1;
-  }
-  else 
-    product.id = productList[productList.length-1].id+1;
+  if (productList.lenth == 0) {
+    product.id = 1;
+  } else product.id = productList[productList.length - 1].id + 1;
   product.count = 0;
   var name = document.getElementById("nameQLSP").value;
   var type = document.getElementById("typeQLSP").value;
@@ -869,7 +878,11 @@ function searchTKSP() {
   for (var i = 0; i < productListHai.length; i++) {
     for (var j = 0; j < listTKSP.length; j++) {
       var d = new Date(listTKSP[j].date);
-      if (productListHai[i].name === listTKSP[j].name && d >= first && d <= last)
+      if (
+        productListHai[i].name === listTKSP[j].name &&
+        d >= first &&
+        d <= last
+      )
         productListHai[i].count += listTKSP[j].amount;
     }
   }

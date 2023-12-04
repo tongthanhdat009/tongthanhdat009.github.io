@@ -172,6 +172,7 @@ form.otherSearch :is(input, select) {
 .userList {
     height: 90%;
     overflow: scroll;
+    width: auto;
 }
 
 .userList .user {
@@ -190,6 +191,7 @@ form.otherSearch :is(input, select) {
 .user>*:not(:first-child) {
     min-width: 300px;
     text-wrap: wrap;
+    background-color: red;
 }
 
 
@@ -197,9 +199,10 @@ form.otherSearch :is(input, select) {
     position: sticky;
     inset: calc(5rem/16);
     top: 0;
-    background-color: var(--primary-color);
-    border-top: calc(5rem/16) solid var(--background-color);
+    /* background-color: var(--primary-color); */
+    /* border-top: calc(5rem/16) solid var(--background-color); */
     font-size: 1.25rem;
+    background: red;
 }
 
 .user .hanhDong {

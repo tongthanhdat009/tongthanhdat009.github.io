@@ -75,7 +75,7 @@ const addressError = document.querySelector("#erroraddress");
 userNameInput.addEventListener("input",() =>{
   var userName = userNameInput.value;
   const regex3 = /([a-z]|[A-Z]){1,128}$/;
-  if(!userName.match(regex3) && userName.length<=4) {
+  if(userName.match(regex3) && userName.length<=4) {
     userNameError.textContent = "Tên không hợp lệ";
   }
   else{
@@ -178,7 +178,6 @@ function getUserList(){
 //   }
 // }
 getUserList();
-
 //thêm user
 function addUser(userName, accountname, passWord, email, phoneNumber, address){
   var newUser={
@@ -222,34 +221,8 @@ if(userList == null){
     "0395632027",
     "tphcm"
   );
+  getUserList();
 }
-//tài khoản admin
-// addUser(
-//   "Group 2",
-//   "admin",
-//   "admin",
-//   "wibustore@gmail.com",
-//   "123456789",
-//   "tphcm"
-// );
-  
-// //   //tài khoản user
-// addUser(
-//   "Tống Thành Đạt",
-//   "dat",
-//   "12345678",
-//   "a@gmail.com",
-//   "0395632027",
-//   "tphcm"
-// );
-// addUser(
-//   "Tống Thành Đạt",
-//   "dat2",
-//   "12345678",
-//   "a@gmail.com",
-//   "0395632027",
-//   "tphcm"
-// );
 
 console.log(userList);
 // runSaveUserList();
@@ -303,7 +276,7 @@ register.addEventListener('click',function(e){
   }
 
   //check tên người dùng
-  else if(!userName.match(regex3) && userName.length){
+  else if(userName.match(regex3) && userName.length<=4){
     check = false;
     if(!check){
       alert("Họ và tên không hợp lệ");
@@ -345,6 +318,7 @@ register.addEventListener('click',function(e){
   }
 });
 getUserList();
+console.log(userList);
 
 // console.log(userList);
 //LIÊN QUAN TỚI ĐĂNG NHẬP/ ĐĂNG XUẤT:

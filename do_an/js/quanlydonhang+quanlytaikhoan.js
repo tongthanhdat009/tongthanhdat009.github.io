@@ -179,7 +179,7 @@ function conditionSearch(condition) {
     console.log(toDateInput);
     Array.from(orderList).forEach((element) => {
       let d = new Date(element.ngayLap);
-      if (d > fromDateInput && d < toDateInput) searchOrderList.push(element);
+      if (d >= fromDateInput && d <= toDateInput) searchOrderList.push(element);
     });
   }
   if (condition.localeCompare("Value") == 0) {
@@ -657,7 +657,7 @@ function addQLSP() {
   var name = document.getElementById("nameQLSP").value;
   var type = document.getElementById("typeQLSP").value;
   var price = document.getElementById("priceQLSP").value;
-  
+
   var imgg = document.getElementById("imgQLSP").value;
   var imgg2 = document.getElementById("img2QLSP").value;
   var imgg3 = document.getElementById("img3QLSP").value;

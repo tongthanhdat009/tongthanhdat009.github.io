@@ -280,14 +280,14 @@ form.otherSearch :is(input, select) {
     margin: calc(5rem/16);
 }
 
-
 .user>* {
     border: 1px solid red;
     text-align: center;
 }
 
 .user>*:not(:first-child) {
-    min-width: 300px;
+    min-width: 100px;
+    overflow: scroll;
     text-wrap: wrap;
 }
 
@@ -560,9 +560,17 @@ form.otherSearch :is(input, select) {
         height: calc(60% - 29px);
     }
 
-    .userList>* {
+
+    .userList {
         overflow: scroll;
     }
+
+    .userList .user:first-child {
+        overflow: auto;
+        height: auto;
+        white-space: nowrap;
+    }
+
 
     #admin-QLSP {
         margin-top: 1rem;

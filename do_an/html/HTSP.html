@@ -153,13 +153,14 @@
     productList2 = productList;
     kq = productList;
 
+    // hiển thị tên người dùng
     function displayUserName(){
         var user = document.getElementById("user");
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         if(!currentUser) user.innerHTML="";
         else {
             if(currentUser.status){
-                user.innerHTML = currentUser.userName;
+                user.innerHTML = '<h2>'+currentUser.userName+'</h2>';
             }
             else user.innerHTML="";
         }
@@ -436,6 +437,8 @@
         var color7 = document.getElementById("so-luong");
         var color10 = document.getElementById("phanTrang")
         var color11 = document.getElementById("img-theme");
+        var color12 = document.querySelectorAll(".name-product");
+        var color13 = document.querySelectorAll(".price-product");
         if(theme == 0) 
         {
             color1.style.backgroundColor = "rgb(50, 50, 50)";
@@ -445,9 +448,13 @@
             color7.style.backgroundColor = "rgb(50, 50, 50)";
             color10.style.backgroundColor = "rgb(50, 50, 50)";
             for(var i=0;i<color2.length;i++)
-            color2[i].style.color = "white";
+                color2[i].style.color = "white";
             for(var i=0;i<color4.length;i++)
-            color4[i].style.color = "white";
+                color4[i].style.color = "white";
+            for(var i=0;i<color13.length;i++){
+                color12[i].style.color = "white";
+                color13[i].style.color = "white";
+            }
             color11.src = "../asset/icon/Light_mode.png"
             theme = 1;
         }
@@ -463,6 +470,10 @@
             color2[i].style.color = "black";
             for(var i=0;i<color4.length;i++)
             color4[i].style.color = "black";
+            for(var i=0;i<color13.length;i++){
+                color12[i].style.color = "black";
+                color13[i].style.color = "black";
+            }
             color11.src = "../asset/icon/dark_mode.png"
             theme = 0;
         }

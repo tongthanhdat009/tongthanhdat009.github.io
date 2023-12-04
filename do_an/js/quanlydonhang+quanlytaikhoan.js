@@ -444,15 +444,17 @@ function addCloseBehavior(content, form) {
 }
 var productPerPage = 10;
 var currentPage = 1;
-var productList2 = productList;
-function phantrangQLSP(Page, prevSearchType, prevSearchVal) {
+var productListHai = productList;
+console.log(productListHai);
+function phantrangQLSP(Page) {
   currentPage = Page;
+  // productListHai = productList;
   var start = (currentPage - 1) * productPerPage;
   var end = start + productPerPage;
-  if (end > productList2.length) end = productList2.length;
+  if (end > productListHai.length) end = productListHai.length;
   var after = [];
-  for (var i = start; i < end; i++) after.push(productList2[i]);
-  displayQLSP(after, prevSearchType, prevSearchVal);
+  for (var i = start; i < end; i++) after.push(productListHai[i]);
+  displayQLSP(after);
 }
 function previousPage() {
   if (currentPage == 1) return;
@@ -460,31 +462,33 @@ function previousPage() {
   phantrangQLSP(currentPage);
 }
 function nextPage() {
-  var max = Math.ceil(productList2.length / productPerPage);
+  var max = Math.ceil(productListHai.length / productPerPage);
   if (currentPage == max) return;
   currentPage++;
   phantrangQLSP(currentPage);
 }
 function searchQLSP() {
+  console.log(productList);
   var input1 = document
     .getElementById("input-searchByName-QLSP")
     .value.toLowerCase();
   var input2 = document.getElementById("search-type-QPSP").value;
-  productList2 = [];
+  productListHai = [];
   if (input2 == 0) {
     for (var i = 0; i < productList.length; i++)
       if (productList[i].name.toLowerCase().indexOf(input1) > -1)
-        productList2.push(productList[i]);
+        productListHai.push(productList[i]);
   } else {
     for (var i = 0; i < productList.length; i++)
       if (
         productList[i].name.toLowerCase().indexOf(input1) > -1 &&
         productList[i].type == input2
       )
-        productList2.push(productList[i]);
+        productListHai.push(productList[i]);
   }
-  phantrangQLSP(1, input2, input1);
+  phantrangQLSP(1);
 }
+
 function deleteQLSP(id) {
   var DLconfirm = confirm("Bạn chắc không");
   var after = [];
@@ -493,9 +497,9 @@ function deleteQLSP(id) {
       if (productList[i].id !== id) after.push(productList[i]);
     productList = after;
     after = [];
-    for (var i = 0; i < productList2.length; i++)
-      if (productList2[i].id !== id) after.push(productList2[i]);
-    productList2 = after;
+    for (var i = 0; i < productListHai.length; i++)
+      if (productListHai[i].id !== id) after.push(productListHai[i]);
+    productListHai = after;
     phantrangQLSP(currentPage);
     saveProductList();
   }
@@ -553,17 +557,24 @@ function editQLSP(id) {
   var img2 = document.getElementById("img2QLSP");
   var img3 = document.getElementById("img3QLSP");
   var img4 = document.getElementById("img4QLSP");
+  var imgg = document.getElementById("imgQLSP").value;
+  var imgg2 = document.getElementById("img2QLSP").value;
+  var imgg3 = document.getElementById("img3QLSP").value;
+  var imgg4 = document.getElementById("img4QLSP").value;
+  console.log(imgg);
   var checkType = /^[1-4]{1}$/;
   if (type !== "")
     if (!checkType.test(type)) {
       window.alert("Loại phải là 1-4");
       return;
     }
+
   if (price !== "")
     if (price <= 0) {
       window.alert("Sai giá");
       return;
     }
+
   let k = 0;
   for (var i = 0; i < productList.length; i++) {
     if (productList[i].id == id) {
@@ -575,46 +586,45 @@ function editQLSP(id) {
     }
   }
 
-  let count = 0;
+  if(imgg !== "")
   if (img.files[0])
     blobToBase64(img.files[0]).then((res) => {
       resize(res, 500, 300).then((res2) => {
         img = res2;
         productList[k].img = res2;
-        if (++count == 4) init();
       });
     });
-  else count++;
 
+  if(imgg2 !== "")
   if (img2.files[0])
     blobToBase64(img2.files[0]).then((res) => {
       resize(res, 500, 300).then((res2) => {
         img2 = res2;
         productList[k].img2 = img2;
-        if (++count == 4) init();
       });
     });
-  else count++;
+
+  if(imgg3 !== "")
   if (img3.files[0])
     blobToBase64(img3.files[0]).then((res) => {
       resize(res, 500, 300).then((res2) => {
         img3 = res2;
         productList[k].img3 = img3;
-        if (++count == 4) init();
       });
     });
-  else count++;
 
+  if(imgg4 !== "")
   if (img4.files[0])
     blobToBase64(img4.files[0]).then((res) => {
       resize(res, 500, 300).then((res2) => {
         img4 = res2;
         productList[k].img4 = img4;
-        if (++count == 4) init();
       });
     });
-  else count++;
   saveProductList();
+  productListHai = productList; 
+  phantrangQLSP(1);
+  closeEditQLSP();
 }
 function openEditQLSP(id) {
   var pa = document.getElementsByClassName("addEditQLSP")[0];
@@ -647,14 +657,18 @@ function closeAddQLSP() {
 
 function init(product) {
   productList.push(product);
-  productList2 = productList;
+  productListHai = productList;
   localStorage.setItem("productList", JSON.stringify(productList));
   phantrangQLSP(1);
   closeAddQLSP();
 }
 function addQLSP() {
   var product = {};
-  product.id = productList.length;
+  if(productList.lenth==0){
+    product.id =1;
+  }
+  else 
+    product.id = productList[productList.length-1].id+1;
   product.count = 0;
   var name = document.getElementById("nameQLSP").value;
   var type = document.getElementById("typeQLSP").value;
@@ -759,7 +773,7 @@ function openAddQLSP() {
     '<button onclick="closeAddQLSP()" style="float: right;" >Cancel</button>';
   pa.appendChild(form);
 }
-function displayQLSP(List, searchType = "0", searchVal = "") {
+function displayQLSP(List) {
   content.innerHTML = "";
   var khung = document.createElement("div");
   khung.id = "admin-QLSP";
@@ -832,13 +846,13 @@ function displayQLSP(List, searchType = "0", searchVal = "") {
   content.appendChild(element);
   content.appendChild(PT);
   content.appendChild(khung);
-  let searchTypeElm = document.getElementById("search-type-QPSP");
-  searchTypeElm.value = searchType;
-  let searchValueElm = document.getElementById("input-searchByName-QLSP");
-  searchValueElm.value = searchVal;
+  // let searchTypeElm = document.getElementById("search-type-QPSP");
+  // searchTypeElm.value = searchType;
+  // let searchValueElm = document.getElementById("input-searchByName-QLSP");
+  // searchValueElm.value = searchVal;
 }
 function searchTKSP() {
-  productList2 = productList;
+  productListHai = productList;
   var after = [];
   var first = document.getElementById("firstDayTKSP").value;
   var last = document.getElementById("lastDayTKSP").value;
@@ -851,17 +865,17 @@ function searchTKSP() {
   first = new Date(first);
   last = new Date(last);
   var searchName = document.getElementById("nameTKSP").value.toLowerCase();
-  for (var i = 0; i < productList2.length; i++) productList2[i].count = 0;
-  for (var i = 0; i < productList2.length; i++) {
+  for (var i = 0; i < productListHai.length; i++) productListHai[i].count = 0;
+  for (var i = 0; i < productListHai.length; i++) {
     for (var j = 0; j < listTKSP.length; j++) {
       var d = new Date(listTKSP[j].date);
-      if (productList2[i].name === listTKSP[j].name && d >= first && d <= last)
-        productList2[i].count += listTKSP[j].amount;
+      if (productListHai[i].name === listTKSP[j].name && d >= first && d <= last)
+        productListHai[i].count += listTKSP[j].amount;
     }
   }
-  for (var i = 0; i < productList2.length; i++) {
-    if (productList2[i].name.toLowerCase().indexOf(searchName) > -1)
-      after.push(productList2[i]);
+  for (var i = 0; i < productListHai.length; i++) {
+    if (productListHai[i].name.toLowerCase().indexOf(searchName) > -1)
+      after.push(productListHai[i]);
   }
   displayTKSP(after);
 }

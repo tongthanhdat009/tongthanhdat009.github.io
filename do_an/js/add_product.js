@@ -596,3 +596,4 @@ addProduct(
 );
 runSaveProductList(); //lưu mảng sản phẩm 1 lần để hiển thị 1 lần tránh load lại hiển thị thêm sản phẩm trùng lập
 getProductList(); //lấy mảng giá trị từ storage
+// localStorage.clear();

@@ -372,8 +372,6 @@ const passwordError = document.querySelector("#password-login-error");
 //nút thanh toán giỏ hàng
 const payButton = document.querySelector("#pay button");
 
-
-
 // Khi người dùng click vào nút đăng xuất
 logoutButton.addEventListener("click", (e) => {
     e.preventDefault;

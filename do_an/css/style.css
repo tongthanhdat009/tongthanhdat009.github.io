@@ -98,6 +98,7 @@ nav.navigationbar {
     text-align: center;
     color: black;
     margin: 0 1rem;
+    border: 0;
 }
 
 .wrapper-flex {

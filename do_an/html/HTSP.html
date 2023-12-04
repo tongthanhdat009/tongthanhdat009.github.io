@@ -21,8 +21,6 @@
             </div>
         </div>
         <div id="user">
-            <h4>Nguyễn Minh Tuấn</h4>
-            <h4>xxx.xxx.xxxVNĐ</h4>
         </div>
         <div id="theme">
             <img onclick="darkLightMode()" id="img-theme" src="../asset/icon/dark_mode.png" alt="">
@@ -143,6 +141,7 @@
 <script src="../js/cart.js"></script>
 <script src="../js/add_product.js"></script>
 <script src="../js/user_infor.js"></script>
+<script src="../js/sign-in-up.js"></script>
 <script>
     var productList = [];
     var productList2 = [];
@@ -154,6 +153,20 @@
     productList2 = productList;
     kq = productList;
 
+    function displayUserName(){
+        var user = document.getElementById("user");
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if(!currentUser) user.innerHTML="";
+        else {
+            if(currentUser.status){
+                user.innerHTML = currentUser.userName;
+            }
+            else user.innerHTML="";
+        }
+    }
+    window.onload = function(){
+        displayUserName();
+    }
     // hiển thị sản phẩm
     function displayProduct(d)
     {
@@ -191,6 +204,37 @@
         var input = document.getElementById("text-input-search").value.toLowerCase();
         for(var i = 0; i<productList2.length;i++)
         if(productList2[i].name.toLowerCase().indexOf(input) > -1)
+        kq.push(productList2[i]);
+        displayProduct(kq);
+    }
+    
+    //tìm kiếm từ trang chủ
+    var out = localStorage.getItem('mainSearch'); //nhận kết quả tìm kiếm từ local
+    // var searchRtxt = document.getElementById('search_result_txt'); //hiển thị dòng kết quả: out
+    var mainNameInput;
+    out = JSON.parse(out);
+    if (out != null) {
+        if (out.name !== '')
+            //hiển thị kết quả tìm kiếm
+            // searchRtxt.innerHTML = 'kết quả tìm kiểm:<strong> ' + out.name + '</strong>.';
+            mainNameInput = out.name;
+        if (out.sign) {
+            searchFromMain();
+            var reSearch = {
+                name:"",
+                sign:false,
+            }
+            localStorage.setItem('mainSearch', JSON.stringify(reSearch));
+        }
+    }
+    else displayProduct(productList2); //hiển thị sản phẩm
+    
+    function searchFromMain()
+    {
+        kq = [];
+        var input = mainNameInput.toLowerCase();
+        for(var i = 0; i<productList2.length;i++)
+            if(productList2[i].name.toLowerCase().indexOf(input) > -1)
         kq.push(productList2[i]);
         displayProduct(kq);
     }

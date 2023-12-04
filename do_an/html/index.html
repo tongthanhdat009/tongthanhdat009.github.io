@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/product_list.css">
   <title>Document</title>
 </head>
 
@@ -12,7 +14,11 @@
   <nav class="navigationbar">
     <div class="nav-content-left">
       <div class="hamburgerbutton" id="hamburger-open">x</div>
-      <div class="brand">WIBU STORE</div>
+      <div class="brand">
+        <a href="../html/main.html">
+          <img style="width:100px; height: 100px;" src="../asset/logo.png" alt="logo" />
+        </a>
+      </div>
     </div>
     <div class="account" id="theme-toggle">xxxx</div>
   </nav>
@@ -20,10 +26,10 @@
   <div class="wrapper-flex">
     <ul id="left-menu">
       <li>
-        <div id="tkDonHang">Thong ke don hang</div>
+        <div id="tkDonHang">Thống kê đơn hàng</div>
       </li>
       <li>
-        <div id="userManagement">Quan ly tai khoan</div>
+        <div id="userManagement">Quản lý tài khoản</div>
       </li>
       <li>
         <div id="QLSP">Quản lý sản phẩm</div>
@@ -34,11 +40,56 @@
     </ul>
     <div class="content" id="mngContent">
     </div>
-    <script src="../js/quanlydonhang+quanlytaikhoan.js"></script>
-    <!-- <script src="../js/item_detail.js"></script> -->
-    <script src="../js/cart.js"></script>
-    <script src="../js/add_product.js"></script>
-    <script src="../js/user_infor.js"></script>
+  </div>
+  <!--footer-->
+  <div class="infor_container">
+    <div id="footer_logo">
+      <img src="../asset/logo.png" alt="logo_footer">
+    </div>
+    <div id="social_media">
+      <div class="footer_title"><strong>Truyền thông</strong></div>
+      <hr>
+        <p>
+          <strong>Facebook:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.facebook.com/">WIBU STORE</a>
+        </p>
+        <p>
+          <strong>Youtube:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.youtube.com/">WIBU STORE</a>
+        </p>
+        <p>
+          <strong>Instagram:</strong>
+          <a style="text-decoration: none; color: black;" href="https://www.instagram.com/">WIBU_STORE</a>
+        </p>
+    </div>
+    <div id="introduce">
+      <div class="footer_title"><strong>Giới thiệu </strong></div>
+      <hr>
+        <p>
+          CƠ SỞ KINH DOANH MÔ HÌNH LỚN NHẤT THẾ GIỚI
+        </p>
+    </div>
+    <div id="contact">
+      <div class="footer_title"><strong>Thông tin liên hệ</strong></div>
+      <hr>
+        <p>
+          <strong>Gmail:</strong>
+          <a style="text-decoration: none; color: black;" href="https://mail.google.com/mail/u/0/#drafts?compose=GTvVlcSGKZXNZFmbPpbnSJsmddvtGSScDzJxpQXtxshcNcslsZClTWPGrntrPTsJqvplgLVffSgzh">wibustore</a>
+        </p>
+        <p>
+          <strong>Phone number:</strong>
+          012345679
+        </p>
+    </div>
+  </div>
+  <footer>
+    <p style="text-align: center;"><strong>created by: </strong>group 2</p>
+  </footer>
+  <script src="../js/quanlydonhang+quanlytaikhoan.js"></script>
+  <!-- <script src="../js/item_detail.js"></script> -->
+  <script src="../js/cart.js"></script>
+  <script src="../js/add_product.js"></script>
+  <script src="../js/user_infor.js"></script>
 </body>
 
 </html>

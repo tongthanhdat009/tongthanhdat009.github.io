@@ -288,6 +288,11 @@ img {
   box-sizing: border-box;
   padding: 20px;
 }
+
+#img-left-content{
+  display: none;
+}
+
 #user-infor-right {
   width: 70%;
 }

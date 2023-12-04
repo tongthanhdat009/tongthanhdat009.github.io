@@ -5,6 +5,7 @@ const altPage = document.querySelector("#alt-page");//trang thay thế khi vừa
 const closePage = document.querySelector("#user-infor-close");//nút đóng trang
 const rightContent = document.querySelector("#user-content");//phần hiển thị nội dung bên phải
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));//lấy giá trị của người dùng hiện tại 
+const imgLeftContent = document.querySelector("#img-left-content");// ảnh hiện bên trái mỗi khi chọn chức năng
 // thêm hình + tiêu đề cho trang thông tin
 altPage.innerHTML = '<div id="alt-page-title">Trang xem thông tin WibuStore</div>'+
                     '<div id="alt-page-img">'+
@@ -20,6 +21,7 @@ closePage.addEventListener("click",() => {
     userInforCont.style.animation="user-infor-out 2s";
     altPage.style.display="initial";
     rightContent.innerHTML="";
+    imgLeftContent.style.display = 'none';
 });
 
 //thêm chức năng xem thông tin tài khoản
@@ -31,6 +33,7 @@ checkInfor.addEventListener('click', () => {
                            '<p><strong>Địa chỉ: </strong>' + currentUser.address+'</p>' +
                            '<p><strong>Địa chỉ email: </strong>' + currentUser.email+'</p>' +
                            '<p><strong>Số điện thoại: </strong>' + currentUser.phoneNumber + '</p>';
+    imgLeftContent.style.display = 'initial';
 });
 
 //thêm chức năng xem đơn hàng đã đặt
@@ -64,4 +67,5 @@ checkBill.addEventListener('click', () => {
             cell1.innerHTML = ''+orderList[i].sanPham+'';
         }
     }
+    imgLeftContent.style.display = 'initial';
 });

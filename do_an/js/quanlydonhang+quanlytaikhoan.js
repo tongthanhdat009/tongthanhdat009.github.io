@@ -66,9 +66,9 @@ function displayOrderManagement(orderList) {
     "</ul>" +
     '<div class="searchBar">' +
     '<form action="" id="dateSearch" class="dateSearch">' +
-    '<label for="fromDate">Tu cuoi ngay</label>' +
+    '<label for="fromDate">Từ cuối ngày</label>' +
     '<input type="date" name="ngayXaNhat" id="fromDate"' +
-    '<label for="toDate">Den cuoi ngay</label>' +
+    '<label for="toDate">Đến cuối ngày</label>' +
     '<input type="date" name="ngayXaNhat" id="toDate">' +
     '<button class="applySearch" id="dateSearchBtn">Search</button>' +
     "</form>" +
@@ -256,7 +256,7 @@ function displayUserManagement(userList) {
     "</form>" +
     '<label class="addAccount">' +
     '<div class="addUsrBtn">+</div>' +
-    '<div id="addUsrTitle">Tao tai khoan</div>' +
+    '<div id="addUsrTitle">Tạo Tài Khoản</div>' +
     "</label>" +
     "</div>";
 
@@ -297,7 +297,7 @@ function displayUserManagement(userList) {
       '<input type="email" id="email" placeholder="Email">' +
       '<div class="btnWrapper">' +
       '<button type="submit" class="submitBtn">Submit</button>' +
-      '<button type="reset">reset</button>' +
+      '<button type="reset" >reset</button>' +
       "</div>";
     content.appendChild(form);
     createAccountFunc();
@@ -634,8 +634,8 @@ function openEditQLSP(id) {
     '<input id="img4QLSP" type="file"><br>' +
     '<button onclick="editQLSP(' +
     id +
-    ')" style="float: right;">Submit</button>' +
-    '<button onclick="closeEditQLSP()" style="float: right;">Cancel</button>';
+    ')" style="float: right;" >Submit</button>' +
+    '<button onclick="closeEditQLSP()" style="float: right;" >Cancel</button>';
   pa.appendChild(form);
 }
 function closeAddQLSP() {
@@ -752,8 +752,8 @@ function openAddQLSP() {
     '<input id="img2QLSP" type="file"><br>' +
     '<input id="img3QLSP" type="file"><br>' +
     '<input id="img4QLSP" type="file"><br>' +
-    '<button onclick="addQLSP()" style="float: right;">Submit</button>' +
-    '<button onclick="closeAddQLSP()" style="float: right;">Cancel</button>';
+    '<button onclick="addQLSP()" style="float: right;" >Submit</button>' +
+    '<button onclick="closeAddQLSP()" style="float: right;" >Cancel</button>';
   pa.appendChild(form);
 }
 function displayQLSP(List, searchType = "0", searchVal = "") {
@@ -809,7 +809,7 @@ function displayQLSP(List, searchType = "0", searchVal = "") {
           <option value="3">Bộ mô hình</option>
           <option value="4">Cosplay</option>
           <input id="input-searchByName-QLSP" type="text" placeholder="Tìm kiếm theo tên">
-          <button onclick="searchQLSP()">Submit</button>
+          <button onclick="searchQLSP()" >Submit</button>
           </select>
         </div>
         <div id="addProductQLSP">
@@ -903,12 +903,12 @@ function displayTKSP(list) {
   }
   var search = document.createElement("div");
   search.id = "searchBarTKSP";
-  search.innerHTML = `  <p>Từ ngày</p>
+  search.innerHTML = `  <p>Từ ngày:</p>
   <input id="firstDayTKSP" type="date">
-  <p>Đến ngày</p>
+  <p>Đến ngày:</p>
   <input id="lastDayTKSP" type="date">
-  <p>Tìm kiếm theo tên</p>
+  <p>Tìm kiếm theo tên:</p>
   <input id="nameTKSP" type="text">
-  <button onclick="searchTKSP()">Submit</button>`;
+  <button onclick="searchTKSP()" >Submit</button>`;
   content.appendChild(search);
 }

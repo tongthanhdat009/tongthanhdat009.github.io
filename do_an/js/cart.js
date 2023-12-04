@@ -52,6 +52,7 @@ function deleteAll() {
     localStorage.removeItem("productAdded");
   }
   updateTotal();
+  saveProductAdded();
 }
 
 //phương thức cần chạy sau khi tải trang

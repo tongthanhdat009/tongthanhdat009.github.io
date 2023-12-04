@@ -675,7 +675,7 @@ function init(product) {
 }
 function addQLSP() {
   var product = {};
-  if (productList.lenth == 0) {
+  if (productList.length == 0) {
     product.id = 1;
   } else product.id = productList[productList.length - 1].id + 1;
   product.count = 0;

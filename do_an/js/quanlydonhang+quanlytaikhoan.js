@@ -353,7 +353,7 @@ function loadUserList(userElm, userList) {
       if (ans == 1) {
         userList.splice(index, 1);
         displayUserManagement(userList);
-        localStorage.setItem("userList", userList);
+        localStorage.setItem("userList", JSON.stringify(userList));
       }
     });
     console.log(li);

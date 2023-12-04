@@ -497,6 +497,7 @@ function deleteQLSP(id) {
       if (productList2[i].id !== id) after.push(productList2[i]);
     productList2 = after;
     phantrangQLSP(currentPage);
+    saveProductList();
   }
 }
 
@@ -613,6 +614,7 @@ function editQLSP(id) {
       });
     });
   else count++;
+  saveProductList();
 }
 function openEditQLSP(id) {
   var pa = document.getElementsByClassName("addEditQLSP")[0];
@@ -733,6 +735,7 @@ function addQLSP() {
     window.alert("Thiếu thông tin");
     return;
   }
+  saveProductList();
 }
 function openAddQLSP() {
   var pa = document.getElementsByClassName("addEditQLSP")[0];

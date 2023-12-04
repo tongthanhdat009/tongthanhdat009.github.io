@@ -1133,7 +1133,7 @@ img {
     display: block;
     max-width: 100%;
     /*magic number*/
-    max-height: calc(99vh - 30px);
+    max-height: calc(99dvh - 30px);
     overflow: scroll;
   }
 

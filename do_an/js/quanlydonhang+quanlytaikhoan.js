@@ -10,6 +10,7 @@ var productList = localStorage.getItem("productList")
   : [];
 var listTKSP = JSON.parse(localStorage.getItem("listTKSP"));
 let content = document.getElementById("mngContent");
+
 console.log(listTKSP);
 // let display_product = document.getElementsByClassName("display-product")[0];
 // let tkSanPham = document.getElementById("tkSanPham");
@@ -73,9 +74,9 @@ function displayOrderManagement(orderList) {
     "</form>" +
     '<form action="" id="otherSearch" class="otherSearch">' +
     '<select name="searchyype" id="searchType">' +
-    '<option value="1">Tim theo ma hoa don</option>' +
-    '<option value="2">Tim theo ten khach hang</option>' +
-    '<option value="3">Tim theo trang thai</option>' +
+    '<option value="1">Tìm theo mã đơn</option>' +
+    '<option value="2">Tìm theo tên khách hàng</option>' +
+    '<option value="3">Tim theo trạng thái</option>' +
     "</select>" +
     '<input type="text" id="inputValue">' +
     '<button class="applySearch" id="typeSearchBtn">Search</button>' +
@@ -247,11 +248,11 @@ function displayUserManagement(userList) {
     '<div class="searchBar flex-start"' +
     '<form action="" id="userSearch">' +
     '<select name="userSeach" id="userSearchType">' +
-    '<option value="1">Tim theo ten dang nhap</option>' +
-    '<option value="2">Tim theo ho ten</option>' +
-    '<option value="3">Tim theo email</option>' +
+    '<option value="1">Tìm theo tên đăng nhập</option>' +
+    '<option value="2">Tìm theo họ tên</option>' +
+    '<option value="3">Tìm theo email</option>' +
     "</select>" +
-    '<input type="text" placeholder="Tim kiem thong tin..." id="userSearchValue">' +
+    '<input type="text" placeholder="Tìm kiếm thông tin..." id="userSearchValue">' +
     "</form>" +
     '<label class="addAccount">' +
     '<div class="addUsrBtn">+</div>' +

@@ -44,9 +44,9 @@ img {
     font-style: italic;
 }
 
-div {
+/* div {
     border: 1px solid red;
-}
+} */
 
 ul {
     list-style-type: none;
@@ -60,6 +60,7 @@ nav.navigationbar {
     height: 60px;
     display: flex;
     justify-content: flex-start;
+    height: 120px;
 }
 
 .nav-content-left {
@@ -129,7 +130,22 @@ nav.navigationbar {
     margin: 0 1rem;
     margin-bottom: 1rem;
     cursor: pointer;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
+
+#left-menu li:hover{
+    animation: left-menu-hover 0.2s forwards;
+}
+@keyframes left-menu-hover {
+    from {
+        padding:10px;
+    }
+    to{
+        padding:20px;
+    }
+}
+
 
 .content {
     width: 80%;
@@ -141,7 +157,12 @@ nav.navigationbar {
     background: white;
 }
 
-
+#mngContentTitle img {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    left:10%;
+}
 .dsDonHang {
     height: 90%;
     overflow-y: scroll;
@@ -391,6 +412,7 @@ input:checked+.slider::before {
 
 .config {
     height: 55px;
+    cursor: pointer;
 }
 
 #searchQLSP {

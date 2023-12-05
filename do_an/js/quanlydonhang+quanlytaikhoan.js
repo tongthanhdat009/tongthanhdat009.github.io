@@ -899,12 +899,12 @@ function displayTKSP(list) {
   var table = document.createElement("table");
   table.id = "tableTKSP";
   table.innerHTML = `<tr>
-  <td>ID</td>
-  <td>Tên</td>
-  <td>Loại</td>
-  <td>Giá</td>
-  <td>Đã bán</td>
-  <td>Doanh thu</td>
+  <td style="background-color : var(--accent-color) ;">ID</td>
+  <td style="background-color : var(--accent-color) ;">Tên</td>
+  <td style="background-color : var(--accent-color) ;">Loại</td>
+  <td style="background-color : var(--accent-color) ;">Giá</td>
+  <td style="background-color : var(--accent-color) ;">Đã bán</td>
+  <td style="background-color : var(--accent-color) ;">Doanh thu</td>
   </tr>`;
   content.appendChild(khung);
   khung.appendChild(table);

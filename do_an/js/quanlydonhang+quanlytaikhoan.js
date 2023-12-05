@@ -450,6 +450,7 @@ var currentPage = 1;
 var productListHai = productList;
 console.log(productListHai);
 function phantrangQLSP(Page) {
+  productListHai = productList;
   currentPage = Page;
   // productListHai = productList;
   var start = (currentPage - 1) * productPerPage;

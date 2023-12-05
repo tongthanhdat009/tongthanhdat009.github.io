@@ -192,7 +192,6 @@ nav.navigationbar {
     margin: calc(5rem / 16);
 }
 
-.dsDonHang div {}
 
 
 .donHang>* {
@@ -465,8 +464,7 @@ form.otherSearch :is(input, select) {
 }
 
 #admin-TKSP {
-    height: 90%;
-    width: 100%;
+    height: 100%;
     overflow-x: auto;
 }
 

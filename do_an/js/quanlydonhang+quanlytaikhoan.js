@@ -747,7 +747,7 @@ function addQLSP() {
         });
       });
     else count++;
-  } else {
+      } else {
     window.alert("Thiếu thông tin");
     return;
   }
@@ -791,7 +791,7 @@ function displayQLSP(List) {
   </tr>
   </table>`;
   var table = khung.querySelector("table");
-  for (var i = 0; i < List.length; i++) {
+    for (var i = 0; i < List.length; i++) {
     let element = document.createElement("tr");
     element.innerHTML =
       "<td>" +

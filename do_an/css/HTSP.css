@@ -223,6 +223,12 @@ hr
 {
     text-align: center;
 }
+.price-product{
+    color: red;
+}
+.name-product{
+    color: red;
+}
 #archive-product
 {
     display: flex;

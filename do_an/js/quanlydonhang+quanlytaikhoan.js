@@ -11,7 +11,7 @@ var productList = localStorage.getItem("productList")
 var listTKSP = JSON.parse(localStorage.getItem("listTKSP"));
 let content = document.getElementById("mngContent");
 
-console.log(listTKSP);
+// console.log(listTKSP);
 // let display_product = document.getElementsByClassName("display-product")[0];
 // let tkSanPham = document.getElementById("tkSanPham");
 // tkSanPham.addEventListener("click", () => {
@@ -28,34 +28,26 @@ window.onload = () => {
         window.getComputedStyle(leftMenu).display == "block" ? "none" : "block";
     }
   });
+
+  let tkDonHang = document.getElementById("tkDonHang");
+  tkDonHang.addEventListener("click", () => {
+    displayOrderManagement(orderList);
+  });
+
+  let qlTaiKhoan = document.getElementById("userManagement");
+  qlTaiKhoan.addEventListener("click", () => {
+    displayUserManagement(userList);
+  });
+
+  let QLSP = document.getElementById("QLSP");
+  QLSP.addEventListener("click", () => {
+    phantrangQLSP(1);
+  });
+  let TKSP = document.getElementById("TKSP");
+  TKSP.addEventListener("click", () => {
+    displayTKSP(productList);
+  });
 };
-
-let tkDonHang = document.getElementById("tkDonHang");
-tkDonHang.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  displayOrderManagement(orderList);
-});
-
-let qlTaiKhoan = document.getElementById("userManagement");
-qlTaiKhoan.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  displayUserManagement(userList);
-});
-
-let QLSP = document.getElementById("QLSP");
-QLSP.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  phantrangQLSP(1);
-});
-let TKSP = document.getElementById("TKSP");
-TKSP.addEventListener("click", () => {
-  content.style.display = "block";
-  // display_product.style.display = "none";
-  displayTKSP(productList);
-});
 
 function closeOrderManagement() {
   content.style.display = "none";
@@ -862,6 +854,7 @@ function displayQLSP(List) {
 }
 function searchTKSP() {
   productListHai = productList;
+  console.log(productListHai);
   var after = [];
   var first = document.getElementById("firstDayTKSP").value;
   var last = document.getElementById("lastDayTKSP").value;
@@ -908,6 +901,16 @@ function displayTKSP(list) {
   </tr>`;
   content.appendChild(khung);
   khung.appendChild(table);
+  var search = document.createElement("div");
+  search.id = "searchBarTKSP";
+  search.innerHTML = `<p>Từ ngày:</p>
+  <input id="firstDayTKSP" type="date">
+  <p>Đến ngày:</p>
+  <input id="lastDayTKSP" type="date">
+  <p>Tìm kiếm theo tên:</p>
+  <input id="nameTKSP" type="text">
+  <button onclick="searchTKSP()" >Submit</button>`;
+  content.appendChild(search);
   for (var i = 0; i < list.length; i++) {
     hang = document.createElement("tr");
     hang.innerHTML =
@@ -931,14 +934,4 @@ function displayTKSP(list) {
       "</td>";
     table.appendChild(hang);
   }
-  var search = document.createElement("div");
-  search.id = "searchBarTKSP";
-  search.innerHTML = `  <p>Từ ngày:</p>
-  <input id="firstDayTKSP" type="date">
-  <p>Đến ngày:</p>
-  <input id="lastDayTKSP" type="date">
-  <p>Tìm kiếm theo tên:</p>
-  <input id="nameTKSP" type="text">
-  <button onclick="searchTKSP()" >Submit</button>`;
-  content.appendChild(search);
 }

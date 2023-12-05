@@ -63,7 +63,7 @@ a
 #user
 {
     position: absolute;
-    left: calc(100% - 200px);
+    left: calc(100% - 150px);
     top:calc(50% - 40px);
 }
 #user h4
@@ -266,8 +266,12 @@ hr
     text-align: center;
     font-size: 20px;
 }
-@media screen and (max-width: 1150px)
+@media screen and (max-width: 1200px)
 {
+    #icon-web{
+        width: 150px;
+        height:auto;
+    }
     #user
     {
         display: none;
@@ -296,6 +300,10 @@ hr
     }
 }
 @media screen and (max-width: 850px) {
+    #icon-web{
+        width: 150px;
+        height:auto;
+    }
     #danh-muc-mobile
     {
         display: flex;

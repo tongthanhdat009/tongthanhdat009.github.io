@@ -192,9 +192,7 @@ nav.navigationbar {
     margin: calc(5rem / 16);
 }
 
-.dsDonHang div {
-    border: 1px solid red;
-}
+.dsDonHang div {}
 
 
 .donHang>* {
@@ -281,7 +279,7 @@ form.otherSearch :is(input, select) {
 }
 
 .user>* {
-    border: 1px solid red;
+    box-shadow: 10px black;
     text-align: center;
 }
 

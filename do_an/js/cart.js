@@ -155,6 +155,7 @@ function payAll() {
   saveProductAdded();
   productAdded.length = 0;
   deleteAll();
+  saveProductAdded();
   orderList.push(order);
   localStorage.setItem("orderList", JSON.stringify(orderList));
 }

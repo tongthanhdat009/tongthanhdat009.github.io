@@ -128,6 +128,7 @@ a
 }
 #danh-muc-mobile
 {
+    align-items: center;
     display: none;
     margin-left: 50px;
 }
@@ -254,6 +255,14 @@ hr
     justify-content: center;
     align-items: center;
 }
+.outputPT
+{
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    margin: 5px;
+}
 #phanTrang button
 {
     width: 75px;
@@ -266,6 +275,21 @@ hr
     text-align: center;
     font-size: 20px;
 }
+#TKNC
+{
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: white;
+    position: absolute;
+    top:calc(50% - 100px);
+    left:calc(50% - 265px);
+}
+.h3TKNC
+{
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
 @media screen and (max-width: 1200px)
 {
     #icon-web{

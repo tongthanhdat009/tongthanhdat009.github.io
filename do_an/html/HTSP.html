@@ -34,6 +34,7 @@
             <li onclick="set()"><img src="../asset/category_img/pngtree-straw-hat-cartoon-illustration-png-image_6562738-removebg-preview.png" alt=""><a href="#"><h3 class="darkMode">Bộ Mô Hình</h3></a></li>
             <li onclick="cosplay()"><img src="../asset/category_img/kunai naruto.png" alt=""><a href="#"><h3 class="darkMode">Cosplay</h3></a></li>
         </ul>
+        <p onclick="openTKNC()" style="font-size: 20px; font-weight: bold;">Tìm kiếm nâng cao</p>
         <div id="cart">
             <img src="../asset/icon/cart.png" alt="">
             <a href="../html/cart.html"><h3 class="darkMode">Giỏ Hàng</h3></a>
@@ -87,9 +88,7 @@
     <div class="darkMode" id="so-luong"><p>1000 sản phẩm</p></div>
     <div id="archive-product"></div>
     <div id="phanTrang">
-        <button onclick="previousPage()">Previous</button>
-        <p class="darkMode" id="current"></p>
-        <button onclick="nextPage()">Next</button>
+        
     </div>
     <div class="itemdetail"></div>
     <div class="infor_container">
@@ -136,6 +135,7 @@
     <footer>
         <p style="text-align: center;"><strong>Created by: </strong>Group 2</p>
     </footer>
+    <div id="TKNCkhung"></div>
 </body>
 <script src="../js/item_detail.js"></script>
 <script src="../js/cart.js"></script>
@@ -152,7 +152,92 @@
     if (productStored) productList = JSON.parse(productStored);
     productList2 = productList;
     kq = productList;
-
+    function closeTKNC()
+    {
+        var c = document.getElementById("TKNCkhung");
+        c.innerHTML="";
+    }
+    function searchTKNC()
+    {
+        var name = document.getElementById("inputNameTKNC").value.toLowerCase();
+        var type = document.getElementById("inputTypeTKNC").value;
+        var min = document.getElementById("inputMinTKNC").value;
+        var max = document.getElementById("inputMaxTKNC").value;
+        var checkPrice = /^[0-9]{1,15}$/;
+        console.log(type);
+        if (min !== "")
+        {
+            if (!checkPrice.test(min)) 
+            {
+                window.alert("Sai min");
+                return;
+            }
+        }
+        else min = 0;
+        if (max !== "")
+        {
+            if (!checkPrice.test(max)) 
+            {
+                window.alert("Sai max");
+                return;
+            }
+        }
+        else max = Infinity;
+        kq= [];
+        if(type!=0)
+        {
+            for(var i = 0;i<productList.length;i++)
+            {
+                if(productList[i].name.toLowerCase().indexOf(name)>-1&&productList[i].price>=min&&productList[i].price<=max&&productList[i].type == type)
+                kq.push(productList[i]);
+            }   
+        }
+        else
+        {
+            for(var i = 0;i<productList.length;i++)
+            {
+                if(productList[i].name.toLowerCase().indexOf(name)>-1&&productList[i].price>=min&&productList[i].price<=max)
+                kq.push(productList[i]);
+            }
+        }
+        console.log(kq);
+        phanTrang(1);
+        closeTKNC();
+    }
+    function openTKNC()
+    {
+        var c = document.getElementById("TKNCkhung");
+        c.innerHTML="";
+        var b = document.createElement("div");
+        b.id= "TKNC";
+        b.innerHTML=
+        `<h2 style="text-align: center;">Tìm kiếm nâng cao</h2>
+        <div style="display: flex;">
+            <div style="display: block;">
+                <h3 class="h3TKNC">Tên sản phẩm</h3>
+                <input id="inputNameTKNC" style="margin-left: 20px;" type="text" name="" id=""><br>
+            </div>
+            <div style="display: block; margin-left: 80px;">
+                <h3 class="h3TKNC">Loại sản phẩm</h3>
+                <select id="inputTypeTKNC" style="margin-left: 20px;">
+                <option value="0">Tất cả</option>
+                <option value="1">Mô hình lẻ</option>
+                <option value="2">Mô hình chibi</option>
+                <option value="3">Bộ mô hình</option>
+                <option value="4">Cosplay</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div style="display: flex; margin-left: 20px;">
+            <h4>Từ</h4> <input id="inputMinTKNC" type="text" placeholder="VNĐ">
+            <h4>Đến</h4> <input id="inputMaxTKNC" style="margin-right: 20px" type="text"placeholder="VNĐ">
+        </div>
+        <br>
+        <button onclick="searchTKNC()" style="float: right;">Tìm kiếm</button>
+        <button onclick="closeTKNC()" style="float: right;">Hủy</button>`
+        c.appendChild(b);
+    }
     // hiển thị tên người dùng
     function displayUserName(){
         var user = document.getElementById("user");
@@ -206,7 +291,7 @@
         for(var i = 0; i<productList2.length;i++)
         if(productList2[i].name.toLowerCase().indexOf(input) > -1)
         kq.push(productList2[i]);
-        displayProduct(kq);
+        phanTrang(1);
     }
     
     //tìm kiếm từ trang chủ
@@ -399,12 +484,27 @@
 
     function phanTrang(Page)
     {   
+        var PT = document.getElementById("phanTrang")
+        PT.innerHTML = "";
+        var max = Math.ceil(kq.length/productPerPage);
+        for(var  i = 1;i<=max;i++)
+        {   
+            var p = document.createElement("p");
+            p.className="outputPT";
+            p.innerHTML = i;
+            if(i==Page) p.style.backgroundColor = "red";
+            p.onclick = function(index) {
+            return function() {
+            phanTrang(index);
+            };
+        }(i);
+            PT.appendChild(p);
+        }
         currentPage = Page;
-        var output = document.querySelector("#phanTrang p")
-        output.innerHTML = currentPage
-        var after = []
+        var after = [];
         var first = (currentPage-1)*productPerPage;
         var end = first + productPerPage;
+        if(end > kq.length) end = kq.length;
         for(var i=first;i<end;i++)
         after.push(kq[i]);
         displayProduct(after);
@@ -467,6 +567,10 @@
             color11.src = "../asset/icon/dark_mode.png"
             theme = 0;
         }
+    }
+    function TKNC()
+    {
+        
     }
 </script>
 </html>

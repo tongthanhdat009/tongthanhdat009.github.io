@@ -41,11 +41,15 @@ window.onload = () => {
 
   let QLSP = document.getElementById("QLSP");
   QLSP.addEventListener("click", () => {
-    phantrangQLSP(1);
+    displayQLSP(productList);
   });
   let TKSP = document.getElementById("TKSP");
   TKSP.addEventListener("click", () => {
-    displayTKSP(productList);
+  for(var i = 0;i<productList.length;i++) productList[i].count = 0;
+  for(var i = 0;i<productList.length;i++)
+  for(var j = 0;j<listTKSP.length;j++)
+  if(productList[i].name === listTKSP[j].name) productList[i].count+=listTKSP[j].amount; 
+  displayTKSP(productList);
   });
 };
 
@@ -448,29 +452,7 @@ function addCloseBehavior(content, form) {
 var productPerPage = 10;
 var currentPage = 1;
 var productListHai = productList;
-console.log(productListHai);
-function phantrangQLSP(Page) {
-  productListHai = productList;
-  currentPage = Page;
-  // productListHai = productList;
-  var start = (currentPage - 1) * productPerPage;
-  var end = start + productPerPage;
-  if (end > productListHai.length) end = productListHai.length;
-  var after = [];
-  for (var i = start; i < end; i++) after.push(productListHai[i]);
-  displayQLSP(after);
-}
-function previousPage() {
-  if (currentPage == 1) return;
-  currentPage--;
-  phantrangQLSP(currentPage);
-}
-function nextPage() {
-  var max = Math.ceil(productListHai.length / productPerPage);
-  if (currentPage == max) return;
-  currentPage++;
-  phantrangQLSP(currentPage);
-}
+
 function searchQLSP() {
   console.log(productList);
   var input1 = document
@@ -490,7 +472,7 @@ function searchQLSP() {
       )
         productListHai.push(productList[i]);
   }
-  phantrangQLSP(1);
+  displayQLSP(productListHai)
 }
 
 function deleteQLSP(id) {
@@ -504,7 +486,7 @@ function deleteQLSP(id) {
     for (var i = 0; i < productListHai.length; i++)
       if (productListHai[i].id !== id) after.push(productListHai[i]);
     productListHai = after;
-    phantrangQLSP(currentPage);
+    displayQLSP(productListHai);
     saveProductList();
   }
 }
@@ -550,12 +532,23 @@ const resize = (datas, wantedWidth, wantedHeight) => {
 function init() {
   closeEditQLSP();
   localStorage.setItem("productList", JSON.stringify(productList));
-  phantrangQLSP(currentPage);
+  displayQLSP(productListHai);
 }
 
 function editQLSP(id) {
   var name = document.getElementById("nameQLSP").value;
-  var type = document.getElementById("typeQLSP").value;
+
+  var typeinput = document.getElementsByName("type");
+  var type;
+  var flag = 0;
+  for(var i = 0 ;i<typeinput.length;i++)
+  if(typeinput[i].checked) 
+  {
+    type = typeinput[i].value;
+    flag = 1;
+    break;
+  }
+  if(flag == 0) type=""; 
   var price = document.getElementById("priceQLSP").value;
   var img = document.getElementById("imgQLSP");
   var img2 = document.getElementById("img2QLSP");
@@ -565,21 +558,15 @@ function editQLSP(id) {
   var imgg2 = document.getElementById("img2QLSP").value;
   var imgg3 = document.getElementById("img3QLSP").value;
   var imgg4 = document.getElementById("img4QLSP").value;
-  console.log(imgg);
-  var checkType = /^[1-4]{1}$/;
-  if (type !== "")
-    if (!checkType.test(type)) {
-      window.alert("Loại phải là 1-4");
-      return;
-    }
 
+  var checkPrice = /^[0-9]{1,15}$/;
   if (price !== "")
-    if (price <= 0) {
+    if (!checkPrice.test(price)) {
       window.alert("Sai giá");
       return;
     }
 
-  let k = 0;
+    let k = 0;
   for (var i = 0; i < productList.length; i++) {
     if (productList[i].id == id) {
       if (name !== "") productList[i].name = name;
@@ -589,46 +576,61 @@ function editQLSP(id) {
       break;
     }
   }
+  var promises = [];
 
-  if (imgg !== "")
-    if (img.files[0])
+
+  if (imgg !== "" && img.files[0])
+    promises.push(
       blobToBase64(img.files[0]).then((res) => {
-        resize(res, 500, 300).then((res2) => {
+        return resize(res, 500, 300).then((res2) => {
           img = res2;
           productList[k].img = res2;
         });
-      });
+      })
+    );
 
-  if (imgg2 !== "")
-    if (img2.files[0])
+  if (imgg2 !== "" && img2.files[0])
+    promises.push(
       blobToBase64(img2.files[0]).then((res) => {
-        resize(res, 500, 300).then((res2) => {
+        return resize(res, 500, 300).then((res2) => {
           img2 = res2;
-          productList[k].img2 = img2;
+          productList[k].img2 = res2;
         });
-      });
+      })
+    );
 
-  if (imgg3 !== "")
-    if (img3.files[0])
+  if (imgg3 !== "" && img3.files[0])
+    promises.push(
       blobToBase64(img3.files[0]).then((res) => {
-        resize(res, 500, 300).then((res2) => {
+        return resize(res, 500, 300).then((res2) => {
           img3 = res2;
-          productList[k].img3 = img3;
+          productList[k].img3 = res2;
         });
-      });
+      })
+    );
 
-  if (imgg4 !== "")
-    if (img4.files[0])
+  if (imgg4 !== "" && img4.files[0])
+    promises.push(
       blobToBase64(img4.files[0]).then((res) => {
-        resize(res, 500, 300).then((res2) => {
+        return resize(res, 500, 300).then((res2) => {
           img4 = res2;
-          productList[k].img4 = img4;
+          productList[k].img4 = res2;
         });
-      });
-  saveProductList();
-  productListHai = productList;
-  phantrangQLSP(1);
-  closeEditQLSP();
+      })
+    );
+
+  // Chờ tất cả các promises hoàn thành
+  Promise.all(promises)
+    .then(() => {
+      // Sau khi tất cả đã hoàn thành, lưu vào localStorage
+      saveProductList();
+      productListHai = productList;
+      displayQLSP(productList);
+      closeEditQLSP();
+    })
+    .catch((error) => {
+      console.error("Error during image processing:", error);
+    });
 }
 function openEditQLSP(id) {
   var pa = document.getElementsByClassName("addEditQLSP")[0];
@@ -639,20 +641,52 @@ function openEditQLSP(id) {
     '<h3 style="text-align: center;">Sửa sản phẩm</h3>' +
     '<label for="">Tên sản phẩm</label><br>' +
     '<input id="nameQLSP" type="text"><br>' +
+    '<p class="ghiLai" id="oldName"></p>'+
     '<label for="">Loại</label><br>' +
-    '<input id="typeQLSP" type="number"><br>' +
+    `<div style="display: flex;">`+
+    '<input type="radio" name="type" value="1">1<br>' +
+    '<input type="radio" name="type" value="2">2<br>' +
+    '<input type="radio" name="type" value="3">3<br>' +
+    '<input type="radio" name="type" value="4">4<br>' +
+    '</div>'+
+    '<p class="ghiLai" id="oldType"></p>'+
     '<label for="">Giá</label><br>' +
-    '<input id="priceQLSP" type="number"><br>' +
+    '<input id="priceQLSP" type="text"><br>' +
+    '<p class="ghiLai" id="oldPrice"></p>'+
     '<label for="">Ảnh</label><br>' +
     '<input id="imgQLSP" type="file"><br>' +
     '<input id="img2QLSP" type="file"><br>' +
     '<input id="img3QLSP" type="file"><br>' +
     '<input id="img4QLSP" type="file"><br>' +
+    '<div style="display:flex">'+
+    '<img id="oldImg" style="width: 42px">'+
+    '<img id="oldImg2" style="width: 42px">'+
+    '<img id="oldImg3" style="width: 42px">'+
+    '<img id="oldImg4" style="width: 42px">'+
+    '</div>'+
     '<button onclick="editQLSP(' +
     id +
     ')" style="float: right;" >Submit</button>' +
     '<button onclick="closeEditQLSP()" style="float: right;" >Cancel</button>';
   pa.appendChild(form);
+  for(var i = 0 ;i<productList.length;i++)
+  if(productList[i].id == id) 
+  {
+    var oldName = document.getElementById("oldName");
+    var oldType = document.getElementById("oldType");
+    var oldPrice = document.getElementById("oldPrice");
+    var oldImg = document.getElementById("oldImg");
+    var oldImg2 = document.getElementById("oldImg2");
+    var oldImg3 = document.getElementById("oldImg3");
+    var oldImg4 = document.getElementById("oldImg4");
+    oldName.innerHTML ='Tên cũ: '+productList[i].name;
+    oldType.innerHTML ='Loại cũ: '+productList[i].type;
+    oldPrice.innerHTML ='Giá cũ: '+productList[i].price;
+    oldImg.src = productList[i].img;
+    oldImg2.src = productList[i].img2;
+    oldImg3.src = productList[i].img3;
+    oldImg4.src = productList[i].img4;
+  }
 }
 function closeAddQLSP() {
   var close = document.getElementById("formAddQLSP");
@@ -663,7 +697,7 @@ function init(product) {
   productList.push(product);
   productListHai = productList;
   localStorage.setItem("productList", JSON.stringify(productList));
-  phantrangQLSP(1);
+  displayQLSP(productListHai);
   closeAddQLSP();
 }
 function addQLSP() {
@@ -673,9 +707,13 @@ function addQLSP() {
   } else product.id = productList[productList.length - 1].id + 1;
   product.count = 0;
   var name = document.getElementById("nameQLSP").value;
-  var type = document.getElementById("typeQLSP").value;
-  var price = document.getElementById("priceQLSP").value;
 
+  var typeinput = document.getElementsByName("type");
+  var type;
+  for(var i = 0;i<typeinput.length;i++)
+  if(typeinput[i].value !=="") type = typeinput[i].value;
+
+  var price = document.getElementById("priceQLSP").value;
   var imgg = document.getElementById("imgQLSP").value;
   var imgg2 = document.getElementById("img2QLSP").value;
   var imgg3 = document.getElementById("img3QLSP").value;
@@ -685,14 +723,10 @@ function addQLSP() {
   var img2 = document.getElementById("img2QLSP");
   var img3 = document.getElementById("img3QLSP");
   var img4 = document.getElementById("img4QLSP");
-  var checkType = /^[1-4]{1}$/;
-  console.log(img2 + " " + img3 + " " + img4);
-  if (!checkType.test(type)) {
-    window.alert("Loại phải là 1-4");
-    return;
-  }
-  if (price !== "")
-    if (price <= 0) {
+  var checkPrice = /^[0-9]{1,15}$/;
+
+  if (price !== "" )
+    if (!checkPrice.test(price)) {
       window.alert("Sai giá");
       return;
     }
@@ -700,10 +734,12 @@ function addQLSP() {
     name !== "" &&
     type !== "" &&
     price !== "" &&
-    imgg !== "" &&
-    imgg2 !== "" &&
-    imgg3 !== "" &&
+    (
+    imgg !== "" ||
+    imgg2 !== "" ||
+    imgg3 !== "" ||
     imgg4 !== ""
+    )
   ) {
     product.name = name;
     product.type = type;
@@ -763,9 +799,14 @@ function openAddQLSP() {
     '<label for="">Tên sản phẩm</label><br>' +
     '<input id="nameQLSP" type="text"><br>' +
     '<label for="">Loại</label><br>' +
-    '<input id="typeQLSP" type="number"><br>' +
+    `<div style="display: flex;">`+
+    '<input type="radio" name="type" value="1">1<br>' +
+    '<input type="radio" name="type" value="2">2<br>' +
+    '<input type="radio" name="type" value="3">3<br>' +
+    '<input type="radio" name="type" value="4">4<br>' +
+    '</div>'+
     '<label for="">Giá</label><br>' +
-    '<input id="priceQLSP" type="number"><br>' +
+    '<input id="priceQLSP" type="text"><br>' +
     '<label for="">Ảnh</label><br>' +
     '<input id="imgQLSP" type="file"><br>' +
     '<input id="img2QLSP" type="file"><br>' +
@@ -828,25 +869,16 @@ function displayQLSP(List) {
           <option value="3">Bộ mô hình</option>
           <option value="4">Cosplay</option>
           <input id="input-searchByName-QLSP" type="text" placeholder="Tìm kiếm theo tên">
-          <button onclick="searchQLSP()" >Submit</button>
+          <button onclick="searchQLSP()" >Tìm kiếm</button>
           </select>
         </div>
         <div id="addProductQLSP">
           <a href="#"><p onclick="openAddQLSP()">+ Thêm sản phẩm</p></a>
         </div>`;
-  let PT = document.createElement("div");
-  PT.id = "phanTrang";
-  PT.innerHTML =
-    '<button onclick="previousPage()">Previous</button>' +
-    "<p>" +
-    currentPage +
-    "</p>" +
-    '<button onclick="nextPage()">Next</button>';
   let form = document.createElement("div");
   form.className = "addEditQLSP";
   content.appendChild(form);
   content.appendChild(element);
-  content.appendChild(PT);
   content.appendChild(khung);
   // let searchTypeElm = document.getElementById("search-type-QPSP");
   // searchTypeElm.value = searchType;
@@ -855,8 +887,6 @@ function displayQLSP(List) {
 }
 function searchTKSP() {
   productListHai = productList;
-  console.log(productListHai);
-  var after = [];
   var first = document.getElementById("firstDayTKSP").value;
   var last = document.getElementById("lastDayTKSP").value;
   if (first === "") {
@@ -867,7 +897,6 @@ function searchTKSP() {
   }
   first = new Date(first);
   last = new Date(last);
-  var searchName = document.getElementById("nameTKSP").value.toLowerCase();
   for (var i = 0; i < productListHai.length; i++) productListHai[i].count = 0;
   for (var i = 0; i < productListHai.length; i++) {
     for (var j = 0; j < listTKSP.length; j++) {
@@ -880,11 +909,8 @@ function searchTKSP() {
         productListHai[i].count += listTKSP[j].amount;
     }
   }
-  for (var i = 0; i < productListHai.length; i++) {
-    if (productListHai[i].name.toLowerCase().indexOf(searchName) > -1)
-      after.push(productListHai[i]);
-  }
-  displayTKSP(after);
+  console.log(listTKSP);
+  displayTKSP(productListHai);
 }
 function displayTKSP(list) {
   content.innerHTML = "";
@@ -893,10 +919,7 @@ function displayTKSP(list) {
   var table = document.createElement("table");
   table.id = "tableTKSP";
   table.innerHTML = `<tr>
-  <td style="background-color : var(--accent-color) ;">ID</td>
-  <td style="background-color : var(--accent-color) ;">Tên</td>
   <td style="background-color : var(--accent-color) ;">Loại</td>
-  <td style="background-color : var(--accent-color) ;">Giá</td>
   <td style="background-color : var(--accent-color) ;">Đã bán</td>
   <td style="background-color : var(--accent-color) ;">Doanh thu</td>
   </tr>`;
@@ -908,31 +931,57 @@ function displayTKSP(list) {
   <input id="firstDayTKSP" type="date">
   <p>Đến ngày:</p>
   <input id="lastDayTKSP" type="date">
-  <p>Tìm kiếm theo tên:</p>
-  <input id="nameTKSP" type="text">
-  <button onclick="searchTKSP()" >Submit</button>`;
+  <button onclick="searchTKSP()" >Tìm kiếm</button>`;
   content.appendChild(search);
-  for (var i = 0; i < list.length; i++) {
-    hang = document.createElement("tr");
-    hang.innerHTML =
-      "<td>" +
-      list[i].id +
-      "</td>" +
-      "<td>" +
-      list[i].name +
-      "</td>" +
-      "<td>" +
-      list[i].type +
-      "</td>" +
-      "<td>" +
-      list[i].price +
-      "đ</td>" +
-      "<td>" +
-      list[i].count +
-      "</td>" +
-      "<td>" +
-      list[i].count * list[i].price +
-      "</td>";
-    table.appendChild(hang);
+  var tongLoai1=0,tongLoai2=0,tongLoai3=0,tongLoai4=0, daban1=0, daban2=0,daban3=0,daban4=0;
+  for(var i =0;i<list.length;i++)
+  {
+    if(list[i].type == 1)
+    {
+      daban1+=list[i].count;
+      tongLoai1+=list[i].count*list[i].price;
+    }
+    if(list[i].type == 2)
+    {
+      daban2+=list[i].count;
+      tongLoai2+=list[i].count*list[i].price;
+    }
+    if(list[i].type == 3)
+    {
+      daban3+=list[i].count;
+      tongLoai3+=list[i].count*list[i].price;
+    }
+    if(list[i].type == 4)
+    {
+      daban4+=list[i].count;
+      tongLoai4+=list[i].count*list[i].price;
+    }
   }
+var hang1 = document.createElement("tr");
+hang1.innerHTML =
+  "<td>1</td>" +
+  "<td>" + daban1 + "</td>" +
+  "<td>" + tongLoai1 + "</td>";
+table.appendChild(hang1);
+
+var hang2 = document.createElement("tr");
+hang2.innerHTML =
+  "<td>2</td>" +
+  "<td>" + daban2 + "</td>" +
+  "<td>" + tongLoai2 + "</td>";
+table.appendChild(hang2);
+
+var hang3 = document.createElement("tr");
+hang3.innerHTML =
+  "<td>3</td>" +
+  "<td>" + daban3 + "</td>" +
+  "<td>" + tongLoai3 + "</td>";
+table.appendChild(hang3);
+
+var hang4 = document.createElement("tr");
+hang4.innerHTML =
+  "<td>4</td>" +
+  "<td>" + daban4 + "</td>" +
+  "<td>" + tongLoai4 + "</td>";
+table.appendChild(hang4);
 }

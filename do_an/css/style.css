@@ -464,7 +464,7 @@ form.otherSearch :is(input, select) {
 }
 
 #admin-TKSP {
-    height: 90%;
+    height: 20%;
     overflow-x: auto;
 }
 
@@ -491,7 +491,22 @@ form.otherSearch :is(input, select) {
 #searchBarTKSP button {
     height: 100%;
 }
-
+.ghiLai
+{
+    color: red;
+    font-size: 14px;
+}
+.imgGhiLai
+{
+    justify-content: center;
+    height: 30px;
+}
+.PTQLSP
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
 @keyframes show-up {
     0% {
         opacity: 0;

@@ -10,7 +10,6 @@ var productList = localStorage.getItem("productList")
   : [];
 var listTKSP = JSON.parse(localStorage.getItem("listTKSP"));
 let content = document.getElementById("mngContent");
-
 // console.log(listTKSP);
 // let display_product = document.getElementsByClassName("display-product")[0];
 // let tkSanPham = document.getElementById("tkSanPham");
@@ -45,6 +44,7 @@ window.onload = () => {
   });
   let TKSP = document.getElementById("TKSP");
   TKSP.addEventListener("click", () => {
+  if(listTKSP===null) listTKSP = [];
   for(var i = 0;i<productList.length;i++) productList[i].count = 0;
   for(var i = 0;i<productList.length;i++)
   for(var j = 0;j<listTKSP.length;j++)

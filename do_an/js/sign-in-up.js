@@ -383,7 +383,7 @@ function setCurrentUser(username, accountname, password, email, phonenumber, add
 }
 // setCurrentUser("","","","","","",true);
 loginButton.addEventListener("click",(e) => {
-  e.preventDefault();
+  // e.preventDefault();
   var check = false;
   for(i=0;i<userList.length;i++){
     if(accountNameLogin.value === userList[i].accountName){

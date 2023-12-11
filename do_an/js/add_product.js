@@ -20,9 +20,21 @@ function runSaveProductList() {
     localStorage.setItem("displayHasRun", true);
   }
 }
-
 // hiển thị sản phẩm
 function productDisplay2() {
+  var productList2 = [];
+  productList2 = productList;
+  for(var i = 0 ;i<productList2.length;i++)
+  for(var j = i+1; j<productList2.length;j++)
+  {
+    if(productList2[i].type<productList[j])
+    {
+      var product = {};
+      product= productList2[i];
+      productList2[i] = productList2[j];
+      productList2[j] = product;
+    }
+  }
   var maxIndex = 3; //số lượng sản phẩm hiển thị trong 1 hàng của bảng
   var count = [0, 0, 0, 0]; //mảng đếm số sản phẩm để xét điều kiện thêm sản phẩm
   var list = [null, null, null, null];
@@ -33,12 +45,13 @@ function productDisplay2() {
   }
 
   //thêm sản phẩm
-  for (var i = 0; i < productList.length; i++) {
-    let productType = parseInt(productList[i].type) - 1;
+  for (var i = 0; i < productList2.length; i++) {
+    let productType = parseInt(productList2[i].type) - 1;
     if (count[productType] < 9) {
       //điều kiện cho việc hiển thị sản phẩm của mỗi danh sách
       if (count[productType] % maxIndex === 0) {
         newRow = list[productType].insertRow(-1);
+        if(productList2[i].name === "Cosplay: Cyberpunk Mặt Nạ") console.log(list[productType]);
         if (count[productType] >= maxIndex) {
           //điều kiện để thêm class cho danh sách cần hiển thị thêm
           newRow.classList.add("alt_list_" + (productType + 1)); //1-indexed
@@ -49,14 +62,14 @@ function productDisplay2() {
         '<div class="product-container" onclick="showDetail(this)">' +
         '<div class="product-img">' +
         '<img src="' +
-        productList[i].img +
+        productList2[i].img +
         '"alt="product-img">' +
         "</div>" +
         '<div class="product-name">' +
-        productList[i].name +
+        productList2[i].name +
         "</div>" +
         '<div class="product-price">' +
-        productList[i].price +
+        productList2[i].price +
         "đ</div>" +
         "</div>";
       count[productType]++;

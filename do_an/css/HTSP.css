@@ -290,8 +290,11 @@ hr
     margin-bottom: 5px;
     margin-left: 20px;
 }
-
-@media screen and (max-width: 1200px)
+#TKNCp
+{
+    
+}
+@media screen and (max-width: 1350px)
 {
     #icon-web{
         width: 150px;
@@ -309,6 +312,12 @@ hr
     {
         font-size: 13px;
     }
+    #TKNCp
+    {
+        font-size: 13px;
+        align-items: center;
+        display: flex;
+    }
     #cart
     {
         left: calc(100% - 100px);
@@ -324,18 +333,20 @@ hr
         width: 150px;
     }
 }
+@media screen and (max-width: 1000px) {
+#danh-muc-mobile
+{
+    display: flex;
+}
+#danh-muc ul
+{
+    display: none;
+}
+}
 @media screen and (max-width: 850px) {
     #icon-web{
         width: 150px;
         height:auto;
-    }
-    #danh-muc-mobile
-    {
-        display: flex;
-    }
-    #danh-muc ul
-    {
-        display: none;
     }
     #cart
     {

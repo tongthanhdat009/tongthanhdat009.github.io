@@ -310,6 +310,7 @@ form.otherSearch :is(input, select) {
     height: 30px;
     margin-left: 10px;
     caret-color: transparent;
+    cursor: pointer;
 }
 
 .hanhDong .delete:hover {

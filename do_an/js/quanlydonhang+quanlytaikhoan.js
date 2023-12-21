@@ -245,11 +245,11 @@ function displayUserManagement(userList) {
     '<li class="user">' +
     '<div class="STT">STT' +
     "</div>" +
-    '<div class="HoTen">Ho ten</div>' +
+    '<div class="HoTen">Họ tên</div>' +
     '<div class="Email">Email</div>' +
-    '<div class="TenDangNhap">Ten dang nhap</div>' +
-    '<div class="matKhau">Mat khau</div>' +
-    '<div class="hanhDong">HanhDong</div>' +
+    '<div class="TenDangNhap">Tên đăng nhập</div>' +
+    '<div class="matKhau">Mật khẩu</div>' +
+    '<div class="hanhDong">Hành động</div>' +
     "</li>" +
     "</ul>" +
     '<div class="searchBar flex-start"' +

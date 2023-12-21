@@ -290,6 +290,9 @@ hr
     margin-bottom: 5px;
     margin-left: 20px;
 }
+#TKNCp{
+    cursor: pointer;
+}
 @media screen and (max-width: 1350px)
 {
     #icon-web{

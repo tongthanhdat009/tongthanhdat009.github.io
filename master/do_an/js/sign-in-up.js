@@ -362,7 +362,7 @@ logoutButton.addEventListener("click", (e) => {
     logoutButton.style.display="none";
     adminButton.style.display="none";
     userInforButton.setAttribute("onclick","openOption()");
-    if(window.location.pathname === "/do_an/html/cart.html"){
+    if(window.location.pathname === "/master/do_an/html/cart.html"){
       payButton.removeAttribute("onclick");
       payButton.setAttribute("onclick","openOption()");
     }
@@ -426,7 +426,7 @@ function onLoginSuccess(user) {
 
 // thay đổi css khi đăng nhập
 function changeOnLoginSuccess(){
-  if(window.location.pathname === "/do_an/html/cart.html"){
+  if(window.location.pathname === "/master/do_an/html/cart.html"){
     payButton.setAttribute("onclick","payAll()");
   }
   userInforButton.setAttribute("onclick","openInforTb()");

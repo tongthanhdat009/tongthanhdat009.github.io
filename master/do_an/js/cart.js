@@ -53,6 +53,7 @@ function deleteAll() {
   }
   updateTotal();
   saveProductAdded();
+  location.reload();
 }
 
 //phương thức cần chạy sau khi tải trang

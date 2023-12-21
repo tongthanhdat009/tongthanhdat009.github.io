@@ -1,0 +1,11 @@
+841419_Thu3_T12345_N2
+Danh sách đăng ký:
+	- Tống Thành Đạt mssv: 3122410077
+	- Nguyễn Minh Tuấn mssv: 3122560086
+	- Bùi Lê Duy Thái mssv: 3122410377
+	- Phạm Công Thành mssv:3122410386
+	- Hồ Hoàng Nhật Tâm mssv:3122410368
+tài khoản có trên hệ thống:
+	- tài khoản: dat; mật khẩu: 12345678 (tài khoản user)
+	- tài khoản: dat2; mật khẩu: 12345678 (tài khoản user) 
+	- tài khoản: admin; mật khẩu: admin (tài khoản admin)
